@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace prjSportnetKinda
 {
-    public partial class Login : Form
+    public partial class AccountAanmaken : Form
     {
-        public Login()
+        public AccountAanmaken()
         {
             InitializeComponent();
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
