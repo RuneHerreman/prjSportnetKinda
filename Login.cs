@@ -17,11 +17,6 @@ namespace prjSportnetKinda
             InitializeComponent();
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void picBtnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -29,10 +24,23 @@ namespace prjSportnetKinda
 
         private void lblLinkToRegistreren_Click(object sender, EventArgs e)
         {
-            Register accountAanmaken = new Register();
+            Register Register = new Register();
             this.Hide();
-            accountAanmaken.ShowDialog();
+            Register.ShowDialog();
             this.Close();
+        }
+
+        private void lblLinkToWWVergeten_Click(object sender, EventArgs e)
+        {
+            WWVergeten wWVergeten = new WWVergeten();
+            this.Hide();
+            wWVergeten.ShowDialog();
+            this.Close();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
