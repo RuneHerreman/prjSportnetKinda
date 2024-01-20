@@ -22,8 +22,16 @@ namespace prjSportnetKinda
 
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void picBtnClose_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        private void lblLinkToRegistreren_Click(object sender, EventArgs e)
+        {
+            Register accountAanmaken = new Register();
+            this.Hide();
+            accountAanmaken.ShowDialog();
             this.Close();
         }
     }
