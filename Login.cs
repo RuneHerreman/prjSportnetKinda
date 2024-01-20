@@ -26,5 +26,13 @@ namespace prjSportnetKinda
         {
             this.Close();
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            AccountAanmaken accountAanmaken = new AccountAanmaken();
+            this.Hide();
+            accountAanmaken.ShowDialog();
+            this.Close();
+        }
     }
 }

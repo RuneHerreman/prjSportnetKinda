@@ -16,5 +16,18 @@ namespace prjSportnetKinda
         {
             InitializeComponent();
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            this.Hide();
+            login.ShowDialog();
+            this.Close();
+        }
     }
 }
