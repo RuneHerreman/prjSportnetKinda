@@ -271,7 +271,6 @@
             this.txtDOB.MaxLength = 100;
             this.txtDOB.Multiline = true;
             this.txtDOB.Name = "txtDOB";
-            this.txtDOB.PasswordChar = '●';
             this.txtDOB.Size = new System.Drawing.Size(286, 29);
             this.txtDOB.TabIndex = 3;
             this.txtDOB.WordWrap = false;
@@ -292,7 +291,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(327, 391);
+            this.ClientSize = new System.Drawing.Size(327, 404);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.pnlDOB);
             this.Controls.Add(this.btnRegistreren);

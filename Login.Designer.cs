@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.label2 = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,12 +39,12 @@
             this.lblLinkToRegistreren = new System.Windows.Forms.Label();
             this.picBtnClose = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pnlUsernameLogin = new System.Windows.Forms.Panel();
+            this.pnlEmailLogin = new System.Windows.Forms.Panel();
             this.pnlPasswordLogin = new System.Windows.Forms.Panel();
             this.txtPassword = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picBtnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.pnlUsernameLogin.SuspendLayout();
+            this.pnlEmailLogin.SuspendLayout();
             this.pnlPasswordLogin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,19 +59,19 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Log in";
             // 
-            // txtUsername
+            // txtEmail
             // 
-            this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUsername.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtUsername.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(0, 0);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtUsername.MaxLength = 100;
-            this.txtUsername.Multiline = true;
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(253, 29);
-            this.txtUsername.TabIndex = 3;
-            this.txtUsername.WordWrap = false;
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtEmail.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(0, 0);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtEmail.MaxLength = 100;
+            this.txtEmail.Multiline = true;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(253, 29);
+            this.txtEmail.TabIndex = 3;
+            this.txtEmail.WordWrap = false;
             // 
             // label1
             // 
@@ -79,9 +79,9 @@
             this.label1.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(397, 148);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 20);
+            this.label1.Size = new System.Drawing.Size(51, 20);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Gebruikersnaam";
+            this.label1.Text = "E-mail";
             // 
             // label3
             // 
@@ -124,7 +124,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(409, 375);
+            this.label5.Location = new System.Drawing.Point(409, 397);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(116, 18);
             this.label5.TabIndex = 9;
@@ -136,7 +136,7 @@
             this.lblLinkToRegistreren.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblLinkToRegistreren.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLinkToRegistreren.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.lblLinkToRegistreren.Location = new System.Drawing.Point(525, 375);
+            this.lblLinkToRegistreren.Location = new System.Drawing.Point(525, 397);
             this.lblLinkToRegistreren.Name = "lblLinkToRegistreren";
             this.lblLinkToRegistreren.Size = new System.Drawing.Size(118, 18);
             this.lblLinkToRegistreren.TabIndex = 10;
@@ -169,15 +169,15 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // pnlUsernameLogin
+            // pnlEmailLogin
             // 
-            this.pnlUsernameLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(48)))), ((int)(((byte)(81)))));
-            this.pnlUsernameLogin.Controls.Add(this.txtUsername);
-            this.pnlUsernameLogin.Location = new System.Drawing.Point(400, 171);
-            this.pnlUsernameLogin.Name = "pnlUsernameLogin";
-            this.pnlUsernameLogin.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-            this.pnlUsernameLogin.Size = new System.Drawing.Size(253, 32);
-            this.pnlUsernameLogin.TabIndex = 12;
+            this.pnlEmailLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(48)))), ((int)(((byte)(81)))));
+            this.pnlEmailLogin.Controls.Add(this.txtEmail);
+            this.pnlEmailLogin.Location = new System.Drawing.Point(400, 171);
+            this.pnlEmailLogin.Name = "pnlEmailLogin";
+            this.pnlEmailLogin.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.pnlEmailLogin.Size = new System.Drawing.Size(253, 32);
+            this.pnlEmailLogin.TabIndex = 12;
             // 
             // pnlPasswordLogin
             // 
@@ -211,7 +211,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(700, 450);
             this.Controls.Add(this.pnlPasswordLogin);
-            this.Controls.Add(this.pnlUsernameLogin);
+            this.Controls.Add(this.pnlEmailLogin);
             this.Controls.Add(this.picBtnClose);
             this.Controls.Add(this.lblLinkToRegistreren);
             this.Controls.Add(this.label5);
@@ -229,8 +229,8 @@
             this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBtnClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.pnlUsernameLogin.ResumeLayout(false);
-            this.pnlUsernameLogin.PerformLayout();
+            this.pnlEmailLogin.ResumeLayout(false);
+            this.pnlEmailLogin.PerformLayout();
             this.pnlPasswordLogin.ResumeLayout(false);
             this.pnlPasswordLogin.PerformLayout();
             this.ResumeLayout(false);
@@ -242,7 +242,7 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -250,7 +250,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblLinkToRegistreren;
         private System.Windows.Forms.PictureBox picBtnClose;
-        private System.Windows.Forms.Panel pnlUsernameLogin;
+        private System.Windows.Forms.Panel pnlEmailLogin;
         private System.Windows.Forms.Panel pnlPasswordLogin;
         private System.Windows.Forms.TextBox txtPassword;
     }
