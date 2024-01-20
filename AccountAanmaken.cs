@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace prjSportnetKinda
 {
-    public partial class AccountAanmaken : Form
+    public partial class Register : Form
     {
-        public AccountAanmaken()
+        public Register()
         {
             InitializeComponent();
         }

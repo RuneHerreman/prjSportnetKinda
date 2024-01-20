@@ -29,7 +29,7 @@ namespace prjSportnetKinda
 
         private void label6_Click(object sender, EventArgs e)
         {
-            AccountAanmaken accountAanmaken = new AccountAanmaken();
+            Register accountAanmaken = new Register();
             this.Hide();
             accountAanmaken.ShowDialog();
             this.Close();

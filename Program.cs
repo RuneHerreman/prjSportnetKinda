@@ -16,7 +16,7 @@ namespace prjSportnetKinda
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AccountAanmaken());
+            Application.Run(new Register());
         }
     }
 }
