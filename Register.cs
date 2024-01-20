@@ -17,13 +17,19 @@ namespace prjSportnetKinda
             InitializeComponent();
         }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
 
+        private void lblLinkToLogin_Click(object sender, EventArgs e)
+        {
+            //ga naar login als je al een account hebt
+            Login login = new Login();
+            this.Hide();
+            login.ShowDialog();
+            this.Close();
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void btnRegistreren_Click(object sender, EventArgs e)
         {
+            //ga naar login nadat de registratie is uitgevoerd
             Login login = new Login();
             this.Hide();
             login.ShowDialog();

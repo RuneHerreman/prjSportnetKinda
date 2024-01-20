@@ -34,15 +34,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblLinkToRegistreren = new System.Windows.Forms.Label();
+            this.picBtnClose = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlUsernameLogin = new System.Windows.Forms.Panel();
             this.pnlPasswordLogin = new System.Windows.Forms.Panel();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlUsernameLogin.SuspendLayout();
             this.pnlPasswordLogin.SuspendLayout();
@@ -105,20 +105,20 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Wachtwoord vergeten?";
             // 
-            // button1
+            // btnLogin
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(48)))), ((int)(((byte)(81)))));
-            this.button1.FlatAppearance.BorderSize = 2;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(424, 330);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(202, 40);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Inloggen";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(48)))), ((int)(((byte)(81)))));
+            this.btnLogin.FlatAppearance.BorderSize = 2;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Location = new System.Drawing.Point(424, 330);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(202, 40);
+            this.btnLogin.TabIndex = 8;
+            this.btnLogin.Text = "Inloggen";
+            this.btnLogin.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -130,32 +130,32 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Nog geen account?";
             // 
-            // label6
+            // lblLinkToRegistreren
             // 
-            this.label6.AutoSize = true;
-            this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label6.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label6.Location = new System.Drawing.Point(525, 375);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 18);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Account aanmaken";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.lblLinkToRegistreren.AutoSize = true;
+            this.lblLinkToRegistreren.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblLinkToRegistreren.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLinkToRegistreren.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.lblLinkToRegistreren.Location = new System.Drawing.Point(525, 375);
+            this.lblLinkToRegistreren.Name = "lblLinkToRegistreren";
+            this.lblLinkToRegistreren.Size = new System.Drawing.Size(118, 18);
+            this.lblLinkToRegistreren.TabIndex = 10;
+            this.lblLinkToRegistreren.Text = "Account aanmaken";
+            this.lblLinkToRegistreren.Click += new System.EventHandler(this.lblLinkToRegistreren_Click);
             // 
-            // pictureBox2
+            // picBtnClose
             // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(658, 13);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(30, 37);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 11;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.picBtnClose.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.picBtnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBtnClose.Image = ((System.Drawing.Image)(resources.GetObject("picBtnClose.Image")));
+            this.picBtnClose.Location = new System.Drawing.Point(658, 13);
+            this.picBtnClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.picBtnClose.Name = "picBtnClose";
+            this.picBtnClose.Size = new System.Drawing.Size(30, 37);
+            this.picBtnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBtnClose.TabIndex = 11;
+            this.picBtnClose.TabStop = false;
+            this.picBtnClose.Click += new System.EventHandler(this.picBtnClose_Click);
             // 
             // pictureBox1
             // 
@@ -212,10 +212,10 @@
             this.ClientSize = new System.Drawing.Size(700, 450);
             this.Controls.Add(this.pnlPasswordLogin);
             this.Controls.Add(this.pnlUsernameLogin);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.picBtnClose);
+            this.Controls.Add(this.lblLinkToRegistreren);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -227,7 +227,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Login_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtnClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlUsernameLogin.ResumeLayout(false);
             this.pnlUsernameLogin.PerformLayout();
@@ -246,10 +246,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label lblLinkToRegistreren;
+        private System.Windows.Forms.PictureBox picBtnClose;
         private System.Windows.Forms.Panel pnlUsernameLogin;
         private System.Windows.Forms.Panel pnlPasswordLogin;
         private System.Windows.Forms.TextBox txtPassword;
