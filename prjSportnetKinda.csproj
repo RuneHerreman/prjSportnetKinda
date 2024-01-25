@@ -53,39 +53,48 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Register.cs">
+    <Compile Include="View\ButtonControls.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\ButtonControls.Designer.cs">
+      <DependentUpon>ButtonControls.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Register.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Register.Designer.cs">
+    <Compile Include="View\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
+    <Compile Include="View\Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
+    <Compile Include="View\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="View\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="View\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WWVergeten.cs">
+    <Compile Include="View\WWVergeten.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WWVergeten.Designer.cs">
+    <Compile Include="View\WWVergeten.Designer.cs">
       <DependentUpon>WWVergeten.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Register.resx">
+    <EmbeddedResource Include="View\ButtonControls.resx">
+      <DependentUpon>ButtonControls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
+    <EmbeddedResource Include="View\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="View\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -93,7 +102,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="WWVergeten.resx">
+    <EmbeddedResource Include="View\WWVergeten.resx">
       <DependentUpon>WWVergeten.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -137,6 +146,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\IMG_Login1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DA\" />
+    <Folder Include="Helper\" />
+    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
