@@ -34,11 +34,14 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.Start = new System.Windows.Forms.TabPage();
+            this.Kalender = new System.Windows.Forms.TabPage();
+            this.Materiaal = new System.Windows.Forms.TabPage();
+            this.Profiel = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -52,7 +55,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(206, 661);
+            this.panel1.Size = new System.Drawing.Size(206, 708);
             this.panel1.TabIndex = 0;
             // 
             // button4
@@ -119,7 +122,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::prjSportnetKinda.Properties.Resources._1_DDsOx6D3oe8ZxcA_OTfIDA;
+            this.pictureBox1.Image = global::prjSportnetKinda.Properties.Resources.download;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(206, 206);
@@ -127,38 +130,71 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // panel2
+            // tabControl1
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(206, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(858, 661);
-            this.panel2.TabIndex = 1;
+            this.tabControl1.Controls.Add(this.Start);
+            this.tabControl1.Controls.Add(this.Kalender);
+            this.tabControl1.Controls.Add(this.Materiaal);
+            this.tabControl1.Controls.Add(this.Profiel);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(206, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(979, 708);
+            this.tabControl1.TabIndex = 1;
             // 
-            // label1
+            // Start
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(178, 193);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Rune toch";
+            this.Start.BackColor = System.Drawing.Color.White;
+            this.Start.Location = new System.Drawing.Point(4, 22);
+            this.Start.Name = "Start";
+            this.Start.Padding = new System.Windows.Forms.Padding(3);
+            this.Start.Size = new System.Drawing.Size(971, 682);
+            this.Start.TabIndex = 0;
+            this.Start.Text = "Start";
             // 
-            // Form1
+            // Kalender
+            // 
+            this.Kalender.BackColor = System.Drawing.Color.White;
+            this.Kalender.Location = new System.Drawing.Point(4, 22);
+            this.Kalender.Name = "Kalender";
+            this.Kalender.Padding = new System.Windows.Forms.Padding(3);
+            this.Kalender.Size = new System.Drawing.Size(995, 635);
+            this.Kalender.TabIndex = 1;
+            this.Kalender.Text = "Kalender";
+            // 
+            // Materiaal
+            // 
+            this.Materiaal.BackColor = System.Drawing.Color.White;
+            this.Materiaal.Location = new System.Drawing.Point(4, 22);
+            this.Materiaal.Name = "Materiaal";
+            this.Materiaal.Padding = new System.Windows.Forms.Padding(3);
+            this.Materiaal.Size = new System.Drawing.Size(995, 635);
+            this.Materiaal.TabIndex = 2;
+            this.Materiaal.Text = "Materiaal";
+            // 
+            // Profiel
+            // 
+            this.Profiel.BackColor = System.Drawing.Color.White;
+            this.Profiel.Location = new System.Drawing.Point(4, 22);
+            this.Profiel.Name = "Profiel";
+            this.Profiel.Padding = new System.Windows.Forms.Padding(3);
+            this.Profiel.Size = new System.Drawing.Size(995, 635);
+            this.Profiel.TabIndex = 3;
+            this.Profiel.Text = "Profiel";
+            // 
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 661);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(1185, 708);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
-            this.Name = "Form1";
+            this.Name = "Main";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -166,13 +202,16 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage Start;
+        private System.Windows.Forms.TabPage Kalender;
+        private System.Windows.Forms.TabPage Materiaal;
+        private System.Windows.Forms.TabPage Profiel;
     }
 }
 
