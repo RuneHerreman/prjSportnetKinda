@@ -47,5 +47,6 @@ namespace prjSportnetKinda.View
             ForeColor = NormaalKleur;
             tooltip1.Show(Tooltip, this);
         }
+        //https://www.youtube.com/watch?v=yFkopO3A8GM&t=175s
     }
 }
