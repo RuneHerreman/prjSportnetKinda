@@ -38,6 +38,7 @@ namespace prjSportnetKinda.View
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")] //entry point --> naam om code te activeren (wordt geëxecute)
         private static extern IntPtr CreateRoundRectRgn
             (
+            //opgeslagen waarden
                 int lr,
                 int tr,
                 int rr,
@@ -48,12 +49,14 @@ namespace prjSportnetKinda.View
 
         private void ButtonControls_MouseEnter(object sender, EventArgs e)
         {
+            //hover --> hoverfoto | tooltip tonen
             Image = HoverFoto;
             tooltip1.Show(Tooltip,this);
         }
 
         private void ButtonControls_MouseLeave(object sender, EventArgs e)
         {
+            //niet meer hover --> normale foto | tooltip verstoppen
             Image = NormaalFoto;
             tooltip1.Hide(this);
         }
