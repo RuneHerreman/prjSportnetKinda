@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tabStart = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,13 +43,14 @@
             this.btnMateriaal = new prjSportnetKinda.View.ButtonControls();
             this.btnKalender = new prjSportnetKinda.View.ButtonControls();
             this.btnStart = new prjSportnetKinda.View.ButtonControls();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tcMain.SuspendLayout();
             this.tabStart.SuspendLayout();
             this.tabKalender.SuspendLayout();
             this.tabMateriaal.SuspendLayout();
             this.tabProfiel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -66,19 +66,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(75, 708);
             this.panel1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(5);
-            this.pictureBox1.Size = new System.Drawing.Size(75, 75);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // tcMain
             // 
@@ -185,11 +172,11 @@
             this.btnProfiel.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight;
             this.btnProfiel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProfiel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnProfiel.HoverFoto1 = global::prjSportnetKinda.Properties.Resources.btnImageTest3;
-            this.btnProfiel.Image = global::prjSportnetKinda.Properties.Resources.btnImageTest3;
+            this.btnProfiel.HoverFoto1 = global::prjSportnetKinda.Properties.Resources.user_select;
+            this.btnProfiel.Image = global::prjSportnetKinda.Properties.Resources.user_standard;
             this.btnProfiel.Location = new System.Drawing.Point(5, 638);
             this.btnProfiel.Name = "btnProfiel";
-            this.btnProfiel.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.btnImageTest3;
+            this.btnProfiel.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.user_standard;
             this.btnProfiel.Size = new System.Drawing.Size(65, 65);
             this.btnProfiel.TabIndex = 7;
             this.btnProfiel.Tooltip1 = "Home";
@@ -203,11 +190,11 @@
             this.btnMateriaal.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight;
             this.btnMateriaal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMateriaal.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnMateriaal.HoverFoto1 = ((System.Drawing.Image)(resources.GetObject("btnMateriaal.HoverFoto1")));
-            this.btnMateriaal.Image = ((System.Drawing.Image)(resources.GetObject("btnMateriaal.Image")));
+            this.btnMateriaal.HoverFoto1 = global::prjSportnetKinda.Properties.Resources.cart_select;
+            this.btnMateriaal.Image = global::prjSportnetKinda.Properties.Resources.cart_standard;
             this.btnMateriaal.Location = new System.Drawing.Point(5, 220);
             this.btnMateriaal.Name = "btnMateriaal";
-            this.btnMateriaal.NormaalFoto1 = ((System.Drawing.Image)(resources.GetObject("btnMateriaal.NormaalFoto1")));
+            this.btnMateriaal.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.cart_standard;
             this.btnMateriaal.Size = new System.Drawing.Size(65, 65);
             this.btnMateriaal.TabIndex = 6;
             this.btnMateriaal.Tooltip1 = "Home";
@@ -221,11 +208,11 @@
             this.btnKalender.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight;
             this.btnKalender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKalender.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnKalender.HoverFoto1 = ((System.Drawing.Image)(resources.GetObject("btnKalender.HoverFoto1")));
-            this.btnKalender.Image = ((System.Drawing.Image)(resources.GetObject("btnKalender.Image")));
+            this.btnKalender.HoverFoto1 = global::prjSportnetKinda.Properties.Resources.calendar_select;
+            this.btnKalender.Image = global::prjSportnetKinda.Properties.Resources.calendar_standard;
             this.btnKalender.Location = new System.Drawing.Point(5, 150);
             this.btnKalender.Name = "btnKalender";
-            this.btnKalender.NormaalFoto1 = ((System.Drawing.Image)(resources.GetObject("btnKalender.NormaalFoto1")));
+            this.btnKalender.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.calendar_standard;
             this.btnKalender.Size = new System.Drawing.Size(65, 65);
             this.btnKalender.TabIndex = 5;
             this.btnKalender.Tooltip1 = "Home";
@@ -239,16 +226,29 @@
             this.btnStart.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight;
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStart.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnStart.HoverFoto1 = global::prjSportnetKinda.Properties.Resources.btnImageTest3;
-            this.btnStart.Image = global::prjSportnetKinda.Properties.Resources.btnImageTest3;
+            this.btnStart.HoverFoto1 = global::prjSportnetKinda.Properties.Resources.home_select;
+            this.btnStart.Image = ((System.Drawing.Image)(resources.GetObject("btnStart.Image")));
             this.btnStart.Location = new System.Drawing.Point(5, 80);
             this.btnStart.Name = "btnStart";
-            this.btnStart.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.btnImageTest3;
+            this.btnStart.NormaalFoto1 = ((System.Drawing.Image)(resources.GetObject("btnStart.NormaalFoto1")));
             this.btnStart.Size = new System.Drawing.Size(65, 65);
             this.btnStart.TabIndex = 4;
             this.btnStart.Tooltip1 = "Home";
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(5);
+            this.pictureBox1.Size = new System.Drawing.Size(75, 75);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // Main
             // 
@@ -262,7 +262,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ZRC - Sportnet";
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tcMain.ResumeLayout(false);
             this.tabStart.ResumeLayout(false);
             this.tabStart.PerformLayout();
@@ -272,6 +271,7 @@
             this.tabMateriaal.PerformLayout();
             this.tabProfiel.ResumeLayout(false);
             this.tabProfiel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

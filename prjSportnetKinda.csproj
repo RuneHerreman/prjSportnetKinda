@@ -161,5 +161,32 @@
   <ItemGroup>
     <None Include="Resources\btnImageTest3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_standard.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cart_standard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_standard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cart_select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar_standard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_standard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar_select.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

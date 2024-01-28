@@ -130,9 +130,6 @@
   <data name="Logo-05" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo-05.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="25694" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\25694.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="btnImageTest2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnImageTest2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -153,5 +150,29 @@
   </data>
   <data name="btnImageTest3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnImageTest3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="calendar_select" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calendar_select.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="calendar_standard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calendar_standard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cart_select" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cart_select.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cart_standard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cart_standard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="home_select" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home_select.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="home_standard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\home_standard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user_select" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user_select.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user_standard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user_standard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
