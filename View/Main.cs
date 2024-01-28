@@ -15,6 +15,14 @@ namespace prjSportnetKinda
         public Main()
         {
             InitializeComponent();
+            tcMain.Appearance = TabAppearance.FlatButtons;
+            tcMain.ItemSize = new Size(0, 1);
+            tcMain.SizeMode = TabSizeMode.Fixed;
+        }
+
+        private void buttonControls1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

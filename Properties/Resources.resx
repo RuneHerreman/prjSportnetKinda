@@ -118,20 +118,29 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Logo-05" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo-05.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="IMG_Login1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IMG_Login1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="button_close_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_close_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Logo-05 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo-05 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnImageTest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnImageTest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo-05" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo-05.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="25694" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\25694.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="btnImageTest2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnImageTest2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="button_close_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_close_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo-05 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo-05 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1 DDsOx6D3oe8ZxcA-OTfIDA" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1 DDsOx6D3oe8ZxcA-OTfIDA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,7 +151,7 @@
   <data name="IMG_Login2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IMG_Login2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="IMG_Login1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IMG_Login1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnImageTest3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnImageTest3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

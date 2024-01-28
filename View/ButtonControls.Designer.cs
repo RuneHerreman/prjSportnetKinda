@@ -32,6 +32,7 @@
             // 
             // ButtonControls
             // 
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.ButtonControls_Paint);
             this.MouseEnter += new System.EventHandler(this.ButtonControls_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.ButtonControls_MouseLeave);
             this.ResumeLayout(false);

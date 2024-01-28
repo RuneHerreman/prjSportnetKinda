@@ -152,5 +152,14 @@
     <Folder Include="Helper\" />
     <Folder Include="Model\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnImageTest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnImageTest2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnImageTest3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
