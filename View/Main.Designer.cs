@@ -74,6 +74,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(5);
             this.pictureBox1.Size = new System.Drawing.Size(75, 75);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
@@ -202,11 +203,11 @@
             this.btnMateriaal.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight;
             this.btnMateriaal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMateriaal.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnMateriaal.HoverFoto1 = global::prjSportnetKinda.Properties.Resources.btnImageTest3;
-            this.btnMateriaal.Image = global::prjSportnetKinda.Properties.Resources.btnImageTest3;
+            this.btnMateriaal.HoverFoto1 = ((System.Drawing.Image)(resources.GetObject("btnMateriaal.HoverFoto1")));
+            this.btnMateriaal.Image = ((System.Drawing.Image)(resources.GetObject("btnMateriaal.Image")));
             this.btnMateriaal.Location = new System.Drawing.Point(5, 220);
             this.btnMateriaal.Name = "btnMateriaal";
-            this.btnMateriaal.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.btnImageTest3;
+            this.btnMateriaal.NormaalFoto1 = ((System.Drawing.Image)(resources.GetObject("btnMateriaal.NormaalFoto1")));
             this.btnMateriaal.Size = new System.Drawing.Size(65, 65);
             this.btnMateriaal.TabIndex = 6;
             this.btnMateriaal.Tooltip1 = "Home";
@@ -220,11 +221,11 @@
             this.btnKalender.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight;
             this.btnKalender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKalender.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnKalender.HoverFoto1 = global::prjSportnetKinda.Properties.Resources.btnImageTest3;
-            this.btnKalender.Image = global::prjSportnetKinda.Properties.Resources.btnImageTest3;
+            this.btnKalender.HoverFoto1 = ((System.Drawing.Image)(resources.GetObject("btnKalender.HoverFoto1")));
+            this.btnKalender.Image = ((System.Drawing.Image)(resources.GetObject("btnKalender.Image")));
             this.btnKalender.Location = new System.Drawing.Point(5, 150);
             this.btnKalender.Name = "btnKalender";
-            this.btnKalender.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.btnImageTest3;
+            this.btnKalender.NormaalFoto1 = ((System.Drawing.Image)(resources.GetObject("btnKalender.NormaalFoto1")));
             this.btnKalender.Size = new System.Drawing.Size(65, 65);
             this.btnKalender.TabIndex = 5;
             this.btnKalender.Tooltip1 = "Home";
