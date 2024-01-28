@@ -9,6 +9,7 @@ namespace prjSportnetKinda.View
     public partial class ButtonControls : Button
     {
         ToolTip tooltip1 = new ToolTip();
+
         //properties
         private Image NormaalFoto;
         private Image HoverFoto;
@@ -32,7 +33,9 @@ namespace prjSportnetKinda.View
         {
             base.OnPaint(pe);
         }
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+
+        //importeren 
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")] //entry point --> naam om code te activeren (wordt geëxecute)
         private static extern IntPtr CreateRoundRectRgn
             (
                 int lr,
@@ -59,6 +62,5 @@ namespace prjSportnetKinda.View
         {
             Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 10, 10));
         }
-        //https://www.youtube.com/watch?v=yFkopO3A8GM&t=175s
     }
 }

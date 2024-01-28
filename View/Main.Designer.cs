@@ -191,7 +191,7 @@
             this.btnProfiel.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.user_standard;
             this.btnProfiel.Size = new System.Drawing.Size(65, 65);
             this.btnProfiel.TabIndex = 7;
-            this.btnProfiel.Tooltip1 = "Home";
+            this.btnProfiel.Tooltip1 = "Profiel";
             this.btnProfiel.UseVisualStyleBackColor = false;
             this.btnProfiel.Click += new System.EventHandler(this.btnProfiel_Click);
             // 
@@ -209,7 +209,7 @@
             this.btnMateriaal.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.cart_standard;
             this.btnMateriaal.Size = new System.Drawing.Size(65, 65);
             this.btnMateriaal.TabIndex = 6;
-            this.btnMateriaal.Tooltip1 = "Home";
+            this.btnMateriaal.Tooltip1 = "Materiaal";
             this.btnMateriaal.UseVisualStyleBackColor = false;
             this.btnMateriaal.Click += new System.EventHandler(this.btnMateriaal_Click);
             // 
@@ -227,7 +227,7 @@
             this.btnKalender.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.calendar_standard;
             this.btnKalender.Size = new System.Drawing.Size(65, 65);
             this.btnKalender.TabIndex = 5;
-            this.btnKalender.Tooltip1 = "Home";
+            this.btnKalender.Tooltip1 = "Planning";
             this.btnKalender.UseVisualStyleBackColor = false;
             this.btnKalender.Click += new System.EventHandler(this.btnKalender_Click);
             // 
@@ -245,7 +245,7 @@
             this.btnStart.NormaalFoto1 = ((System.Drawing.Image)(resources.GetObject("btnStart.NormaalFoto1")));
             this.btnStart.Size = new System.Drawing.Size(65, 65);
             this.btnStart.TabIndex = 4;
-            this.btnStart.Tooltip1 = "Home";
+            this.btnStart.Tooltip1 = "Start";
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
