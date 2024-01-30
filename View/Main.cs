@@ -19,6 +19,11 @@ namespace prjSportnetKinda
             tcMain.Appearance = TabAppearance.FlatButtons;
             tcMain.ItemSize = new Size(0, 1);
             tcMain.SizeMode = TabSizeMode.Fixed;
+
+            //toon alleen geselecteerde tab
+            this.btnStart.Image = Properties.Resources.home_select;
+            this.btnStart.NormaalFoto1 = Properties.Resources.home_select;
+            this.btnStart.HoverFoto1 = Properties.Resources.home_select;
         }
 
         private void btnStart_Click(object sender, EventArgs e)

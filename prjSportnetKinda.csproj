@@ -38,6 +38,8 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -85,6 +87,12 @@
     <Compile Include="View\WWVergeten.Designer.cs">
       <DependentUpon>WWVergeten.cs</DependentUpon>
     </Compile>
+    <Compile Include="WelkomItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WelkomItem.Designer.cs">
+      <DependentUpon>WelkomItem.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\ButtonControls.resx">
       <DependentUpon>ButtonControls.cs</DependentUpon>
     </EmbeddedResource>
@@ -104,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\WWVergeten.resx">
       <DependentUpon>WWVergeten.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WelkomItem.resx">
+      <DependentUpon>WelkomItem.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -190,6 +201,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo_Blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ItemAdd.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

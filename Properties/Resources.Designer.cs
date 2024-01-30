@@ -213,6 +213,16 @@ namespace prjSportnetKinda.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ItemAdd {
+            get {
+                object obj = ResourceManager.GetObject("ItemAdd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo_05 {
             get {
                 object obj = ResourceManager.GetObject("Logo-05", resourceCulture);
