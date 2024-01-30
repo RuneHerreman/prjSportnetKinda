@@ -20,6 +20,10 @@ namespace prjSportnetKinda
             tcMain.ItemSize = new Size(0, 1);
             tcMain.SizeMode = TabSizeMode.Fixed;
 
+            //transparente label
+            lblStartZRC.Parent = picStartBanner;
+            lblStartZRC.BackColor = System.Drawing.Color.Transparent;
+
             //toon alleen geselecteerde tab
             this.btnStart.Image = Properties.Resources.home_select;
             this.btnStart.NormaalFoto1 = Properties.Resources.home_select;

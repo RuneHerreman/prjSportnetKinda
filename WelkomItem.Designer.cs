@@ -84,8 +84,10 @@
             // 
             this.txtArtiekel.BackColor = System.Drawing.SystemColors.Control;
             this.txtArtiekel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtArtiekel.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtArtiekel.Location = new System.Drawing.Point(253, 89);
             this.txtArtiekel.Name = "txtArtiekel";
+            this.txtArtiekel.ReadOnly = true;
             this.txtArtiekel.Size = new System.Drawing.Size(500, 225);
             this.txtArtiekel.TabIndex = 6;
             this.txtArtiekel.Text = resources.GetString("txtArtiekel.Text");
@@ -94,7 +96,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.txtArtiekel);
             this.Controls.Add(this.picArtiekelFoto);
             this.Controls.Add(this.pnlItemFoto);
