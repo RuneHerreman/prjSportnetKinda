@@ -35,18 +35,18 @@
             this.pnlItemFoto = new System.Windows.Forms.Panel();
             this.txtArtiekel = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picArtiekelFoto)).BeginInit();
+            this.pnlItemFoto.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblArtiekelTitel
             // 
-            this.lblArtiekelTitel.AutoSize = true;
             this.lblArtiekelTitel.Font = new System.Drawing.Font("Trebuchet MS", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArtiekelTitel.Location = new System.Drawing.Point(245, 43);
+            this.lblArtiekelTitel.Location = new System.Drawing.Point(245, 9);
             this.lblArtiekelTitel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblArtiekelTitel.Name = "lblArtiekelTitel";
-            this.lblArtiekelTitel.Size = new System.Drawing.Size(167, 43);
+            this.lblArtiekelTitel.Size = new System.Drawing.Size(508, 86);
             this.lblArtiekelTitel.TabIndex = 0;
-            this.lblArtiekelTitel.Text = "ItemTitel";
+            this.lblArtiekelTitel.Text = "ArtiekelTitel\r\nArtiekelTitel";
             // 
             // picArtiekelFoto
             // 
@@ -64,7 +64,7 @@
             this.lblArtiekelDatum.AutoSize = true;
             this.lblArtiekelDatum.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblArtiekelDatum.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblArtiekelDatum.Location = new System.Drawing.Point(250, 25);
+            this.lblArtiekelDatum.Location = new System.Drawing.Point(22, 304);
             this.lblArtiekelDatum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblArtiekelDatum.Name = "lblArtiekelDatum";
             this.lblArtiekelDatum.Size = new System.Drawing.Size(82, 18);
@@ -73,6 +73,7 @@
             // 
             // pnlItemFoto
             // 
+            this.pnlItemFoto.Controls.Add(this.lblArtiekelDatum);
             this.pnlItemFoto.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlItemFoto.Location = new System.Drawing.Point(0, 0);
             this.pnlItemFoto.Margin = new System.Windows.Forms.Padding(4);
@@ -85,7 +86,7 @@
             this.txtArtiekel.BackColor = System.Drawing.SystemColors.Control;
             this.txtArtiekel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtArtiekel.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txtArtiekel.Location = new System.Drawing.Point(253, 89);
+            this.txtArtiekel.Location = new System.Drawing.Point(253, 97);
             this.txtArtiekel.Name = "txtArtiekel";
             this.txtArtiekel.ReadOnly = true;
             this.txtArtiekel.Size = new System.Drawing.Size(500, 225);
@@ -100,7 +101,6 @@
             this.Controls.Add(this.txtArtiekel);
             this.Controls.Add(this.picArtiekelFoto);
             this.Controls.Add(this.pnlItemFoto);
-            this.Controls.Add(this.lblArtiekelDatum);
             this.Controls.Add(this.lblArtiekelTitel);
             this.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -109,8 +109,9 @@
             this.Name = "WelkomItem";
             this.Size = new System.Drawing.Size(775, 350);
             ((System.ComponentModel.ISupportInitialize)(this.picArtiekelFoto)).EndInit();
+            this.pnlItemFoto.ResumeLayout(false);
+            this.pnlItemFoto.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

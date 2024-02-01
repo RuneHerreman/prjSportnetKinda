@@ -51,11 +51,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Verdana", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Trebuchet MS", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Desktop;
             this.label2.Location = new System.Drawing.Point(370, 69);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 59);
+            this.label2.Size = new System.Drawing.Size(141, 61);
             this.label2.TabIndex = 2;
             this.label2.Text = "Login";
             // 

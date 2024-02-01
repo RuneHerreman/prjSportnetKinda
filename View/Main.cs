@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,13 @@ namespace prjSportnetKinda
             tcMain.ItemSize = new Size(0, 1);
             tcMain.SizeMode = TabSizeMode.Fixed;
 
-            //transparente label
-            lblStartZRC.Parent = picStartBanner;
-            lblStartZRC.BackColor = System.Drawing.Color.Transparent;
+            for (int intTeller = 1; intTeller < 10; intTeller++)
+            {
+                WelkomItem welkomItem = new WelkomItem();
+                pnlArtiekelContainer.Controls.Add(welkomItem);
+                welkomItem.Location = new Point(50, (350 * intTeller));
+            }
+
 
             //toon alleen geselecteerde tab
             this.btnStart.Image = Properties.Resources.home_select;

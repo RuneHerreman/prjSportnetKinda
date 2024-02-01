@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using prjSportnetKinda.Helper;
-using prjSportnetKinda.Model;       
-using MySql.Data.MySqlClient;
 using System.Runtime.CompilerServices;
 using System.Windows;
 

@@ -35,7 +35,8 @@
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="mysql.data">
-      <HintPath>Z:\oefen\Sofo\Projecten\Semester 2\prjBrouwerij\prjBrouwerij\bin\Debug\mysql.data.dll</HintPath>
+      <HintPath>B:\Downloads\FireFox Downloads\MySql.Data.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -58,8 +59,10 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DA\tblArtiekelsDA.cs" />
     <Compile Include="DA\zrc - SportnetDA.cs" />
     <Compile Include="Helper\Database.cs" />
+    <Compile Include="Model\tblArtiekels.cs" />
     <Compile Include="Model\zrc - Sportnet.cs" />
     <Compile Include="View\ButtonControls.cs">
       <SubType>Component</SubType>
