@@ -35,7 +35,7 @@ namespace prjSportnetKinda.DA
             //Hier wordt commando uitgevoerd en gaat hij resultaat bewaren in count
             int count = Convert.ToInt32(mysqlcmd.ExecuteScalar());
 
-            return 
+            return null;
         }
     }
 }
