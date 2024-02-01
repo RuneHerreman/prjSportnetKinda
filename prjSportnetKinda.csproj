@@ -34,6 +34,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="mysql.data">
+      <HintPath>Z:\oefen\Sofo\Projecten\Semester 2\prjBrouwerij\prjBrouwerij\bin\Debug\mysql.data.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -55,6 +58,9 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DA\zrc - SportnetDA.cs" />
+    <Compile Include="Helper\Database.cs" />
+    <Compile Include="Model\zrc - Sportnet.cs" />
     <Compile Include="View\ButtonControls.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -158,11 +164,7 @@
   <ItemGroup>
     <None Include="Resources\IMG_Login1.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DA\" />
-    <Folder Include="Helper\" />
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\btnImageTest.png" />
   </ItemGroup>
