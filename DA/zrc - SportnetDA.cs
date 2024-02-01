@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using prjSportnetKinda.Helper;
 using prjSportnetKinda.Model;       
 using MySql.Data.MySqlClient;
+using System.Runtime.CompilerServices;
+using System.Windows;
 
 namespace prjSportnetKinda.DA
 {
@@ -27,13 +29,13 @@ namespace prjSportnetKinda.DA
             mysqlcmd.CommandType = CommandType.Text;
 
             //Parameters
-            mysqlcmd.Parameters.AddWithValue("@Gebruikersnaam", txt);
-            mysqlcmd.Parameters.AddWithValue("@Wachtwoord", txtWachtwoord.Text);
+            mysqlcmd.Parameters.AddWithValue("@Gebruikersnaam", email);
+            mysqlcmd.Parameters.AddWithValue("@Wachtwoord", wachtwoord);
 
             //Hier wordt commando uitgevoerd en gaat hij resultaat bewaren in count
             int count = Convert.ToInt32(mysqlcmd.ExecuteScalar());
 
-            return
+            return 
         }
     }
 }
