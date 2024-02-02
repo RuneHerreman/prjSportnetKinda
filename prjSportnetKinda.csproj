@@ -59,11 +59,11 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DA\tblArtiekelsDA.cs" />
-    <Compile Include="DA\zrc - SportnetDA.cs" />
+    <Compile Include="DA\ArtikelsDA.cs" />
+    <Compile Include="DA\GebruikerDA.cs" />
     <Compile Include="Helper\Database.cs" />
-    <Compile Include="Model\tblArtiekels.cs" />
-    <Compile Include="Model\zrc - Sportnet.cs" />
+    <Compile Include="Model\Artikel.cs" />
+    <Compile Include="Model\Gebruiker.cs" />
     <Compile Include="View\ButtonControls.cs">
       <SubType>Component</SubType>
     </Compile>

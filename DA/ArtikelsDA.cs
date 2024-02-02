@@ -10,9 +10,9 @@ using prjSportnetKinda.Helper;
 
 namespace prjSportnetKinda.DA
 {
-    public class tblArtiekelsDA
+    public class ArtikelDA
     {
-        public static tblArtiekelsDA Artiekel(string titel, DateTime datum, string artiekel, Image foto)
+        public static ArtikelDA Artiekel(string titel, DateTime datum, string artiekel, Image foto)
         {
             //query
             //alle velden uit de tabel geordend op aflopend id (10, 9, 8, 7) --> recentst eerst
@@ -24,7 +24,7 @@ namespace prjSportnetKinda.DA
             //commando maken
             MySqlCommand cmdArtiekel = new MySqlCommand(query, conn);
 
-            return new tblArtiekelsDA();
+            return new ArtikelDA();
         }
     }
 }

@@ -14,13 +14,13 @@ using Microsoft.VisualBasic;
 
 namespace prjSportnetKinda.DA
 {
-    public class zrc___SportnetDA
+    public class GebruikerDA
     {
-        public static zrc___Sportnet Inloggen(string email, string wachtwoord)
+        public static Gebruiker Inloggen(string email, string wachtwoord)
         {
             try
             {
-                zrc___Sportnet Login = new zrc___Sportnet();
+                Gebruiker Login = new Gebruiker();
 
                 //sting maken met ons sql statement
                 String query = "SELECT * from tblgebruiker WHERE Email=@Email AND Wachtwoord=@Wachtwoord";

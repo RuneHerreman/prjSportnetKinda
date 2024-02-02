@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace prjSportnetKinda.Model
 {
-    public class zrc___Sportnet
+    public class Gebruiker
     {
         public string email { get; set; }
         public string Voornaam { get; set; }

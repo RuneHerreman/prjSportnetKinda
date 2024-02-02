@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace prjSportnetKinda.Model
 {
-    public class tblArtiekels
+    public class Artikel
     {
         public int ID { get; set; }
         public DateTime datum { get; set; }

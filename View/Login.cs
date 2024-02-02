@@ -50,10 +50,10 @@ namespace prjSportnetKinda
             strWachtwoord = txtPassword.Text;
 
             //Klasse oproepen
-            zrc___Sportnet login = zrc___SportnetDA.Inloggen(strEmail, strWachtwoord);
+            Gebruiker gebruiker = GebruikerDA.Inloggen(strEmail, strWachtwoord);
 
             //Controle op wachtoord en email
-            if (login == null)
+            if (gebruiker == null)
             {
                 //Foutmelding tonen
                 lblFout.Text = "E-mail of Wachtwoord is fout";
@@ -66,7 +66,7 @@ namespace prjSportnetKinda
             else 
             {
                 //Main form openen
-                Main Main = new Main(login);
+                Main Main = new Main(gebruiker);
                 this.Hide();
                 Main.ShowDialog();
                 this.Close();

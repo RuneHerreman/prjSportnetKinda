@@ -14,7 +14,7 @@ namespace prjSportnetKinda
 {
     public partial class Main : Form
     {
-        public Main(Model.zrc___Sportnet login)
+        public Main(Model.Gebruiker login)
         {
             InitializeComponent();
             tcMain.Appearance = TabAppearance.FlatButtons;
