@@ -20,7 +20,7 @@ namespace prjSportnetKinda.DA
         {
             try
             {
-                Gebruiker Login = new Gebruiker();
+                Gebruiker gebruiker = new Gebruiker();
 
                 //sting maken met ons sql statement
                 String query = "SELECT * from tblgebruiker WHERE Email=@Email AND Wachtwoord=@Wachtwoord";
@@ -41,11 +41,11 @@ namespace prjSportnetKinda.DA
                 if (reader.HasRows == true)
                 {
                     reader.Read();
-                    Login.email = reader["Email"].ToString();
-                    Login.Voornaam = reader["Voornaam"].ToString();
-                    Login.Naam = reader["Naam"].ToString();
+                    gebruiker.email = reader["Email"].ToString();
+                    gebruiker.Voornaam = reader["Voornaam"].ToString();
+                    gebruiker.Naam = reader["Naam"].ToString();
 
-                    return Login;
+                    return gebruiker;
                 }
                 else 
                 {
