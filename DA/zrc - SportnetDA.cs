@@ -38,13 +38,19 @@ namespace prjSportnetKinda.DA
 
                 //Hier wordt commando uitgevoerd en gaat hij resultaat bewaren in count
                 MySqlDataReader reader = mysqlcmd.ExecuteReader();
+                if (reader.HasRows == true)
+                {
+                    reader.Read();
+                    Login.email = reader["Email"].ToString();
+                    Login.Voornaam = reader["Voornaam"].ToString();
+                    Login.Naam = reader["Naam"].ToString();
 
-                reader.Read();
-
-                Login.email = reader["Email"].ToString();
-                Login.Wachtwoord = reader["Wachtwoord"].ToString();
-
-                return Login;
+                    return Login;
+                }
+                else 
+                {
+                    return null;
+                }
             }
             catch
             {

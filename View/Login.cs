@@ -53,7 +53,7 @@ namespace prjSportnetKinda
             zrc___Sportnet login = zrc___SportnetDA.Inloggen(strEmail, strWachtwoord);
 
             //Controle op wachtoord en email
-            if (zrc___SportnetDA.Inloggen(strEmail, strWachtwoord) == null)
+            if (login == null)
             {
                 //Foutmelding tonen
                 lblFout.Text = "E-mail of Wachtwoord is fout";
@@ -63,10 +63,10 @@ namespace prjSportnetKinda
                 txtPassword.Clear();
                 txtEmail.Focus();
             }
-            else if (login.email == strEmail && login.Wachtwoord == strWachtwoord) 
+            else 
             {
                 //Main form openen
-                Main Main = new Main();
+                Main Main = new Main(login);
                 this.Hide();
                 Main.ShowDialog();
                 this.Close();

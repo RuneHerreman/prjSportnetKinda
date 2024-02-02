@@ -14,7 +14,7 @@ namespace prjSportnetKinda
 {
     public partial class Main : Form
     {
-        public Main()
+        public Main(Model.zrc___Sportnet login)
         {
             InitializeComponent();
             tcMain.Appearance = TabAppearance.FlatButtons;
@@ -33,6 +33,10 @@ namespace prjSportnetKinda
             this.btnStart.Image = Properties.Resources.home_select;
             this.btnStart.NormaalFoto1 = Properties.Resources.home_select;
             this.btnStart.HoverFoto1 = Properties.Resources.home_select;
+
+            //data invullen
+            this.lblNaamVoornaam.Text = "Welkom " + login.Voornaam + " " + login.Naam;
+
         }
 
         private void btnStart_Click(object sender, EventArgs e)

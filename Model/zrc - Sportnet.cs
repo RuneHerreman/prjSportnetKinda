@@ -9,7 +9,8 @@ namespace prjSportnetKinda.Model
     public class zrc___Sportnet
     {
         public string email { get; set; }
-        public string Wachtwoord { get; set; }
+        public string Voornaam { get; set; }
+        public string Naam { get; set; }
 
     }
 }
