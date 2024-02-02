@@ -35,7 +35,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="mysql.data">
-      <HintPath>B:\Downloads\FireFox Downloads\MySql.Data.dll</HintPath>
+      <HintPath>Y:\6NI2\0-opdrachten\Sofo\mysql.data.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />

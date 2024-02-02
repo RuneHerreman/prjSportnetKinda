@@ -42,6 +42,7 @@
             this.pnlEmailLogin = new System.Windows.Forms.Panel();
             this.pnlPasswordLogin = new System.Windows.Forms.Panel();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.lblFout = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBtnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlEmailLogin.SuspendLayout();
@@ -206,12 +207,22 @@
             this.txtPassword.TabIndex = 3;
             this.txtPassword.WordWrap = false;
             // 
+            // lblFout
+            // 
+            this.lblFout.AutoSize = true;
+            this.lblFout.ForeColor = System.Drawing.Color.Red;
+            this.lblFout.Location = new System.Drawing.Point(448, 378);
+            this.lblFout.Name = "lblFout";
+            this.lblFout.Size = new System.Drawing.Size(0, 16);
+            this.lblFout.TabIndex = 14;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(700, 450);
+            this.Controls.Add(this.lblFout);
             this.Controls.Add(this.pnlPasswordLogin);
             this.Controls.Add(this.pnlEmailLogin);
             this.Controls.Add(this.picBtnClose);
@@ -255,5 +266,6 @@
         private System.Windows.Forms.Panel pnlEmailLogin;
         private System.Windows.Forms.Panel pnlPasswordLogin;
         private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label lblFout;
     }
 }

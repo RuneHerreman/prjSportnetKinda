@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using prjSportnetKinda.Helper;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace prjSportnetKinda.DA
 {
@@ -16,24 +18,38 @@ namespace prjSportnetKinda.DA
     {
         public static zrc___Sportnet Inloggen(string email, string wachtwoord)
         {
-            //sting maken met ons sql statement
-            String query = "SELECT COUNT(1) from login.tblgebruikers WHERE Username=@Gebruikersnaam AND Pass=@Wachtwoord";
-            MySqlConnection conn = Database.MakeConnection();
+            try
+            {
+                zrc___Sportnet Login = new zrc___Sportnet();
 
-            //Maken van het command
-            MySqlCommand mysqlcmd = new MySqlCommand(query, conn);
+                //sting maken met ons sql statement
+                String query = "SELECT * from tblgebruiker WHERE Email=@Email AND Wachtwoord=@Wachtwoord";
+                MySqlConnection conn = Database.MakeConnection();
 
-            //Welk soort gegevens is het commando
-            mysqlcmd.CommandType = CommandType.Text;
+                //Maken van het command
+                MySqlCommand mysqlcmd = new MySqlCommand(query, conn);
 
-            //Parameters
-            mysqlcmd.Parameters.AddWithValue("@Gebruikersnaam", email);
-            mysqlcmd.Parameters.AddWithValue("@Wachtwoord", wachtwoord);
+                //Welk soort gegevens is het commando
+                mysqlcmd.CommandType = CommandType.Text;
 
-            //Hier wordt commando uitgevoerd en gaat hij resultaat bewaren in count
-            int count = Convert.ToInt32(mysqlcmd.ExecuteScalar());
+                //Parameters
+                mysqlcmd.Parameters.AddWithValue("@Email", email);
+                mysqlcmd.Parameters.AddWithValue("@Wachtwoord", wachtwoord);
 
-            return null;
+                //Hier wordt commando uitgevoerd en gaat hij resultaat bewaren in count
+                MySqlDataReader reader = mysqlcmd.ExecuteReader();
+
+                reader.Read();
+
+                Login.email = reader["Email"].ToString();
+                Login.Wachtwoord = reader["Wachtwoord"].ToString();
+
+                return Login;
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }
