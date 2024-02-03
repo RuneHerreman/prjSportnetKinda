@@ -113,9 +113,29 @@ namespace prjSportnetKinda.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap button_close_black_35 {
+            get {
+                object obj = ResourceManager.GetObject("button_close_black_35", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap button_close_red {
             get {
                 object obj = ResourceManager.GetObject("button_close_red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap button_close_red_35 {
+            get {
+                object obj = ResourceManager.GetObject("button_close_red_35", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

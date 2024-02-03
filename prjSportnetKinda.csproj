@@ -222,5 +222,14 @@
   <ItemGroup>
     <None Include="Resources\ItemAdd.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_close_black_35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button_close_red_35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close-square-svgrepo-com.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

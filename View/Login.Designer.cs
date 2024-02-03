@@ -37,16 +37,15 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.lblLinkToRegistreren = new System.Windows.Forms.Label();
-            this.picBtnClose = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlEmailLogin = new System.Windows.Forms.Panel();
             this.pnlPasswordLogin = new System.Windows.Forms.Panel();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblFout = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.picBtnClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnClose = new prjSportnetKinda.View.ButtonControls();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlEmailLogin.SuspendLayout();
             this.pnlPasswordLogin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -146,32 +145,6 @@
             this.lblLinkToRegistreren.Text = "Account aanmaken";
             this.lblLinkToRegistreren.Click += new System.EventHandler(this.lblLinkToRegistreren_Click);
             // 
-            // picBtnClose
-            // 
-            this.picBtnClose.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.picBtnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBtnClose.Image = ((System.Drawing.Image)(resources.GetObject("picBtnClose.Image")));
-            this.picBtnClose.Location = new System.Drawing.Point(658, 13);
-            this.picBtnClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.picBtnClose.Name = "picBtnClose";
-            this.picBtnClose.Size = new System.Drawing.Size(30, 37);
-            this.picBtnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBtnClose.TabIndex = 11;
-            this.picBtnClose.TabStop = false;
-            this.picBtnClose.Click += new System.EventHandler(this.picBtnClose_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = global::prjSportnetKinda.Properties.Resources.IMG_Login1;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(350, 450);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // pnlEmailLogin
             // 
             this.pnlEmailLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(48)))), ((int)(((byte)(81)))));
@@ -216,16 +189,46 @@
             this.lblFout.Size = new System.Drawing.Size(0, 16);
             this.lblFout.TabIndex = 14;
             // 
+            // btnClose
+            // 
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.HoverFoto1 = global::prjSportnetKinda.Properties.Resources.button_close_red_35;
+            this.btnClose.Image = global::prjSportnetKinda.Properties.Resources.button_close_black_35;
+            this.btnClose.Location = new System.Drawing.Point(648, 12);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.button_close_black_35;
+            this.btnClose.Size = new System.Drawing.Size(40, 40);
+            this.btnClose.TabIndex = 15;
+            this.btnClose.Tooltip1 = null;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = global::prjSportnetKinda.Properties.Resources.IMG_Login1;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(350, 450);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(700, 450);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblFout);
             this.Controls.Add(this.pnlPasswordLogin);
             this.Controls.Add(this.pnlEmailLogin);
-            this.Controls.Add(this.picBtnClose);
             this.Controls.Add(this.lblLinkToRegistreren);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnLogin);
@@ -240,12 +243,11 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            ((System.ComponentModel.ISupportInitialize)(this.picBtnClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlEmailLogin.ResumeLayout(false);
             this.pnlEmailLogin.PerformLayout();
             this.pnlPasswordLogin.ResumeLayout(false);
             this.pnlPasswordLogin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,10 +264,10 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblLinkToRegistreren;
-        private System.Windows.Forms.PictureBox picBtnClose;
         private System.Windows.Forms.Panel pnlEmailLogin;
         private System.Windows.Forms.Panel pnlPasswordLogin;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblFout;
+        private View.ButtonControls btnClose;
     }
 }
