@@ -113,7 +113,7 @@
             this.pnlNaamRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(48)))), ((int)(((byte)(81)))));
             this.pnlNaamRegister.Controls.Add(this.txtNaam);
             this.pnlNaamRegister.Location = new System.Drawing.Point(25, 91);
-            this.pnlNaamRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlNaamRegister.Margin = new System.Windows.Forms.Padding(4);
             this.pnlNaamRegister.Name = "pnlNaamRegister";
             this.pnlNaamRegister.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
             this.pnlNaamRegister.Size = new System.Drawing.Size(181, 39);
@@ -138,7 +138,7 @@
             this.pnlVoornaamRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(48)))), ((int)(((byte)(81)))));
             this.pnlVoornaamRegister.Controls.Add(this.txtVoornaam);
             this.pnlVoornaamRegister.Location = new System.Drawing.Point(224, 91);
-            this.pnlVoornaamRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlVoornaamRegister.Margin = new System.Windows.Forms.Padding(4);
             this.pnlVoornaamRegister.Name = "pnlVoornaamRegister";
             this.pnlVoornaamRegister.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
             this.pnlVoornaamRegister.Size = new System.Drawing.Size(183, 39);
@@ -163,7 +163,7 @@
             this.pnlEmailRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(48)))), ((int)(((byte)(81)))));
             this.pnlEmailRegister.Controls.Add(this.txtEmail);
             this.pnlEmailRegister.Location = new System.Drawing.Point(25, 170);
-            this.pnlEmailRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlEmailRegister.Margin = new System.Windows.Forms.Padding(4);
             this.pnlEmailRegister.Name = "pnlEmailRegister";
             this.pnlEmailRegister.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
             this.pnlEmailRegister.Size = new System.Drawing.Size(381, 39);
@@ -188,7 +188,7 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(48)))), ((int)(((byte)(81)))));
             this.panel4.Controls.Add(this.txtWachtwoord);
             this.panel4.Location = new System.Drawing.Point(25, 330);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
             this.panel4.Size = new System.Drawing.Size(381, 39);
@@ -274,7 +274,7 @@
             this.pnlDOB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(48)))), ((int)(((byte)(81)))));
             this.pnlDOB.Controls.Add(this.txtGeboortedatum);
             this.pnlDOB.Location = new System.Drawing.Point(25, 251);
-            this.pnlDOB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlDOB.Margin = new System.Windows.Forms.Padding(4);
             this.pnlDOB.Name = "pnlDOB";
             this.pnlDOB.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
             this.pnlDOB.Size = new System.Drawing.Size(381, 39);
@@ -324,7 +324,7 @@
             this.label9.Location = new System.Drawing.Point(21, 383);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(246, 26);
+            this.label9.Size = new System.Drawing.Size(197, 21);
             this.label9.TabIndex = 36;
             this.label9.Text = "Wachtwoord herhalen";
             // 
@@ -380,7 +380,7 @@
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ZRC - Sportnet";
