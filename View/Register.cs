@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using prjSportnetKinda.DA;
+using prjSportnetKinda.Model;
 
 namespace prjSportnetKinda
 {
@@ -29,11 +31,53 @@ namespace prjSportnetKinda
 
         private void btnRegistreren_Click(object sender, EventArgs e)
         {
-            //ga naar login nadat de registratie is uitgevoerd
-            Login login = new Login();
-            this.Hide();
-            login.ShowDialog();
-            this.Close();
+            //var decl
+            string strNaam, strVoornaam, strEmail, strWachtwoord, strWachtwoordHerhalen;
+            DateTime Geboortedatum;
+
+            //Contole op ivullen
+            if (txtNaam.Text == "" || txtVoornaam.Text == "" || txtEmail.Text == "" || txtGeboortedatum.Text == "" || txtWachtwoord.Text == "")
+            {
+                //Foutmelding
+                lblFout.Text = "Alle velden moeten worden ingevuld";
+            }
+            else
+            {
+                try
+                {
+                    strNaam = txtNaam.Text;
+                    strVoornaam = txtVoornaam.Text;
+                    strEmail = txtEmail.Text;
+                    Geboortedatum = Convert.ToDateTime(txtGeboortedatum.Text);
+                    strWachtwoord = txtWachtwoord.Text;
+                    strWachtwoordHerhalen = txtWachtwoordHerhalen.Text;
+
+                    if (strWachtwoord == strWachtwoordHerhalen)
+                    {
+                        Gebruiker registreren = GebruikerDA.Registreren(strNaam, strVoornaam, strEmail, Geboortedatum, strWachtwoord);
+
+                        if (registreren == null)
+                        {
+                            lblFout.Text = "Vul alle velden correct in";
+                        }
+                        else
+                        {
+                            Login login = new Login();
+                            this.Hide();
+                            login.ShowDialog();
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        lblFout.Text = "Wachtwoorden komen niet overeen";
+                    }
+                }
+                catch
+                {
+                    lblFout.Text = "Vul alle velden correct in";
+                }
+            }
         }
     }
 }
