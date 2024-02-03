@@ -12,7 +12,7 @@ namespace prjSportnetKinda.Model
         public int ID { get; set; }
         public DateTime datum { get; set; }
         public string titel { get; set; }
-        public string artiekel { get; set; }
-        public Image foto { get; set; }
+        public string artikel { get; set; }
+        public string foto { get; set; }
     }
 }

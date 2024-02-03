@@ -1,4 +1,5 @@
-﻿using System;
+﻿using prjSportnetKinda.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace prjSportnetKinda
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new Login());
+            Application.Run(new NieuwArtiekel());
             //Application.Run(new Main(new Model.Gebruiker()));
         }
     }

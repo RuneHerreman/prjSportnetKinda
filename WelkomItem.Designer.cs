@@ -47,6 +47,7 @@
             this.lblArtiekelTitel.Size = new System.Drawing.Size(508, 86);
             this.lblArtiekelTitel.TabIndex = 0;
             this.lblArtiekelTitel.Text = "ArtiekelTitel\r\nArtiekelTitel";
+            this.lblArtiekelTitel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // picArtiekelFoto
             // 

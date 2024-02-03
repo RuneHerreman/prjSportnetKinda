@@ -7,13 +7,19 @@ using prjSportnetKinda.Model;
 using MySql.Data.MySqlClient;
 using System.Drawing;
 using prjSportnetKinda.Helper;
+using System.Data;
+using System.Windows;
 
 namespace prjSportnetKinda.DA
 {
     public class ArtikelDA
     {
-        public static ArtikelDA Artiekel(string titel, DateTime datum, string artiekel, Image foto)
+        //methode om gegevens voor artikels op te halen uit de databank en opslaan in een List
+        public static List<Artikel> OphalenARtikel()
         {
+            //lijst maken
+            List<Artikel> ArtikelList = new List<Artikel>();
+
             //query
             //alle velden uit de tabel geordend op aflopend id (10, 9, 8, 7) --> recentst eerst
             string query = "SELECT * FROM tblArtiekels ORDER BY tblArtiekels.id DESC";
@@ -23,8 +29,42 @@ namespace prjSportnetKinda.DA
 
             //commando maken
             MySqlCommand cmdArtiekel = new MySqlCommand(query, conn);
+            cmdArtiekel.CommandText = query;
 
-            return new ArtikelDA();
+            //reader
+            MySqlDataReader reader = cmdArtiekel.ExecuteReader();
+
+
+            while (reader.Read())
+            {
+                ArtikelList.Add(Create(reader));
+            }
+
+            //connecties sluiten
+            reader.Close();
+            Database.CloseConnection(conn);
+
+            return ArtikelList ;
+        }
+
+        //mehode schrijven om de gegevens vanuit ons model in een soort rij te steken
+        private static Artikel Create(IDataRecord record)
+        {
+            try
+            {
+                return new Artikel()
+                {
+                    datum = Convert.ToDateTime(record["datum"].ToString()),
+                    titel = record["titel"].ToString(),
+                    artikel = record["artikel"].ToString(),
+                    foto = record["foto"].ToString(),
+                };
+            }
+            catch (Exception exc)
+            {
+                System.Windows.Forms.MessageBox.Show(exc.Message);
+                return new Artikel();
+            }
         }
     }
 }

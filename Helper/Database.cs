@@ -36,5 +36,14 @@ namespace prjSportnetKinda.Helper
                 return null;
             }
         }
+
+        public static void CloseConnection(MySqlConnection conn)
+        {
+            if (conn != null)
+            {
+                conn.Close();
+                conn = null;
+            }
+        }
     }
 }
