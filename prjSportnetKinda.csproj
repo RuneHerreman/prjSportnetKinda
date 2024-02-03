@@ -177,7 +177,9 @@
   <ItemGroup>
     <None Include="Resources\IMG_Login1.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ArtikelFotos\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\btnImageTest.png" />
   </ItemGroup>

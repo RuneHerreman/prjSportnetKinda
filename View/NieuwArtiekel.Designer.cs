@@ -38,6 +38,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.ofdFoto = new System.Windows.Forms.OpenFileDialog();
             this.lblLengte = new System.Windows.Forms.Label();
+            this.lblLengteArtikel = new System.Windows.Forms.Label();
+            this.picNieuwArtikelPreview = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picNieuwArtikelPreview)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBladeren
@@ -66,6 +69,7 @@
             this.btnArtikelOpslaan.TabIndex = 2;
             this.btnArtikelOpslaan.Text = "Opslaan";
             this.btnArtikelOpslaan.UseVisualStyleBackColor = true;
+            this.btnArtikelOpslaan.Click += new System.EventHandler(this.btnArtikelOpslaan_Click);
             // 
             // txtTitelNieuw
             // 
@@ -79,10 +83,12 @@
             // txtArtikelNieuw
             // 
             this.txtArtikelNieuw.Location = new System.Drawing.Point(12, 110);
+            this.txtArtikelNieuw.MaxLength = 50000;
             this.txtArtikelNieuw.Name = "txtArtikelNieuw";
             this.txtArtikelNieuw.Size = new System.Drawing.Size(400, 250);
             this.txtArtikelNieuw.TabIndex = 4;
             this.txtArtikelNieuw.Text = "";
+            this.txtArtikelNieuw.TextChanged += new System.EventHandler(this.txtArtikelNieuw_TextChanged);
             // 
             // label1
             // 
@@ -124,15 +130,34 @@
             this.lblLengte.BackColor = System.Drawing.Color.Transparent;
             this.lblLengte.Location = new System.Drawing.Point(377, 71);
             this.lblLengte.Name = "lblLengte";
-            this.lblLengte.Size = new System.Drawing.Size(35, 13);
+            this.lblLengte.Size = new System.Drawing.Size(0, 13);
             this.lblLengte.TabIndex = 8;
-            this.lblLengte.Text = "label4";
+            // 
+            // lblLengteArtikel
+            // 
+            this.lblLengteArtikel.AutoSize = true;
+            this.lblLengteArtikel.BackColor = System.Drawing.Color.Transparent;
+            this.lblLengteArtikel.Location = new System.Drawing.Point(377, 94);
+            this.lblLengteArtikel.Name = "lblLengteArtikel";
+            this.lblLengteArtikel.Size = new System.Drawing.Size(0, 13);
+            this.lblLengteArtikel.TabIndex = 9;
+            // 
+            // picNieuwArtikelPreview
+            // 
+            this.picNieuwArtikelPreview.Location = new System.Drawing.Point(418, 110);
+            this.picNieuwArtikelPreview.Name = "picNieuwArtikelPreview";
+            this.picNieuwArtikelPreview.Size = new System.Drawing.Size(200, 250);
+            this.picNieuwArtikelPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picNieuwArtikelPreview.TabIndex = 10;
+            this.picNieuwArtikelPreview.TabStop = false;
             // 
             // NieuwArtiekel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 395);
+            this.ClientSize = new System.Drawing.Size(628, 395);
+            this.Controls.Add(this.picNieuwArtikelPreview);
+            this.Controls.Add(this.lblLengteArtikel);
             this.Controls.Add(this.lblLengte);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -144,6 +169,7 @@
             this.Controls.Add(this.btnBladeren);
             this.Name = "NieuwArtiekel";
             this.Text = "NieuwArtiekel";
+            ((System.ComponentModel.ISupportInitialize)(this.picNieuwArtikelPreview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,5 +187,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.OpenFileDialog ofdFoto;
         private System.Windows.Forms.Label lblLengte;
+        private System.Windows.Forms.Label lblLengteArtikel;
+        private System.Windows.Forms.PictureBox picNieuwArtikelPreview;
     }
 }
