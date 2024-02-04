@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WelkomItem));
             this.lblArtiekelTitel = new System.Windows.Forms.Label();
-            this.picArtiekelFoto = new System.Windows.Forms.PictureBox();
             this.lblArtiekelDatum = new System.Windows.Forms.Label();
             this.pnlItemFoto = new System.Windows.Forms.Panel();
             this.txtArtiekel = new System.Windows.Forms.RichTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.picArtiekelFoto)).BeginInit();
+            this.picArtiekelFoto = new System.Windows.Forms.PictureBox();
             this.pnlItemFoto.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picArtiekelFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // lblArtiekelTitel
@@ -48,17 +48,6 @@
             this.lblArtiekelTitel.TabIndex = 0;
             this.lblArtiekelTitel.Text = "ArtiekelTitel\r\nArtiekelTitel";
             this.lblArtiekelTitel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // picArtiekelFoto
-            // 
-            this.picArtiekelFoto.Image = global::prjSportnetKinda.Properties.Resources.IMG_Login1;
-            this.picArtiekelFoto.Location = new System.Drawing.Point(25, 50);
-            this.picArtiekelFoto.Margin = new System.Windows.Forms.Padding(4);
-            this.picArtiekelFoto.Name = "picArtiekelFoto";
-            this.picArtiekelFoto.Size = new System.Drawing.Size(200, 250);
-            this.picArtiekelFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picArtiekelFoto.TabIndex = 3;
-            this.picArtiekelFoto.TabStop = false;
             // 
             // lblArtiekelDatum
             // 
@@ -94,6 +83,17 @@
             this.txtArtiekel.TabIndex = 6;
             this.txtArtiekel.Text = resources.GetString("txtArtiekel.Text");
             // 
+            // picArtiekelFoto
+            // 
+            this.picArtiekelFoto.Image = global::prjSportnetKinda.Properties.Resources.IMG_Login1;
+            this.picArtiekelFoto.Location = new System.Drawing.Point(25, 50);
+            this.picArtiekelFoto.Margin = new System.Windows.Forms.Padding(4);
+            this.picArtiekelFoto.Name = "picArtiekelFoto";
+            this.picArtiekelFoto.Size = new System.Drawing.Size(200, 250);
+            this.picArtiekelFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picArtiekelFoto.TabIndex = 3;
+            this.picArtiekelFoto.TabStop = false;
+            // 
             // WelkomItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
@@ -104,14 +104,14 @@
             this.Controls.Add(this.pnlItemFoto);
             this.Controls.Add(this.lblArtiekelTitel);
             this.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(62, 0, 0, 25);
             this.MaximumSize = new System.Drawing.Size(775, 350);
             this.MinimumSize = new System.Drawing.Size(775, 350);
             this.Name = "WelkomItem";
             this.Size = new System.Drawing.Size(775, 350);
-            ((System.ComponentModel.ISupportInitialize)(this.picArtiekelFoto)).EndInit();
             this.pnlItemFoto.ResumeLayout(false);
             this.pnlItemFoto.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picArtiekelFoto)).EndInit();
             this.ResumeLayout(false);
 
         }

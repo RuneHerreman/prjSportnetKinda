@@ -63,6 +63,12 @@
     <Compile Include="DA\ArtikelsDA.cs" />
     <Compile Include="DA\GebruikerDA.cs" />
     <Compile Include="Helper\Database.cs" />
+    <Compile Include="MateriaalItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MateriaalItem.Designer.cs">
+      <DependentUpon>MateriaalItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Artikel.cs" />
     <Compile Include="Model\Gebruiker.cs" />
     <Compile Include="View\ButtonControls.cs">
@@ -109,6 +115,9 @@
     <Compile Include="WelkomItem.Designer.cs">
       <DependentUpon>WelkomItem.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="MateriaalItem.resx">
+      <DependentUpon>MateriaalItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ButtonControls.resx">
       <DependentUpon>ButtonControls.cs</DependentUpon>
     </EmbeddedResource>

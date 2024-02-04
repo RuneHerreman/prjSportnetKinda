@@ -1,5 +1,6 @@
 ﻿using prjSportnetKinda.DA;
 using prjSportnetKinda.Model;
+using prjSportnetKinda.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,25 +25,33 @@ namespace prjSportnetKinda
             tcMain.ItemSize = new Size(0, 1);
             tcMain.SizeMode = TabSizeMode.Fixed;
 
-            int intTellerArtikels = 0;
-            foreach (Artikel artikel in ArtikelDA.OphalenArtikel())
-            {       
-                
-                intTellerArtikels++;
-                WelkomItem item = new WelkomItem();
-                WelkomItem.ArtikelOpvullen(artikel.titel, artikel.artikel, artikel.datum, item); ;
+            try
+            {
+                int intTellerArtikels = 0;
+                foreach (Artikel artikel in ArtikelDA.OphalenArtikel())
+                {
 
-                pnlArtiekelContainer.Controls.Add(item);
-                item.Location = new Point(50, (350 * intTellerArtikels));
-                
+                    intTellerArtikels++;
+                    WelkomItem item = new WelkomItem();
+                    WelkomItem.ArtikelOpvullen(artikel.titel, artikel.artikel, artikel.datum, item); ;
+
+                    fpnlArtiekelContainer.Controls.Add(item);
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
 
-            //for (int intTeller = 1; intTeller < 10; intTeller++)
-            //{
-            //    WelkomItem welkomItem = new WelkomItem();
-            //    pnlArtiekelContainer.Controls.Add(welkomItem);
-            //    welkomItem.Location = new Point(50, (350 * intTeller));
-            //}
+
+            for (int intTeller = 1; intTeller < 10; intTeller++)
+            {
+                MateriaalItem materiaalItem= new MateriaalItem();
+                fpnlMateriaalContainer.Controls.Add(materiaalItem);
+
+            }
 
 
             //toon alleen geselecteerde tab
@@ -140,6 +149,12 @@ namespace prjSportnetKinda
             this.btnProfiel.HoverFoto1 = Properties.Resources.user_select;
             //verander tab
             tcMain.SelectTab(tabProfiel);
+        }
+
+        private void btnArtiekelToevoegen_Click(object sender, EventArgs e)
+        {
+            NieuwArtiekel nieuwArtiekel = new NieuwArtiekel();
+            nieuwArtiekel.ShowDialog();
         }
     }
 }

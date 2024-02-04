@@ -68,8 +68,6 @@ namespace prjSportnetKinda.View
 
         private void btnArtikelOpslaan_Click(object sender, EventArgs e)
         {
-            
-
             try
             {
                 //foto omzetten naar byte array
@@ -97,6 +95,15 @@ namespace prjSportnetKinda.View
                 cmdArtiekel.Parameters.AddWithValue("@foto", arrFoto);
 
                 cmdArtiekel.ExecuteNonQuery();
+
+                //confirmatie
+                MessageBox.Show("Artikel opgeslaan in database", "Artikel opgeslaan", MessageBoxButtons.OK);
+
+                //textboxes legen
+                txtArtikelNieuw.ResetText();
+                txtTitelNieuw.ResetText();
+                txtFotoNieuw.ResetText();
+                picNieuwArtikelPreview.Image = null;
             }
             catch (Exception exc)
             {
