@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using MySql.Data.MySqlClient;
+using prjSportnetKinda.Helper;
 
 namespace prjSportnetKinda.View
 {
     public partial class NieuwArtiekel : Form
     {
-        int intFotoTeller = 0;
-        string strFotoFolder = "ArtikelFotos";
+
         public NieuwArtiekel()
         {
             InitializeComponent();
@@ -27,7 +28,7 @@ namespace prjSportnetKinda.View
                 ofdFoto.Title = "Selecteer een bestand";
                 ofdFoto.FileName = string.Empty;
                 ofdFoto.ShowHelp = false;
-                ofdFoto.Filter = "Image Files (*.JPG;*.PNG;*JPEG) |*.PNG;";
+                ofdFoto.Filter = "Image Files (*.JPG;*.PNG;*JPEG) |*.JPG;*.PNG;*JPEG";
                 DialogResult _result = ofdFoto.ShowDialog();
                 if (_result == DialogResult.Cancel) 
                 {
@@ -67,33 +68,40 @@ namespace prjSportnetKinda.View
 
         private void btnArtikelOpslaan_Click(object sender, EventArgs e)
         {
-            string strFotoBestandPad = ofdFoto.FileName;
-            Image foto = Image.FromFile(strFotoBestandPad);
-            SaveToFolder(foto);
-        }
+            
 
-
-        //methode om foto op te slaan
-        private void SaveToFolder(Image foto)
-        {
             try
             {
-                //wat
-                string strFotoNaam = $"artikel_foto_{intFotoTeller++}";
+                //foto omzetten naar byte array
+                MemoryStream ms = new MemoryStream();
+                picNieuwArtikelPreview.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                byte[] arrFoto = ms.GetBuffer();
 
-                //opslaan in folder
-                string strFotoPad = Path.Combine(strFotoFolder, strFotoNaam);
+                //huidige datum
+                DateTime dtHuidigeDatum = DateTime.Now;
 
-                using (FileStream fs = new FileStream(strFotoPad,FileMode.Create))
-                {
-                    foto.Save(fs, System.Drawing.Imaging.ImageFormat.Png);
-                }
+
                 
+                //open connectie
+                MySqlConnection conn = Database.MakeConnection();
+
+                //query maken
+                string query = "INSERT INTO `tblartikels`(`datum`, `titel`, `artikel`, `foto`) VALUES (@datum,@titel,@artikel,@foto)";
+                //commando maken
+                MySqlCommand cmdArtiekel = new MySqlCommand(query, conn);
+                cmdArtiekel.CommandText = query;
+
+                cmdArtiekel.Parameters.AddWithValue("@datum", dtHuidigeDatum.ToString("yyyy-MM-dd"));
+                cmdArtiekel.Parameters.AddWithValue("@titel", txtTitelNieuw.Text);
+                cmdArtiekel.Parameters.AddWithValue("@artikel", txtArtikelNieuw.Text);
+                cmdArtiekel.Parameters.AddWithValue("@foto", arrFoto);
+
+                cmdArtiekel.ExecuteNonQuery();
             }
             catch (Exception exc)
             {
-                MessageBox.Show(exc.Message);
+                MessageBox.Show(exc.Message , "",MessageBoxButtons.OK);
             }
-        }
+        }  
     }
 }

@@ -117,11 +117,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblArtiekelTitel;
-        private System.Windows.Forms.PictureBox picArtiekelFoto;
-        private System.Windows.Forms.Label lblArtiekelDatum;
         private System.Windows.Forms.Panel pnlItemFoto;
-        private System.Windows.Forms.RichTextBox txtArtiekel;
+        public System.Windows.Forms.Label lblArtiekelTitel;
+        public System.Windows.Forms.PictureBox picArtiekelFoto;
+        public System.Windows.Forms.Label lblArtiekelDatum;
+        public System.Windows.Forms.RichTextBox txtArtiekel;
     }
 }

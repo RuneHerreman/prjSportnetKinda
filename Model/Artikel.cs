@@ -13,6 +13,6 @@ namespace prjSportnetKinda.Model
         public DateTime datum { get; set; }
         public string titel { get; set; }
         public string artikel { get; set; }
-        public string foto { get; set; }
+        public byte[] foto { get; set; }
     }
 }

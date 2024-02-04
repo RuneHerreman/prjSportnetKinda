@@ -1,9 +1,12 @@
-﻿using System;
+﻿using prjSportnetKinda.DA;
+using prjSportnetKinda.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,12 +24,25 @@ namespace prjSportnetKinda
             tcMain.ItemSize = new Size(0, 1);
             tcMain.SizeMode = TabSizeMode.Fixed;
 
-            for (int intTeller = 1; intTeller < 10; intTeller++)
-            {
-                WelkomItem welkomItem = new WelkomItem();
-                pnlArtiekelContainer.Controls.Add(welkomItem);
-                welkomItem.Location = new Point(50, (350 * intTeller));
+            int intTellerArtikels = 0;
+            foreach (Artikel artikel in ArtikelDA.OphalenArtikel())
+            {       
+                
+                intTellerArtikels++;
+                WelkomItem item = new WelkomItem();
+                WelkomItem.ArtikelOpvullen(artikel.titel, artikel.artikel, artikel.datum, item); ;
+
+                pnlArtiekelContainer.Controls.Add(item);
+                item.Location = new Point(50, (350 * intTellerArtikels));
+                
             }
+
+            //for (int intTeller = 1; intTeller < 10; intTeller++)
+            //{
+            //    WelkomItem welkomItem = new WelkomItem();
+            //    pnlArtiekelContainer.Controls.Add(welkomItem);
+            //    welkomItem.Location = new Point(50, (350 * intTeller));
+            //}
 
 
             //toon alleen geselecteerde tab
