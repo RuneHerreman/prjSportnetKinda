@@ -77,6 +77,11 @@ namespace prjSportnetKinda
                 lblCategorieKop.Text = "Categorie:";
                 //lblCategorie.Text = login.Categorie;
             }
+
+            if (login.Beheerder == 1)
+            {
+                btnBeheerdersinstellingen.Visible = true;
+            }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -179,6 +184,11 @@ namespace prjSportnetKinda
             this.Hide();
             login.ShowDialog();
             this.Close();
+        }
+
+        private void btnAccountVerwijderen_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

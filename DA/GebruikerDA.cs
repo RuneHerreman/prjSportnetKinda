@@ -50,6 +50,7 @@ namespace prjSportnetKinda.DA
                     gebruiker.Adres = reader["Adres"].ToString();
                     gebruiker.Telefoonnr = reader["Telefoonnummer"].ToString();
                     gebruiker.Renner = Convert.ToInt32(reader["Renner"]);
+                    gebruiker.Beheerder = Convert.ToInt32(reader["Beheerder"]);
                     gebruiker.Geboortedatum = Convert.ToDateTime(reader["Geboortedatum"]);
                     gebruiker.Lidsinds = Convert.ToDateTime(reader["LidSinds"]);
 
@@ -131,6 +132,39 @@ namespace prjSportnetKinda.DA
                 return null ;
             }
             
+        }
+
+        public static Gebruiker Verwijderen(string email)
+        {
+            try
+            {
+                Gebruiker verwijderen = new Gebruiker();
+
+                //Connection openen
+                MySqlConnection conn = Database.MakeConnection();
+
+                //sting maken met sql statement
+                String query = "DELETE FROM tblgebruiker WHERE Email=@Email";
+
+                //Maken van het command
+                MySqlCommand mysqlcmd = new MySqlCommand(query, conn);
+
+                //Welk soort gegevens is het commando
+                mysqlcmd.CommandType = CommandType.Text;
+
+                //Parameters
+                mysqlcmd.Parameters.AddWithValue("@Email", email);
+
+                //Hier wordt commando uitgevoerd en gaat hij resultaat bewaren in count
+                mysqlcmd.ExecuteNonQuery();
+
+                return verwijderen;
+            }
+            catch 
+            {
+                return null;
+            }
+
         }
     }
 }
