@@ -43,9 +43,15 @@ namespace prjSportnetKinda.DA
                 if (reader.HasRows == true)
                 {
                     reader.Read();
-                    gebruiker.email = reader["Email"].ToString();
+                    gebruiker.Email = reader["Email"].ToString();
                     gebruiker.Voornaam = reader["Voornaam"].ToString();
                     gebruiker.Naam = reader["Naam"].ToString();
+                    gebruiker.Geslacht = reader["Geslacht"].ToString();
+                    gebruiker.Adres = reader["Adres"].ToString();
+                    gebruiker.Telefoonnr = reader["Telefoonnummer"].ToString();
+                    gebruiker.Renner = Convert.ToInt32(reader["Renner"]);
+                    gebruiker.Geboortedatum = Convert.ToDateTime(reader["Geboortedatum"]);
+                    gebruiker.Lidsinds = Convert.ToDateTime(reader["LidSinds"]);
 
                     return gebruiker;
                 }
@@ -85,17 +91,17 @@ namespace prjSportnetKinda.DA
                 if (reader.HasRows == true)
                 {
                     reader.Read();
-                    registreren.email = reader["Email"].ToString();
+                    registreren.Email = reader["Email"].ToString();
                     reader.Close();
-                    registreren.email = "Bezet";
+                    registreren.Email = "Bezet";
                     return registreren;
                 }
                 else
                 {
                     reader.Close();
                     //sting maken met sql statement
-                    query = "INSERT INTO tblgebruiker (Naam, Voornaam, Email, Geboortedatum, Wachtwoord) " +
-                            "VALUES (@Naam, @Voornaam, @Email, @Geboortedatum, @Wachtwoord)";
+                    query = "INSERT INTO tblgebruiker (Naam, Voornaam, Email, Geboortedatum, Wachtwoord, LidSinds, Renner) " +
+                            "VALUES (@Naam, @Voornaam, @Email, @Geboortedatum, @Wachtwoord, @LidSinds, @Renner)";
 
                     //Maken van het command
                     mysqlcmd = new MySqlCommand(query, conn);
@@ -105,10 +111,12 @@ namespace prjSportnetKinda.DA
 
                     //Parameters
                     mysqlcmd.Parameters.AddWithValue("@Naam", naam);
-                    mysqlcmd.Parameters.AddWithValue("@voornaam", voornaam);
+                    mysqlcmd.Parameters.AddWithValue("@Voornaam", voornaam);
                     mysqlcmd.Parameters.AddWithValue("@Email", email);
                     mysqlcmd.Parameters.AddWithValue("Geboortedatum", geboordtedatum);
                     mysqlcmd.Parameters.AddWithValue("@Wachtwoord", wachtwoord);
+                    mysqlcmd.Parameters.AddWithValue("@LidSinds", DateTime.Today);
+                    mysqlcmd.Parameters.AddWithValue("@Renner", 1);
 
                     //Uivoeren
                     mysqlcmd.ExecuteNonQuery();

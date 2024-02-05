@@ -60,7 +60,7 @@ namespace prjSportnetKinda
                         {
                             lblFout.Text = "Vul alle velden correct in";
                         }
-                        else if (registreren.email == "Bezet")
+                        else if (registreren.Email == "Bezet")
                         {
                             lblFout.Text = "E-mail is al in gebruik";
                         }

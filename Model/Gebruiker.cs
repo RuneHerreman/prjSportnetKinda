@@ -8,9 +8,17 @@ namespace prjSportnetKinda.Model
 {
     public class Gebruiker
     {
-        public string email { get; set; }
+        public string Email { get; set; }
         public string Voornaam { get; set; }
         public string Naam { get; set; }
-
+        public string Geslacht { get; set; }
+        public string Adres { get; set; }
+        public string Telefoonnr { get; set; }
+        public string Catgeorie { get; set; }
+        public int Behheerder { get; set; }
+        public int Trainer { get; set; }
+        public int Renner { get; set; }
+        public DateTime Geboortedatum { get; set; }
+        public DateTime Lidsinds { get; set; }
     }
 }

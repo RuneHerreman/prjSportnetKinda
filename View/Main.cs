@@ -59,9 +59,17 @@ namespace prjSportnetKinda
             this.btnStart.NormaalFoto1 = Properties.Resources.home_select;
             this.btnStart.HoverFoto1 = Properties.Resources.home_select;
 
-            //data invullen
+            //Welkom text invullen
             this.lblNaamVoornaam.Text = "Welkom " + login.Voornaam + " " + login.Naam;
 
+            //Profiel invullen
+            lblVoornaam.Text = login.Voornaam;
+            lblNaam.Text = login.Naam;
+            lblGeslacht.Text = login.Geslacht;
+            lblAdres.Text = login.Adres;
+            lblTelefoon.Text = login.Telefoonnr;
+            lblEmail.Text = login.Email;
+            lblGeboortedatum.Text = login.Geboortedatum.ToString();
         }
 
         private void btnStart_Click(object sender, EventArgs e)
