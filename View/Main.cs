@@ -69,7 +69,14 @@ namespace prjSportnetKinda
             lblAdres.Text = login.Adres;
             lblTelefoon.Text = login.Telefoonnr;
             lblEmail.Text = login.Email;
-            lblGeboortedatum.Text = login.Geboortedatum.ToString();
+            lblGeboortedatum.Text = login.Geboortedatum.ToString("d");
+            lblLidSinds.Text = login.Lidsinds.ToString("d");
+
+            if (login.Renner == 1)
+            {
+                lblCategorieKop.Text = "Categorie:";
+                //lblCategorie.Text = login.Categorie;
+            }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -163,6 +170,15 @@ namespace prjSportnetKinda
         {
             NieuwArtiekel nieuwArtiekel = new NieuwArtiekel();
             nieuwArtiekel.ShowDialog();
+        }
+
+        private void btnUitloggen_Click(object sender, EventArgs e)
+        {
+            //ga naar Login
+            Login login = new Login();
+            this.Hide();
+            login.ShowDialog();
+            this.Close();
         }
     }
 }

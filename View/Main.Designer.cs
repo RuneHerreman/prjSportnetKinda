@@ -69,8 +69,9 @@
             this.lblNaam = new System.Windows.Forms.Label();
             this.lblVoornaam = new System.Windows.Forms.Label();
             this.btnWijzigenProfiel = new System.Windows.Forms.Button();
-            this.btnAccountVerwijderen = new System.Windows.Forms.Button();
+            this.btnUitloggen = new System.Windows.Forms.Button();
             this.btnBeheerdersinstellingen = new System.Windows.Forms.Button();
+            this.btnAccountVerwijderen = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tcMain.SuspendLayout();
@@ -95,7 +96,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(87, 901);
+            this.panel1.Size = new System.Drawing.Size(109, 901);
             this.panel1.TabIndex = 0;
             // 
             // btnProfiel
@@ -198,11 +199,11 @@
             this.tcMain.Controls.Add(this.tabMateriaal);
             this.tcMain.Controls.Add(this.tabProfiel);
             this.tcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tcMain.Location = new System.Drawing.Point(87, 0);
+            this.tcMain.Location = new System.Drawing.Point(109, 0);
             this.tcMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tcMain.Name = "tcMain";
             this.tcMain.SelectedIndex = 0;
-            this.tcMain.Size = new System.Drawing.Size(1218, 901);
+            this.tcMain.Size = new System.Drawing.Size(1196, 901);
             this.tcMain.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tcMain.TabIndex = 1;
             // 
@@ -215,7 +216,7 @@
             this.tabStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabStart.Name = "tabStart";
             this.tabStart.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabStart.Size = new System.Drawing.Size(1210, 872);
+            this.tabStart.Size = new System.Drawing.Size(1188, 872);
             this.tabStart.TabIndex = 0;
             this.tabStart.Text = "Start";
             // 
@@ -229,17 +230,17 @@
             this.pnlStartContainer.Location = new System.Drawing.Point(4, 4);
             this.pnlStartContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlStartContainer.Name = "pnlStartContainer";
-            this.pnlStartContainer.Size = new System.Drawing.Size(1202, 864);
+            this.pnlStartContainer.Size = new System.Drawing.Size(1180, 864);
             this.pnlStartContainer.TabIndex = 6;
             // 
             // fpnlArtiekelContainer
             // 
             this.fpnlArtiekelContainer.AutoScroll = true;
             this.fpnlArtiekelContainer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.fpnlArtiekelContainer.Location = new System.Drawing.Point(0, 97);
+            this.fpnlArtiekelContainer.Location = new System.Drawing.Point(0, -335);
             this.fpnlArtiekelContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.fpnlArtiekelContainer.Name = "fpnlArtiekelContainer";
-            this.fpnlArtiekelContainer.Size = new System.Drawing.Size(1202, 767);
+            this.fpnlArtiekelContainer.Size = new System.Drawing.Size(1180, 1199);
             this.fpnlArtiekelContainer.TabIndex = 6;
             // 
             // btnArtiekelToevoegen
@@ -280,7 +281,7 @@
             this.tabKalender.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabKalender.Name = "tabKalender";
             this.tabKalender.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabKalender.Size = new System.Drawing.Size(1210, 872);
+            this.tabKalender.Size = new System.Drawing.Size(1188, 872);
             this.tabKalender.TabIndex = 1;
             this.tabKalender.Text = "Kalender";
             // 
@@ -305,7 +306,7 @@
             this.tabMateriaal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabMateriaal.Name = "tabMateriaal";
             this.tabMateriaal.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabMateriaal.Size = new System.Drawing.Size(1210, 872);
+            this.tabMateriaal.Size = new System.Drawing.Size(1188, 872);
             this.tabMateriaal.TabIndex = 2;
             this.tabMateriaal.Text = "Materiaal";
             // 
@@ -362,14 +363,15 @@
             this.fpnlMateriaalContainer.Location = new System.Drawing.Point(4, 86);
             this.fpnlMateriaalContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.fpnlMateriaalContainer.Name = "fpnlMateriaalContainer";
-            this.fpnlMateriaalContainer.Size = new System.Drawing.Size(1202, 782);
+            this.fpnlMateriaalContainer.Size = new System.Drawing.Size(1180, 782);
             this.fpnlMateriaalContainer.TabIndex = 0;
             // 
             // tabProfiel
             // 
             this.tabProfiel.BackColor = System.Drawing.Color.White;
-            this.tabProfiel.Controls.Add(this.btnBeheerdersinstellingen);
             this.tabProfiel.Controls.Add(this.btnAccountVerwijderen);
+            this.tabProfiel.Controls.Add(this.btnBeheerdersinstellingen);
+            this.tabProfiel.Controls.Add(this.btnUitloggen);
             this.tabProfiel.Controls.Add(this.btnWijzigenProfiel);
             this.tabProfiel.Controls.Add(this.lblAdres);
             this.tabProfiel.Controls.Add(this.lblLidSinds);
@@ -395,7 +397,7 @@
             this.tabProfiel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabProfiel.Name = "tabProfiel";
             this.tabProfiel.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabProfiel.Size = new System.Drawing.Size(1210, 872);
+            this.tabProfiel.Size = new System.Drawing.Size(1188, 872);
             this.tabProfiel.TabIndex = 3;
             this.tabProfiel.Text = "Profiel";
             // 
@@ -466,7 +468,6 @@
             this.lblCategorieKop.Name = "lblCategorieKop";
             this.lblCategorieKop.Size = new System.Drawing.Size(130, 23);
             this.lblCategorieKop.TabIndex = 6;
-            this.lblCategorieKop.Text = "Categorie:";
             this.lblCategorieKop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label7
@@ -595,30 +596,42 @@
             this.btnWijzigenProfiel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWijzigenProfiel.Location = new System.Drawing.Point(126, 675);
             this.btnWijzigenProfiel.Name = "btnWijzigenProfiel";
-            this.btnWijzigenProfiel.Size = new System.Drawing.Size(189, 43);
+            this.btnWijzigenProfiel.Size = new System.Drawing.Size(193, 43);
             this.btnWijzigenProfiel.TabIndex = 20;
             this.btnWijzigenProfiel.Text = "Gegevens Wijzigen";
             this.btnWijzigenProfiel.UseVisualStyleBackColor = true;
             // 
-            // btnAccountVerwijderen
+            // btnUitloggen
             // 
-            this.btnAccountVerwijderen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccountVerwijderen.Location = new System.Drawing.Point(327, 675);
-            this.btnAccountVerwijderen.Name = "btnAccountVerwijderen";
-            this.btnAccountVerwijderen.Size = new System.Drawing.Size(189, 43);
-            this.btnAccountVerwijderen.TabIndex = 21;
-            this.btnAccountVerwijderen.Text = "Account verwijderen";
-            this.btnAccountVerwijderen.UseVisualStyleBackColor = true;
+            this.btnUitloggen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUitloggen.Location = new System.Drawing.Point(327, 675);
+            this.btnUitloggen.Name = "btnUitloggen";
+            this.btnUitloggen.Size = new System.Drawing.Size(193, 43);
+            this.btnUitloggen.TabIndex = 21;
+            this.btnUitloggen.Text = "Uitloggen";
+            this.btnUitloggen.UseVisualStyleBackColor = true;
+            this.btnUitloggen.Click += new System.EventHandler(this.btnUitloggen_Click);
             // 
             // btnBeheerdersinstellingen
             // 
             this.btnBeheerdersinstellingen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBeheerdersinstellingen.Location = new System.Drawing.Point(126, 726);
+            this.btnBeheerdersinstellingen.Location = new System.Drawing.Point(126, 727);
             this.btnBeheerdersinstellingen.Name = "btnBeheerdersinstellingen";
-            this.btnBeheerdersinstellingen.Size = new System.Drawing.Size(390, 43);
+            this.btnBeheerdersinstellingen.Size = new System.Drawing.Size(394, 43);
             this.btnBeheerdersinstellingen.TabIndex = 22;
             this.btnBeheerdersinstellingen.Text = "Beheerders instellingen";
             this.btnBeheerdersinstellingen.UseVisualStyleBackColor = true;
+            // 
+            // btnAccountVerwijderen
+            // 
+            this.btnAccountVerwijderen.BackColor = System.Drawing.Color.Transparent;
+            this.btnAccountVerwijderen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAccountVerwijderen.Location = new System.Drawing.Point(862, 675);
+            this.btnAccountVerwijderen.Name = "btnAccountVerwijderen";
+            this.btnAccountVerwijderen.Size = new System.Drawing.Size(193, 43);
+            this.btnAccountVerwijderen.TabIndex = 23;
+            this.btnAccountVerwijderen.Text = "Account Verwijderen";
+            this.btnAccountVerwijderen.UseVisualStyleBackColor = false;
             // 
             // Main
             // 
@@ -671,7 +684,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.FlowLayoutPanel fpnlArtiekelContainer;
         private System.Windows.Forms.Button btnBeheerdersinstellingen;
-        private System.Windows.Forms.Button btnAccountVerwijderen;
+        private System.Windows.Forms.Button btnUitloggen;
         private System.Windows.Forms.Button btnWijzigenProfiel;
         private System.Windows.Forms.Label lblAdres;
         private System.Windows.Forms.Label lblLidSinds;
@@ -693,6 +706,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox picBannerFoto;
         private System.Windows.Forms.PictureBox picProfielFoto;
+        private System.Windows.Forms.Button btnAccountVerwijderen;
     }
 }
 
