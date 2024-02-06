@@ -18,9 +18,11 @@ namespace prjSportnetKinda
 {
     public partial class Main : Form
     {
+        Model.Gebruiker gebruiker;
         public Main(Model.Gebruiker login)
         {
             InitializeComponent();
+            gebruiker = login;
             tcMain.Appearance = TabAppearance.FlatButtons;
             tcMain.ItemSize = new Size(0, 1);
             tcMain.SizeMode = TabSizeMode.Fixed;
@@ -33,7 +35,7 @@ namespace prjSportnetKinda
 
                     intTellerArtikels++;
                     WelkomItem item = new WelkomItem();
-                    WelkomItem.ArtikelOpvullen(artikel.titel, artikel.artikel, artikel.datum, item); ;
+                    WelkomItem.ArtikelOpvullen(artikel.titel, artikel.artikel, artikel.datum, item, artikel.foto);
 
                     fpnlArtiekelContainer.Controls.Add(item);
 
@@ -173,8 +175,8 @@ namespace prjSportnetKinda
 
         private void btnArtiekelToevoegen_Click(object sender, EventArgs e)
         {
-            NieuwArtiekel nieuwArtiekel = new NieuwArtiekel();
-            nieuwArtiekel.ShowDialog();
+            NieuwArtikel nieuwartikel = new NieuwArtikel();
+            nieuwartikel.ShowDialog();
         }
 
         private void btnUitloggen_Click(object sender, EventArgs e)
@@ -188,7 +190,7 @@ namespace prjSportnetKinda
 
         private void btnAccountVerwijderen_Click(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

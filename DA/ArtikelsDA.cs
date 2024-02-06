@@ -62,14 +62,26 @@ namespace prjSportnetKinda.DA
         {
             try
             {
-                ////////////ImageConverter converter = new ImageConverter();
+                ImageConverter converter = new ImageConverter();
+                byte[] arrFoto = (byte[])(record["foto"]);
+                Image img;
+                try
+                {
+                    MemoryStream ms = new MemoryStream(arrFoto);
+                   img = Image.FromStream(ms);
+                }
+                catch (Exception)
+                {
+                    img = null;
+                }
+              
                 return new Artikel()
                 {
-                    
-                    datum = Convert.ToDateTime(record["datum"].ToString()),
+
+                    datum = Convert.ToDateTime(record["datum"]),
                     titel = record["titel"].ToString(),
                     artikel = record["artikel"].ToString(),
-                    ////////////////foto = (byte[])converter.ConvertTo(record["foto"].ToString(), typeof(byte[])),
+                    foto = img
                 };
             }
             catch (Exception exc)

@@ -77,11 +77,11 @@
     <Compile Include="View\ButtonControls.Designer.cs">
       <DependentUpon>ButtonControls.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\NieuwArtiekel.cs">
+    <Compile Include="View\NieuwArtikel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\NieuwArtiekel.Designer.cs">
-      <DependentUpon>NieuwArtiekel.cs</DependentUpon>
+    <Compile Include="View\NieuwArtikel.Designer.cs">
+      <DependentUpon>NieuwArtikel.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Register.cs">
       <SubType>Form</SubType>
@@ -121,8 +121,8 @@
     <EmbeddedResource Include="View\ButtonControls.resx">
       <DependentUpon>ButtonControls.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\NieuwArtiekel.resx">
-      <DependentUpon>NieuwArtiekel.cs</DependentUpon>
+    <EmbeddedResource Include="View\NieuwArtikel.resx">
+      <DependentUpon>NieuwArtikel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>

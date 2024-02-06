@@ -13,10 +13,10 @@ using prjSportnetKinda.Helper;
 
 namespace prjSportnetKinda.View
 {
-    public partial class NieuwArtiekel : Form
+    public partial class NieuwArtikel : Form
     {
 
-        public NieuwArtiekel()
+        public NieuwArtikel()
         {
             InitializeComponent();
         }
@@ -86,15 +86,15 @@ namespace prjSportnetKinda.View
                 //query maken
                 string query = "INSERT INTO `tblartikels`(`datum`, `titel`, `artikel`, `foto`) VALUES (@datum,@titel,@artikel,@foto)";
                 //commando maken
-                MySqlCommand cmdArtiekel = new MySqlCommand(query, conn);
-                cmdArtiekel.CommandText = query;
+                MySqlCommand cmdArtikel = new MySqlCommand(query, conn);
+                cmdArtikel.CommandText = query;
 
-                cmdArtiekel.Parameters.AddWithValue("@datum", dtHuidigeDatum.ToString("yyyy-MM-dd"));
-                cmdArtiekel.Parameters.AddWithValue("@titel", txtTitelNieuw.Text);
-                cmdArtiekel.Parameters.AddWithValue("@artikel", txtArtikelNieuw.Text);
-                cmdArtiekel.Parameters.AddWithValue("@foto", arrFoto);
+                cmdArtikel.Parameters.AddWithValue("@datum", dtHuidigeDatum.Date);
+                cmdArtikel.Parameters.AddWithValue("@titel", txtTitelNieuw.Text);
+                cmdArtikel.Parameters.AddWithValue("@artikel", txtArtikelNieuw.Text);
+                cmdArtikel.Parameters.AddWithValue("@foto", arrFoto);
 
-                cmdArtiekel.ExecuteNonQuery();
+                cmdArtikel.ExecuteNonQuery();
 
                 //confirmatie
                 MessageBox.Show("Artikel opgeslaan in database", "Artikel opgeslaan", MessageBoxButtons.OK);

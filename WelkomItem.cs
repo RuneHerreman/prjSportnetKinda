@@ -21,12 +21,15 @@ namespace prjSportnetKinda
             
         }
         static WelkomItem usercontrol = Application.OpenForms.OfType<WelkomItem>().FirstOrDefault();
-        public static void ArtikelOpvullen(string artTitel, string artArtikel, DateTime artDatum, WelkomItem usercontrol)
+        public static void ArtikelOpvullen(string artTitel, string artArtikel, DateTime artDatum, WelkomItem usercontrol, Image image)
         {
             usercontrol.lblArtiekelTitel.Text = artTitel;
             usercontrol.txtArtiekel.Text = artArtikel;
             usercontrol.lblArtiekelDatum.Text = artDatum.ToString("dd/MM/yyyy");
-            
+            if (image != null)
+            {
+                usercontrol.picArtiekelFoto.Image = image;
+            }
         }
     }
 }

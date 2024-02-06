@@ -1,6 +1,6 @@
 ﻿namespace prjSportnetKinda.View
 {
-    partial class NieuwArtiekel
+    partial class NieuwArtikel
     {
         /// <summary>
         /// Required designer variable.
@@ -45,9 +45,10 @@
             // 
             // btnBladeren
             // 
-            this.btnBladeren.Location = new System.Drawing.Point(418, 24);
+            this.btnBladeren.Location = new System.Drawing.Point(557, 30);
+            this.btnBladeren.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBladeren.Name = "btnBladeren";
-            this.btnBladeren.Size = new System.Drawing.Size(75, 23);
+            this.btnBladeren.Size = new System.Drawing.Size(100, 28);
             this.btnBladeren.TabIndex = 0;
             this.btnBladeren.Text = "Bladeren";
             this.btnBladeren.UseVisualStyleBackColor = true;
@@ -56,16 +57,18 @@
             // txtFotoNieuw
             // 
             this.txtFotoNieuw.Enabled = false;
-            this.txtFotoNieuw.Location = new System.Drawing.Point(12, 26);
+            this.txtFotoNieuw.Location = new System.Drawing.Point(16, 32);
+            this.txtFotoNieuw.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFotoNieuw.Name = "txtFotoNieuw";
-            this.txtFotoNieuw.Size = new System.Drawing.Size(400, 20);
+            this.txtFotoNieuw.Size = new System.Drawing.Size(532, 22);
             this.txtFotoNieuw.TabIndex = 1;
             // 
             // btnArtikelOpslaan
             // 
-            this.btnArtikelOpslaan.Location = new System.Drawing.Point(16, 366);
+            this.btnArtikelOpslaan.Location = new System.Drawing.Point(21, 450);
+            this.btnArtikelOpslaan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnArtikelOpslaan.Name = "btnArtikelOpslaan";
-            this.btnArtikelOpslaan.Size = new System.Drawing.Size(396, 23);
+            this.btnArtikelOpslaan.Size = new System.Drawing.Size(528, 28);
             this.btnArtikelOpslaan.TabIndex = 2;
             this.btnArtikelOpslaan.Text = "Opslaan";
             this.btnArtikelOpslaan.UseVisualStyleBackColor = true;
@@ -73,19 +76,21 @@
             // 
             // txtTitelNieuw
             // 
-            this.txtTitelNieuw.Location = new System.Drawing.Point(12, 68);
+            this.txtTitelNieuw.Location = new System.Drawing.Point(16, 84);
+            this.txtTitelNieuw.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTitelNieuw.MaxLength = 44;
             this.txtTitelNieuw.Name = "txtTitelNieuw";
-            this.txtTitelNieuw.Size = new System.Drawing.Size(400, 20);
+            this.txtTitelNieuw.Size = new System.Drawing.Size(532, 22);
             this.txtTitelNieuw.TabIndex = 3;
             this.txtTitelNieuw.TextChanged += new System.EventHandler(this.txtTitelNieuw_TextChanged);
             // 
             // txtArtikelNieuw
             // 
-            this.txtArtikelNieuw.Location = new System.Drawing.Point(12, 110);
+            this.txtArtikelNieuw.Location = new System.Drawing.Point(16, 135);
+            this.txtArtikelNieuw.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtArtikelNieuw.MaxLength = 50000;
             this.txtArtikelNieuw.Name = "txtArtikelNieuw";
-            this.txtArtikelNieuw.Size = new System.Drawing.Size(400, 250);
+            this.txtArtikelNieuw.Size = new System.Drawing.Size(532, 307);
             this.txtArtikelNieuw.TabIndex = 4;
             this.txtArtikelNieuw.Text = "";
             this.txtArtikelNieuw.TextChanged += new System.EventHandler(this.txtArtikelNieuw_TextChanged);
@@ -94,9 +99,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 91);
+            this.label1.Location = new System.Drawing.Point(17, 112);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.Size = new System.Drawing.Size(55, 18);
             this.label1.TabIndex = 5;
             this.label1.Text = "Artikel:";
             // 
@@ -104,9 +110,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(13, 49);
+            this.label2.Location = new System.Drawing.Point(17, 60);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 16);
+            this.label2.Size = new System.Drawing.Size(36, 18);
             this.label2.TabIndex = 6;
             this.label2.Text = "Titel";
             // 
@@ -114,9 +121,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 9);
+            this.label3.Location = new System.Drawing.Point(16, 11);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(202, 16);
+            this.label3.Size = new System.Drawing.Size(255, 18);
             this.label3.TabIndex = 7;
             this.label3.Text = "Afbeelding (4:5 of 200x250 aanbevolen)";
             // 
@@ -128,34 +136,37 @@
             // 
             this.lblLengte.AutoSize = true;
             this.lblLengte.BackColor = System.Drawing.Color.Transparent;
-            this.lblLengte.Location = new System.Drawing.Point(377, 71);
+            this.lblLengte.Location = new System.Drawing.Point(503, 87);
+            this.lblLengte.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLengte.Name = "lblLengte";
-            this.lblLengte.Size = new System.Drawing.Size(0, 13);
+            this.lblLengte.Size = new System.Drawing.Size(0, 16);
             this.lblLengte.TabIndex = 8;
             // 
             // lblLengteArtikel
             // 
             this.lblLengteArtikel.AutoSize = true;
             this.lblLengteArtikel.BackColor = System.Drawing.Color.Transparent;
-            this.lblLengteArtikel.Location = new System.Drawing.Point(377, 94);
+            this.lblLengteArtikel.Location = new System.Drawing.Point(503, 116);
+            this.lblLengteArtikel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLengteArtikel.Name = "lblLengteArtikel";
-            this.lblLengteArtikel.Size = new System.Drawing.Size(0, 13);
+            this.lblLengteArtikel.Size = new System.Drawing.Size(0, 16);
             this.lblLengteArtikel.TabIndex = 9;
             // 
             // picNieuwArtikelPreview
             // 
-            this.picNieuwArtikelPreview.Location = new System.Drawing.Point(418, 110);
+            this.picNieuwArtikelPreview.Location = new System.Drawing.Point(557, 135);
+            this.picNieuwArtikelPreview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picNieuwArtikelPreview.Name = "picNieuwArtikelPreview";
-            this.picNieuwArtikelPreview.Size = new System.Drawing.Size(200, 250);
+            this.picNieuwArtikelPreview.Size = new System.Drawing.Size(267, 308);
             this.picNieuwArtikelPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picNieuwArtikelPreview.TabIndex = 10;
             this.picNieuwArtikelPreview.TabStop = false;
             // 
             // NieuwArtiekel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(628, 395);
+            this.ClientSize = new System.Drawing.Size(837, 486);
             this.Controls.Add(this.picNieuwArtikelPreview);
             this.Controls.Add(this.lblLengteArtikel);
             this.Controls.Add(this.lblLengte);
@@ -167,8 +178,9 @@
             this.Controls.Add(this.btnArtikelOpslaan);
             this.Controls.Add(this.txtFotoNieuw);
             this.Controls.Add(this.btnBladeren);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "NieuwArtiekel";
-            this.Text = "NieuwArtiekel";
+            this.Text = "NieuwArtikel";
             ((System.ComponentModel.ISupportInitialize)(this.picNieuwArtikelPreview)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
