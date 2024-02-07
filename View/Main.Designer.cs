@@ -94,7 +94,7 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(109, 901);
             this.panel1.TabIndex = 0;
@@ -110,7 +110,7 @@
             this.btnProfiel.HoverFoto1 = global::prjSportnetKinda.Properties.Resources.user_select;
             this.btnProfiel.Image = global::prjSportnetKinda.Properties.Resources.user_standard;
             this.btnProfiel.Location = new System.Drawing.Point(7, 828);
-            this.btnProfiel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProfiel.Margin = new System.Windows.Forms.Padding(4);
             this.btnProfiel.Name = "btnProfiel";
             this.btnProfiel.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.user_standard;
             this.btnProfiel.Size = new System.Drawing.Size(73, 68);
@@ -130,7 +130,7 @@
             this.btnMateriaal.HoverFoto1 = global::prjSportnetKinda.Properties.Resources.cart_select;
             this.btnMateriaal.Image = global::prjSportnetKinda.Properties.Resources.cart_standard;
             this.btnMateriaal.Location = new System.Drawing.Point(7, 271);
-            this.btnMateriaal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMateriaal.Margin = new System.Windows.Forms.Padding(4);
             this.btnMateriaal.Name = "btnMateriaal";
             this.btnMateriaal.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.cart_standard;
             this.btnMateriaal.Size = new System.Drawing.Size(73, 68);
@@ -150,7 +150,7 @@
             this.btnKalender.HoverFoto1 = global::prjSportnetKinda.Properties.Resources.calendar_select;
             this.btnKalender.Image = global::prjSportnetKinda.Properties.Resources.calendar_standard;
             this.btnKalender.Location = new System.Drawing.Point(7, 185);
-            this.btnKalender.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnKalender.Margin = new System.Windows.Forms.Padding(4);
             this.btnKalender.Name = "btnKalender";
             this.btnKalender.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.calendar_standard;
             this.btnKalender.Size = new System.Drawing.Size(73, 68);
@@ -170,7 +170,7 @@
             this.btnStart.HoverFoto1 = global::prjSportnetKinda.Properties.Resources.home_select;
             this.btnStart.Image = ((System.Drawing.Image)(resources.GetObject("btnStart.Image")));
             this.btnStart.Location = new System.Drawing.Point(7, 98);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4);
             this.btnStart.Name = "btnStart";
             this.btnStart.NormaalFoto1 = ((System.Drawing.Image)(resources.GetObject("btnStart.NormaalFoto1")));
             this.btnStart.Size = new System.Drawing.Size(73, 68);
@@ -184,7 +184,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Image = global::prjSportnetKinda.Properties.Resources.Logo_Blue;
             this.pictureBox1.Location = new System.Drawing.Point(7, 6);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Padding = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.pictureBox1.Size = new System.Drawing.Size(73, 68);
@@ -200,7 +200,7 @@
             this.tcMain.Controls.Add(this.tabProfiel);
             this.tcMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcMain.Location = new System.Drawing.Point(109, 0);
-            this.tcMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tcMain.Margin = new System.Windows.Forms.Padding(4);
             this.tcMain.Name = "tcMain";
             this.tcMain.SelectedIndex = 0;
             this.tcMain.Size = new System.Drawing.Size(1196, 901);
@@ -213,9 +213,9 @@
             this.tabStart.BackColor = System.Drawing.SystemColors.Control;
             this.tabStart.Controls.Add(this.pnlStartContainer);
             this.tabStart.Location = new System.Drawing.Point(4, 25);
-            this.tabStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabStart.Margin = new System.Windows.Forms.Padding(4);
             this.tabStart.Name = "tabStart";
-            this.tabStart.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabStart.Padding = new System.Windows.Forms.Padding(4);
             this.tabStart.Size = new System.Drawing.Size(1188, 872);
             this.tabStart.TabIndex = 0;
             this.tabStart.Text = "Start";
@@ -228,7 +228,7 @@
             this.pnlStartContainer.Controls.Add(this.lblNaamVoornaam);
             this.pnlStartContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlStartContainer.Location = new System.Drawing.Point(4, 4);
-            this.pnlStartContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlStartContainer.Margin = new System.Windows.Forms.Padding(4);
             this.pnlStartContainer.Name = "pnlStartContainer";
             this.pnlStartContainer.Size = new System.Drawing.Size(1180, 864);
             this.pnlStartContainer.TabIndex = 6;
@@ -238,7 +238,7 @@
             this.fpnlArtiekelContainer.AutoScroll = true;
             this.fpnlArtiekelContainer.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.fpnlArtiekelContainer.Location = new System.Drawing.Point(0, 122);
-            this.fpnlArtiekelContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fpnlArtiekelContainer.Margin = new System.Windows.Forms.Padding(4);
             this.fpnlArtiekelContainer.Name = "fpnlArtiekelContainer";
             this.fpnlArtiekelContainer.Size = new System.Drawing.Size(1180, 742);
             this.fpnlArtiekelContainer.TabIndex = 6;
@@ -253,7 +253,7 @@
             this.btnArtiekelToevoegen.HoverFoto1 = global::prjSportnetKinda.Properties.Resources.ItemAdd;
             this.btnArtiekelToevoegen.Image = global::prjSportnetKinda.Properties.Resources.ItemAdd;
             this.btnArtiekelToevoegen.Location = new System.Drawing.Point(1073, 17);
-            this.btnArtiekelToevoegen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnArtiekelToevoegen.Margin = new System.Windows.Forms.Padding(4);
             this.btnArtiekelToevoegen.Name = "btnArtiekelToevoegen";
             this.btnArtiekelToevoegen.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.ItemAdd;
             this.btnArtiekelToevoegen.Size = new System.Drawing.Size(80, 74);
@@ -278,9 +278,9 @@
             this.tabKalender.BackColor = System.Drawing.Color.White;
             this.tabKalender.Controls.Add(this.label1);
             this.tabKalender.Location = new System.Drawing.Point(4, 25);
-            this.tabKalender.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabKalender.Margin = new System.Windows.Forms.Padding(4);
             this.tabKalender.Name = "tabKalender";
-            this.tabKalender.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabKalender.Padding = new System.Windows.Forms.Padding(4);
             this.tabKalender.Size = new System.Drawing.Size(1188, 872);
             this.tabKalender.TabIndex = 1;
             this.tabKalender.Text = "Kalender";
@@ -303,9 +303,9 @@
             this.tabMateriaal.Controls.Add(this.btnWinkelwagentje);
             this.tabMateriaal.Controls.Add(this.fpnlMateriaalContainer);
             this.tabMateriaal.Location = new System.Drawing.Point(4, 25);
-            this.tabMateriaal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabMateriaal.Margin = new System.Windows.Forms.Padding(4);
             this.tabMateriaal.Name = "tabMateriaal";
-            this.tabMateriaal.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabMateriaal.Padding = new System.Windows.Forms.Padding(4);
             this.tabMateriaal.Size = new System.Drawing.Size(1188, 872);
             this.tabMateriaal.TabIndex = 2;
             this.tabMateriaal.Text = "Materiaal";
@@ -323,7 +323,7 @@
             this.button1.Image = global::prjSportnetKinda.Properties.Resources.cart_standard;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.button1.Location = new System.Drawing.Point(823, 4);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.button1.Size = new System.Drawing.Size(297, 73);
@@ -346,7 +346,7 @@
             this.btnWinkelwagentje.Image = global::prjSportnetKinda.Properties.Resources.cart_standard;
             this.btnWinkelwagentje.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnWinkelwagentje.Location = new System.Drawing.Point(47, 4);
-            this.btnWinkelwagentje.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnWinkelwagentje.Margin = new System.Windows.Forms.Padding(4);
             this.btnWinkelwagentje.Name = "btnWinkelwagentje";
             this.btnWinkelwagentje.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.btnWinkelwagentje.Size = new System.Drawing.Size(297, 73);
@@ -361,7 +361,7 @@
             this.fpnlMateriaalContainer.AutoScroll = true;
             this.fpnlMateriaalContainer.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.fpnlMateriaalContainer.Location = new System.Drawing.Point(4, 86);
-            this.fpnlMateriaalContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fpnlMateriaalContainer.Margin = new System.Windows.Forms.Padding(4);
             this.fpnlMateriaalContainer.Name = "fpnlMateriaalContainer";
             this.fpnlMateriaalContainer.Size = new System.Drawing.Size(1180, 782);
             this.fpnlMateriaalContainer.TabIndex = 0;
@@ -394,9 +394,9 @@
             this.tabProfiel.Controls.Add(this.picBannerFoto);
             this.tabProfiel.Controls.Add(this.picProfielFoto);
             this.tabProfiel.Location = new System.Drawing.Point(4, 25);
-            this.tabProfiel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabProfiel.Margin = new System.Windows.Forms.Padding(4);
             this.tabProfiel.Name = "tabProfiel";
-            this.tabProfiel.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabProfiel.Padding = new System.Windows.Forms.Padding(4);
             this.tabProfiel.Size = new System.Drawing.Size(1188, 872);
             this.tabProfiel.TabIndex = 3;
             this.tabProfiel.Text = "Profiel";
@@ -448,6 +448,7 @@
             this.btnWijzigenProfiel.TabIndex = 20;
             this.btnWijzigenProfiel.Text = "Gegevens Wijzigen";
             this.btnWijzigenProfiel.UseVisualStyleBackColor = true;
+            this.btnWijzigenProfiel.Click += new System.EventHandler(this.btnWijzigenProfiel_Click);
             // 
             // lblAdres
             // 
@@ -649,7 +650,7 @@
             this.Controls.Add(this.tcMain);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

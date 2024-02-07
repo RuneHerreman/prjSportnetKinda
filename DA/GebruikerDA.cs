@@ -20,7 +20,7 @@ namespace prjSportnetKinda.DA
         {
             try
             {
-                Gebruiker gebruiker = new Gebruiker();
+                Gebruiker inloggen = new Gebruiker();
 
                 //Connection openen
                 MySqlConnection conn = Database.MakeConnection();
@@ -43,18 +43,19 @@ namespace prjSportnetKinda.DA
                 if (reader.HasRows == true)
                 {
                     reader.Read();
-                    gebruiker.Email = reader["Email"].ToString();
-                    gebruiker.Voornaam = reader["Voornaam"].ToString();
-                    gebruiker.Naam = reader["Naam"].ToString();
-                    gebruiker.Geslacht = reader["Geslacht"].ToString();
-                    gebruiker.Adres = reader["Adres"].ToString();
-                    gebruiker.Telefoonnr = reader["Telefoonnummer"].ToString();
-                    gebruiker.Renner = Convert.ToInt32(reader["Renner"]);
-                    gebruiker.Beheerder = Convert.ToInt32(reader["Beheerder"]);
-                    gebruiker.Geboortedatum = Convert.ToDateTime(reader["Geboortedatum"]);
-                    gebruiker.Lidsinds = Convert.ToDateTime(reader["LidSinds"]);
+                    inloggen.Email = reader["Email"].ToString();
+                    inloggen.Voornaam = reader["Voornaam"].ToString();
+                    inloggen.Naam = reader["Naam"].ToString();
+                    inloggen.Wachtwoord = reader["Wachtwoord"].ToString();
+                    inloggen.Geslacht = reader["Geslacht"].ToString();
+                    inloggen.Adres = reader["Adres"].ToString();
+                    inloggen.Telefoonnr = reader["Telefoonnummer"].ToString();
+                    inloggen.Renner = Convert.ToInt32(reader["Renner"]);
+                    inloggen.Beheerder = Convert.ToInt32(reader["Beheerder"]);
+                    inloggen.Geboortedatum = Convert.ToDateTime(reader["Geboortedatum"]);
+                    inloggen.Lidsinds = Convert.ToDateTime(reader["LidSinds"]);
 
-                    return gebruiker;
+                    return inloggen;
                 }
                 else 
                 {
@@ -165,6 +166,45 @@ namespace prjSportnetKinda.DA
                 return null;
             }
 
+        }
+
+        public static Gebruiker Wijzigen(string email, string voornaam, string naam, DateTime geboortedatum, string geslacht, string Adres, int Telefoon)
+        {
+            try
+            {
+                Gebruiker wijzigen = new Gebruiker();
+
+                //Connection openen
+                MySqlConnection conn = Database.MakeConnection();
+
+                //sting maken met sql statement
+                String query = "UPDATE tblgebruiker SET Voornaam=@Voornaam, Naam=@Naam, Geboortedatum=@Geboortedatum, Geslacht=@Geslacht, Adres=@Adres, Telefoonnnummer=@Telefoonnummer WHERE Email=@Email";
+
+                //Maken van het command
+                MySqlCommand mysqlcmd = new MySqlCommand(query, conn);
+
+                //Welk soort gegevens is het commando
+                mysqlcmd.CommandType = CommandType.Text;
+
+                //Parameters
+                mysqlcmd.Parameters.AddWithValue("@Email", email);
+                mysqlcmd.Parameters.AddWithValue("@Voornaam", voornaam);
+                mysqlcmd.Parameters.AddWithValue("@Naam", naam);
+                mysqlcmd.Parameters.AddWithValue("@Geboortedatm", geboortedatum);
+                mysqlcmd.Parameters.AddWithValue("@Geslacht", geslacht);
+                mysqlcmd.Parameters.AddWithValue("@Adres", Adres);
+                mysqlcmd.Parameters.AddWithValue("@Telefoonnummer", Telefoon);
+
+                //Hier wordt commando uitgevoerd en gaat hij resultaat bewaren in count
+                mysqlcmd.ExecuteNonQuery();
+
+                return wijzigen;
+            }
+            catch
+            {
+                return null;
+            }
+            
         }
     }
 }

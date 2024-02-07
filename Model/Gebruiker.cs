@@ -11,6 +11,7 @@ namespace prjSportnetKinda.Model
         public string Email { get; set; }
         public string Voornaam { get; set; }
         public string Naam { get; set; }
+        public string Wachtwoord { get; set; }
         public string Geslacht { get; set; }
         public string Adres { get; set; }
         public string Telefoonnr { get; set; }

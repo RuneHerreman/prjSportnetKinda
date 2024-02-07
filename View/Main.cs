@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace prjSportnetKinda
 {
@@ -190,7 +191,50 @@ namespace prjSportnetKinda
 
         private void btnAccountVerwijderen_Click(object sender, EventArgs e)
         {
+            //var decl
+            string strWachtwoord;
 
+            //navragen op keuze met Dialogresult
+            DialogResult dialogresult = new DialogResult();
+            dialogresult = MessageBox.Show("Weet je zeker dat je je account wilt verwijderen?", "Account verwijderen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            //Als DialogResult ja is: wachtwoord vragen
+            if (dialogresult == DialogResult.Yes)
+            {
+                strWachtwoord = Interaction.InputBox("Geef je wachtoord in om je account te verwijderen.", "Wachtwoord ingeven");
+
+                if(strWachtwoord == gebruiker.Wachtwoord)
+                {
+                    Gebruiker verwijderen = GebruikerDA.Verwijderen(gebruiker.Email);
+
+                    Login login = new Login();
+                    this.Hide();
+                    login.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Wachtwoord is fout", "Fout wachtwoord", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnWijzigenProfiel_Click(object sender, EventArgs e)
+        {
+            //var decl
+            string strWachtwoord;
+
+            strWachtwoord = Interaction.InputBox("Geef je wachtoord in om je account te verwijderen.", "Wachtwoord ingeven");
+
+            if (strWachtwoord == gebruiker.Wachtwoord)
+            {
+                Wijzigen wijzigen = new Wijzigen();
+                wijzigen.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Wachtwoord is fout", "Fout wachtwoord", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
