@@ -195,7 +195,7 @@ namespace prjSportnetKinda.DA
                 mysqlcmd.Parameters.AddWithValue("@Adres", Adres);
                 mysqlcmd.Parameters.AddWithValue("@Telefoonnummer", Telefoon);
 
-                //Hier wordt commando uitgevoerd en gaat hij resultaat bewaren in count
+                //Commando uitvoeren
                 mysqlcmd.ExecuteNonQuery();
 
                 return wijzigen;

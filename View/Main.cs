@@ -20,7 +20,7 @@ namespace prjSportnetKinda
     public partial class Main : Form
     {
         Model.Gebruiker gebruiker;
-        public Main(Model.Gebruiker login)
+        public Main(Gebruiker login)
         {
             InitializeComponent();
             gebruiker = login;
@@ -228,8 +228,10 @@ namespace prjSportnetKinda
 
             if (strWachtwoord == gebruiker.Wachtwoord)
             {
-                Wijzigen wijzigen = new Wijzigen();
+                Wijzigen wijzigen = new Wijzigen(gebruiker);
                 wijzigen.ShowDialog();
+
+
             }
             else
             {
