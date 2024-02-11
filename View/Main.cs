@@ -70,7 +70,7 @@ namespace prjSportnetKinda
             lblNaam.Text = login.Naam;
             lblGeslacht.Text = login.Geslacht;
             lblAdres.Text = login.Adres;
-            lblTelefoon.Text = login.Telefoonnr;
+            lblTelefoon.Text = login.Telefoonnummer.ToString();
             lblEmail.Text = login.Email;
             lblGeboortedatum.Text = login.Geboortedatum.ToString("d");
             lblLidSinds.Text = login.Lidsinds.ToString("d");

@@ -90,7 +90,6 @@
             this.txtTelefoonnr.MaxLength = 100;
             this.txtTelefoonnr.Multiline = true;
             this.txtTelefoonnr.Name = "txtTelefoonnr";
-            this.txtTelefoonnr.PasswordChar = '●';
             this.txtTelefoonnr.Size = new System.Drawing.Size(286, 29);
             this.txtTelefoonnr.TabIndex = 3;
             this.txtTelefoonnr.WordWrap = false;
@@ -218,7 +217,6 @@
             this.txtAdres.MaxLength = 100;
             this.txtAdres.Multiline = true;
             this.txtAdres.Name = "txtAdres";
-            this.txtAdres.PasswordChar = '●';
             this.txtAdres.Size = new System.Drawing.Size(286, 29);
             this.txtAdres.TabIndex = 3;
             this.txtAdres.WordWrap = false;
@@ -363,7 +361,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Wijzigen";
             this.Text = "Wijzigen";
             this.panel1.ResumeLayout(false);

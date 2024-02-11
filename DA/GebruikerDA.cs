@@ -49,7 +49,7 @@ namespace prjSportnetKinda.DA
                     inloggen.Wachtwoord = reader["Wachtwoord"].ToString();
                     inloggen.Geslacht = reader["Geslacht"].ToString();
                     inloggen.Adres = reader["Adres"].ToString();
-                    inloggen.Telefoonnr = reader["Telefoonnummer"].ToString();
+                    inloggen.Telefoonnummer = Convert.ToInt32(reader["Telefoonnummer"]);
                     inloggen.Renner = Convert.ToInt32(reader["Renner"]);
                     inloggen.Beheerder = Convert.ToInt32(reader["Beheerder"]);
                     inloggen.Geboortedatum = Convert.ToDateTime(reader["Geboortedatum"]);
@@ -168,7 +168,7 @@ namespace prjSportnetKinda.DA
 
         }
 
-        public static Gebruiker Wijzigen(string email, string voornaam, string naam, DateTime geboortedatum, string geslacht, string Adres, int Telefoon)
+        public static Gebruiker Wijzigen(Gebruiker gebruiker)
         {
             try
             {
@@ -178,7 +178,7 @@ namespace prjSportnetKinda.DA
                 MySqlConnection conn = Database.MakeConnection();
 
                 //sting maken met sql statement
-                String query = "UPDATE tblgebruiker SET Voornaam=@Voornaam, Naam=@Naam, Geboortedatum=@Geboortedatum, Geslacht=@Geslacht, Adres=@Adres, Telefoonnnummer=@Telefoonnummer WHERE Email=@Email";
+                String query = "UPDATE tblgebruiker SET Voornaam=@Voornaam, Naam=@Naam, Geboortedatum=@Geboortedatum, Geslacht=@Geslacht, Adres=@Adres, Telefoonnummer=@Telefoonnummer WHERE Email=@Email";
 
                 //Maken van het command
                 MySqlCommand mysqlcmd = new MySqlCommand(query, conn);
@@ -187,13 +187,13 @@ namespace prjSportnetKinda.DA
                 mysqlcmd.CommandType = CommandType.Text;
 
                 //Parameters
-                mysqlcmd.Parameters.AddWithValue("@Email", email);
-                mysqlcmd.Parameters.AddWithValue("@Voornaam", voornaam);
-                mysqlcmd.Parameters.AddWithValue("@Naam", naam);
-                mysqlcmd.Parameters.AddWithValue("@Geboortedatm", geboortedatum);
-                mysqlcmd.Parameters.AddWithValue("@Geslacht", geslacht);
-                mysqlcmd.Parameters.AddWithValue("@Adres", Adres);
-                mysqlcmd.Parameters.AddWithValue("@Telefoonnummer", Telefoon);
+                mysqlcmd.Parameters.AddWithValue("@Email", gebruiker.Email);
+                mysqlcmd.Parameters.AddWithValue("@Voornaam", gebruiker.Voornaam);
+                mysqlcmd.Parameters.AddWithValue("@Naam", gebruiker.Naam);
+                mysqlcmd.Parameters.AddWithValue("@Geboortedatum", gebruiker.Geboortedatum);
+                mysqlcmd.Parameters.AddWithValue("@Geslacht", gebruiker.Geslacht);
+                mysqlcmd.Parameters.AddWithValue("@Adres", gebruiker.Adres);
+                mysqlcmd.Parameters.AddWithValue("@Telefoonnummer", gebruiker.Telefoonnummer);
 
                 //Commando uitvoeren
                 mysqlcmd.ExecuteNonQuery();
