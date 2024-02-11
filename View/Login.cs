@@ -17,6 +17,7 @@ namespace prjSportnetKinda
         public Login()
         {
             InitializeComponent();
+            txtEmail.Select();
         }
 
         private void lblLinkToRegistreren_Click(object sender, EventArgs e)

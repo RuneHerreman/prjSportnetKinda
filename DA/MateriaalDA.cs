@@ -1,31 +1,30 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using prjSportnetKinda.Helper;
+using prjSportnetKinda.Model;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using prjSportnetKinda.Model;
-using MySql.Data.MySqlClient;
-using System.Drawing;
-using prjSportnetKinda.Helper;
-using System.Data;
-using System.Windows;
-using System.IO;
 
 namespace prjSportnetKinda.DA
 {
-    public class ArtikelDA
+    public class MateriaalDA
     {
         //methode om gegevens voor artikels op te halen uit de databank en opslaan in een List
-        public static List<Artikel> OphalenArtikel()
+
+        public static List<Materiaal> OphalenMateriaal()
         {
             try
             {
-                //lijst maken
-                List<Artikel> ArtikelList = new List<Artikel>();
+                List<Materiaal> MateriaalList = new List<Materiaal>();
 
                 //query
                 //alle velden uit de tabel geordend op aflopend id (10, 9, 8, 7) --> recentst eerst
-                string query = "SELECT * FROM tblArtikels ORDER BY tblArtikels.id DESC";
+                string query = "SELECT * FROM tblMateriaal ORDER BY tblMateriaal.MateriaalID DESC";
 
                 //open connectie
                 MySqlConnection conn = Database.MakeConnection();
@@ -40,25 +39,25 @@ namespace prjSportnetKinda.DA
 
                 while (reader.Read())
                 {
-                    ArtikelList.Add(Create(reader));
+                    MateriaalList.Add(Create(reader));
                 }
 
                 //connecties sluiten
                 reader.Close();
                 Database.CloseConnection(conn);
 
-                return ArtikelList;
+                return MateriaalList;
             }
-            catch (Exception)
+            catch (Exception exc)
             {
+                System.Windows.Forms.MessageBox.Show(exc.Message);
 
                 return null;
             }
-            
         }
 
         //mehode schrijven om de gegevens vanuit ons model in een soort rij te steken
-        private static Artikel Create(IDataRecord record)
+        private static Materiaal Create(IDataRecord record)
         {
             try
             {
@@ -68,25 +67,24 @@ namespace prjSportnetKinda.DA
                 try
                 {
                     MemoryStream ms = new MemoryStream(arrFoto);
-                   img = Image.FromStream(ms);
+                    img = Image.FromStream(ms);
                 }
                 catch (Exception)
                 {
                     img = null;
                 }
-                
-                return new Artikel()
+
+                return new Materiaal()
                 {
-                    datum = Convert.ToDateTime(record["datum"]),
-                    titel = record["titel"].ToString(),
-                    artikel = record["artikel"].ToString(),
-                    foto = img
+                    Naam = record["naam"].ToString(),
+                    Beschrijving = record["beschrijving"].ToString(),
+                    Foto = img
                 };
             }
             catch (Exception exc)
             {
                 System.Windows.Forms.MessageBox.Show(exc.Message);
-                return new Artikel();
+                return new Materiaal();
             }
         }
     }

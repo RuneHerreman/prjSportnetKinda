@@ -28,34 +28,9 @@ namespace prjSportnetKinda
             tcMain.ItemSize = new Size(0, 1);
             tcMain.SizeMode = TabSizeMode.Fixed;
 
-            try
-            {
-                int intTellerArtikels = 0;
-                foreach (Artikel artikel in ArtikelDA.OphalenArtikel())
-                {
-
-                    intTellerArtikels++;
-                    WelkomItem item = new WelkomItem();
-                    WelkomItem.ArtikelOpvullen(artikel.titel, artikel.artikel, artikel.datum, item, artikel.foto);
-
-                    fpnlArtiekelContainer.Controls.Add(item);
-
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
-
-            for (int intTeller = 1; intTeller < 10; intTeller++)
-            {
-                MateriaalItem materiaalItem= new MateriaalItem();
-                fpnlMateriaalContainer.Controls.Add(materiaalItem);
-
-            }
-
+            //Refresh alle tabladen
+            ArtikelRefresh();
+            MateriaalRefresh();
 
             //toon alleen geselecteerde tab
             this.btnStart.Image = Properties.Resources.home_select;
@@ -87,6 +62,52 @@ namespace prjSportnetKinda
             }
         }
 
+        private void ArtikelRefresh()
+        {
+            try
+            {
+                //leeg fpnl
+                fpnlArtiekelContainer.Controls.Clear();
+                foreach (Artikel artikel in ArtikelDA.OphalenArtikel())
+                {
+                    WelkomItem item = new WelkomItem();
+
+                    //artikel opvullen
+                    WelkomItem.ArtikelOpvullen(artikel.titel, artikel.artikel, artikel.datum, item, artikel.foto);
+
+                    //huidig artikel toevoegen aan fpnl
+                    fpnlArtiekelContainer.Controls.Add(item);
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void MateriaalRefresh() 
+        {
+            try
+            {
+                //leeg fpnl
+                fpnlMateriaalContainer.Controls.Clear();
+                foreach(Materiaal materiaal in MateriaalDA.OphalenMateriaal())
+                {
+                    MateriaalItem item = new MateriaalItem();
+
+                    //artikel opvullen
+                    MateriaalItem.MateriaalOpvullen(materiaal.Naam, materiaal.Beschrijving, item, materiaal.Foto);
+
+                    //huidig artikel toevoegen aan fpnl
+                    fpnlMateriaalContainer.Controls.Add(item);
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
         private void btnStart_Click(object sender, EventArgs e)
         {
             //verander tab
@@ -107,6 +128,9 @@ namespace prjSportnetKinda
             this.btnProfiel.Image = Properties.Resources.user_standard;
             this.btnProfiel.NormaalFoto1 = Properties.Resources.user_standard;
             this.btnProfiel.HoverFoto1 = Properties.Resources.user_select;
+
+            //refresh
+            ArtikelRefresh();
         }
 
         private void btnKalender_Click(object sender, EventArgs e)
@@ -133,6 +157,9 @@ namespace prjSportnetKinda
 
         private void btnMateriaal_Click(object sender, EventArgs e)
         {
+            //Refresh
+            MateriaalRefresh();
+
             //verander tab
             tcMain.SelectTab(tabMateriaal);
 
@@ -237,6 +264,12 @@ namespace prjSportnetKinda
             {
                 MessageBox.Show("Wachtwoord is fout", "Fout wachtwoord", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnWinkelwagentje_Click(object sender, EventArgs e)
+        {
+            Mandje mandje = new Mandje();
+            mandje.ShowDialog();
         }
     }
 }

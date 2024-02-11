@@ -62,15 +62,23 @@
   <ItemGroup>
     <Compile Include="DA\ArtikelsDA.cs" />
     <Compile Include="DA\GebruikerDA.cs" />
+    <Compile Include="DA\MateriaalDA.cs" />
     <Compile Include="Helper\Database.cs" />
-    <Compile Include="MateriaalItem.cs">
+    <Compile Include="View\Mandje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Mandje.Designer.cs">
+      <DependentUpon>Mandje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MateriaalItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MateriaalItem.Designer.cs">
+    <Compile Include="View\MateriaalItem.Designer.cs">
       <DependentUpon>MateriaalItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Artikel.cs" />
     <Compile Include="Model\Gebruiker.cs" />
+    <Compile Include="Model\Materiaal.cs" />
     <Compile Include="View\ButtonControls.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -115,13 +123,16 @@
     <Compile Include="View\WWVergeten.Designer.cs">
       <DependentUpon>WWVergeten.cs</DependentUpon>
     </Compile>
-    <Compile Include="WelkomItem.cs">
+    <Compile Include="View\WelkomItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="WelkomItem.Designer.cs">
+    <Compile Include="View\WelkomItem.Designer.cs">
       <DependentUpon>WelkomItem.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="MateriaalItem.resx">
+    <EmbeddedResource Include="View\Mandje.resx">
+      <DependentUpon>Mandje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MateriaalItem.resx">
       <DependentUpon>MateriaalItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ButtonControls.resx">
@@ -150,7 +161,7 @@
     <EmbeddedResource Include="View\WWVergeten.resx">
       <DependentUpon>WWVergeten.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WelkomItem.resx">
+    <EmbeddedResource Include="View\WelkomItem.resx">
       <DependentUpon>WelkomItem.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

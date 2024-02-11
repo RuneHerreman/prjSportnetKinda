@@ -8,13 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace prjSportnetKinda
+namespace prjSportnetKinda.View
 {
-    public partial class MateriaalItem : UserControl
+    public partial class Mandje : Form
     {
-        public MateriaalItem()
+        public Mandje()
         {
             InitializeComponent();
+        }
+
+        private void lsvMandje_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lsvMandje.Items.Clear();
+            
         }
     }
 }

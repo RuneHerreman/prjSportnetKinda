@@ -124,15 +124,12 @@ namespace prjSportnetKinda.DA
                     mysqlcmd.ExecuteNonQuery();
 
                     return registreren;
-
                 }
-            
             }
             catch 
             {
                 return null ;
             }
-            
         }
 
         public static Gebruiker Verwijderen(string email)
@@ -165,7 +162,6 @@ namespace prjSportnetKinda.DA
             {
                 return null;
             }
-
         }
 
         public static Gebruiker Wijzigen(Gebruiker gebruiker)

@@ -31,6 +31,7 @@
             this.picMateriaal = new System.Windows.Forms.PictureBox();
             this.lblMateriaalBeschrijving = new System.Windows.Forms.Label();
             this.btnHuren = new System.Windows.Forms.Button();
+            this.lblMateriaalTitel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picMateriaal)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,9 +47,9 @@
             // 
             // lblMateriaalBeschrijving
             // 
-            this.lblMateriaalBeschrijving.Location = new System.Drawing.Point(3, 174);
+            this.lblMateriaalBeschrijving.Location = new System.Drawing.Point(3, 198);
             this.lblMateriaalBeschrijving.Name = "lblMateriaalBeschrijving";
-            this.lblMateriaalBeschrijving.Size = new System.Drawing.Size(169, 80);
+            this.lblMateriaalBeschrijving.Size = new System.Drawing.Size(169, 56);
             this.lblMateriaalBeschrijving.TabIndex = 2;
             this.lblMateriaalBeschrijving.Text = "Naam: Skeeler\r\nEigenschappen:\r\nWiel: 100mm\r\nxµx\r\nx\r\nx";
             // 
@@ -67,11 +68,22 @@
             this.btnHuren.Text = "Huren";
             this.btnHuren.UseVisualStyleBackColor = false;
             // 
+            // lblMateriaalTitel
+            // 
+            this.lblMateriaalTitel.AutoSize = true;
+            this.lblMateriaalTitel.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMateriaalTitel.Location = new System.Drawing.Point(-1, 174);
+            this.lblMateriaalTitel.Name = "lblMateriaalTitel";
+            this.lblMateriaalTitel.Size = new System.Drawing.Size(110, 22);
+            this.lblMateriaalTitel.TabIndex = 4;
+            this.lblMateriaalTitel.Text = "Materiaaltitel";
+            // 
             // MateriaalItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.lblMateriaalTitel);
             this.Controls.Add(this.btnHuren);
             this.Controls.Add(this.lblMateriaalBeschrijving);
             this.Controls.Add(this.picMateriaal);
@@ -81,6 +93,7 @@
             this.Size = new System.Drawing.Size(175, 300);
             ((System.ComponentModel.ISupportInitialize)(this.picMateriaal)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -88,5 +101,6 @@
         private System.Windows.Forms.PictureBox picMateriaal;
         private System.Windows.Forms.Label lblMateriaalBeschrijving;
         private System.Windows.Forms.Button btnHuren;
+        private System.Windows.Forms.Label lblMateriaalTitel;
     }
 }
