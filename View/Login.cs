@@ -73,5 +73,31 @@ namespace prjSportnetKinda
         {
             this.Close();
         }
+
+        private void txtEmail_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                //Enter verwijderen
+                txtEmail.Multiline = false;
+                txtEmail.Multiline = true;
+
+                //Focus wachtwoord
+                txtPassword.Focus();
+            }
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                //Enter verwijderen
+                txtPassword.Multiline = false;
+                txtPassword.Multiline = true;
+
+                //Focus button
+                btnLogin.Focus();
+            }
+        }
     }
 }

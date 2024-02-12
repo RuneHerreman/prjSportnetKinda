@@ -72,6 +72,7 @@
             this.txtEmail.Size = new System.Drawing.Size(253, 29);
             this.txtEmail.TabIndex = 3;
             this.txtEmail.WordWrap = false;
+            this.txtEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEmail_KeyDown);
             // 
             // label1
             // 
@@ -179,6 +180,7 @@
             this.txtPassword.Size = new System.Drawing.Size(253, 29);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.WordWrap = false;
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // lblFout
             // 
