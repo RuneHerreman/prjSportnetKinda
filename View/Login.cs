@@ -62,7 +62,7 @@ namespace prjSportnetKinda
             else 
             {
                 //Main form openen
-                Main Main = new Main(gebruiker);
+                Main Main = new Main(gebruiker, 1);
                 this.Hide();
                 Main.ShowDialog();
                 this.Close();

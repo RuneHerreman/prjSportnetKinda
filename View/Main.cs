@@ -20,7 +20,7 @@ namespace prjSportnetKinda
     public partial class Main : Form
     {
         Model.Gebruiker gebruiker;
-        public Main(Gebruiker login)
+        public Main(Gebruiker login, int tab)
         {
             InitializeComponent();
             gebruiker = login;
@@ -59,6 +59,11 @@ namespace prjSportnetKinda
             if (login.Beheerder == 1)
             {
                 btnBeheerdersinstellingen.Visible = true;
+            }
+
+            if (tab == 4)
+            {
+                tcMain.SelectTab(tabProfiel);
             }
         }
 
@@ -258,7 +263,7 @@ namespace prjSportnetKinda
                 Wijzigen wijzigen = new Wijzigen(gebruiker);
                 wijzigen.ShowDialog();
 
-
+                this.Close();
             }
             else
             {
