@@ -27,5 +27,16 @@ namespace prjSportnetKinda
                 ucMateriaalItem.picMateriaal.Image = matImage;
             }
         }
+
+        private void btnHuren_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private static string InMandje()
+        {
+            string matNaamLijst = ucMateriaalItem.lblMateriaalTitel.Text;
+            return matNaamLijst;
+        }
     }
 }

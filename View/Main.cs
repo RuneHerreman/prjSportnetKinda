@@ -256,7 +256,7 @@ namespace prjSportnetKinda
             //var decl
             string strWachtwoord;
 
-            strWachtwoord = Interaction.InputBox("Geef je wachtoord in om je account te verwijderen.", "Wachtwoord ingeven");
+            strWachtwoord = Interaction.InputBox("Geef je wachtoord in om je gegevens te wijzigen.", "Wachtwoord ingeven");
 
             if (strWachtwoord == gebruiker.Wachtwoord)
             {

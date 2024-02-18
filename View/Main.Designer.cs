@@ -67,6 +67,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.picBannerFoto = new System.Windows.Forms.PictureBox();
             this.picProfielFoto = new System.Windows.Forms.PictureBox();
+            this.mcalKalender = new System.Windows.Forms.MonthCalendar();
             this.btnArtiekelToevoegen = new prjSportnetKinda.View.ButtonControls();
             this.btnProfiel = new prjSportnetKinda.View.ButtonControls();
             this.btnMateriaal = new prjSportnetKinda.View.ButtonControls();
@@ -171,6 +172,7 @@
             // tabKalender
             // 
             this.tabKalender.BackColor = System.Drawing.SystemColors.Control;
+            this.tabKalender.Controls.Add(this.mcalKalender);
             this.tabKalender.Controls.Add(this.label1);
             this.tabKalender.Location = new System.Drawing.Point(4, 22);
             this.tabKalender.Name = "tabKalender";
@@ -258,7 +260,7 @@
             // 
             // tabProfiel
             // 
-            this.tabProfiel.BackColor = System.Drawing.Color.White;
+            this.tabProfiel.BackColor = System.Drawing.SystemColors.Control;
             this.tabProfiel.Controls.Add(this.btnAccountVerwijderen);
             this.tabProfiel.Controls.Add(this.btnBeheerdersinstellingen);
             this.tabProfiel.Controls.Add(this.btnUitloggen);
@@ -573,6 +575,16 @@
             this.picProfielFoto.TabIndex = 0;
             this.picProfielFoto.TabStop = false;
             // 
+            // mcalKalender
+            // 
+            this.mcalKalender.FirstDayOfWeek = System.Windows.Forms.Day.Monday;
+            this.mcalKalender.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.mcalKalender.Location = new System.Drawing.Point(12, 12);
+            this.mcalKalender.MaxSelectionCount = 1;
+            this.mcalKalender.Name = "mcalKalender";
+            this.mcalKalender.ShowWeekNumbers = true;
+            this.mcalKalender.TabIndex = 1;
+            // 
             // btnArtiekelToevoegen
             // 
             this.btnArtiekelToevoegen.BackColor = System.Drawing.Color.Transparent;
@@ -740,6 +752,7 @@
         private System.Windows.Forms.PictureBox picBannerFoto;
         private System.Windows.Forms.PictureBox picProfielFoto;
         private System.Windows.Forms.Button btnAccountVerwijderen;
+        private System.Windows.Forms.MonthCalendar mcalKalender;
     }
 }
 

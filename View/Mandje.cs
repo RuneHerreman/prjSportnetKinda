@@ -15,6 +15,7 @@ namespace prjSportnetKinda.View
         public Mandje()
         {
             InitializeComponent();
+
         }
 
         private void lsvMandje_SelectedIndexChanged(object sender, EventArgs e)
