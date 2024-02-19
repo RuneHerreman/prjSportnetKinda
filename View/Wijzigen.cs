@@ -60,6 +60,7 @@ namespace prjSportnetKinda.View
                         this.Hide();
                         main.ShowDialog();
                         this.Close();
+
                         
                     }
                 }
