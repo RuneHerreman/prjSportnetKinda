@@ -17,9 +17,13 @@ namespace prjSportnetKinda
         {
             InitializeComponent();
         }
+        //object van de usercontrol om deze te kunnen aanspreken
         static MateriaalItem ucMateriaalItem = Application.OpenForms.OfType<MateriaalItem>().FirstOrDefault();
-        public static void MateriaalOpvullen(string matNaam, string matBeschrijving, MateriaalItem ucMateriaalItem, Image matImage)
+
+        //opvullen van de usercontrol met de gegevens uit de lijst
+        public static void MateriaalOpvullen(string matNaam, string matBeschrijving, MateriaalItem ucMateriaalItem, Image matImage, int intID)
         {
+            //waarden aan labels koppelen
             ucMateriaalItem.lblMateriaalBeschrijving.Text = matBeschrijving;
             ucMateriaalItem.lblMateriaalTitel.Text = matNaam;
             if (matImage != null)
@@ -28,15 +32,11 @@ namespace prjSportnetKinda
             }
         }
 
-        private void btnHuren_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private static string InMandje()
         {
             string matNaamLijst = ucMateriaalItem.lblMateriaalTitel.Text;
             return matNaamLijst;
+           
         }
     }
 }
