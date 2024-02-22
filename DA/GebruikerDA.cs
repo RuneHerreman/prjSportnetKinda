@@ -38,7 +38,7 @@ namespace prjSportnetKinda.DA
                 mysqlcmd.Parameters.AddWithValue("@Email", email);
                 mysqlcmd.Parameters.AddWithValue("@Wachtwoord", wachtwoord);
 
-                //Hier wordt commando uitgevoerd en gaat hij resultaat bewaren in count
+                //Commando uitvoeren
                 MySqlDataReader reader = mysqlcmd.ExecuteReader();
                 if (reader.HasRows == true)
                 {
@@ -54,13 +54,21 @@ namespace prjSportnetKinda.DA
                     inloggen.Beheerder = Convert.ToInt32(reader["Beheerder"]);
                     inloggen.Geboortedatum = Convert.ToDateTime(reader["Geboortedatum"]);
                     inloggen.Lidsinds = Convert.ToDateTime(reader["LidSinds"]);
+                    reader.Close();
+
+                    //Connection sluiten
+                    Database.CloseConnection(conn);
 
                     return inloggen;
                 }
                 else 
                 {
+                    //Connection sluiten
+                    Database.CloseConnection(conn);
+
                     return null;
                 }
+
             }
             catch
             {
@@ -123,6 +131,9 @@ namespace prjSportnetKinda.DA
                     //Uivoeren
                     mysqlcmd.ExecuteNonQuery();
 
+                    //Connection sluiten
+                    Database.CloseConnection(conn);
+
                     return registreren;
                 }
             }
@@ -155,6 +166,9 @@ namespace prjSportnetKinda.DA
 
                 //Hier wordt commando uitgevoerd en gaat hij resultaat bewaren in count
                 mysqlcmd.ExecuteNonQuery();
+
+                //Connection sluiten
+                Database.CloseConnection(conn);
 
                 return verwijderen;
             }
@@ -193,6 +207,9 @@ namespace prjSportnetKinda.DA
 
                 //Commando uitvoeren
                 mysqlcmd.ExecuteNonQuery();
+
+                //Connection sluiten
+                Database.CloseConnection(conn);
 
                 return wijzigen;
             }
