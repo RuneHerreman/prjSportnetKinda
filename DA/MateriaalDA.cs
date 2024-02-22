@@ -76,6 +76,7 @@ namespace prjSportnetKinda.DA
 
                 return new Materiaal()
                 {
+                    ID = Convert.ToInt16(record["id"]),
                     Naam = record["naam"].ToString(),
                     Beschrijving = record["beschrijving"].ToString(),
                     Foto = img

@@ -101,7 +101,7 @@ namespace prjSportnetKinda
                     MateriaalItem item = new MateriaalItem();
 
                     //artikel opvullen
-                    MateriaalItem.MateriaalOpvullen(materiaal.Naam, materiaal.Beschrijving, item, materiaal.Foto);
+                    MateriaalItem.MateriaalOpvullen(materiaal.Naam, materiaal.Beschrijving, item, materiaal.Foto, materiaal.ID);
 
                     //huidig artikel toevoegen aan fpnl
                     fpnlMateriaalContainer.Controls.Add(item);
