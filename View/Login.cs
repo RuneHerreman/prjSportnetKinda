@@ -20,23 +20,7 @@ namespace prjSportnetKinda
             txtEmail.Select();
         }
 
-        private void lblLinkToRegistreren_Click(object sender, EventArgs e)
-        {
-            Register Register = new Register();
-            this.Hide();
-            Register.ShowDialog();
-            this.Close();
-        }
-
-        private void lblLinkToWWVergeten_Click(object sender, EventArgs e)
-        {
-            WWVergeten wWVergeten = new WWVergeten();
-            this.Hide();
-            wWVergeten.ShowDialog();
-            this.Close();
-        }
-
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void Inloggen()
         {
             //var decl
             string strEmail, strWachtwoord;
@@ -59,7 +43,7 @@ namespace prjSportnetKinda
                 txtPassword.Clear();
                 txtEmail.Focus();
             }
-            else 
+            else
             {
                 //Main form openen
                 Main Main = new Main(gebruiker, 1);
@@ -67,6 +51,27 @@ namespace prjSportnetKinda
                 Main.ShowDialog();
                 this.Close();
             }
+        }
+        private void lblLinkToRegistreren_Click(object sender, EventArgs e)
+        {
+            Register Register = new Register();
+            this.Hide();
+            Register.ShowDialog();
+            this.Close();
+        }
+
+        private void lblLinkToWWVergeten_Click(object sender, EventArgs e)
+        {
+            WWVergeten wWVergeten = new WWVergeten();
+            this.Hide();
+            wWVergeten.ShowDialog();
+            this.Close();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            //Inloggen
+            Inloggen();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -95,8 +100,8 @@ namespace prjSportnetKinda
                 txtPassword.Multiline = false;
                 txtPassword.Multiline = true;
 
-                //Focus button
-                btnLogin.Focus();
+                //Inloggen
+                Inloggen();
             }
         }
     }
