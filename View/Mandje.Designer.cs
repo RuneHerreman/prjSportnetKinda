@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Naam Artikel");
             this.lsvMandje = new System.Windows.Forms.ListView();
             this.btnHurenLijst = new System.Windows.Forms.Button();
             this.btnMandjeLegen = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.cNaam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lsvMandje
             // 
+            this.lsvMandje.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.cNaam});
             this.lsvMandje.HideSelection = false;
-            this.lsvMandje.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
             this.lsvMandje.Location = new System.Drawing.Point(10, 10);
             this.lsvMandje.Name = "lsvMandje";
             this.lsvMandje.Size = new System.Drawing.Size(300, 200);
             this.lsvMandje.TabIndex = 0;
             this.lsvMandje.UseCompatibleStateImageBehavior = false;
-            this.lsvMandje.View = System.Windows.Forms.View.List;
+            this.lsvMandje.View = System.Windows.Forms.View.Details;
             this.lsvMandje.SelectedIndexChanged += new System.EventHandler(this.lsvMandje_SelectedIndexChanged);
             // 
             // btnHurenLijst
@@ -75,6 +75,11 @@
             this.button1.Text = "Artikel Verwijderen";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // cNaam
+            // 
+            this.cNaam.Text = "Naam van artikel";
+            this.cNaam.Width = 178;
+            // 
             // Mandje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -98,5 +103,6 @@
         private System.Windows.Forms.Button btnHurenLijst;
         private System.Windows.Forms.Button btnMandjeLegen;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ColumnHeader cNaam;
     }
 }

@@ -67,6 +67,7 @@
             this.btnHuren.TabIndex = 3;
             this.btnHuren.Text = "Huren";
             this.btnHuren.UseVisualStyleBackColor = false;
+            this.btnHuren.Click += new System.EventHandler(this.btnHuren_Click);
             // 
             // lblMateriaalTitel
             // 
