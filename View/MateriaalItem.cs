@@ -30,13 +30,7 @@ namespace prjSportnetKinda
             {
                 ucMateriaalItem.picMateriaal.Image = matImage;
             }
-        }
-
-        private static string InMandje()
-        {
-            string matNaamLijst = ucMateriaalItem.lblMateriaalTitel.Text;
-            return matNaamLijst;
-           
+            int ID = intID;
         }
     }
 }

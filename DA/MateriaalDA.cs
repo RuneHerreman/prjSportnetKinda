@@ -15,11 +15,11 @@ namespace prjSportnetKinda.DA
     public class MateriaalDA
     {
         //methode om gegevens voor artikels op te halen uit de databank en opslaan in een List
-
         public static List<Materiaal> OphalenMateriaal()
         {
             try
             {
+                //list aanmaken
                 List<Materiaal> MateriaalList = new List<Materiaal>();
 
                 //query
@@ -33,10 +33,10 @@ namespace prjSportnetKinda.DA
                 MySqlCommand cmdArtikel = new MySqlCommand(query, conn);
                 cmdArtikel.CommandText = query;
 
-                //reader
+                //reader maken
                 MySqlDataReader reader = cmdArtikel.ExecuteReader();
 
-
+                //zorgen dat de reader de data in een List steekt
                 while (reader.Read())
                 {
                     MateriaalList.Add(Create(reader));
@@ -50,8 +50,8 @@ namespace prjSportnetKinda.DA
             }
             catch (Exception exc)
             {
+                //bericht in geval van error
                 System.Windows.Forms.MessageBox.Show(exc.Message);
-
                 return null;
             }
         }
@@ -61,29 +61,40 @@ namespace prjSportnetKinda.DA
         {
             try
             {
+                //zet de byte array om naam een foto
+                //maak een convertor aan
                 ImageConverter converter = new ImageConverter();
+                //record toevoegen
                 byte[] arrFoto = (byte[])(record["foto"]);
+                //het object dat de foto zal opvangen
                 Image img;
                 try
                 {
+                    //array in een memorystream doen
                     MemoryStream ms = new MemoryStream(arrFoto);
+                    //het image object van daarnet is gelijk aan de image die je uit de byte array haalt
                     img = Image.FromStream(ms);
                 }
                 catch (Exception)
                 {
+                    //foto leeg laten als er een erroro
                     img = null;
                 }
 
+                //de rest van de velden als records invoegen
                 return new Materiaal()
                 {
-                    ID = Convert.ToInt16(record["id"]),
+                    //id is nodig om te identificeren welke userControl er wordt gebruikt
+                    ID = Convert.ToInt16(record["MateriaalID"]),
                     Naam = record["naam"].ToString(),
                     Beschrijving = record["beschrijving"].ToString(),
+                    //foto van hierboven
                     Foto = img
                 };
             }
             catch (Exception exc)
             {
+                //toon de error message als er iets mis gaat en return een Materiaal met lege waarden
                 System.Windows.Forms.MessageBox.Show(exc.Message);
                 return new Materiaal();
             }

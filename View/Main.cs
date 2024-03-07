@@ -23,9 +23,15 @@ namespace prjSportnetKinda
         public Main(Gebruiker login, int tab)
         {
             InitializeComponent();
+
             gebruiker = login;
+
+            //het uiterlijk van de tabcontrol aanpassen
+            //stijl van knoppen aanpassen
             tcMain.Appearance = TabAppearance.FlatButtons;
+            //grootte van de knoppen aanpassen
             tcMain.ItemSize = new Size(0, 1);
+            //manier waarop grootte bepaald wordt aanpassen
             tcMain.SizeMode = TabSizeMode.Fixed;
 
             //Refresh alle tabladen
@@ -50,17 +56,18 @@ namespace prjSportnetKinda
             lblGeboortedatum.Text = login.Geboortedatum.ToString("d");
             lblLidSinds.Text = login.Lidsinds.ToString("d");
 
+            //Ben je renner?
             if (login.Renner == 1)
             {
                 lblCategorieKop.Text = "Categorie:";
                 //lblCategorie.Text = login.Categorie;
             }
-
+            //Ben je beheerder?
             if (login.Beheerder == 1)
             {
                 btnBeheerdersinstellingen.Visible = true;
             }
-
+            /////////////////////////////////////////////////////////////Vragen aan Lars wat deze doet. Werkelijk geen flauw idee (Rune)
             if (tab == 4)
             {
                 tcMain.SelectTab(tabProfiel);
@@ -71,10 +78,12 @@ namespace prjSportnetKinda
         {
             try
             {
-                //leeg fpnl
+                //leeg flowlayoutpanel
                 fpnlArtiekelContainer.Controls.Clear();
+                //een userControl maken voor iedere rij in de lijst van artikelen
                 foreach (Artikel artikel in ArtikelDA.OphalenArtikel())
                 {
+                    //object maken van de userControl
                     WelkomItem item = new WelkomItem();
 
                     //artikel opvullen
@@ -86,6 +95,7 @@ namespace prjSportnetKinda
             }
             catch (Exception exc)
             {
+                //bij error toon de foutmelding
                 MessageBox.Show(exc.Message);
             }
         }
@@ -96,8 +106,10 @@ namespace prjSportnetKinda
             {
                 //leeg fpnl
                 fpnlMateriaalContainer.Controls.Clear();
-                foreach(Materiaal materiaal in MateriaalDA.OphalenMateriaal())
+                //een userControl maken voor iedere rij in de lijst van materiaal
+                foreach (Materiaal materiaal in MateriaalDA.OphalenMateriaal())
                 {
+                    //object maken van de userControl
                     MateriaalItem item = new MateriaalItem();
 
                     //artikel opvullen
@@ -109,6 +121,7 @@ namespace prjSportnetKinda
             }
             catch (Exception exc)
             {
+                //bij error toon de foutmelding
                 MessageBox.Show(exc.Message);
             }
         }
@@ -119,6 +132,7 @@ namespace prjSportnetKinda
             tcMain.SelectTab(tabStart);
 
             //toon alleen geselecteerde tab
+            //foto veranderen van kleur en de achtergrond donkerder maken om aan te tonen welke geselecteerd is
             this.btnStart.NormaalFoto1 = Properties.Resources.home_select;
             this.btnStart.HoverFoto1 = Properties.Resources.home_select;
 
@@ -144,6 +158,7 @@ namespace prjSportnetKinda
             tcMain.SelectTab(tabKalender);
 
             //toon alleen geselecteerde tab
+            //foto veranderen van kleur en de achtergrond donkerder maken om aan te tonen welke geselecteerd is
             this.btnStart.Image = Properties.Resources.home_standard;
             this.btnStart.NormaalFoto1 = Properties.Resources.home_standard;
             this.btnStart.HoverFoto1 = Properties.Resources.home_select;
@@ -169,6 +184,7 @@ namespace prjSportnetKinda
             tcMain.SelectTab(tabMateriaal);
 
             //toon alleen geselecteerde tab
+            //foto veranderen van kleur en de achtergrond donkerder maken om aan te tonen welke geselecteerd is
             this.btnStart.Image = Properties.Resources.home_standard;
             this.btnStart.NormaalFoto1 = Properties.Resources.home_standard;
             this.btnStart.HoverFoto1 = Properties.Resources.home_select;
@@ -188,6 +204,7 @@ namespace prjSportnetKinda
         private void btnProfiel_Click(object sender, EventArgs e)
         {
             //toon alleen geselecteerde tab
+            //foto veranderen van kleur en de achtergrond donkerder maken om aan te tonen welke geselecteerd is
             this.btnStart.Image = Properties.Resources.home_standard;
             this.btnStart.NormaalFoto1 = Properties.Resources.home_standard;
             this.btnStart.HoverFoto1 = Properties.Resources.home_select;
@@ -273,6 +290,7 @@ namespace prjSportnetKinda
 
         private void btnWinkelwagentje_Click(object sender, EventArgs e)
         {
+            //open form van het mandje
             Mandje mandje = new Mandje();
             mandje.ShowDialog();
         }
