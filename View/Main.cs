@@ -37,6 +37,7 @@ namespace prjSportnetKinda
             //Refresh alle tabladen
             ArtikelRefresh();
             MateriaalRefresh();
+            
 
             //toon alleen geselecteerde tab
             this.btnStart.Image = Properties.Resources.home_select;
@@ -73,9 +74,6 @@ namespace prjSportnetKinda
                 tcMain.SelectTab(tabProfiel);
             }
         }
-
-
-
 
         private void ArtikelRefresh()
         {
