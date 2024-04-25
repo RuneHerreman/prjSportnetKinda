@@ -127,6 +127,17 @@ namespace prjSportnetKinda
             }
         }
 
+        private void KalenderRefresh()
+        {
+            lsvTraining.Items.Clear();
+            foreach(Training training in TrainingDA.OphalenTraining())
+            {
+                ListViewItem item = new ListViewItem(new String[] { training.Datum.ToString(), training.Locatie, training.Categorie});
+                item.Tag = training;
+                lsvTraining.Items.Add(item);
+            }
+        }
+
         private void btnStart_Click(object sender, EventArgs e)
         {
             //verander tab

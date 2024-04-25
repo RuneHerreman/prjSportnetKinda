@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnProfiel = new prjSportnetKinda.View.ButtonControls();
             this.btnMateriaal = new prjSportnetKinda.View.ButtonControls();
@@ -43,7 +45,6 @@
             this.lblNaamVoornaam = new System.Windows.Forms.Label();
             this.tabKalender = new System.Windows.Forms.TabPage();
             this.mcalKalender = new System.Windows.Forms.MonthCalendar();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabMateriaal = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.btnWinkelwagentje = new System.Windows.Forms.Button();
@@ -73,6 +74,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.picBannerFoto = new System.Windows.Forms.PictureBox();
             this.picProfielFoto = new System.Windows.Forms.PictureBox();
+            this.lsvTraining = new System.Windows.Forms.ListView();
+            this.cDatum = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cLocatie = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cCategorie = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tcMain.SuspendLayout();
@@ -266,8 +271,8 @@
             // tabKalender
             // 
             this.tabKalender.BackColor = System.Drawing.SystemColors.Control;
+            this.tabKalender.Controls.Add(this.lsvTraining);
             this.tabKalender.Controls.Add(this.mcalKalender);
-            this.tabKalender.Controls.Add(this.label1);
             this.tabKalender.Location = new System.Drawing.Point(4, 22);
             this.tabKalender.Name = "tabKalender";
             this.tabKalender.Padding = new System.Windows.Forms.Padding(3);
@@ -284,16 +289,6 @@
             this.mcalKalender.Name = "mcalKalender";
             this.mcalKalender.ShowWeekNumbers = true;
             this.mcalKalender.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(308, 263);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(427, 108);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Kalender";
             // 
             // tabMateriaal
             // 
@@ -679,6 +674,38 @@
             this.picProfielFoto.TabIndex = 0;
             this.picProfielFoto.TabStop = false;
             // 
+            // lsvTraining
+            // 
+            this.lsvTraining.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.cDatum,
+            this.cLocatie,
+            this.cCategorie});
+            this.lsvTraining.HideSelection = false;
+            this.lsvTraining.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2});
+            this.lsvTraining.Location = new System.Drawing.Point(391, 12);
+            this.lsvTraining.Name = "lsvTraining";
+            this.lsvTraining.Size = new System.Drawing.Size(507, 391);
+            this.lsvTraining.TabIndex = 2;
+            this.lsvTraining.UseCompatibleStateImageBehavior = false;
+            this.lsvTraining.View = System.Windows.Forms.View.Details;
+            // 
+            // cDatum
+            // 
+            this.cDatum.Text = "Datum";
+            this.cDatum.Width = 150;
+            // 
+            // cLocatie
+            // 
+            this.cLocatie.Text = "Locatie";
+            this.cLocatie.Width = 200;
+            // 
+            // cCategorie
+            // 
+            this.cCategorie.Text = "Categorie";
+            this.cCategorie.Width = 150;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -698,7 +725,6 @@
             this.pnlStartContainer.ResumeLayout(false);
             this.pnlStartContainer.PerformLayout();
             this.tabKalender.ResumeLayout(false);
-            this.tabKalender.PerformLayout();
             this.tabMateriaal.ResumeLayout(false);
             this.tabProfiel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBannerFoto)).EndInit();
@@ -717,7 +743,6 @@
         private System.Windows.Forms.TabPage tabMateriaal;
         private System.Windows.Forms.TabPage tabProfiel;
         private View.ButtonControls btnStart;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblNaamVoornaam;
         private View.ButtonControls btnKalender;
         private View.ButtonControls btnProfiel;
@@ -753,6 +778,10 @@
         private System.Windows.Forms.PictureBox picProfielFoto;
         private System.Windows.Forms.Button btnAccountVerwijderen;
         private System.Windows.Forms.MonthCalendar mcalKalender;
+        private System.Windows.Forms.ListView lsvTraining;
+        private System.Windows.Forms.ColumnHeader cDatum;
+        private System.Windows.Forms.ColumnHeader cLocatie;
+        private System.Windows.Forms.ColumnHeader cCategorie;
     }
 }
 
