@@ -129,13 +129,7 @@ namespace prjSportnetKinda
 
         private void KalenderRefresh()
         {
-            lsvTraining.Items.Clear();
-            foreach(Training training in TrainingDA.OphalenTraining())
-            {
-                ListViewItem item = new ListViewItem(new String[] { training.Datum.ToString(), training.Locatie, training.Categorie});
-                item.Tag = training;
-                lsvTraining.Items.Add(item);
-            }
+            
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -305,6 +299,22 @@ namespace prjSportnetKinda
             //open form van het mandje
             Mandje mandje = new Mandje();
             mandje.ShowDialog();
+        }
+
+        private void mcalKalender_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            //legen
+            lsvTraining.Items.Clear();
+
+            DateTime dtSelectedDateStart = mcalKalender.SelectionStart;
+            DateTime dtSelectedDateEnd = mcalKalender.SelectionEnd;
+
+            foreach (Training t in TrainingDA.OphalenTraining(dtSelectedDateStart, dtSelectedDateEnd))
+            {
+                System.Windows.Forms.ListViewItem item = new System.Windows.Forms.ListViewItem(new String[] { t.Datum.ToString("g"), t.Locatie, t.Categorie });
+                item.Tag = t;
+                lsvTraining.Items.Add(item);
+            }
         }
     }
 }

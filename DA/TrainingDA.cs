@@ -12,12 +12,12 @@ namespace prjSportnetKinda.DA
 {
     public class TrainingDA
     {
-        public static List<Training> OphalenTraining()
+        public static List<Training> OphalenTraining(DateTime dtSelectedDateStart, DateTime dtSelectedDateEnd)
         {
             List<Training> Trainingen = new List<Training>();
 
             //SQL query
-            string query = "SELECT * FROM tbltraining WHERE @datum>=Datum";
+            string query = "SELECT * FROM tbltraining WHERE Datum>=@datum AND Datum BETWEEN @selectedDateStart AND @selectedDateEnd";
 
             //verbinding maken
             MySqlConnection conn = Database.MakeConnection();
@@ -26,6 +26,8 @@ namespace prjSportnetKinda.DA
 
             //parameters
             cmdTraining.Parameters.AddWithValue("@datum", DateTime.Now.ToString("yyyy'-'MM'-'dd HH':'mm':'ss"));
+            cmdTraining.Parameters.AddWithValue("@selectedDateStart", dtSelectedDateStart);
+            cmdTraining.Parameters.AddWithValue("@selectedDateEnd", dtSelectedDateEnd);
 
             //reader
             MySqlDataReader reader = cmdTraining.ExecuteReader();
