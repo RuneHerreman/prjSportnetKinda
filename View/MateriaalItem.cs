@@ -15,35 +15,44 @@ namespace prjSportnetKinda
 {
     public partial class MateriaalItem : UserControl
     {
+        //Event aanmaken voor als er op button huren geklikt wordt
+        public event EventHandler ButtonClick;
+
+        //Public object om data van event te kunnen uitlezen
+        public Materiaal materiaal { get; set; }
+
         public MateriaalItem()
         {
             InitializeComponent();
         }
 
-        //object van de usercontrol om deze te kunnen aanspreken
-        static MateriaalItem ucMateriaalItem = Application.OpenForms.OfType<MateriaalItem>().FirstOrDefault();
-
         //opvullen van de usercontrol met de gegevens uit de lijst
-        public static void MateriaalOpvullen(string matNaam, string matBeschrijving, MateriaalItem ucMateriaalItem, Image matImage, int intID)
+        public  void MateriaalOpvullen(Materiaal m)
         {
             //waarden aan labels koppelen
-            ucMateriaalItem.lblMateriaalBeschrijving.Text = matBeschrijving;
-            ucMateriaalItem.lblMateriaalTitel.Text = matNaam;
-            
+            this.lblMateriaalBeschrijving.Text = m.Beschrijving;
+            this.lblMateriaalTitel.Text = m.Naam;
+
             //als er een foto is
-            if (matImage != null)
+            if (m.Foto != null)
             {
-                ucMateriaalItem.picMateriaal.Image = matImage;
+                this.picMateriaal.Image = m.Foto ;
             }
 
-            int ID = intID;
-            ucMateriaalItem.lblID.Text = ID.ToString();
+            this.lblID.Text = m.ID.ToString();
+            this.materiaal = m;
+
         }
 
         private void btnHuren_Click(object sender, EventArgs e)
         {
-            int intID = Convert.ToInt16(this.lblID.Text);
-            
+            //Event oproepen als op button huren wordt geklikt
+            if (ButtonClick != null)
+            {
+                ButtonClick(this, e);
+            }
         }
     }
+
+
 }

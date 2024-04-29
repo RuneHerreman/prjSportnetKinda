@@ -107,14 +107,18 @@ namespace prjSportnetKinda
             {
                 //leeg fpnl
                 fpnlMateriaalContainer.Controls.Clear();
+
                 //een userControl maken voor iedere rij in de lijst van materiaal
                 foreach (Materiaal materiaal in MateriaalDA.OphalenMateriaal())
                 {
                     //object maken van de userControl
                     MateriaalItem item = new MateriaalItem();
 
+                    //Event toevoegen
+                    item.ButtonClick += MateriaalItem_ButtonClick;
+
                     //artikel opvullen
-                    MateriaalItem.MateriaalOpvullen(materiaal.Naam, materiaal.Beschrijving, item, materiaal.Foto, materiaal.ID);
+                    item.MateriaalOpvullen(materiaal);
 
                     //huidig artikel toevoegen aan fpnl
                     fpnlMateriaalContainer.Controls.Add(item);
@@ -125,6 +129,16 @@ namespace prjSportnetKinda
                 //bij error toon de foutmelding
                 MessageBox.Show(exc.Message);
             }
+        }
+
+   
+        private void MateriaalItem_ButtonClick(object sender, EventArgs e)
+        {
+            //Omzetten van object naar MateriaalItem
+            MateriaalItem item = (MateriaalItem)sender;
+            
+            //Messagebox met gegvens tonen
+             MessageBox.Show(item.materiaal.ID.ToString());
         }
 
         private void KalenderRefresh()
