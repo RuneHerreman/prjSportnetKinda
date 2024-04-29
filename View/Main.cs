@@ -67,7 +67,7 @@ namespace prjSportnetKinda
             {
                 btnBeheerdersinstellingen.Visible = true;
             }
-            /////////////////////////////////////////////////////////////Vragen aan Lars wat deze doet. Werkelijk geen flauw idee (Rune)
+            //Kom je van profiel wijzigen?
             if (tab == 4)
             {
                 tcMain.SelectTab(tabProfiel);
