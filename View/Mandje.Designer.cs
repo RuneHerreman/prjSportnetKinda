@@ -46,7 +46,6 @@
             this.lsvMandje.TabIndex = 0;
             this.lsvMandje.UseCompatibleStateImageBehavior = false;
             this.lsvMandje.View = System.Windows.Forms.View.Details;
-            this.lsvMandje.SelectedIndexChanged += new System.EventHandler(this.lsvMandje_SelectedIndexChanged);
             // 
             // btnHurenLijst
             // 

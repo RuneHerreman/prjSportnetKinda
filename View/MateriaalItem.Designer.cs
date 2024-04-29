@@ -32,6 +32,7 @@
             this.lblMateriaalBeschrijving = new System.Windows.Forms.Label();
             this.btnHuren = new System.Windows.Forms.Button();
             this.lblMateriaalTitel = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picMateriaal)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,6 +68,7 @@
             this.btnHuren.TabIndex = 3;
             this.btnHuren.Text = "Huren";
             this.btnHuren.UseVisualStyleBackColor = false;
+            this.btnHuren.Click += new System.EventHandler(this.btnHuren_Click);
             // 
             // lblMateriaalTitel
             // 
@@ -78,11 +80,21 @@
             this.lblMateriaalTitel.TabIndex = 4;
             this.lblMateriaalTitel.Text = "Materiaaltitel";
             // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(3, 3);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(0, 13);
+            this.lblID.TabIndex = 5;
+            this.lblID.Visible = false;
+            // 
             // MateriaalItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.lblID);
             this.Controls.Add(this.lblMateriaalTitel);
             this.Controls.Add(this.btnHuren);
             this.Controls.Add(this.lblMateriaalBeschrijving);
@@ -102,5 +114,6 @@
         private System.Windows.Forms.Label lblMateriaalBeschrijving;
         private System.Windows.Forms.Button btnHuren;
         private System.Windows.Forms.Label lblMateriaalTitel;
+        private System.Windows.Forms.Label lblID;
     }
 }
