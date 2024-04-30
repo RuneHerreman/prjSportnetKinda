@@ -14,12 +14,17 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using System.Windows.Documents;
 
 namespace prjSportnetKinda
 {
     public partial class Main : Form
     {
         Model.Gebruiker gebruiker;
+        
+        //lijst om gehuurd materiaal in te plaatsen
+        List<String> HuurList = new List<String>();
+
         public Main(Gebruiker login, int tab)
         {
             InitializeComponent();
@@ -131,14 +136,28 @@ namespace prjSportnetKinda
             }
         }
 
-   
+        //btnHuren on click:
         private void MateriaalItem_ButtonClick(object sender, EventArgs e)
         {
+            //hoeveel keer is het artikel toegevoegd
+            int intAantal = 1;
+
             //Omzetten van object naar MateriaalItem
             MateriaalItem item = (MateriaalItem)sender;
-            
+            string strMateriaal = item.materiaal.Naam.ToString();
+
+
+            int intIndex = HuurList.IndexOf(strMateriaal);
+            if (intIndex != -1)
+            {
+
+            }
+
+            System.Windows.Forms.ListViewItem listViewItem = new System.Windows.Forms.ListViewItem(strMateriaal);
+            listViewItem.SubItems.Add(intAantal.ToString());
+
             //Messagebox met gegvens tonen
-             MessageBox.Show(item.materiaal.ID.ToString());
+            HuurList.Add(strMateriaal);
         }
 
         private void KalenderRefresh()
@@ -311,7 +330,8 @@ namespace prjSportnetKinda
         private void btnWinkelwagentje_Click(object sender, EventArgs e)
         {
             //open form van het mandje
-            Mandje mandje = new Mandje();
+            //geef HuurList mee om de listview te kunnen opvullen
+            frmMandje mandje = new frmMandje(HuurList);
             mandje.ShowDialog();
         }
 
