@@ -138,7 +138,7 @@ namespace prjSportnetKinda
             MateriaalItem item = (MateriaalItem)sender;
             
             //Messagebox met gegvens tonen
-             MessageBox.Show(item.materiaal.ID.ToString());
+            MessageBox.Show(item.materiaal.ID.ToString());
         }
 
         private void KalenderRefresh()

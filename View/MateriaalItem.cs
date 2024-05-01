@@ -27,7 +27,7 @@ namespace prjSportnetKinda
         }
 
         //opvullen van de usercontrol met de gegevens uit de lijst
-        public  void MateriaalOpvullen(Materiaal m)
+        public void MateriaalOpvullen(Materiaal m)
         {
             //waarden aan labels koppelen
             this.lblMateriaalBeschrijving.Text = m.Beschrijving;
