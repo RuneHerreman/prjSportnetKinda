@@ -1,6 +1,6 @@
 ﻿namespace prjSportnetKinda.View
 {
-    partial class Mandje
+    partial class frmMandje
     {
         /// <summary>
         /// Required designer variable.
@@ -29,23 +29,36 @@
         private void InitializeComponent()
         {
             this.lsvMandje = new System.Windows.Forms.ListView();
+            this.cNaam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cAantal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnHurenLijst = new System.Windows.Forms.Button();
             this.btnMandjeLegen = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.cNaam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnArtikelVerwijderen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lsvMandje
             // 
             this.lsvMandje.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.cNaam});
+            this.cNaam,
+            this.cAantal});
+            this.lsvMandje.FullRowSelect = true;
             this.lsvMandje.HideSelection = false;
             this.lsvMandje.Location = new System.Drawing.Point(10, 10);
+            this.lsvMandje.MultiSelect = false;
             this.lsvMandje.Name = "lsvMandje";
             this.lsvMandje.Size = new System.Drawing.Size(300, 200);
             this.lsvMandje.TabIndex = 0;
             this.lsvMandje.UseCompatibleStateImageBehavior = false;
             this.lsvMandje.View = System.Windows.Forms.View.Details;
+            // 
+            // cNaam
+            // 
+            this.cNaam.Text = "Naam";
+            this.cNaam.Width = 178;
+            // 
+            // cAantal
+            // 
+            this.cAantal.Text = "Aantal";
             // 
             // btnHurenLijst
             // 
@@ -55,6 +68,7 @@
             this.btnHurenLijst.TabIndex = 1;
             this.btnHurenLijst.Text = "Huren";
             this.btnHurenLijst.UseVisualStyleBackColor = true;
+            this.btnHurenLijst.Click += new System.EventHandler(this.btnHurenLijst_Click_1);
             // 
             // btnMandjeLegen
             // 
@@ -64,32 +78,29 @@
             this.btnMandjeLegen.TabIndex = 2;
             this.btnMandjeLegen.Text = "Mandje Legen";
             this.btnMandjeLegen.UseVisualStyleBackColor = true;
+            this.btnMandjeLegen.Click += new System.EventHandler(this.btnMandjeLegen_Click);
             // 
-            // button1
+            // btnArtikelVerwijderen
             // 
-            this.button1.Location = new System.Drawing.Point(12, 216);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 50);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Artikel Verwijderen";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnArtikelVerwijderen.Location = new System.Drawing.Point(12, 216);
+            this.btnArtikelVerwijderen.Name = "btnArtikelVerwijderen";
+            this.btnArtikelVerwijderen.Size = new System.Drawing.Size(145, 50);
+            this.btnArtikelVerwijderen.TabIndex = 3;
+            this.btnArtikelVerwijderen.Text = "Artikel Verwijderen";
+            this.btnArtikelVerwijderen.UseVisualStyleBackColor = true;
+            this.btnArtikelVerwijderen.Click += new System.EventHandler(this.btnArtikelVerwijderen_Click);
             // 
-            // cNaam
-            // 
-            this.cNaam.Text = "Naam van artikel";
-            this.cNaam.Width = 178;
-            // 
-            // Mandje
+            // frmMandje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(319, 331);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnArtikelVerwijderen);
             this.Controls.Add(this.btnMandjeLegen);
             this.Controls.Add(this.btnHurenLijst);
             this.Controls.Add(this.lsvMandje);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "Mandje";
+            this.Name = "frmMandje";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Mandje";
             this.ResumeLayout(false);
@@ -101,7 +112,8 @@
         private System.Windows.Forms.ListView lsvMandje;
         private System.Windows.Forms.Button btnHurenLijst;
         private System.Windows.Forms.Button btnMandjeLegen;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnArtikelVerwijderen;
         private System.Windows.Forms.ColumnHeader cNaam;
+        private System.Windows.Forms.ColumnHeader cAantal;
     }
 }

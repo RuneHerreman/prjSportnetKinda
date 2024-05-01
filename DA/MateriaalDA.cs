@@ -9,6 +9,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows;
 
 namespace prjSportnetKinda.DA
 {
@@ -89,7 +91,8 @@ namespace prjSportnetKinda.DA
                     Naam = record["naam"].ToString(),
                     Beschrijving = record["beschrijving"].ToString(),
                     //foto van hierboven
-                    Foto = img
+                    Foto = img,
+                    Voorraad = Convert.ToInt32(record["voorraad"].ToString())
                 };
             }
             catch (Exception exc)
@@ -97,6 +100,61 @@ namespace prjSportnetKinda.DA
                 //toon de error message als er iets mis gaat en return een Materiaal met lege waarden
                 System.Windows.Forms.MessageBox.Show(exc.Message);
                 return new Materiaal();
+            }
+        }
+
+        public static void HuurMateriaal(int intNieuweVoorraad, int intMateriaalID)
+        {
+            //query
+            string query = "UPDATE `tblmateriaal` SET `Voorraad`=@Voorraad WHERE `MateriaalID`=@MateriaalID";
+
+            //verbinding maken
+            MySqlConnection conn = Database.MakeConnection();
+            MySqlCommand cmdHuurMateriaal = new MySqlCommand(query, conn);
+            cmdHuurMateriaal.CommandText = query;
+
+            //parameters
+            cmdHuurMateriaal.Parameters.AddWithValue("@Voorraad", intNieuweVoorraad);
+            cmdHuurMateriaal.Parameters.AddWithValue("@MateriaalID", intMateriaalID);
+
+            //uitvoeren
+            cmdHuurMateriaal.ExecuteNonQuery();
+
+            //connectie sluiten
+            Database.CloseConnection(conn);
+        }
+
+        public static void MateriaalMaken(string strNaam, string strBeschrijving, int intVoorraad, PictureBox pictureBox)
+        {
+            try
+            {
+                //foto omzetten naar byte array
+                MemoryStream ms = new MemoryStream();
+                pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                byte[] arrFoto = ms.GetBuffer();
+
+                //open connectie
+                MySqlConnection conn = Database.MakeConnection();
+
+                //query maken
+                string query = "INSERT INTO `tblmateriaal`(`Naam`, `Beschrijving`, `Voorraad`, `Foto`) VALUES (@Naam, @Beschrijving, @Voorraad, @Foto)";
+                //commando maken
+                MySqlCommand cmdArtikel = new MySqlCommand(query, conn);
+                cmdArtikel.CommandText = query;
+
+                cmdArtikel.Parameters.AddWithValue("@Naam", strNaam);
+                cmdArtikel.Parameters.AddWithValue("@Beschrijving", strBeschrijving);
+                cmdArtikel.Parameters.AddWithValue("@Voorraad", intVoorraad);
+                cmdArtikel.Parameters.AddWithValue("@Foto", arrFoto);
+
+                cmdArtikel.ExecuteNonQuery();
+
+                //confirmatie
+                System.Windows.MessageBox.Show("Nieuw materiaal opgeslaan in database", "Nieuwe Materiaal opgeslaan", MessageBoxButton.OK);
+            }
+            catch (Exception exc)
+            {
+                System.Windows.MessageBox.Show(exc.Message);
             }
         }
     }

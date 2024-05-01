@@ -10,6 +10,7 @@ using prjSportnetKinda.Helper;
 using System.Data;
 using System.Windows;
 using System.IO;
+using System.Windows.Forms;
 
 namespace prjSportnetKinda.DA
 {
@@ -87,6 +88,45 @@ namespace prjSportnetKinda.DA
             {
                 System.Windows.Forms.MessageBox.Show(exc.Message);
                 return new Artikel();
+            }
+        }
+
+        public static void ArtikelMaken(string strTitel, string strArtikel, PictureBox pictureBox)
+        {
+            try
+            {
+                //foto omzetten naar byte array
+                MemoryStream ms = new MemoryStream();
+                pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                byte[] arrFoto = ms.GetBuffer();
+
+                //huidige datum
+                DateTime dtHuidigeDatum = DateTime.Now;
+
+
+
+                //open connectie
+                MySqlConnection conn = Database.MakeConnection();
+
+                //query maken
+                string query = "INSERT INTO `tblartikels`(`datum`, `titel`, `artikel`, `foto`) VALUES (@datum,@titel,@artikel,@foto)";
+                //commando maken
+                MySqlCommand cmdArtikel = new MySqlCommand(query, conn);
+                cmdArtikel.CommandText = query;
+
+                cmdArtikel.Parameters.AddWithValue("@datum", dtHuidigeDatum.Date);
+                cmdArtikel.Parameters.AddWithValue("@titel", strTitel);
+                cmdArtikel.Parameters.AddWithValue("@artikel", strArtikel);
+                cmdArtikel.Parameters.AddWithValue("@foto", arrFoto);
+
+                cmdArtikel.ExecuteNonQuery();
+
+                //confirmatie
+                System.Windows.MessageBox.Show("Artikel opgeslaan in database", "Artikel opgeslaan", MessageBoxButton.OK);
+            }
+            catch (Exception exc)
+            {
+                System.Windows.MessageBox.Show(exc.Message, "", MessageBoxButton.OK);
             }
         }
     }

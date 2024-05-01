@@ -1,4 +1,5 @@
-﻿using System;
+﻿using prjSportnetKinda.DA;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,18 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using MySql.Data.MySqlClient;
-using prjSportnetKinda.Helper;
-using prjSportnetKinda.Model;
-using prjSportnetKinda.DA;
 
 namespace prjSportnetKinda.View
 {
-    public partial class NieuwArtikel : Form
+    public partial class NieuwMateriaal : Form
     {
-
-        public NieuwArtikel()
+        public NieuwMateriaal()
         {
             InitializeComponent();
         }
@@ -35,12 +30,12 @@ namespace prjSportnetKinda.View
                 //open de verkenner
                 DialogResult result = ofdFoto.ShowDialog();
                 //als je niet op cancel klikt:
-                if (result != DialogResult.Cancel) 
+                if (result != DialogResult.Cancel)
                 {
                     //textbox opvullen met bestandspad
                     txtFotoNieuw.Text = ofdFoto.FileName;
                     //preview weergeven
-                    picNieuwArtikelPreview.ImageLocation = ofdFoto.FileName.ToString();
+                    picNieuwMateriaalPreview.ImageLocation = ofdFoto.FileName.ToString();
                 }
             }
             catch (Exception exc)
@@ -52,31 +47,31 @@ namespace prjSportnetKinda.View
         private void txtTitelNieuw_TextChanged(object sender, EventArgs e)
         {
             lblLengte.BackColor = Color.Transparent;
-            lblLengte.Text = txtTitelNieuw.TextLength + "/44";
-            if (txtTitelNieuw.TextLength >44)
+            lblLengte.Text = txtNaamNieuw.TextLength + "/15";
+            if (txtNaamNieuw.TextLength > 15)
             {
                 lblLengte.ForeColor = Color.Red;
             }
         }
 
-        private void txtArtikelNieuw_TextChanged(object sender, EventArgs e)
+        private void txtBeschrijvingNieuw_TextChanged(object sender, EventArgs e)
         {
             lblLengteArtikel.BackColor = Color.Transparent;
-            lblLengteArtikel.Text = txtArtikelNieuw.TextLength + "/50000";
-            if (txtArtikelNieuw.TextLength > 50000)
+            lblLengteArtikel.Text = txtBeschrijvingNieuw.TextLength + "/1000";
+            if (txtBeschrijvingNieuw.TextLength > 1000)
             {
                 lblLengteArtikel.ForeColor = Color.Red;
             }
         }
 
-        private void btnArtikelOpslaan_Click(object sender, EventArgs e)
+        private void btnMateriaalOpslaan_Click(object sender, EventArgs e)
         {
-            ArtikelDA.ArtikelMaken(txtTitelNieuw.Text, txtArtikelNieuw.Text, picNieuwArtikelPreview);
+            MateriaalDA.MateriaalMaken(txtNaamNieuw.Text, txtBeschrijvingNieuw.Text, Convert.ToInt16(txtVoorraad.Text), picNieuwMateriaalPreview);
             //textboxes legen
-            txtArtikelNieuw.ResetText();
-            txtTitelNieuw.ResetText();
+            txtBeschrijvingNieuw.ResetText();
+            txtNaamNieuw.ResetText();
             txtFotoNieuw.ResetText();
-            picNieuwArtikelPreview.Image = null;
-        }  
+            picNieuwMateriaalPreview.Image = null;
+        }
     }
 }

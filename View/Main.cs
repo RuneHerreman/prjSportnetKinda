@@ -14,12 +14,18 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using System.Windows.Documents;
 
 namespace prjSportnetKinda
 {
     public partial class Main : Form
     {
         Model.Gebruiker gebruiker;
+        
+        //lijst om gehuurd materiaal in te plaatsen
+        List<Materiaal> HuurList = new List<Materiaal>();
+        List<int> MandjeAantalList = new List<int>();
+
         public Main(Gebruiker login, int tab)
         {
             InitializeComponent();
@@ -36,7 +42,6 @@ namespace prjSportnetKinda
 
             //Refresh alle tabladen
             ArtikelRefresh();
-            MateriaalRefresh();
             
 
             //toon alleen geselecteerde tab
@@ -131,14 +136,40 @@ namespace prjSportnetKinda
             }
         }
 
-   
+        //btnHuren on click:
         private void MateriaalItem_ButtonClick(object sender, EventArgs e)
         {
             //Omzetten van object naar MateriaalItem
             MateriaalItem item = (MateriaalItem)sender;
-            
-            //Messagebox met gegvens tonen
-            MessageBox.Show(item.materiaal.ID.ToString());
+            //hoeveel keer is het artikel toegevoegd
+            //voorraad en naam van gekozen artikel
+            int intAantal = 1;
+            int intVoorraad = item.materiaal.Voorraad;
+            //index van naam materiaal
+            int intMateriaalIndex = HuurList.IndexOf(item.materiaal);
+
+            if (HuurList.IndexOf(item.materiaal) == -1)
+            {
+                //voeg toe aan lijst
+                HuurList.Add(item.materiaal);
+
+                //item komt 1 keer voor
+                MandjeAantalList.Add(intAantal);
+            }
+            //je mag niet meer huren dan dat er voorraad is
+            else if (MandjeAantalList[intMateriaalIndex] < intVoorraad)
+            {
+                //nieuwe hoeveelheid vinden
+                int intNieuwAantal = (MandjeAantalList[intMateriaalIndex] + 1);
+                //verwijder het vorige aantal
+                MandjeAantalList.RemoveAt(intMateriaalIndex);
+                //voeg het nieuwe aantal toe
+                MandjeAantalList.Insert(intMateriaalIndex, intNieuwAantal);
+            }
+            else
+            {
+                MessageBox.Show("Niet genoeg voorraad", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void KalenderRefresh()
@@ -311,7 +342,8 @@ namespace prjSportnetKinda
         private void btnWinkelwagentje_Click(object sender, EventArgs e)
         {
             //open form van het mandje
-            Mandje mandje = new Mandje();
+            //geef HuurList en AantalLijst mee om de listview te kunnen opvullen
+            frmMandje mandje = new frmMandje(HuurList, MandjeAantalList);
             mandje.ShowDialog();
         }
 
@@ -329,6 +361,12 @@ namespace prjSportnetKinda
                 item.Tag = t;
                 lsvTraining.Items.Add(item);
             }
+        }
+
+        private void lblBeheer_Click(object sender, EventArgs e)
+        {
+            MateriaalBeheer beheer = new MateriaalBeheer();
+            beheer.ShowDialog();
         }
     }
 }

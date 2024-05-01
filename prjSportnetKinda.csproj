@@ -35,7 +35,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="mysql.data">
-      <HintPath>Y:\6NI2\0-opdrachten\Sofo\mysql.data.dll</HintPath>
+      <HintPath>B:\Downloads\FireFox Downloads\MySql.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
@@ -62,15 +62,23 @@
   <ItemGroup>
     <Compile Include="DA\ArtikelsDA.cs" />
     <Compile Include="DA\GebruikerDA.cs" />
+    <Compile Include="DA\LogboekDA.cs" />
     <Compile Include="DA\MateriaalDA.cs" />
     <Compile Include="DA\TrainingDA.cs" />
     <Compile Include="Helper\Database.cs" />
+    <Compile Include="Model\Logboek.cs" />
     <Compile Include="Model\Training.cs" />
     <Compile Include="View\Mandje.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Mandje.Designer.cs">
       <DependentUpon>Mandje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MateriaalBeheer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MateriaalBeheer.Designer.cs">
+      <DependentUpon>MateriaalBeheer.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MateriaalItem.cs">
       <SubType>UserControl</SubType>
@@ -92,6 +100,12 @@
     </Compile>
     <Compile Include="View\NieuwArtikel.Designer.cs">
       <DependentUpon>NieuwArtikel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NieuwMateriaal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NieuwMateriaal.Designer.cs">
+      <DependentUpon>NieuwMateriaal.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Register.cs">
       <SubType>Form</SubType>
@@ -134,6 +148,9 @@
     <EmbeddedResource Include="View\Mandje.resx">
       <DependentUpon>Mandje.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\MateriaalBeheer.resx">
+      <DependentUpon>MateriaalBeheer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MateriaalItem.resx">
       <DependentUpon>MateriaalItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -142,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\NieuwArtikel.resx">
       <DependentUpon>NieuwArtikel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NieuwMateriaal.resx">
+      <DependentUpon>NieuwMateriaal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
