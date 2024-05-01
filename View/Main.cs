@@ -42,7 +42,7 @@ namespace prjSportnetKinda
 
             //Refresh alle tabladen
             ArtikelRefresh();
-            
+
 
             //toon alleen geselecteerde tab
             this.btnStart.Image = Properties.Resources.home_select;
