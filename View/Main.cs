@@ -24,6 +24,7 @@ namespace prjSportnetKinda
         
         //lijst om gehuurd materiaal in te plaatsen
         List<String> HuurList = new List<String>();
+        List<int> MandjeAantalList = new List<int>();
 
         public Main(Gebruiker login, int tab)
         {
@@ -41,7 +42,6 @@ namespace prjSportnetKinda
 
             //Refresh alle tabladen
             ArtikelRefresh();
-            MateriaalRefresh();
             
 
             //toon alleen geselecteerde tab
@@ -146,20 +146,28 @@ namespace prjSportnetKinda
             MateriaalItem item = (MateriaalItem)sender;
             string strMateriaal = item.materiaal.Naam.ToString();
 
-
-            int intIndex = HuurList.IndexOf(strMateriaal);
-            if (intIndex != -1)
+            if (HuurList.IndexOf(strMateriaal) == -1)
             {
+                //voeg toe aan lijst
+                HuurList.Add(strMateriaal);
 
+                //item komt 1 keer voor
+                MandjeAantalList.Add(intAantal);
             }
-
-            System.Windows.Forms.ListViewItem listViewItem = new System.Windows.Forms.ListViewItem(strMateriaal);
-            listViewItem.SubItems.Add(intAantal.ToString());
-
-            //Messagebox met gegvens tonen
-            HuurList.Add(strMateriaal);
+            else
+            {
+                //index van naam materiaal
+                int intMateriaalIndex = HuurList.IndexOf(strMateriaal);
+                //nieuwe hoeveelheid vinden
+                int intNieuwAantal = (MandjeAantalList[intMateriaalIndex] + 1);
+                //verwijder het vorige aantal
+                MandjeAantalList.RemoveAt(intMateriaalIndex);
+                //voeg het nieuwe aantal toe
+                MandjeAantalList.Insert(intMateriaalIndex, intNieuwAantal);
+            }
         }
 
+        
         private void KalenderRefresh()
         {
             
@@ -330,8 +338,8 @@ namespace prjSportnetKinda
         private void btnWinkelwagentje_Click(object sender, EventArgs e)
         {
             //open form van het mandje
-            //geef HuurList mee om de listview te kunnen opvullen
-            frmMandje mandje = new frmMandje(HuurList);
+            //geef HuurList en AantalLijst mee om de listview te kunnen opvullen
+            frmMandje mandje = new frmMandje(HuurList, MandjeAantalList);
             mandje.ShowDialog();
         }
 
