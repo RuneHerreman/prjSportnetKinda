@@ -49,18 +49,21 @@
             // 
             this.lsvMateriaal.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.cNaam});
+            this.lsvMateriaal.FullRowSelect = true;
             this.lsvMateriaal.HideSelection = false;
             this.lsvMateriaal.Location = new System.Drawing.Point(12, 15);
             this.lsvMateriaal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lsvMateriaal.MultiSelect = false;
             this.lsvMateriaal.Name = "lsvMateriaal";
-            this.lsvMateriaal.Size = new System.Drawing.Size(149, 340);
+            this.lsvMateriaal.Size = new System.Drawing.Size(213, 340);
             this.lsvMateriaal.TabIndex = 0;
             this.lsvMateriaal.UseCompatibleStateImageBehavior = false;
             this.lsvMateriaal.View = System.Windows.Forms.View.Details;
+            this.lsvMateriaal.SelectedIndexChanged += new System.EventHandler(this.lsvMateriaal_SelectedIndexChanged);
             // 
             // rtxtBeschrijving
             // 
-            this.rtxtBeschrijving.Location = new System.Drawing.Point(179, 82);
+            this.rtxtBeschrijving.Location = new System.Drawing.Point(234, 82);
             this.rtxtBeschrijving.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rtxtBeschrijving.Name = "rtxtBeschrijving";
             this.rtxtBeschrijving.Size = new System.Drawing.Size(218, 111);
@@ -69,15 +72,15 @@
             // 
             // txtNieuweVoorraad
             // 
-            this.txtNieuweVoorraad.Location = new System.Drawing.Point(179, 217);
+            this.txtNieuweVoorraad.Location = new System.Drawing.Point(234, 217);
             this.txtNieuweVoorraad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNieuweVoorraad.Name = "txtNieuweVoorraad";
-            this.txtNieuweVoorraad.Size = new System.Drawing.Size(59, 20);
+            this.txtNieuweVoorraad.Size = new System.Drawing.Size(70, 20);
             this.txtNieuweVoorraad.TabIndex = 3;
             // 
             // txtNieuweNaam
             // 
-            this.txtNieuweNaam.Location = new System.Drawing.Point(179, 38);
+            this.txtNieuweNaam.Location = new System.Drawing.Point(234, 38);
             this.txtNieuweNaam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNieuweNaam.Name = "txtNieuweNaam";
             this.txtNieuweNaam.Size = new System.Drawing.Size(218, 20);
@@ -87,7 +90,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(176, 18);
+            this.label1.Location = new System.Drawing.Point(231, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 16);
             this.label1.TabIndex = 5;
@@ -105,7 +108,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(176, 62);
+            this.label3.Location = new System.Drawing.Point(231, 62);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 16);
             this.label3.TabIndex = 7;
@@ -115,7 +118,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(176, 197);
+            this.label4.Location = new System.Drawing.Point(231, 197);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 16);
             this.label4.TabIndex = 8;
@@ -125,7 +128,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(400, 18);
+            this.label5.Location = new System.Drawing.Point(455, 18);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 16);
             this.label5.TabIndex = 9;
@@ -133,47 +136,51 @@
             // 
             // picNieuweAfbeelding
             // 
-            this.picNieuweAfbeelding.Location = new System.Drawing.Point(403, 38);
+            this.picNieuweAfbeelding.Image = global::prjSportnetKinda.Properties.Resources.calendar_select;
+            this.picNieuweAfbeelding.Location = new System.Drawing.Point(458, 68);
             this.picNieuweAfbeelding.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.picNieuweAfbeelding.Name = "picNieuweAfbeelding";
-            this.picNieuweAfbeelding.Size = new System.Drawing.Size(200, 200);
+            this.picNieuweAfbeelding.Size = new System.Drawing.Size(169, 169);
+            this.picNieuweAfbeelding.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picNieuweAfbeelding.TabIndex = 10;
             this.picNieuweAfbeelding.TabStop = false;
             // 
             // btnToepassen
             // 
-            this.btnToepassen.Location = new System.Drawing.Point(179, 332);
+            this.btnToepassen.Location = new System.Drawing.Point(234, 332);
             this.btnToepassen.Name = "btnToepassen";
             this.btnToepassen.Size = new System.Drawing.Size(82, 23);
             this.btnToepassen.TabIndex = 11;
             this.btnToepassen.Text = "Toepassen";
             this.btnToepassen.UseVisualStyleBackColor = true;
+            this.btnToepassen.Click += new System.EventHandler(this.btnToepassen_Click);
             // 
             // btnBladeren
             // 
-            this.btnBladeren.Location = new System.Drawing.Point(403, 245);
+            this.btnBladeren.Location = new System.Drawing.Point(563, 15);
             this.btnBladeren.Name = "btnBladeren";
-            this.btnBladeren.Size = new System.Drawing.Size(59, 23);
+            this.btnBladeren.Size = new System.Drawing.Size(64, 23);
             this.btnBladeren.TabIndex = 12;
             this.btnBladeren.Text = "Bladeren";
             this.btnBladeren.UseVisualStyleBackColor = true;
             // 
             // txtNieuweFotoLocatie
             // 
-            this.txtNieuweFotoLocatie.Location = new System.Drawing.Point(468, 248);
+            this.txtNieuweFotoLocatie.Location = new System.Drawing.Point(458, 41);
             this.txtNieuweFotoLocatie.Name = "txtNieuweFotoLocatie";
-            this.txtNieuweFotoLocatie.Size = new System.Drawing.Size(135, 20);
+            this.txtNieuweFotoLocatie.Size = new System.Drawing.Size(169, 20);
             this.txtNieuweFotoLocatie.TabIndex = 13;
             // 
             // cNaam
             // 
             this.cNaam.Text = "Naam";
+            this.cNaam.Width = 208;
             // 
             // MateriaalBewerken
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 370);
+            this.ClientSize = new System.Drawing.Size(678, 370);
             this.Controls.Add(this.txtNieuweFotoLocatie);
             this.Controls.Add(this.btnBladeren);
             this.Controls.Add(this.btnToepassen);
