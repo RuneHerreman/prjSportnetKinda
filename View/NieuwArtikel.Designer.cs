@@ -169,6 +169,7 @@
             this.Controls.Add(this.btnBladeren);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "NieuwArtikel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "NieuwArtikel";
             ((System.ComponentModel.ISupportInitialize)(this.picNieuwArtikelPreview)).EndInit();
             this.ResumeLayout(false);

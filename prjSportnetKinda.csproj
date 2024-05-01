@@ -74,6 +74,12 @@
     <Compile Include="View\Mandje.Designer.cs">
       <DependentUpon>Mandje.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MateriaalBeheer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MateriaalBeheer.Designer.cs">
+      <DependentUpon>MateriaalBeheer.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MateriaalItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -94,6 +100,12 @@
     </Compile>
     <Compile Include="View\NieuwArtikel.Designer.cs">
       <DependentUpon>NieuwArtikel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\NieuwMateriaal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NieuwMateriaal.Designer.cs">
+      <DependentUpon>NieuwMateriaal.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Register.cs">
       <SubType>Form</SubType>
@@ -136,6 +148,9 @@
     <EmbeddedResource Include="View\Mandje.resx">
       <DependentUpon>Mandje.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\MateriaalBeheer.resx">
+      <DependentUpon>MateriaalBeheer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\MateriaalItem.resx">
       <DependentUpon>MateriaalItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\NieuwArtikel.resx">
       <DependentUpon>NieuwArtikel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NieuwMateriaal.resx">
+      <DependentUpon>NieuwMateriaal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>

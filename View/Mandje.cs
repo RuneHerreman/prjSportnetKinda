@@ -109,8 +109,7 @@ namespace prjSportnetKinda.View
                     }
                     //Toon wat je gehuurd hebt
                     MessageBox.Show($"Je huurde:\n\n{strGehuurd}", "Details", MessageBoxButtons.OK);
-
-                    
+                    //logboek aanvullen
                     LogboekDA.HuurMateriaal(gebruiker.GebruikerID, strGehuurd, DateTime.Now);
                 }
             }
@@ -118,6 +117,7 @@ namespace prjSportnetKinda.View
             {
                 MessageBox.Show("Er zit niets in je mandje!", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            this.Close();
         }
     }
 }

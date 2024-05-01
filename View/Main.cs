@@ -362,5 +362,11 @@ namespace prjSportnetKinda
                 lsvTraining.Items.Add(item);
             }
         }
+
+        private void lblBeheer_Click(object sender, EventArgs e)
+        {
+            MateriaalBeheer beheer = new MateriaalBeheer();
+            beheer.ShowDialog();
+        }
     }
 }
