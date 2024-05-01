@@ -20,5 +20,6 @@ namespace prjSportnetKinda.Model
         public int Renner { get; set; }
         public DateTime Geboortedatum { get; set; }
         public DateTime Lidsinds { get; set; }
+        public int GebruikerID { get; set; }
     }
 }

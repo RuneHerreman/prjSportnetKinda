@@ -53,7 +53,7 @@
             // 
             // cNaam
             // 
-            this.cNaam.Text = "Naam van artikel";
+            this.cNaam.Text = "Naam";
             this.cNaam.Width = 178;
             // 
             // cAantal
@@ -68,6 +68,7 @@
             this.btnHurenLijst.TabIndex = 1;
             this.btnHurenLijst.Text = "Huren";
             this.btnHurenLijst.UseVisualStyleBackColor = true;
+            this.btnHurenLijst.Click += new System.EventHandler(this.btnHurenLijst_Click_1);
             // 
             // btnMandjeLegen
             // 

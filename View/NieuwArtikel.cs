@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.IO;
 using MySql.Data.MySqlClient;
 using prjSportnetKinda.Helper;
+using prjSportnetKinda.Model;
+using prjSportnetKinda.DA;
 
 namespace prjSportnetKinda.View
 {
@@ -68,47 +70,12 @@ namespace prjSportnetKinda.View
 
         private void btnArtikelOpslaan_Click(object sender, EventArgs e)
         {
-            try
-            {
-                //foto omzetten naar byte array
-                MemoryStream ms = new MemoryStream();
-                picNieuwArtikelPreview.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                byte[] arrFoto = ms.GetBuffer();
-
-                //huidige datum
-                DateTime dtHuidigeDatum = DateTime.Now;
-
-
-                
-                //open connectie
-                MySqlConnection conn = Database.MakeConnection();
-
-                //query maken
-                string query = "INSERT INTO `tblartikels`(`datum`, `titel`, `artikel`, `foto`) VALUES (@datum,@titel,@artikel,@foto)";
-                //commando maken
-                MySqlCommand cmdArtikel = new MySqlCommand(query, conn);
-                cmdArtikel.CommandText = query;
-
-                cmdArtikel.Parameters.AddWithValue("@datum", dtHuidigeDatum.Date);
-                cmdArtikel.Parameters.AddWithValue("@titel", txtTitelNieuw.Text);
-                cmdArtikel.Parameters.AddWithValue("@artikel", txtArtikelNieuw.Text);
-                cmdArtikel.Parameters.AddWithValue("@foto", arrFoto);
-
-                cmdArtikel.ExecuteNonQuery();
-
-                //confirmatie
-                MessageBox.Show("Artikel opgeslaan in database", "Artikel opgeslaan", MessageBoxButtons.OK);
-
-                //textboxes legen
-                txtArtikelNieuw.ResetText();
-                txtTitelNieuw.ResetText();
-                txtFotoNieuw.ResetText();
-                picNieuwArtikelPreview.Image = null;
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message , "",MessageBoxButtons.OK);
-            }
+            ArtikelDA.ArtikelMaken(txtTitelNieuw.Text, txtArtikelNieuw.Text, picNieuwArtikelPreview);
+            //textboxes legen
+            txtArtikelNieuw.ResetText();
+            txtTitelNieuw.ResetText();
+            txtFotoNieuw.ResetText();
+            picNieuwArtikelPreview.Image = null;
         }  
     }
 }

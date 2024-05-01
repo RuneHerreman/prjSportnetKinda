@@ -89,7 +89,8 @@ namespace prjSportnetKinda.DA
                     Naam = record["naam"].ToString(),
                     Beschrijving = record["beschrijving"].ToString(),
                     //foto van hierboven
-                    Foto = img
+                    Foto = img,
+                    Voorraad = Convert.ToInt32(record["voorraad"].ToString())
                 };
             }
             catch (Exception exc)
@@ -98,6 +99,27 @@ namespace prjSportnetKinda.DA
                 System.Windows.Forms.MessageBox.Show(exc.Message);
                 return new Materiaal();
             }
+        }
+
+        public static void HuurMateriaal(int intNieuweVoorraad, int intMateriaalID)
+        {
+            //query
+            string query = "UPDATE `tblmateriaal` SET `Voorraad`=@Voorraad WHERE `MateriaalID`=@MateriaalID";
+
+            //verbinding maken
+            MySqlConnection conn = Database.MakeConnection();
+            MySqlCommand cmdHuurMateriaal = new MySqlCommand(query, conn);
+            cmdHuurMateriaal.CommandText = query;
+
+            //parameters
+            cmdHuurMateriaal.Parameters.AddWithValue("@Voorraad", intNieuweVoorraad);
+            cmdHuurMateriaal.Parameters.AddWithValue("@MateriaalID", intMateriaalID);
+
+            //uitvoeren
+            cmdHuurMateriaal.ExecuteNonQuery();
+
+            //connectie sluiten
+            Database.CloseConnection(conn);
         }
     }
 }

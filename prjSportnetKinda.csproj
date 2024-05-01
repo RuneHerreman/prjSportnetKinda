@@ -62,9 +62,11 @@
   <ItemGroup>
     <Compile Include="DA\ArtikelsDA.cs" />
     <Compile Include="DA\GebruikerDA.cs" />
+    <Compile Include="DA\LogboekDA.cs" />
     <Compile Include="DA\MateriaalDA.cs" />
     <Compile Include="DA\TrainingDA.cs" />
     <Compile Include="Helper\Database.cs" />
+    <Compile Include="Model\Logboek.cs" />
     <Compile Include="Model\Training.cs" />
     <Compile Include="View\Mandje.cs">
       <SubType>Form</SubType>

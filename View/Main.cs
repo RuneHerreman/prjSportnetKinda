@@ -23,7 +23,7 @@ namespace prjSportnetKinda
         Model.Gebruiker gebruiker;
         
         //lijst om gehuurd materiaal in te plaatsen
-        List<String> HuurList = new List<String>();
+        List<Materiaal> HuurList = new List<Materiaal>();
         List<int> MandjeAantalList = new List<int>();
 
         public Main(Gebruiker login, int tab)
@@ -139,25 +139,26 @@ namespace prjSportnetKinda
         //btnHuren on click:
         private void MateriaalItem_ButtonClick(object sender, EventArgs e)
         {
-            //hoeveel keer is het artikel toegevoegd
-            int intAantal = 1;
-
             //Omzetten van object naar MateriaalItem
             MateriaalItem item = (MateriaalItem)sender;
-            string strMateriaal = item.materiaal.Naam.ToString();
+            //hoeveel keer is het artikel toegevoegd
+            //voorraad en naam van gekozen artikel
+            int intAantal = 1;
+            int intVoorraad = item.materiaal.Voorraad;
+            //index van naam materiaal
+            int intMateriaalIndex = HuurList.IndexOf(item.materiaal);
 
-            if (HuurList.IndexOf(strMateriaal) == -1)
+            if (HuurList.IndexOf(item.materiaal) == -1)
             {
                 //voeg toe aan lijst
-                HuurList.Add(strMateriaal);
+                HuurList.Add(item.materiaal);
 
                 //item komt 1 keer voor
                 MandjeAantalList.Add(intAantal);
             }
-            else
+            //je mag niet meer huren dan dat er voorraad is
+            else if (MandjeAantalList[intMateriaalIndex] < intVoorraad)
             {
-                //index van naam materiaal
-                int intMateriaalIndex = HuurList.IndexOf(strMateriaal);
                 //nieuwe hoeveelheid vinden
                 int intNieuwAantal = (MandjeAantalList[intMateriaalIndex] + 1);
                 //verwijder het vorige aantal
@@ -165,9 +166,12 @@ namespace prjSportnetKinda
                 //voeg het nieuwe aantal toe
                 MandjeAantalList.Insert(intMateriaalIndex, intNieuwAantal);
             }
+            else
+            {
+                MessageBox.Show("Niet genoeg voorraad", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        
         private void KalenderRefresh()
         {
             

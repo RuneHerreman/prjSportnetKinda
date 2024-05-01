@@ -10,6 +10,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace prjSportnetKinda
 {
@@ -27,7 +28,7 @@ namespace prjSportnetKinda
         }
 
         //opvullen van de usercontrol met de gegevens uit de lijst
-        public  void MateriaalOpvullen(Materiaal m)
+        public void MateriaalOpvullen(Materiaal m)
         {
             //waarden aan labels koppelen
             this.lblMateriaalBeschrijving.Text = m.Beschrijving;
@@ -41,6 +42,14 @@ namespace prjSportnetKinda
 
             this.lblID.Text = m.ID.ToString();
             this.materiaal = m;
+
+            //als er geen voorraad is
+            if (this.materiaal.Voorraad == 0)
+            {
+                btnHuren.Enabled = false;
+                btnHuren.BackColor = SystemColors.ControlDark;
+                this.Enabled = false;
+            }
 
         }
 

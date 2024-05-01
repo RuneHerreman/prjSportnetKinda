@@ -54,6 +54,7 @@ namespace prjSportnetKinda.DA
                     inloggen.Beheerder = Convert.ToInt32(reader["Beheerder"]);
                     inloggen.Geboortedatum = Convert.ToDateTime(reader["Geboortedatum"]);
                     inloggen.Lidsinds = Convert.ToDateTime(reader["LidSinds"]);
+                    inloggen.GebruikerID = Convert.ToInt16(reader["GebruikerID"]);
                     reader.Close();
 
                     //Connection sluiten
