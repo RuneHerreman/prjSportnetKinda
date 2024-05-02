@@ -25,5 +25,13 @@ namespace prjSportnetKinda.View
             nieuwMateriaal.ShowDialog();
             this.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //open form
+            MateriaalBewerken materiaalBewerken = new MateriaalBewerken();
+            materiaalBewerken.ShowDialog();
+            this.Close();
+        }
     }
 }
