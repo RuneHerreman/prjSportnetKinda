@@ -26,7 +26,7 @@ namespace prjSportnetKinda
         List<Materiaal> HuurList = new List<Materiaal>();
         List<int> MandjeAantalList = new List<int>();
 
-        public Main(Gebruiker login, int tab)
+        public Main(Gebruiker login)
         {
             InitializeComponent();
 
@@ -72,11 +72,6 @@ namespace prjSportnetKinda
             if (login.Beheerder == 1)
             {
                 btnBeheerdersinstellingen.Visible = true;
-            }
-            //Kom je van profiel wijzigen?
-            if (tab == 4)
-            {
-                tcMain.SelectTab(tabProfiel);
             }
         }
 
@@ -324,18 +319,124 @@ namespace prjSportnetKinda
             //var decl
             string strWachtwoord;
 
-            strWachtwoord = Interaction.InputBox("Geef je wachtoord in om je gegevens te wijzigen.", "Wachtwoord ingeven");
-
-            if (strWachtwoord == gebruiker.Wachtwoord)
+            if(btnWijzigenProfiel.Text != "Opslaan")
             {
-                Wijzigen wijzigen = new Wijzigen(gebruiker);
-                wijzigen.ShowDialog();
+                //Wachtwoord opvragen
+                strWachtwoord = Interaction.InputBox("Geef je wachtoord in om je gegevens te wijzigen.", "Wachtwoord ingeven");
 
-                this.Close();
+                if (strWachtwoord == gebruiker.Wachtwoord)
+                {
+                    //Textboxes tonen en opvullen om gegevens te wijzigen
+                    txtVoornaam.Visible = true;
+                    txtVoornaam.Text = lblVoornaam.Text;
+                    txtNaam.Visible = true;
+                    txtNaam.Text = lblNaam.Text;
+                    txtAdres.Visible = true;
+                    txtAdres.Text = lblAdres.Text;
+                    txtEmail.Visible = true;
+                    txtEmail.Text = lblEmail.Text;
+                    txtGeboortedatum.Visible = true;
+                    txtGeboortedatum.Text = lblGeboortedatum.Text;
+                    txtGeslacht.Visible = true;
+                    txtGeslacht.Text = lblGeslacht.Text;
+                    txtTelefoonnr.Visible = true;
+                    txtTelefoonnr.Text = lblTelefoon.Text;
+
+                    //Button veranderen naar opslaan button
+                    btnWijzigenProfiel.Text = "Opslaan";
+                }
+                else
+                {
+                    //Messagebox
+                    MessageBox.Show("Wachtwoord is fout", "Fout wachtwoord", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Wachtwoord is fout", "Fout wachtwoord", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult result = MessageBox.Show("Wilt u deze gegevens opslaan?", "Gegevens aanpassen", MessageBoxButtons.YesNo);
+
+                if(result == DialogResult.Yes)
+                {
+                    //Controle op Lege velden
+                    if (txtVoornaam.Text == null || txtNaam.Text == null || txtGeslacht.Text == null || txtAdres.Text == null || txtTelefoonnr.Text == null || txtGeboortedatum.Text == null)
+                    {
+                        MessageBox.Show("Vul alle velden correct in", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        try
+                        {
+                            //Nieuwe gegevens opslaan
+                            Gebruiker Aanpassingen = new Gebruiker();
+
+                            Aanpassingen.Voornaam = txtVoornaam.Text;
+                            Aanpassingen.Naam = txtNaam.Text;
+                            Aanpassingen.Geslacht = txtGeslacht.Text;
+                            Aanpassingen.Adres = txtAdres.Text;
+                            Aanpassingen.Telefoonnummer = Convert.ToInt32(txtTelefoonnr.Text);
+                            Aanpassingen.Geboortedatum = Convert.ToDateTime(txtGeboortedatum.Text);
+                            Aanpassingen.Email = txtEmail.Text;
+
+                            //Gegevens aanpassen
+                            Gebruiker wijzigen = GebruikerDA.Wijzigen(Aanpassingen);
+
+                            if (wijzigen == null)
+                            {
+                                //Foutmelding
+                                MessageBox.Show("Vul alle velden correct in", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            else
+                            {
+                                //Succes melding
+                                MessageBox.Show("Je gegevens zijn aangepast");
+
+                                //Variable aanpassen
+                                gebruiker.Voornaam = Aanpassingen.Voornaam;
+                                gebruiker.Naam = Aanpassingen.Naam;
+                                gebruiker.Geslacht = Aanpassingen.Geslacht;
+                                gebruiker.Adres = Aanpassingen.Adres;
+                                gebruiker.Telefoonnummer = Aanpassingen.Telefoonnummer;
+                                gebruiker.Geboortedatum = Aanpassingen.Geboortedatum;
+                                gebruiker.Email = Aanpassingen.Email;
+
+                                //Labels updaten
+                                lblNaamVoornaam.Text = "Welkom " + gebruiker.Voornaam + " " + gebruiker.Naam;
+                                lblVoornaam.Text = gebruiker.Voornaam;
+                                lblNaam.Text = gebruiker.Naam;
+                                lblGeslacht.Text = gebruiker.Geslacht;
+                                lblAdres.Text = gebruiker.Adres;
+                                lblTelefoon.Text = gebruiker.Telefoonnummer.ToString();
+                                lblEmail.Text = gebruiker.Email;
+                                lblGeboortedatum.Text = gebruiker.Geboortedatum.ToString("d");
+                                lblLidSinds.Text = gebruiker.Lidsinds.ToString("d");
+                            }
+                        }
+                        catch
+                        {
+                            //Foutmelding
+                            MessageBox.Show("Vul alle velden correct in", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+
+                //Textboxes legen en hidden
+                txtVoornaam.Visible = false;
+                txtVoornaam.Clear();
+                txtNaam.Visible = false;
+                txtNaam.Clear();
+                txtAdres.Visible = false;
+                txtAdres.Clear();
+                txtEmail.Visible = false;
+                txtEmail.Clear();
+                txtGeboortedatum.Visible = false;
+                txtGeboortedatum.Clear();
+                txtGeslacht.Visible = false;
+                txtGeslacht.Clear();
+                txtTelefoonnr.Visible = false;
+                txtTelefoonnr.Clear();
+
+                //Button veranderen naar opslaan button
+                btnWijzigenProfiel.Text = "Gegevens Wijzigen";
             }
         }
 

@@ -56,7 +56,7 @@ namespace prjSportnetKinda.View
                     {
                         MessageBox.Show("Je gegevens zijn aangepast");
 
-                        Main main = new Main(gebruiker, 4);
+                        Main main = new Main(gebruiker);
                         this.Hide();
                         main.ShowDialog();
                         this.Close();
