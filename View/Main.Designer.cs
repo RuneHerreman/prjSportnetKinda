@@ -72,7 +72,6 @@
             this.txtGeslacht = new System.Windows.Forms.TextBox();
             this.txtTelefoonnr = new System.Windows.Forms.TextBox();
             this.txtAdres = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtVoornaam = new System.Windows.Forms.TextBox();
             this.btnAccountVerwijderen = new System.Windows.Forms.Button();
             this.btnBeheerdersinstellingen = new System.Windows.Forms.Button();
@@ -617,7 +616,6 @@
             this.tabProfiel.Controls.Add(this.txtGeslacht);
             this.tabProfiel.Controls.Add(this.txtTelefoonnr);
             this.tabProfiel.Controls.Add(this.txtAdres);
-            this.tabProfiel.Controls.Add(this.txtEmail);
             this.tabProfiel.Controls.Add(this.txtVoornaam);
             this.tabProfiel.Controls.Add(this.btnAccountVerwijderen);
             this.tabProfiel.Controls.Add(this.btnBeheerdersinstellingen);
@@ -692,14 +690,6 @@
             this.txtAdres.Size = new System.Drawing.Size(331, 26);
             this.txtAdres.TabIndex = 27;
             this.txtAdres.Visible = false;
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(813, 299);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(331, 26);
-            this.txtEmail.TabIndex = 25;
-            this.txtEmail.Visible = false;
             // 
             // txtVoornaam
             // 
@@ -1073,7 +1063,6 @@
         private System.Windows.Forms.TextBox txtGeslacht;
         private System.Windows.Forms.TextBox txtTelefoonnr;
         private System.Windows.Forms.TextBox txtAdres;
-        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtVoornaam;
     }
 }

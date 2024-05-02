@@ -179,7 +179,7 @@ namespace prjSportnetKinda.DA
             }
         }
 
-        public static Gebruiker Wijzigen(Gebruiker gebruiker)
+        public static Gebruiker Wijzigen(Gebruiker g)
         {
             try
             {
@@ -198,13 +198,13 @@ namespace prjSportnetKinda.DA
                 mysqlcmd.CommandType = CommandType.Text;
 
                 //Parameters
-                mysqlcmd.Parameters.AddWithValue("@Email", gebruiker.Email);
-                mysqlcmd.Parameters.AddWithValue("@Voornaam", gebruiker.Voornaam);
-                mysqlcmd.Parameters.AddWithValue("@Naam", gebruiker.Naam);
-                mysqlcmd.Parameters.AddWithValue("@Geboortedatum", gebruiker.Geboortedatum);
-                mysqlcmd.Parameters.AddWithValue("@Geslacht", gebruiker.Geslacht);
-                mysqlcmd.Parameters.AddWithValue("@Adres", gebruiker.Adres);
-                mysqlcmd.Parameters.AddWithValue("@Telefoonnummer", gebruiker.Telefoonnummer);
+                mysqlcmd.Parameters.AddWithValue("@Email", g.Email);
+                mysqlcmd.Parameters.AddWithValue("@Voornaam", g.Voornaam);
+                mysqlcmd.Parameters.AddWithValue("@Naam", g.Naam);
+                mysqlcmd.Parameters.AddWithValue("@Geboortedatum", g.Geboortedatum);
+                mysqlcmd.Parameters.AddWithValue("@Geslacht", g.Geslacht);
+                mysqlcmd.Parameters.AddWithValue("@Adres", g.Adres);
+                mysqlcmd.Parameters.AddWithValue("@Telefoonnummer", g.Telefoonnummer);
 
                 //Commando uitvoeren
                 mysqlcmd.ExecuteNonQuery();
@@ -261,6 +261,7 @@ namespace prjSportnetKinda.DA
                 {
                     Voornaam = record["Voornaam"].ToString(),
                     Naam = record["Naam"].ToString(),
+                    Email = record["Email"].ToString(),
                     Renner = Convert.ToInt32(record["Renner"]),
                     Trainer = Convert.ToInt32(record["Trainer"]),
                     Beheerder = Convert.ToInt32(record["Beheerder"]),
@@ -270,6 +271,44 @@ namespace prjSportnetKinda.DA
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
                 return new Gebruiker();
+            }
+        }
+
+        public static Gebruiker WijzigenRollen(Gebruiker g)
+        {
+            try
+            {
+                Gebruiker wijzigen = new Gebruiker();
+
+                //Connection openen
+                MySqlConnection conn = Database.MakeConnection();
+
+                //sting maken met sql statement
+                string query = "UPDATE tblgebruiker SET Renner=@Renner, Trainer=@Trainer, Beheerder=@Beheerder WHERE Email=@Email";
+
+                //Maken van het command
+                MySqlCommand mysqlcmd = new MySqlCommand(query, conn);
+
+                //Welk soort gegevens is het commando
+                mysqlcmd.CommandType = CommandType.Text;
+
+                //Parameters
+                mysqlcmd.Parameters.AddWithValue("@Email", g.Email);
+                mysqlcmd.Parameters.AddWithValue("@Renner", g.Renner);
+                mysqlcmd.Parameters.AddWithValue("@Trainer", g.Trainer);
+                mysqlcmd.Parameters.AddWithValue("@Beheerder", g.Beheerder);
+
+                //Commando uitvoeren
+                mysqlcmd.ExecuteNonQuery();
+
+                //Connection sluiten
+                Database.CloseConnection(conn);
+
+                return wijzigen;
+            }
+            catch
+            {
+                return null;
             }
         }
     }

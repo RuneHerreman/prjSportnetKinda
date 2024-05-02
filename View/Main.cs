@@ -333,8 +333,6 @@ namespace prjSportnetKinda
                     txtNaam.Text = lblNaam.Text;
                     txtAdres.Visible = true;
                     txtAdres.Text = lblAdres.Text;
-                    txtEmail.Visible = true;
-                    txtEmail.Text = lblEmail.Text;
                     txtGeboortedatum.Visible = true;
                     txtGeboortedatum.Text = lblGeboortedatum.Text;
                     txtGeslacht.Visible = true;
@@ -375,7 +373,7 @@ namespace prjSportnetKinda
                             Aanpassingen.Adres = txtAdres.Text;
                             Aanpassingen.Telefoonnummer = Convert.ToInt32(txtTelefoonnr.Text);
                             Aanpassingen.Geboortedatum = Convert.ToDateTime(txtGeboortedatum.Text);
-                            Aanpassingen.Email = txtEmail.Text;
+                            Aanpassingen.Email = gebruiker.Email;
 
                             //Gegevens aanpassen
                             Gebruiker wijzigen = GebruikerDA.Wijzigen(Aanpassingen);
@@ -397,7 +395,6 @@ namespace prjSportnetKinda
                                 gebruiker.Adres = Aanpassingen.Adres;
                                 gebruiker.Telefoonnummer = Aanpassingen.Telefoonnummer;
                                 gebruiker.Geboortedatum = Aanpassingen.Geboortedatum;
-                                gebruiker.Email = Aanpassingen.Email;
 
                                 //Labels updaten
                                 lblNaamVoornaam.Text = "Welkom " + gebruiker.Voornaam + " " + gebruiker.Naam;
@@ -426,8 +423,6 @@ namespace prjSportnetKinda
                 txtNaam.Clear();
                 txtAdres.Visible = false;
                 txtAdres.Clear();
-                txtEmail.Visible = false;
-                txtEmail.Clear();
                 txtGeboortedatum.Visible = false;
                 txtGeboortedatum.Clear();
                 txtGeslacht.Visible = false;
@@ -473,9 +468,7 @@ namespace prjSportnetKinda
         private void btnBeheerdersinstellingen_Click(object sender, EventArgs e)
         {
             Wijzigen Wijzigen = new Wijzigen();
-            this.Hide();
             Wijzigen.ShowDialog();
-            this.Close();
         }
     }
 }
