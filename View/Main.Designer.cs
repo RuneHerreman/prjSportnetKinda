@@ -735,6 +735,7 @@
             this.btnBeheerdersinstellingen.Text = "Beheerders instellingen";
             this.btnBeheerdersinstellingen.UseVisualStyleBackColor = true;
             this.btnBeheerdersinstellingen.Visible = false;
+            this.btnBeheerdersinstellingen.Click += new System.EventHandler(this.btnBeheerdersinstellingen_Click);
             // 
             // btnUitloggen
             // 

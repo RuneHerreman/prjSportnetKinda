@@ -469,5 +469,13 @@ namespace prjSportnetKinda
             MateriaalBeheer beheer = new MateriaalBeheer();
             beheer.ShowDialog();
         }
+
+        private void btnBeheerdersinstellingen_Click(object sender, EventArgs e)
+        {
+            Wijzigen Wijzigen = new Wijzigen();
+            this.Hide();
+            Wijzigen.ShowDialog();
+            this.Close();
+        }
     }
 }

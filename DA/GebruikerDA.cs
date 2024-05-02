@@ -26,7 +26,7 @@ namespace prjSportnetKinda.DA
                 MySqlConnection conn = Database.MakeConnection();
 
                 //sting maken met sql statement
-                String query = "SELECT * from tblgebruiker WHERE Email=@Email AND Wachtwoord=@Wachtwoord";
+                string query = "SELECT * from tblgebruiker WHERE Email=@Email AND Wachtwoord=@Wachtwoord";
 
                 //Maken van het command
                 MySqlCommand mysqlcmd = new MySqlCommand(query, conn);
@@ -87,7 +87,7 @@ namespace prjSportnetKinda.DA
                 MySqlConnection conn = Database.MakeConnection();
 
                 //Controleren of Email al bestaat
-                String query = "SELECT * from tblgebruiker WHERE Email=@Email";
+                string query = "SELECT * from tblgebruiker WHERE Email=@Email";
 
                 //Maken van het command
                 MySqlCommand mysqlcmd = new MySqlCommand(query, conn);
@@ -154,7 +154,7 @@ namespace prjSportnetKinda.DA
                 MySqlConnection conn = Database.MakeConnection();
 
                 //sting maken met sql statement
-                String query = "DELETE FROM tblgebruiker WHERE Email=@Email";
+                string query = "DELETE FROM tblgebruiker WHERE Email=@Email";
 
                 //Maken van het command
                 MySqlCommand mysqlcmd = new MySqlCommand(query, conn);
@@ -189,7 +189,7 @@ namespace prjSportnetKinda.DA
                 MySqlConnection conn = Database.MakeConnection();
 
                 //sting maken met sql statement
-                String query = "UPDATE tblgebruiker SET Voornaam=@Voornaam, Naam=@Naam, Geboortedatum=@Geboortedatum, Geslacht=@Geslacht, Adres=@Adres, Telefoonnummer=@Telefoonnummer WHERE Email=@Email";
+                string query = "UPDATE tblgebruiker SET Voornaam=@Voornaam, Naam=@Naam, Geboortedatum=@Geboortedatum, Geslacht=@Geslacht, Adres=@Adres, Telefoonnummer=@Telefoonnummer WHERE Email=@Email";
 
                 //Maken van het command
                 MySqlCommand mysqlcmd = new MySqlCommand(query, conn);
@@ -218,7 +218,59 @@ namespace prjSportnetKinda.DA
             {
                 return null;
             }
-            
+        }
+
+        public static List<Gebruiker> Ophalen()
+        {
+            List<Gebruiker> gebruikers = new List<Gebruiker>();
+
+            //Connection openen
+            MySqlConnection conn = Database.MakeConnection();
+
+            //sting maken met sql statement
+            string query = "SELECT * from tblgebruiker";
+
+            //Maken van het command
+            MySqlCommand mysqlcmd = new MySqlCommand(query, conn);
+
+            //Welk soort gegevens is het commando
+            mysqlcmd.CommandType = CommandType.Text;
+
+            //Reader
+            MySqlDataReader reader = mysqlcmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                gebruikers.Add(Create(reader));
+            }
+
+            //reader sluiten
+            reader.Close();
+
+            //Connection sluiten
+            Database.CloseConnection(conn);
+
+            return gebruikers;
+        }
+
+        public static Gebruiker Create(IDataRecord record)
+        {
+            try
+            {
+                return new Gebruiker()
+                {
+                    Voornaam = record["Voornaam"].ToString(),
+                    Naam = record["Naam"].ToString(),
+                    Renner = Convert.ToInt32(record["Renner"].ToString()),
+                    Trainer = Convert.ToInt32(record["Trainer"].ToString()),
+                    Beheerder = Convert.ToInt32(record["Beheerder"].ToString()),
+                };
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+                return new Gebruiker();
+            }
         }
     }
 }
