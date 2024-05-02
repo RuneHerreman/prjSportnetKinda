@@ -261,9 +261,9 @@ namespace prjSportnetKinda.DA
                 {
                     Voornaam = record["Voornaam"].ToString(),
                     Naam = record["Naam"].ToString(),
-                    Renner = Convert.ToInt32(record["Renner"].ToString()),
-                    Trainer = Convert.ToInt32(record["Trainer"].ToString()),
-                    Beheerder = Convert.ToInt32(record["Beheerder"].ToString()),
+                    Renner = Convert.ToInt32(record["Renner"]),
+                    Trainer = Convert.ToInt32(record["Trainer"]),
+                    Beheerder = Convert.ToInt32(record["Beheerder"]),
                 };
             }
             catch (Exception ex)
