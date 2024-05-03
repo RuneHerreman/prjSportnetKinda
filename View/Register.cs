@@ -19,7 +19,6 @@ namespace prjSportnetKinda
             InitializeComponent();
         }
 
-
         private void lblLinkToLogin_Click(object sender, EventArgs e)
         {
             //ga naar login als je al een account hebt

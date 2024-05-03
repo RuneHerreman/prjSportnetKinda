@@ -44,7 +44,7 @@ namespace prjSportnetKinda.View
 
                         //Checkboxes tonen
                         chkRenner.Visible = true;
-                        if (g.Renner == 1)
+                        if (g.Renner)
                         {
                             chkRenner.Checked = true;
                         }
@@ -54,7 +54,7 @@ namespace prjSportnetKinda.View
                         }
 
                         chkTrainer.Visible = true;
-                        if (g.Trainer == 1)
+                        if (g.Trainer)
                         {
                             chkTrainer.Checked = true;
                         }
@@ -64,7 +64,7 @@ namespace prjSportnetKinda.View
                         }
 
                         chkBeheerder.Visible = true;
-                        if (g.Beheerder == 1)
+                        if (g.Beheerder)
                         {
                             chkBeheerder.Checked = true;
                         }
@@ -74,6 +74,7 @@ namespace prjSportnetKinda.View
                         }
 
                         btnOpslaan.Visible = true;
+                        btnVerwijderen.Visible = true;
 
                         intFound = 1;
                     }
@@ -88,6 +89,7 @@ namespace prjSportnetKinda.View
                     chkBeheerder.Visible = false;
 
                     btnOpslaan.Visible = false;
+                    btnVerwijderen.Visible = false;
 
                     lblEmail.Text = "";
 
@@ -114,29 +116,29 @@ namespace prjSportnetKinda.View
             //Checkboxes uitlzen
             if (chkRenner.Checked)
             {
-                g.Renner = 1;
+                g.Renner = true;
             }
             else
             {
-                g.Renner = 0;
+                g.Renner = false;
             }
 
             if (chkTrainer.Checked)
             {
-                g.Trainer = 1;
+                g.Trainer = true;
             }
             else
             {
-                g.Trainer = 0;
+                g.Trainer = false;
             }
 
             if (chkBeheerder.Checked)
             {
-                g.Beheerder = 1;
+                g.Beheerder = true;
             }
             else
             {
-                g.Beheerder = 0;
+                g.Beheerder = false;
             }
 
             if (GebruikerDA.WijzigenRollen(g) != null)
@@ -150,15 +152,44 @@ namespace prjSportnetKinda.View
                 btnVerwijderen.Visible = false;
                 btnOpslaan.Visible = false;
 
-
-
                 //Succes Message
-                MessageBox.Show($"De rollen zijn geupdate");
+                MessageBox.Show("De rollen zijn geüpdate");
             }
             else
             {
                 //Error
                 MessageBox.Show("Kan gegevens niet aanpassen wegens fout", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnVerwijderen_Click(object sender, EventArgs e)
+        {
+            //Waarschuwing
+            DialogResult result = MessageBox.Show("Weet u zeker dat u deze gebruiker wilt verwijderen?", "Waarschuwing", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                //Gebruiker verwijderen
+                if (GebruikerDA.Verwijderen(lblEmail.Text.Substring(23, lblEmail.Text.Length - 23)) != null)
+                {
+                    //Resetten form
+                    txtGebruiker.Clear();
+                    lblEmail.Text = "";
+                    chkRenner.Visible = false;
+                    chkTrainer.Visible = false;
+                    chkBeheerder.Visible = false;
+                    btnVerwijderen.Visible = false;
+                    btnOpslaan.Visible = false;
+                    txtGebruiker.AutoCompleteCustomSource.Remove(txtGebruiker.Text);
+
+                    //Succes melding
+                    MessageBox.Show("De gebruiker is verwijderd", "Verwijderd");
+                }
+                else
+                {
+                    //Error
+                    MessageBox.Show("Gebruiker kon niet verwijderd worden", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

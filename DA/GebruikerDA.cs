@@ -50,8 +50,9 @@ namespace prjSportnetKinda.DA
                     inloggen.Geslacht = reader["Geslacht"].ToString();
                     inloggen.Adres = reader["Adres"].ToString();
                     inloggen.Telefoonnummer = Convert.ToInt32(reader["Telefoonnummer"]);
-                    inloggen.Renner = Convert.ToInt32(reader["Renner"]);
-                    inloggen.Beheerder = Convert.ToInt32(reader["Beheerder"]);
+                    inloggen.Renner = Convert.ToBoolean(reader["Renner"]);
+                    inloggen.Renner = Convert.ToBoolean(reader["Trainer"]);
+                    inloggen.Beheerder = Convert.ToBoolean(reader["Beheerder"]);
                     inloggen.Geboortedatum = Convert.ToDateTime(reader["Geboortedatum"]);
                     inloggen.Lidsinds = Convert.ToDateTime(reader["LidSinds"]);
                     inloggen.GebruikerID = Convert.ToInt16(reader["GebruikerID"]);
@@ -111,8 +112,8 @@ namespace prjSportnetKinda.DA
                 {
                     reader.Close();
                     //sting maken met sql statement
-                    query = "INSERT INTO tblgebruiker (Naam, Voornaam, Email, Geboortedatum, Wachtwoord, LidSinds, Renner) " +
-                            "VALUES (@Naam, @Voornaam, @Email, @Geboortedatum, @Wachtwoord, @LidSinds, @Renner)";
+                    query = "INSERT INTO tblgebruiker (Naam, Voornaam, Email, Geboortedatum, Wachtwoord, LidSinds, Renner, Trainer, Beheerder) " +
+                            "VALUES (@Naam, @Voornaam, @Email, @Geboortedatum, @Wachtwoord, @LidSinds, @Renner, @Trainer, @Beheerder)";
 
                     //Maken van het command
                     mysqlcmd = new MySqlCommand(query, conn);
@@ -128,6 +129,8 @@ namespace prjSportnetKinda.DA
                     mysqlcmd.Parameters.AddWithValue("@Wachtwoord", wachtwoord);
                     mysqlcmd.Parameters.AddWithValue("@LidSinds", DateTime.Today);
                     mysqlcmd.Parameters.AddWithValue("@Renner", 1);
+                    mysqlcmd.Parameters.AddWithValue("@Trainer", 0);
+                    mysqlcmd.Parameters.AddWithValue("@Beheerder", 0);
 
                     //Uivoeren
                     mysqlcmd.ExecuteNonQuery();
@@ -262,9 +265,9 @@ namespace prjSportnetKinda.DA
                     Voornaam = record["Voornaam"].ToString(),
                     Naam = record["Naam"].ToString(),
                     Email = record["Email"].ToString(),
-                    Renner = Convert.ToInt32(record["Renner"]),
-                    Trainer = Convert.ToInt32(record["Trainer"]),
-                    Beheerder = Convert.ToInt32(record["Beheerder"]),
+                    Renner = Convert.ToBoolean(record["Renner"]),
+                    Trainer = Convert.ToBoolean(record["Trainer"]),
+                    Beheerder = Convert.ToBoolean(record["Beheerder"]),
                 };
             }
             catch (Exception ex)

@@ -63,13 +63,13 @@ namespace prjSportnetKinda
             lblLidSinds.Text = login.Lidsinds.ToString("d");
 
             //Ben je renner?
-            if (login.Renner == 1)
+            if (login.Renner)
             {
                 lblCategorieKop.Text = "Categorie:";
                 //lblCategorie.Text = login.Categorie;
             }
             //Ben je beheerder?
-            if (login.Beheerder == 1)
+            if (login.Beheerder)
             {
                 btnBeheerdersinstellingen.Visible = true;
             }
@@ -358,6 +358,7 @@ namespace prjSportnetKinda
                     //Controle op Lege velden
                     if (txtVoornaam.Text == null || txtNaam.Text == null || txtGeslacht.Text == null || txtAdres.Text == null || txtTelefoonnr.Text == null || txtGeboortedatum.Text == null)
                     {
+                        //Foutmelding
                         MessageBox.Show("Vul alle velden correct in", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
@@ -467,8 +468,22 @@ namespace prjSportnetKinda
 
         private void btnBeheerdersinstellingen_Click(object sender, EventArgs e)
         {
-            Wijzigen Wijzigen = new Wijzigen();
-            Wijzigen.ShowDialog();
+            string strWachtwoord;
+
+            //Wachtwoord opvragen
+            strWachtwoord = Interaction.InputBox("Geef je wachtoord in om je gegevens te wijzigen.", "Wachtwoord ingeven");
+
+            if(strWachtwoord == gebruiker.Wachtwoord)
+            {
+                //Nieuw form openen
+                Wijzigen Wijzigen = new Wijzigen();
+                Wijzigen.ShowDialog();
+            }
+            else
+            {
+                //Fout wachtwoord
+                MessageBox.Show("Wachtwoord is fout", "Fout wachtwoord", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

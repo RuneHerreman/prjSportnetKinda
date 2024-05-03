@@ -15,9 +15,9 @@ namespace prjSportnetKinda.Model
         public string Geslacht { get; set; }
         public string Adres { get; set; }
         public int Telefoonnummer { get; set; }
-        public int Beheerder { get; set; }
-        public int Trainer { get; set; }
-        public int Renner { get; set; }
+        public bool Beheerder { get; set; }
+        public bool Trainer { get; set; }
+        public bool Renner { get; set; }
         public DateTime Geboortedatum { get; set; }
         public DateTime Lidsinds { get; set; }
         public int GebruikerID { get; set; }
