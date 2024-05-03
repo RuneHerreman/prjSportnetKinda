@@ -54,14 +54,16 @@
             // cNaam
             // 
             this.cNaam.Text = "Naam";
-            this.cNaam.Width = 178;
+            this.cNaam.Width = 220;
             // 
             // cAantal
             // 
             this.cAantal.Text = "Aantal";
+            this.cAantal.Width = 50;
             // 
             // btnHurenLijst
             // 
+            this.btnHurenLijst.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHurenLijst.Location = new System.Drawing.Point(10, 272);
             this.btnHurenLijst.Name = "btnHurenLijst";
             this.btnHurenLijst.Size = new System.Drawing.Size(300, 50);
@@ -72,6 +74,7 @@
             // 
             // btnMandjeLegen
             // 
+            this.btnMandjeLegen.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMandjeLegen.Location = new System.Drawing.Point(165, 216);
             this.btnMandjeLegen.Name = "btnMandjeLegen";
             this.btnMandjeLegen.Size = new System.Drawing.Size(145, 50);
@@ -82,6 +85,7 @@
             // 
             // btnArtikelVerwijderen
             // 
+            this.btnArtikelVerwijderen.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnArtikelVerwijderen.Location = new System.Drawing.Point(12, 216);
             this.btnArtikelVerwijderen.Name = "btnArtikelVerwijderen";
             this.btnArtikelVerwijderen.Size = new System.Drawing.Size(145, 50);

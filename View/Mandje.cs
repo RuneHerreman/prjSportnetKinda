@@ -23,12 +23,15 @@ namespace prjSportnetKinda.View
         string strGehuurd;
         Gebruiker gebruiker = new Gebruiker();
 
-        public frmMandje(List<Materiaal> HuurList, List<int> MandjeAantalList)
+        public frmMandje(List<Materiaal> HuurList, List<int> MandjeAantalList, Gebruiker login)
         {
             InitializeComponent();
             //omzetten naar lijst in dit formulier om leegmaken mogelijk te maken
             MandjeAantallenList = MandjeAantalList;
             MandjeMateriaalList = HuurList;
+
+            //gebruiker doorgeven
+            gebruiker = login;
 
             foreach(Materiaal materiaal in MandjeMateriaalList)
             {

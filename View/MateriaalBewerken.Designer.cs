@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.lsvMateriaal = new System.Windows.Forms.ListView();
+            this.cNaam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.rtxtBeschrijving = new System.Windows.Forms.RichTextBox();
             this.txtNieuweVoorraad = new System.Windows.Forms.TextBox();
             this.txtNieuweNaam = new System.Windows.Forms.TextBox();
@@ -41,7 +42,8 @@
             this.btnToepassen = new System.Windows.Forms.Button();
             this.btnBladeren = new System.Windows.Forms.Button();
             this.txtNieuweFotoLocatie = new System.Windows.Forms.TextBox();
-            this.cNaam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ofdFoto = new System.Windows.Forms.OpenFileDialog();
+            this.lblMateriaalID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picNieuweAfbeelding)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,8 +63,14 @@
             this.lsvMateriaal.View = System.Windows.Forms.View.Details;
             this.lsvMateriaal.SelectedIndexChanged += new System.EventHandler(this.lsvMateriaal_SelectedIndexChanged);
             // 
+            // cNaam
+            // 
+            this.cNaam.Text = "Naam";
+            this.cNaam.Width = 208;
+            // 
             // rtxtBeschrijving
             // 
+            this.rtxtBeschrijving.Enabled = false;
             this.rtxtBeschrijving.Location = new System.Drawing.Point(234, 82);
             this.rtxtBeschrijving.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rtxtBeschrijving.Name = "rtxtBeschrijving";
@@ -72,14 +80,16 @@
             // 
             // txtNieuweVoorraad
             // 
+            this.txtNieuweVoorraad.Enabled = false;
             this.txtNieuweVoorraad.Location = new System.Drawing.Point(234, 217);
             this.txtNieuweVoorraad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNieuweVoorraad.Name = "txtNieuweVoorraad";
-            this.txtNieuweVoorraad.Size = new System.Drawing.Size(70, 20);
+            this.txtNieuweVoorraad.Size = new System.Drawing.Size(82, 20);
             this.txtNieuweVoorraad.TabIndex = 3;
             // 
             // txtNieuweNaam
             // 
+            this.txtNieuweNaam.Enabled = false;
             this.txtNieuweNaam.Location = new System.Drawing.Point(234, 38);
             this.txtNieuweNaam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNieuweNaam.Name = "txtNieuweNaam";
@@ -136,7 +146,6 @@
             // 
             // picNieuweAfbeelding
             // 
-            this.picNieuweAfbeelding.Image = global::prjSportnetKinda.Properties.Resources.calendar_select;
             this.picNieuweAfbeelding.Location = new System.Drawing.Point(458, 68);
             this.picNieuweAfbeelding.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.picNieuweAfbeelding.Name = "picNieuweAfbeelding";
@@ -147,6 +156,7 @@
             // 
             // btnToepassen
             // 
+            this.btnToepassen.Enabled = false;
             this.btnToepassen.Location = new System.Drawing.Point(234, 332);
             this.btnToepassen.Name = "btnToepassen";
             this.btnToepassen.Size = new System.Drawing.Size(82, 23);
@@ -157,30 +167,43 @@
             // 
             // btnBladeren
             // 
+            this.btnBladeren.Enabled = false;
             this.btnBladeren.Location = new System.Drawing.Point(563, 15);
             this.btnBladeren.Name = "btnBladeren";
             this.btnBladeren.Size = new System.Drawing.Size(64, 23);
             this.btnBladeren.TabIndex = 12;
             this.btnBladeren.Text = "Bladeren";
             this.btnBladeren.UseVisualStyleBackColor = true;
+            this.btnBladeren.Click += new System.EventHandler(this.btnBladeren_Click);
             // 
             // txtNieuweFotoLocatie
             // 
+            this.txtNieuweFotoLocatie.Enabled = false;
             this.txtNieuweFotoLocatie.Location = new System.Drawing.Point(458, 41);
             this.txtNieuweFotoLocatie.Name = "txtNieuweFotoLocatie";
             this.txtNieuweFotoLocatie.Size = new System.Drawing.Size(169, 20);
             this.txtNieuweFotoLocatie.TabIndex = 13;
             // 
-            // cNaam
+            // ofdFoto
             // 
-            this.cNaam.Text = "Naam";
-            this.cNaam.Width = 208;
+            this.ofdFoto.FileName = "openFileDialog1";
+            // 
+            // lblMateriaalID
+            // 
+            this.lblMateriaalID.AutoSize = true;
+            this.lblMateriaalID.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblMateriaalID.Location = new System.Drawing.Point(614, 339);
+            this.lblMateriaalID.Name = "lblMateriaalID";
+            this.lblMateriaalID.Size = new System.Drawing.Size(13, 16);
+            this.lblMateriaalID.TabIndex = 14;
+            this.lblMateriaalID.Text = "8";
             // 
             // MateriaalBewerken
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 370);
+            this.ClientSize = new System.Drawing.Size(646, 370);
+            this.Controls.Add(this.lblMateriaalID);
             this.Controls.Add(this.txtNieuweFotoLocatie);
             this.Controls.Add(this.btnBladeren);
             this.Controls.Add(this.btnToepassen);
@@ -197,6 +220,7 @@
             this.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MateriaalBewerken";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MateriaalBewerken";
             ((System.ComponentModel.ISupportInitialize)(this.picNieuweAfbeelding)).EndInit();
             this.ResumeLayout(false);
@@ -220,5 +244,7 @@
         private System.Windows.Forms.Button btnBladeren;
         private System.Windows.Forms.TextBox txtNieuweFotoLocatie;
         private System.Windows.Forms.ColumnHeader cNaam;
+        private System.Windows.Forms.OpenFileDialog ofdFoto;
+        private System.Windows.Forms.Label lblMateriaalID;
     }
 }
