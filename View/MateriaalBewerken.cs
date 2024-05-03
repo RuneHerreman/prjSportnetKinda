@@ -22,28 +22,23 @@ namespace prjSportnetKinda.View
         {
             InitializeComponent();
 
-            matList = MatListRefresh(matList, lsvMateriaal);
-        }
-
-        public static List<Materiaal> MatListRefresh(List<Materiaal> matList, ListView lsvMateriaal)
-        {
-            matList.Clear();
-            lsvMateriaal.Items.Clear();
+            //lijst maken laden
             matList = MateriaalDA.OphalenMateriaal();
-
+            //listview opvullen
             foreach (Materiaal materiaal in matList)
             {
                 lsvMateriaal.Items.Add(materiaal.Naam);
             }
-            return matList;
         }
 
         private void lsvMateriaal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lsvMateriaal.SelectedItems.Count ==0)
+            if (lsvMateriaal.SelectedIndices.Count == 0)
             {
                 return;
             }
+            //welk materiaal is geselecteerd?
+            Materiaal materiaal = matList[lsvMateriaal.SelectedIndices[0]];
             txtNieuweNaam.Enabled = true;
             rtxtBeschrijving.Enabled = true;
             txtNieuweVoorraad.Enabled = true;
@@ -56,18 +51,12 @@ namespace prjSportnetKinda.View
             picNieuweAfbeelding.Image = null;
             lblMateriaalID.ResetText();
 
-            
-            
-                //welk materiaal is geselecteerd?
-                Materiaal materiaal = matList[lsvMateriaal.SelectedIndices[0]];
-                //vul alles
-                txtNieuweNaam.Text = materiaal.Naam;
-                rtxtBeschrijving.Text = materiaal.Beschrijving;
-                txtNieuweVoorraad.Text = materiaal.Voorraad.ToString();
-                picNieuweAfbeelding.Image = materiaal.Foto;
-                lblMateriaalID.Text = materiaal.ID.ToString();
-            
-            
+            //vul alles
+            txtNieuweNaam.Text = materiaal.Naam;
+            rtxtBeschrijving.Text = materiaal.Beschrijving;
+            txtNieuweVoorraad.Text = materiaal.Voorraad.ToString();
+            picNieuweAfbeelding.Image = materiaal.Foto;
+            lblMateriaalID.Text = materiaal.ID.ToString();
         }
 
         private void btnToepassen_Click(object sender, EventArgs e)
@@ -75,8 +64,15 @@ namespace prjSportnetKinda.View
             //aanpassen in datatbase
             MateriaalDA.MateriaalUpdate(txtNieuweNaam.Text, rtxtBeschrijving.Text, Convert.ToInt16(txtNieuweVoorraad.Text), picNieuweAfbeelding, Convert.ToInt32(lblMateriaalID.Text));
 
-            //lijst verversen
-            MatListRefresh(matList, lsvMateriaal);
+            //niets geselecteerd --> ZONDER DIT CRASHT HET PROGRAMMA NA EEN VERANDERING
+            lsvMateriaal.SelectedItems.Clear();
+            //leeg listview
+            lsvMateriaal.Items.Clear();
+            //opnieuw opvullen met geüpdatete item
+            foreach (Materiaal materiaal in MateriaalDA.OphalenMateriaal())
+            {
+                lsvMateriaal.Items.Add(materiaal.Naam);
+            }
         }
 
         private void btnBladeren_Click(object sender, EventArgs e)
