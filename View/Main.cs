@@ -26,6 +26,8 @@ namespace prjSportnetKinda
         List<Materiaal> HuurList = new List<Materiaal>();
         List<int> MandjeAantalList = new List<int>();
 
+        
+
         public Main(Gebruiker login)
         {
             InitializeComponent();
@@ -42,7 +44,6 @@ namespace prjSportnetKinda
 
             //Refresh alle tabladen
             ArtikelRefresh();
-
 
             //toon alleen geselecteerde tab
             this.btnStart.Image = Properties.Resources.home_select;
@@ -439,7 +440,7 @@ namespace prjSportnetKinda
         {
             //open form van het mandje
             //geef HuurList en AantalLijst mee om de listview te kunnen opvullen
-            frmMandje mandje = new frmMandje(HuurList, MandjeAantalList);
+            frmMandje mandje = new frmMandje(HuurList, MandjeAantalList, gebruiker);
             mandje.ShowDialog();
         }
 

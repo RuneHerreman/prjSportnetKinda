@@ -139,15 +139,50 @@ namespace prjSportnetKinda.DA
                 //query maken
                 string query = "INSERT INTO `tblmateriaal`(`Naam`, `Beschrijving`, `Voorraad`, `Foto`) VALUES (@Naam, @Beschrijving, @Voorraad, @Foto)";
                 //commando maken
-                MySqlCommand cmdArtikel = new MySqlCommand(query, conn);
-                cmdArtikel.CommandText = query;
+                MySqlCommand cmdMateriaalMaken = new MySqlCommand(query, conn);
+                cmdMateriaalMaken.CommandText = query;
 
-                cmdArtikel.Parameters.AddWithValue("@Naam", strNaam);
-                cmdArtikel.Parameters.AddWithValue("@Beschrijving", strBeschrijving);
-                cmdArtikel.Parameters.AddWithValue("@Voorraad", intVoorraad);
-                cmdArtikel.Parameters.AddWithValue("@Foto", arrFoto);
+                cmdMateriaalMaken.Parameters.AddWithValue("@Naam", strNaam);
+                cmdMateriaalMaken.Parameters.AddWithValue("@Beschrijving", strBeschrijving);
+                cmdMateriaalMaken.Parameters.AddWithValue("@Voorraad", intVoorraad);
+                cmdMateriaalMaken.Parameters.AddWithValue("@Foto", arrFoto);
 
-                cmdArtikel.ExecuteNonQuery();
+                cmdMateriaalMaken.ExecuteNonQuery();
+
+                //confirmatie
+                System.Windows.MessageBox.Show("Nieuw materiaal opgeslaan in database", "Nieuwe Materiaal opgeslaan", MessageBoxButton.OK);
+            }
+            catch (Exception exc)
+            {
+                System.Windows.MessageBox.Show(exc.Message);
+            }
+        }
+
+        public static void MateriaalUpdate(string strNaam, string strBeschrijving, int intVoorraad, PictureBox pictureBox, int intMateriaalID)
+        {
+            try
+            {
+                //foto omzetten naar byte array
+                MemoryStream ms = new MemoryStream();
+                pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                byte[] arrFoto = ms.GetBuffer();
+
+                //open connectie
+                MySqlConnection conn = Database.MakeConnection();
+
+                //query maken
+                string query = "UPDATE `tblmateriaal` SET `Naam`=@Naam,`Beschrijving`=@Beschrijving,`Voorraad`=@Voorraad,`Foto`=@Foto WHERE `MateriaalID`=@MateriaalID";
+                //commando maken
+                MySqlCommand cmdMateriaalUpdate = new MySqlCommand(query, conn);
+                cmdMateriaalUpdate.CommandText = query;
+
+                cmdMateriaalUpdate.Parameters.AddWithValue("@Naam", strNaam);
+                cmdMateriaalUpdate.Parameters.AddWithValue("@Beschrijving", strBeschrijving);
+                cmdMateriaalUpdate.Parameters.AddWithValue("@Voorraad", intVoorraad);
+                cmdMateriaalUpdate.Parameters.AddWithValue("@Foto", arrFoto);
+                cmdMateriaalUpdate.Parameters.AddWithValue("@MateriaalID", intMateriaalID);
+
+                cmdMateriaalUpdate.ExecuteNonQuery();
 
                 //confirmatie
                 System.Windows.MessageBox.Show("Nieuw materiaal opgeslaan in database", "Nieuwe Materiaal opgeslaan", MessageBoxButton.OK);
