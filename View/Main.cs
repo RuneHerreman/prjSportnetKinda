@@ -32,7 +32,7 @@ namespace prjSportnetKinda
         {
             InitializeComponent();
 
-            gebruiker = login;
+            int intJaar = DateTime.Now.Year;
 
             //het uiterlijk van de tabcontrol aanpassen
             //stijl van knoppen aanpassen
@@ -67,13 +67,50 @@ namespace prjSportnetKinda
             if (login.Renner)
             {
                 lblCategorieKop.Text = "Categorie:";
-                //lblCategorie.Text = login.Categorie;
+
+                //Categorie berekenen
+                int intLeeftijd = intJaar - login.Geboortedatum.Year;
+
+                if (intLeeftijd <= 8)
+                {
+                    login.Categorie = "Miniem";
+                }
+                else if (intLeeftijd == 9 || intLeeftijd == 10)
+                {
+                    login.Categorie = "Pupil";
+                }
+                else if (intLeeftijd == 11 || intLeeftijd == 12)
+                {
+                    login.Categorie = "Scholier";
+                }
+                else if (intLeeftijd == 13 || intLeeftijd == 14)
+                {
+                    login.Categorie = "Cadet";
+                }
+                else if (intLeeftijd == 15 || intLeeftijd == 16)
+                {
+                    login.Categorie = "Jeugd";
+                }
+                else if (intLeeftijd == 17 || intLeeftijd == 18)
+                {
+                    login.Categorie = "Junior";
+                }
+                else
+                {
+                    login.Categorie = "Senior";
+                }
+
+                lblCategorie.Text = login.Categorie;
             }
+
             //Ben je beheerder?
             if (login.Beheerder)
             {
                 btnBeheerdersinstellingen.Visible = true;
             }
+
+            //Gegevens in het programma oplsaan
+            gebruiker = login;
         }
 
         private void ArtikelRefresh()
@@ -408,6 +445,23 @@ namespace prjSportnetKinda
                                 lblEmail.Text = gebruiker.Email;
                                 lblGeboortedatum.Text = gebruiker.Geboortedatum.ToString("d");
                                 lblLidSinds.Text = gebruiker.Lidsinds.ToString("d");
+
+                                //Textboxes legen en hidden
+                                txtVoornaam.Visible = false;
+                                txtVoornaam.Clear();
+                                txtNaam.Visible = false;
+                                txtNaam.Clear();
+                                txtAdres.Visible = false;
+                                txtAdres.Clear();
+                                txtGeboortedatum.Visible = false;
+                                txtGeboortedatum.Clear();
+                                txtGeslacht.Visible = false;
+                                txtGeslacht.Clear();
+                                txtTelefoonnr.Visible = false;
+                                txtTelefoonnr.Clear();
+
+                                //Button veranderen naar opslaan button
+                                btnWijzigenProfiel.Text = "Gegevens Wijzigen";
                             }
                         }
                         catch
@@ -417,23 +471,6 @@ namespace prjSportnetKinda
                         }
                     }
                 }
-
-                //Textboxes legen en hidden
-                txtVoornaam.Visible = false;
-                txtVoornaam.Clear();
-                txtNaam.Visible = false;
-                txtNaam.Clear();
-                txtAdres.Visible = false;
-                txtAdres.Clear();
-                txtGeboortedatum.Visible = false;
-                txtGeboortedatum.Clear();
-                txtGeslacht.Visible = false;
-                txtGeslacht.Clear();
-                txtTelefoonnr.Visible = false;
-                txtTelefoonnr.Clear();
-
-                //Button veranderen naar opslaan button
-                btnWijzigenProfiel.Text = "Gegevens Wijzigen";
             }
         }
 

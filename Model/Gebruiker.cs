@@ -21,5 +21,6 @@ namespace prjSportnetKinda.Model
         public DateTime Geboortedatum { get; set; }
         public DateTime Lidsinds { get; set; }
         public int GebruikerID { get; set; }
+        public string Categorie { get; set; }
     }
 }

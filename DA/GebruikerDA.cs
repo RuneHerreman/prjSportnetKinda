@@ -51,7 +51,7 @@ namespace prjSportnetKinda.DA
                     inloggen.Adres = reader["Adres"].ToString();
                     inloggen.Telefoonnummer = Convert.ToInt32(reader["Telefoonnummer"]);
                     inloggen.Renner = Convert.ToBoolean(reader["Renner"]);
-                    inloggen.Renner = Convert.ToBoolean(reader["Trainer"]);
+                    inloggen.Trainer = Convert.ToBoolean(reader["Trainer"]);
                     inloggen.Beheerder = Convert.ToBoolean(reader["Beheerder"]);
                     inloggen.Geboortedatum = Convert.ToDateTime(reader["Geboortedatum"]);
                     inloggen.Lidsinds = Convert.ToDateTime(reader["LidSinds"]);
