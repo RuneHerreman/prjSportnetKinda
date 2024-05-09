@@ -10,8 +10,8 @@ using System.Windows.Forms;
 using Microsoft.VisualBasic;
 
 //toegevoegd voor SendGrid mails
-using SendGrid;
-using SendGrid.Helpers.Mail;
+//using SendGrid;
+//using SendGrid.Helpers.Mail;
 
 
 namespace prjSportnetKinda
@@ -38,7 +38,7 @@ namespace prjSportnetKinda
         static async Task Execute()
         {
 
-            var client = new SendGridClient("");
+         /*   var client = new SendGridClient("");
             var from = new EmailAddress("zrc.development@zrc.be", "ZRC");
             var subject = "Sending with Sendgrid is Fun";
             var to = new EmailAddress("lars.patrouille@gmail.com", "lars");
@@ -46,6 +46,7 @@ namespace prjSportnetKinda
             var htmlContent = "<Strong>and easy to do anywhere, even with c#</strong>";
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plaintextContent, htmlContent);
             var response = await client.SendEmailAsync(msg);
+         */
 
         }
     }

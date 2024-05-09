@@ -66,12 +66,19 @@ namespace prjSportnetKinda.View
 
         private void btnMateriaalOpslaan_Click(object sender, EventArgs e)
         {
-            MateriaalDA.MateriaalMaken(txtNaamNieuw.Text, txtBeschrijvingNieuw.Text, Convert.ToInt16(txtVoorraad.Text), picNieuwMateriaalPreview);
-            //textboxes legen
-            txtBeschrijvingNieuw.ResetText();
-            txtNaamNieuw.ResetText();
-            txtFotoNieuw.ResetText();
-            picNieuwMateriaalPreview.Image = null;
+            try
+            {
+                MateriaalDA.MateriaalMaken(txtNaamNieuw.Text, txtBeschrijvingNieuw.Text, Convert.ToInt16(txtVoorraad.Text), picNieuwMateriaalPreview);
+                //textboxes legen
+                txtBeschrijvingNieuw.ResetText();
+                txtNaamNieuw.ResetText();
+                txtFotoNieuw.ResetText();
+                picNieuwMateriaalPreview.Image = null;
+            }
+            catch
+            {
+
+            }
         }
     }
 }

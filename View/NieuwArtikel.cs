@@ -71,12 +71,19 @@ namespace prjSportnetKinda.View
 
         private void btnArtikelOpslaan_Click(object sender, EventArgs e)
         {
-            ArtikelDA.ArtikelMaken(txtTitelNieuw.Text, txtArtikelNieuw.Text, picNieuwArtikelPreview);
-            //textboxes legen
-            txtArtikelNieuw.ResetText();
-            txtTitelNieuw.ResetText();
-            txtFotoNieuw.ResetText();
-            picNieuwArtikelPreview.Image = null;
+            try
+            {
+                ArtikelDA.ArtikelMaken(txtTitelNieuw.Text, txtArtikelNieuw.Text, picNieuwArtikelPreview);
+                //textboxes legen
+                txtArtikelNieuw.ResetText();
+                txtTitelNieuw.ResetText();
+                txtFotoNieuw.ResetText();
+                picNieuwArtikelPreview.Image = null;
+            }
+            catch
+            {
+
+            }
         }  
     }
 }
