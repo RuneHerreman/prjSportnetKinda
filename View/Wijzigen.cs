@@ -21,7 +21,7 @@ namespace prjSportnetKinda.View
             InitializeComponent();
 
             //Gebruikers ophalen uit database
-            foreach(Gebruiker g in GebruikerDA.Ophalen())
+            foreach(Gebruiker g in GebruikerDA.OphalenGebruikers())
             {
                 txtGebruiker.AutoCompleteCustomSource.Add(g.Voornaam + " " + g.Naam);
                 gebruikers.Add(g);

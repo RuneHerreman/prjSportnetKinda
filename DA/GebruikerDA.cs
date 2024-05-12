@@ -223,7 +223,7 @@ namespace prjSportnetKinda.DA
             }
         }
 
-        public static List<Gebruiker> Ophalen()
+        public static List<Gebruiker> OphalenGebruikers()
         {
             List<Gebruiker> gebruikers = new List<Gebruiker>();
 

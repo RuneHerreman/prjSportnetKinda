@@ -25,13 +25,13 @@ namespace prjSportnetKinda
         //lijst om gehuurd materiaal in te plaatsen
         List<Materiaal> HuurList = new List<Materiaal>();
         List<int> MandjeAantalList = new List<int>();
-
-        
+        List<Training> TrainingList = new List<Training>();
+        List<Gebruiker> GebruikerList = new List<Gebruiker>();
 
         public Main(Gebruiker login)
         {
             InitializeComponent();
-
+            GebruikerList = GebruikerDA.OphalenGebruikers();
             int intJaar = DateTime.Now.Year;
 
             //het uiterlijk van de tabcontrol aanpassen
@@ -489,8 +489,8 @@ namespace prjSportnetKinda
 
             DateTime dtSelectedDateStart = mcalKalender.SelectionStart;
             DateTime dtSelectedDateEnd = mcalKalender.SelectionEnd;
-
-            foreach (Training t in TrainingDA.OphalenTraining(dtSelectedDateStart, dtSelectedDateEnd))
+            TrainingList = TrainingDA.OphalenTraining(dtSelectedDateStart, dtSelectedDateEnd);
+            foreach (Training t in TrainingList)
             {
                 System.Windows.Forms.ListViewItem item = new System.Windows.Forms.ListViewItem(new String[] { t.Datum.ToString("g"), t.Locatie, t.Categorie });
                 item.Tag = t;
@@ -522,6 +522,83 @@ namespace prjSportnetKinda
                 //Fout wachtwoord
                 MessageBox.Show("Wachtwoord is fout", "Fout wachtwoord", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        
+        private void lsvTraining_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string strDeelnemers;
+            if (lsvTraining.SelectedIndices.Count == 0)
+            {
+                return;
+            }
+
+            //geselecteerde training terugvinden en opslaan
+            Training training = TrainingList[lsvTraining.SelectedIndices[0]];
+            //lijst van deelnemers ophalen
+            List<String> DeelnemersList = DeelnemersBenoemen();
+
+            strDeelnemers = string.Join(",", DeelnemersList.Take(3));
+
+            lblTrainingCategorie.ResetText();
+            lblTrainingDeelnemers.ResetText();
+            lblTrainingDuur.ResetText();
+            lblTrainingLocatie.ResetText();
+            lblTrainingStart.ResetText();
+            lblTrainingTrainer.ResetText();
+
+            //labels opvullen
+            lblTrainingCategorie.Text = training.Categorie;
+            lblTrainingStart.Text = training.Datum.ToString("HH:mm:ss");
+            lblTrainingLocatie.Text = training.Locatie;
+            lblTrainingTrainer.Text = training.Trainer;
+            lblTrainingDeelnemers.Text = strDeelnemers;
+            lblTraining.Text = gebruiker.Voornaam + " " + gebruiker.Naam;
+
+        }
+
+        public List<String> DeelnemersBenoemen()
+        {
+            List<String> DeelnemersList = new List<String>();
+
+            if (lsvTraining.SelectedIndices.Count == 0)
+            {
+                return DeelnemersList;
+            }
+            if (lsvTraining.SelectedItems != null)
+            {
+                string strDeelnemersIDs;
+                Training training = TrainingList[lsvTraining.SelectedIndices[0]];
+                strDeelnemersIDs = training.Deelnemers;
+                string[] arrIDs = strDeelnemersIDs.Split('-');
+
+                foreach (string ID in arrIDs)
+                {
+                    if (arrIDs[0] == "")
+                    {
+                        DeelnemersList.Add("Geen deelnemers");
+                    }
+                    else
+                    {
+                        foreach (Gebruiker gebruiker in GebruikerList)
+                        {
+                            if (gebruiker.GebruikerID.ToString() == ID)
+                            {
+                                DeelnemersList.Add(gebruiker.Voornaam + " " + gebruiker.Naam);
+                            }
+                        }
+                    }
+                }
+            }
+
+            return DeelnemersList;
+        }
+        private void btnDeelnemen_Click(object sender, EventArgs e)
+        {
+            //geselecteerde training terugvinden en opslaan
+            Training training = TrainingList[lsvTraining.SelectedIndices[0]];
+            //add userID to the 'Deelnemers' Column
+            TrainingDA.DeelnemerToevoegen(training.TrainingID, gebruiker.GebruikerID);
+            
         }
     }
 }
