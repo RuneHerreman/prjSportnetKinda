@@ -523,10 +523,41 @@ namespace prjSportnetKinda
                 MessageBox.Show("Wachtwoord is fout", "Fout wachtwoord", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+        public List<String> DeelnemersBenoemen(Training training)
+        {
+            //om deelnemers in te plaatsen
+            List<string> DeelnemersList = new List<string>();
+
+            //is er een index, Error voorkomen
+            if (lsvTraining.SelectedIndices.Count == 0)
+            {
+                return DeelnemersList;
+            }
+            
+            //IDs uit de string halen, ze worden opgesplits door een streepje, die halen we hier weg
+            String[] arrStringDeelnemers = training.Deelnemers.Split('-');
+
+            //voor ieder ID van de deelnemers, loop door de gebruikers om te zien of er een match is
+            foreach (string deelnemerID in arrStringDeelnemers)
+            {
+                foreach (Gebruiker gebruiker in GebruikerList)
+                {
+                    //voor- en achternaam toevoegen aan de lijst
+                    if (deelnemerID == gebruiker.GebruikerID.ToString())
+                    {
+                        DeelnemersList.Add(gebruiker.Voornaam.ToString() + " " + gebruiker.Naam.ToString());
+                    }
+                }
+            }
+
+            return DeelnemersList;
+        }
         private void lsvTraining_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string strDeelnemers;
+            //om label in te vullen later
+            string strDeelnemers = "";
+
+            //is er een index, Error voorkomen
             if (lsvTraining.SelectedIndices.Count == 0)
             {
                 return;
@@ -534,10 +565,34 @@ namespace prjSportnetKinda
 
             //geselecteerde training terugvinden en opslaan
             Training training = TrainingList[lsvTraining.SelectedIndices[0]];
-            //lijst van deelnemers ophalen
-            List<String> DeelnemersList = DeelnemersBenoemen();
 
-            strDeelnemers = string.Join(",", DeelnemersList.Take(3));
+            //deelnemers benoemen
+            List<string> DeelnemersList = DeelnemersBenoemen(training);
+
+            //de eerste 3 nemen uit de lijst
+            int intTellerMAX;
+            if (DeelnemersList.Count < 3) //zijn er niet 3 of meer deelnemers?
+            {
+                intTellerMAX = DeelnemersList.Count;
+            }
+            else //meer of gelijk aan 3 deelnemers?
+            {
+                intTellerMAX = 3;
+            }
+            //zet de variabele gelijk aan de eerste drie deelnemers
+            for (int intTeller = 0; intTeller < intTellerMAX; intTeller++)
+            {
+                if (strDeelnemers != "")
+                {
+                    strDeelnemers = strDeelnemers + ", " + DeelnemersList[intTeller];
+                }
+                else
+                {
+                    strDeelnemers = DeelnemersList[intTeller];
+                }
+            }
+            //aantonen dat er meer te zien is
+            strDeelnemers = strDeelnemers + ", ...";
 
             lblTrainingCategorie.ResetText();
             lblTrainingDeelnemers.ResetText();
@@ -552,53 +607,54 @@ namespace prjSportnetKinda
             lblTrainingLocatie.Text = training.Locatie;
             lblTrainingTrainer.Text = training.Trainer;
             lblTrainingDeelnemers.Text = strDeelnemers;
-            lblTraining.Text = gebruiker.Voornaam + " " + gebruiker.Naam;
-
         }
 
-        public List<String> DeelnemersBenoemen()
-        {
-            List<String> DeelnemersList = new List<String>();
-
-            if (lsvTraining.SelectedIndices.Count == 0)
-            {
-                return DeelnemersList;
-            }
-            if (lsvTraining.SelectedItems != null)
-            {
-                string strDeelnemersIDs;
-                Training training = TrainingList[lsvTraining.SelectedIndices[0]];
-                strDeelnemersIDs = training.Deelnemers;
-                string[] arrIDs = strDeelnemersIDs.Split('-');
-
-                foreach (string ID in arrIDs)
-                {
-                    if (arrIDs[0] == "")
-                    {
-                        DeelnemersList.Add("Geen deelnemers");
-                    }
-                    else
-                    {
-                        foreach (Gebruiker gebruiker in GebruikerList)
-                        {
-                            if (gebruiker.GebruikerID.ToString() == ID)
-                            {
-                                DeelnemersList.Add(gebruiker.Voornaam + " " + gebruiker.Naam);
-                            }
-                        }
-                    }
-                }
-            }
-
-            return DeelnemersList;
-        }
         private void btnDeelnemen_Click(object sender, EventArgs e)
         {
-            //geselecteerde training terugvinden en opslaan
-            Training training = TrainingList[lsvTraining.SelectedIndices[0]];
-            //add userID to the 'Deelnemers' Column
-            TrainingDA.DeelnemerToevoegen(training.TrainingID, gebruiker.GebruikerID);
+            if (lsvTraining.SelectedItems.Count != 0)
+            {
+                //geselecteerde training terugvinden en opslaan
+                Training training = TrainingList[lsvTraining.SelectedIndices[0]];
+                //add userID to the 'Deelnemers' Column
+                TrainingDA.DeelnemerToevoegen(training.TrainingID, gebruiker.GebruikerID);
+            }
+            else
+            {
+                MessageBox.Show("Je hebt niets geselecteerd", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             
+        }
+
+        private void lblTrainingDeelnemers_Click(object sender, EventArgs e)
+        {
+            //om de deelnemers in te plaatsen
+            string strDeelnemers = "";
+
+            //is er een index, Error voorkomen
+            if (lsvTraining.SelectedIndices.Count == 0)
+            {
+                return;
+            }
+
+            //lijst van deelnemers toevoegen aan messagebox
+            foreach (string Deelnemer in DeelnemersBenoemen(TrainingList[lsvTraining.SelectedIndices[0]]))
+            {
+                strDeelnemers = strDeelnemers + Deelnemer + Environment.NewLine;
+            }
+            //alle deelnemers weergeven
+            MessageBox.Show(strDeelnemers, "Deelnemers");
+        }
+
+        //onderlijn de label
+        private void lblTrainingDeelnemers_MouseEnter(object sender, EventArgs e)
+        {
+            lblTrainingDeelnemers.Font = new Font(lblTrainingDeelnemers.Font, FontStyle.Underline);
+        }
+
+        //stop onderlijn de label
+        private void lblTrainingDeelnemers_MouseLeave(object sender, EventArgs e)
+        {
+            lblTrainingDeelnemers.Font = new Font(lblTrainingDeelnemers.Font, FontStyle.Regular);
         }
     }
 }

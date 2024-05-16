@@ -40,6 +40,10 @@
             this.lblNaamVoornaam = new System.Windows.Forms.Label();
             this.tabKalender = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblTrainingLocatie = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.lblTrainingDeelnemers = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.btnDeelnemen = new System.Windows.Forms.Button();
             this.lblTrainingDuur = new System.Windows.Forms.Label();
             this.lblTrainingTrainer = new System.Windows.Forms.Label();
@@ -91,10 +95,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.picBannerFoto = new System.Windows.Forms.PictureBox();
             this.picProfielFoto = new System.Windows.Forms.PictureBox();
-            this.lblTrainingDeelnemers = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.lblTrainingLocatie = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.btnArtiekelToevoegen = new prjSportnetKinda.View.ButtonControls();
             this.buttonControls1 = new prjSportnetKinda.View.ButtonControls();
             this.btnProfiel = new prjSportnetKinda.View.ButtonControls();
@@ -234,6 +234,53 @@
             this.panel2.Size = new System.Drawing.Size(822, 300);
             this.panel2.TabIndex = 7;
             // 
+            // lblTrainingLocatie
+            // 
+            this.lblTrainingLocatie.AutoSize = true;
+            this.lblTrainingLocatie.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblTrainingLocatie.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrainingLocatie.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.lblTrainingLocatie.Location = new System.Drawing.Point(126, 198);
+            this.lblTrainingLocatie.Name = "lblTrainingLocatie";
+            this.lblTrainingLocatie.Size = new System.Drawing.Size(56, 18);
+            this.lblTrainingLocatie.TabIndex = 13;
+            this.lblTrainingLocatie.Text = "Locatie:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(37, 198);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(56, 18);
+            this.label14.TabIndex = 12;
+            this.label14.Text = "Locatie:";
+            // 
+            // lblTrainingDeelnemers
+            // 
+            this.lblTrainingDeelnemers.AutoSize = true;
+            this.lblTrainingDeelnemers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblTrainingDeelnemers.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrainingDeelnemers.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.lblTrainingDeelnemers.Location = new System.Drawing.Point(126, 172);
+            this.lblTrainingDeelnemers.Name = "lblTrainingDeelnemers";
+            this.lblTrainingDeelnemers.Size = new System.Drawing.Size(81, 18);
+            this.lblTrainingDeelnemers.TabIndex = 11;
+            this.lblTrainingDeelnemers.Text = "Deelnemers:";
+            this.lblTrainingDeelnemers.Click += new System.EventHandler(this.lblTrainingDeelnemers_Click);
+            this.lblTrainingDeelnemers.MouseEnter += new System.EventHandler(this.lblTrainingDeelnemers_MouseEnter);
+            this.lblTrainingDeelnemers.MouseLeave += new System.EventHandler(this.lblTrainingDeelnemers_MouseLeave);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(37, 172);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(81, 18);
+            this.label15.TabIndex = 10;
+            this.label15.Text = "Deelnemers:";
+            // 
             // btnDeelnemen
             // 
             this.btnDeelnemen.BackColor = System.Drawing.Color.Green;
@@ -253,6 +300,7 @@
             this.btnDeelnemen.Text = "Deelnemen";
             this.btnDeelnemen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeelnemen.UseVisualStyleBackColor = false;
+            this.btnDeelnemen.Click += new System.EventHandler(this.btnDeelnemen_Click);
             // 
             // lblTrainingDuur
             // 
@@ -852,50 +900,6 @@
             this.picProfielFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picProfielFoto.TabIndex = 0;
             this.picProfielFoto.TabStop = false;
-            // 
-            // lblTrainingDeelnemers
-            // 
-            this.lblTrainingDeelnemers.AutoSize = true;
-            this.lblTrainingDeelnemers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblTrainingDeelnemers.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrainingDeelnemers.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.lblTrainingDeelnemers.Location = new System.Drawing.Point(126, 172);
-            this.lblTrainingDeelnemers.Name = "lblTrainingDeelnemers";
-            this.lblTrainingDeelnemers.Size = new System.Drawing.Size(81, 18);
-            this.lblTrainingDeelnemers.TabIndex = 11;
-            this.lblTrainingDeelnemers.Text = "Deelnemers:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(37, 172);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(81, 18);
-            this.label15.TabIndex = 10;
-            this.label15.Text = "Deelnemers:";
-            // 
-            // lblTrainingLocatie
-            // 
-            this.lblTrainingLocatie.AutoSize = true;
-            this.lblTrainingLocatie.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblTrainingLocatie.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTrainingLocatie.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.lblTrainingLocatie.Location = new System.Drawing.Point(126, 198);
-            this.lblTrainingLocatie.Name = "lblTrainingLocatie";
-            this.lblTrainingLocatie.Size = new System.Drawing.Size(56, 18);
-            this.lblTrainingLocatie.TabIndex = 13;
-            this.lblTrainingLocatie.Text = "Locatie:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(37, 198);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(56, 18);
-            this.label14.TabIndex = 12;
-            this.label14.Text = "Locatie:";
             // 
             // btnArtiekelToevoegen
             // 
