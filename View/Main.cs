@@ -62,6 +62,8 @@ namespace prjSportnetKinda
             lblEmail.Text = login.Email;
             lblGeboortedatum.Text = login.Geboortedatum.ToString("d");
             lblLidSinds.Text = login.Lidsinds.ToString("d");
+            picProfielFoto.Image = login.Profielfoto;
+            picBannerFoto.Image = login.Bannerfoto;
 
             //Ben je renner?
             if (login.Renner)
@@ -378,6 +380,14 @@ namespace prjSportnetKinda
                     txtTelefoonnr.Visible = true;
                     txtTelefoonnr.Text = lblTelefoon.Text;
 
+                    //Opties voor foto's tonen
+                    lblProfielFoto.Visible = true;
+                    lblBannerFoto.Visible = true;
+                    txtProfielFoto.Visible = true;
+                    txtBannerFoto.Visible = true;
+                    btnProfielFoto.Visible = true;
+                    btnBannerFoto.Visible = true;
+
                     //Button veranderen naar opslaan button
                     btnWijzigenProfiel.Text = "Opslaan";
                 }
@@ -459,6 +469,16 @@ namespace prjSportnetKinda
                                 txtGeslacht.Clear();
                                 txtTelefoonnr.Visible = false;
                                 txtTelefoonnr.Clear();
+
+                                //Foto opties hiden
+                                lblProfielFoto.Visible = false;
+                                lblBannerFoto.Visible = false;
+                                txtProfielFoto.Visible = false;
+                                txtProfielFoto.Clear();
+                                txtBannerFoto.Visible = false;
+                                txtBannerFoto.Clear();
+                                btnProfielFoto.Visible = false;
+                                btnBannerFoto.Visible = false;
 
                                 //Button veranderen naar opslaan button
                                 btnWijzigenProfiel.Text = "Gegevens Wijzigen";
@@ -599,6 +619,32 @@ namespace prjSportnetKinda
             //add userID to the 'Deelnemers' Column
             TrainingDA.DeelnemerToevoegen(training.TrainingID, gebruiker.GebruikerID);
             
+        }
+
+        private void btnProfielFoto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //openfiledialog = ofdFoto
+                ofdFoto.Title = "Selecteer een bestand";
+                ofdFoto.FileName = string.Empty;
+                ofdFoto.ShowHelp = false;
+                ofdFoto.Filter = "Image Files (*.JPG;*.PNG;*JPEG) |*.JPG;*.PNG;*JPEG";
+                //open de verkenner
+                DialogResult result = ofdFoto.ShowDialog();
+                //als je niet op cancel klikt:
+                if (result != DialogResult.Cancel)
+                {
+                    //textbox opvullen met bestandspad
+                    txtProfielFoto.Text = ofdFoto.FileName;
+                    //preview weergeven
+                    picProfielFoto.ImageLocation = ofdFoto.FileName.ToString();
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
     }
 }

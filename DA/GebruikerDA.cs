@@ -11,6 +11,8 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using System.Drawing;
+using System.IO;
 
 namespace prjSportnetKinda.DA
 {
@@ -56,6 +58,32 @@ namespace prjSportnetKinda.DA
                     inloggen.Geboortedatum = Convert.ToDateTime(reader["Geboortedatum"]);
                     inloggen.Lidsinds = Convert.ToDateTime(reader["LidSinds"]);
                     inloggen.GebruikerID = Convert.ToInt16(reader["GebruikerID"]);
+
+                    //Foto's ophalen
+                    ImageConverter converter = new ImageConverter();
+                    byte[] arrProfielfoto = (byte[])(reader["ProfielFoto"]);
+                    byte[] arrBannerfoto = (byte[])(reader["BannerFoto"]);
+
+                    try
+                    {
+                        MemoryStream ms = new MemoryStream(arrProfielfoto);
+                        inloggen.Profielfoto = Image.FromStream(ms);
+                    }
+                    catch (Exception)
+                    {
+                        inloggen.Profielfoto = null;
+                    }
+
+                    try
+                    {
+                        MemoryStream ms = new MemoryStream(arrBannerfoto);
+                        inloggen.Bannerfoto = Image.FromStream(ms);
+                    }
+                    catch (Exception)
+                    {
+                        inloggen.Bannerfoto = null;
+                    }
+
                     reader.Close();
 
                     //Connection sluiten
@@ -112,8 +140,8 @@ namespace prjSportnetKinda.DA
                 {
                     reader.Close();
                     //sting maken met sql statement
-                    query = "INSERT INTO tblgebruiker (Naam, Voornaam, Email, Geboortedatum, Wachtwoord, LidSinds, Renner, Trainer, Beheerder) " +
-                            "VALUES (@Naam, @Voornaam, @Email, @Geboortedatum, @Wachtwoord, @LidSinds, @Renner, @Trainer, @Beheerder)";
+                    query = "INSERT INTO tblgebruiker (Naam, Voornaam, Email, Geboortedatum, Wachtwoord, LidSinds, Renner, Trainer, Beheerder, ProfielFoto, BannerFoto) " +
+                            "VALUES (@Naam, @Voornaam, @Email, @Geboortedatum, @Wachtwoord, @LidSinds, @Renner, @Trainer, @Beheerder, @ProfielFoto, @BannerFoto)";
 
                     //Maken van het command
                     mysqlcmd = new MySqlCommand(query, conn);
@@ -131,6 +159,8 @@ namespace prjSportnetKinda.DA
                     mysqlcmd.Parameters.AddWithValue("@Renner", 1);
                     mysqlcmd.Parameters.AddWithValue("@Trainer", 0);
                     mysqlcmd.Parameters.AddWithValue("@Beheerder", 0);
+                    mysqlcmd.Parameters.AddWithValue("@ProfielFoto", Properties.Resources.Basic_Profile_Picture);
+                    mysqlcmd.Parameters.AddWithValue("@BannerFoto", Properties.Resources.Basic_Banner_Picture);
 
                     //Uivoeren
                     mysqlcmd.ExecuteNonQuery();

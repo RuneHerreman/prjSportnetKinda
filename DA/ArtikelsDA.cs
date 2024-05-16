@@ -69,7 +69,7 @@ namespace prjSportnetKinda.DA
                 try
                 {
                     MemoryStream ms = new MemoryStream(arrFoto);
-                   img = Image.FromStream(ms);
+                    img = Image.FromStream(ms);
                 }
                 catch (Exception)
                 {
