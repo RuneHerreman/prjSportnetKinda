@@ -298,6 +298,7 @@ namespace prjSportnetKinda.DA
                     Renner = Convert.ToBoolean(record["Renner"]),
                     Trainer = Convert.ToBoolean(record["Trainer"]),
                     Beheerder = Convert.ToBoolean(record["Beheerder"]),
+                    GebruikerID = Convert.ToInt32(record["GebruikerID"]),
                 };
             }
             catch (Exception ex)

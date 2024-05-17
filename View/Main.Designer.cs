@@ -107,7 +107,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.picBannerFoto = new System.Windows.Forms.PictureBox();
             this.picProfielFoto = new System.Windows.Forms.PictureBox();
-            this.ofdFoto = new System.Windows.Forms.OpenFileDialog();
+            this.btnArtiekelToevoegen = new prjSportnetKinda.View.ButtonControls();
+            this.buttonControls1 = new prjSportnetKinda.View.ButtonControls();
+            this.btnProfiel = new prjSportnetKinda.View.ButtonControls();
+            this.btnMateriaal = new prjSportnetKinda.View.ButtonControls();
+            this.btnKalender = new prjSportnetKinda.View.ButtonControls();
+            this.btnStart = new prjSportnetKinda.View.ButtonControls();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tcMain.SuspendLayout();
@@ -368,6 +373,9 @@
             this.lblTrainingDeelnemers.Size = new System.Drawing.Size(81, 18);
             this.lblTrainingDeelnemers.TabIndex = 11;
             this.lblTrainingDeelnemers.Text = "Deelnemers:";
+            this.lblTrainingDeelnemers.Click += new System.EventHandler(this.lblTrainingDeelnemers_Click);
+            this.lblTrainingDeelnemers.MouseEnter += new System.EventHandler(this.lblTrainingDeelnemers_MouseEnter);
+            this.lblTrainingDeelnemers.MouseLeave += new System.EventHandler(this.lblTrainingDeelnemers_MouseLeave);
             // 
             // label15
             // 
@@ -398,6 +406,7 @@
             this.btnDeelnemen.Text = "Deelnemen";
             this.btnDeelnemen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeelnemen.UseVisualStyleBackColor = false;
+            this.btnDeelnemen.Click += new System.EventHandler(this.btnDeelnemen_Click);
             // 
             // lblTrainingDuur
             // 
@@ -1086,7 +1095,7 @@
             this.picProfielFoto.TabIndex = 0;
             this.picProfielFoto.TabStop = false;
             // 
-            // ofdFoto
+            // btnArtiekelToevoegen
             // 
             this.ofdFoto.FileName = "openFileDialog1";
             // 
