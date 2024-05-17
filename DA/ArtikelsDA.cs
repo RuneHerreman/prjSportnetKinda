@@ -69,7 +69,7 @@ namespace prjSportnetKinda.DA
                 try
                 {
                     MemoryStream ms = new MemoryStream(arrFoto);
-                   img = Image.FromStream(ms);
+                    img = Image.FromStream(ms);
                 }
                 catch (Exception)
                 {
@@ -105,8 +105,6 @@ namespace prjSportnetKinda.DA
 
                 //huidige datum
                 DateTime dtHuidigeDatum = DateTime.Now;
-
-
 
                 //open connectie
                 MySqlConnection conn = Database.MakeConnection();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,5 +23,8 @@ namespace prjSportnetKinda.Model
         public DateTime Lidsinds { get; set; }
         public int GebruikerID { get; set; }
         public string Categorie { get; set; }
+        public Image Profielfoto { get; set; }
+        public Image Bannerfoto { get; set; }
+
     }
 }

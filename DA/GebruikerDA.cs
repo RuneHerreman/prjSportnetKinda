@@ -11,6 +11,8 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using System.Drawing;
+using System.IO;
 
 namespace prjSportnetKinda.DA
 {
@@ -56,6 +58,32 @@ namespace prjSportnetKinda.DA
                     inloggen.Geboortedatum = Convert.ToDateTime(reader["Geboortedatum"]);
                     inloggen.Lidsinds = Convert.ToDateTime(reader["LidSinds"]);
                     inloggen.GebruikerID = Convert.ToInt16(reader["GebruikerID"]);
+
+                    //Foto's ophalen
+                    ImageConverter converter = new ImageConverter();
+                    byte[] arrProfielfoto = (byte[])(reader["ProfielFoto"]);
+                    byte[] arrBannerfoto = (byte[])(reader["BannerFoto"]);
+
+                    try
+                    {
+                        MemoryStream ms = new MemoryStream(arrProfielfoto);
+                        inloggen.Profielfoto = Image.FromStream(ms);
+                    }
+                    catch (Exception)
+                    {
+                        inloggen.Profielfoto = null;
+                    }
+
+                    try
+                    {
+                        MemoryStream ms = new MemoryStream(arrBannerfoto);
+                        inloggen.Bannerfoto = Image.FromStream(ms);
+                    }
+                    catch (Exception)
+                    {
+                        inloggen.Bannerfoto = null;
+                    }
+
                     reader.Close();
 
                     //Connection sluiten
@@ -112,8 +140,8 @@ namespace prjSportnetKinda.DA
                 {
                     reader.Close();
                     //sting maken met sql statement
-                    query = "INSERT INTO tblgebruiker (Naam, Voornaam, Email, Geboortedatum, Wachtwoord, LidSinds, Renner, Trainer, Beheerder) " +
-                            "VALUES (@Naam, @Voornaam, @Email, @Geboortedatum, @Wachtwoord, @LidSinds, @Renner, @Trainer, @Beheerder)";
+                    query = "INSERT INTO tblgebruiker (Naam, Voornaam, Email, Geboortedatum, Wachtwoord, LidSinds, Renner, Trainer, Beheerder, ProfielFoto, BannerFoto) " +
+                            "VALUES (@Naam, @Voornaam, @Email, @Geboortedatum, @Wachtwoord, @LidSinds, @Renner, @Trainer, @Beheerder, @ProfielFoto, @BannerFoto)";
 
                     //Maken van het command
                     mysqlcmd = new MySqlCommand(query, conn);
@@ -192,7 +220,7 @@ namespace prjSportnetKinda.DA
                 MySqlConnection conn = Database.MakeConnection();
 
                 //sting maken met sql statement
-                string query = "UPDATE tblgebruiker SET Voornaam=@Voornaam, Naam=@Naam, Geboortedatum=@Geboortedatum, Geslacht=@Geslacht, Adres=@Adres, Telefoonnummer=@Telefoonnummer WHERE Email=@Email";
+                string query = "UPDATE tblgebruiker SET Voornaam=@Voornaam, Naam=@Naam, Geboortedatum=@Geboortedatum, Geslacht=@Geslacht, Adres=@Adres, Telefoonnummer=@Telefoonnummer, ProfielFoto=@ProfielFoto, BannerFoto=@BannerFoto WHERE Email=@Email";
 
                 //Maken van het command
                 MySqlCommand mysqlcmd = new MySqlCommand(query, conn);
@@ -208,6 +236,18 @@ namespace prjSportnetKinda.DA
                 mysqlcmd.Parameters.AddWithValue("@Geslacht", g.Geslacht);
                 mysqlcmd.Parameters.AddWithValue("@Adres", g.Adres);
                 mysqlcmd.Parameters.AddWithValue("@Telefoonnummer", g.Telefoonnummer);
+
+                //foto's omzetten naar byte array
+                MemoryStream msProfiel = new MemoryStream();
+                g.Profielfoto.Save(msProfiel, System.Drawing.Imaging.ImageFormat.Jpeg);
+                byte[] arrProfielFoto = msProfiel.GetBuffer();
+
+                MemoryStream msBanner = new MemoryStream();
+                g.Bannerfoto.Save(msBanner, System.Drawing.Imaging.ImageFormat.Jpeg);
+                byte[] arrBannerfoto = msBanner.GetBuffer();
+
+                mysqlcmd.Parameters.AddWithValue("@ProfielFoto", arrProfielFoto);
+                mysqlcmd.Parameters.AddWithValue("@BannerFoto", arrBannerfoto);
 
                 //Commando uitvoeren
                 mysqlcmd.ExecuteNonQuery();
@@ -268,6 +308,7 @@ namespace prjSportnetKinda.DA
                     Renner = Convert.ToBoolean(record["Renner"]),
                     Trainer = Convert.ToBoolean(record["Trainer"]),
                     Beheerder = Convert.ToBoolean(record["Beheerder"]),
+                    GebruikerID = Convert.ToInt32(record["GebruikerID"]),
                 };
             }
             catch (Exception ex)
