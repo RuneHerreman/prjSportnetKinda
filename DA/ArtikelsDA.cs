@@ -103,8 +103,6 @@ namespace prjSportnetKinda.DA
                 //huidige datum
                 DateTime dtHuidigeDatum = DateTime.Now;
 
-
-
                 //open connectie
                 MySqlConnection conn = Database.MakeConnection();
 

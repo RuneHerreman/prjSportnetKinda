@@ -62,8 +62,14 @@ namespace prjSportnetKinda
             lblEmail.Text = login.Email;
             lblGeboortedatum.Text = login.Geboortedatum.ToString("d");
             lblLidSinds.Text = login.Lidsinds.ToString("d");
-            picProfielFoto.Image = login.Profielfoto;
-            picBannerFoto.Image = login.Bannerfoto;
+            if(login.Profielfoto != null)
+            {
+                picProfielFoto.Image = login.Profielfoto;
+            }
+            if(login.Bannerfoto != null)
+            {
+                picBannerFoto.Image = login.Bannerfoto;
+            }
 
             //Ben je renner?
             if (login.Renner)
@@ -423,6 +429,8 @@ namespace prjSportnetKinda
                             Aanpassingen.Telefoonnummer = Convert.ToInt32(txtTelefoonnr.Text);
                             Aanpassingen.Geboortedatum = Convert.ToDateTime(txtGeboortedatum.Text);
                             Aanpassingen.Email = gebruiker.Email;
+                            Aanpassingen.Profielfoto = picProfielFoto.Image;
+                            Aanpassingen.Bannerfoto = picBannerFoto.Image;
 
                             //Gegevens aanpassen
                             Gebruiker wijzigen = GebruikerDA.Wijzigen(Aanpassingen);
@@ -682,19 +690,45 @@ namespace prjSportnetKinda
             try
             {
                 //openfiledialog = ofdFoto
-                ofdFoto.Title = "Selecteer een bestand";
-                ofdFoto.FileName = string.Empty;
-                ofdFoto.ShowHelp = false;
-                ofdFoto.Filter = "Image Files (*.JPG;*.PNG;*JPEG) |*.JPG;*.PNG;*JPEG";
+                ofdFotos.Title = "Selecteer een bestand";
+                ofdFotos.FileName = string.Empty;
+                ofdFotos.ShowHelp = false;
+                ofdFotos.Filter = "Image Files (*.JPG;*.PNG;*JPEG) |*.JPG;*.PNG;*JPEG";
                 //open de verkenner
-                DialogResult result = ofdFoto.ShowDialog();
+                DialogResult result = ofdFotos.ShowDialog();
                 //als je niet op cancel klikt:
                 if (result != DialogResult.Cancel)
                 {
                     //textbox opvullen met bestandspad
-                    txtProfielFoto.Text = ofdFoto.FileName;
+                    txtProfielFoto.Text = ofdFotos.FileName;
                     //preview weergeven
-                    picProfielFoto.ImageLocation = ofdFoto.FileName.ToString();
+                    picProfielFoto.ImageLocation = ofdFotos.FileName.ToString();
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+        }
+
+        private void btnBannerFoto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //openfiledialog = ofdFoto
+                ofdFotos.Title = "Selecteer een bestand";
+                ofdFotos.FileName = string.Empty;
+                ofdFotos.ShowHelp = false;
+                ofdFotos.Filter = "Image Files (*.JPG;*.PNG;*JPEG) |*.JPG;*.PNG;*JPEG";
+                //open de verkenner
+                DialogResult result = ofdFotos.ShowDialog();
+                //als je niet op cancel klikt:
+                if (result != DialogResult.Cancel)
+                {
+                    //textbox opvullen met bestandspad
+                    txtBannerFoto.Text = ofdFotos.FileName;
+                    //preview weergeven
+                    picBannerFoto.ImageLocation = ofdFotos.FileName.ToString();
                 }
             }
             catch (Exception exc)

@@ -159,8 +159,6 @@ namespace prjSportnetKinda.DA
                     mysqlcmd.Parameters.AddWithValue("@Renner", 1);
                     mysqlcmd.Parameters.AddWithValue("@Trainer", 0);
                     mysqlcmd.Parameters.AddWithValue("@Beheerder", 0);
-                    mysqlcmd.Parameters.AddWithValue("@ProfielFoto", Properties.Resources.Basic_Profile_Picture);
-                    mysqlcmd.Parameters.AddWithValue("@BannerFoto", Properties.Resources.Basic_Banner_Picture);
 
                     //Uivoeren
                     mysqlcmd.ExecuteNonQuery();
@@ -222,7 +220,7 @@ namespace prjSportnetKinda.DA
                 MySqlConnection conn = Database.MakeConnection();
 
                 //sting maken met sql statement
-                string query = "UPDATE tblgebruiker SET Voornaam=@Voornaam, Naam=@Naam, Geboortedatum=@Geboortedatum, Geslacht=@Geslacht, Adres=@Adres, Telefoonnummer=@Telefoonnummer WHERE Email=@Email";
+                string query = "UPDATE tblgebruiker SET Voornaam=@Voornaam, Naam=@Naam, Geboortedatum=@Geboortedatum, Geslacht=@Geslacht, Adres=@Adres, Telefoonnummer=@Telefoonnummer, ProfielFoto=@ProfielFoto, BannerFoto=@BannerFoto WHERE Email=@Email";
 
                 //Maken van het command
                 MySqlCommand mysqlcmd = new MySqlCommand(query, conn);
@@ -238,6 +236,18 @@ namespace prjSportnetKinda.DA
                 mysqlcmd.Parameters.AddWithValue("@Geslacht", g.Geslacht);
                 mysqlcmd.Parameters.AddWithValue("@Adres", g.Adres);
                 mysqlcmd.Parameters.AddWithValue("@Telefoonnummer", g.Telefoonnummer);
+
+                //foto's omzetten naar byte array
+                MemoryStream msProfiel = new MemoryStream();
+                g.Profielfoto.Save(msProfiel, System.Drawing.Imaging.ImageFormat.Jpeg);
+                byte[] arrProfielFoto = msProfiel.GetBuffer();
+
+                MemoryStream msBanner = new MemoryStream();
+                g.Bannerfoto.Save(msBanner, System.Drawing.Imaging.ImageFormat.Jpeg);
+                byte[] arrBannerfoto = msBanner.GetBuffer();
+
+                mysqlcmd.Parameters.AddWithValue("@ProfielFoto", arrProfielFoto);
+                mysqlcmd.Parameters.AddWithValue("@BannerFoto", arrBannerfoto);
 
                 //Commando uitvoeren
                 mysqlcmd.ExecuteNonQuery();
