@@ -1,5 +1,6 @@
 ﻿using prjSportnetKinda.DA;
 using prjSportnetKinda.Model;
+using prjSportnetKinda.View;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

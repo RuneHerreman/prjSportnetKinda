@@ -97,7 +97,10 @@ namespace prjSportnetKinda.DA
             {
                 //foto omzetten naar byte array
                 MemoryStream ms = new MemoryStream();
-                pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                if (pictureBox.Image != null)
+                {
+                    pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                }
                 byte[] arrFoto = ms.GetBuffer();
 
                 //huidige datum

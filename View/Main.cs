@@ -21,7 +21,7 @@ namespace prjSportnetKinda
     public partial class Main : Form
     {
         Model.Gebruiker gebruiker;
-        
+
         //lijst om gehuurd materiaal in te plaatsen
         List<Materiaal> HuurList = new List<Materiaal>();
         List<int> MandjeAantalList = new List<int>();
@@ -113,7 +113,7 @@ namespace prjSportnetKinda
             gebruiker = login;
         }
 
-        private void ArtikelRefresh()
+        public void ArtikelRefresh()
         {
             try
             {
@@ -139,7 +139,7 @@ namespace prjSportnetKinda
             }
         }
 
-        private void MateriaalRefresh() 
+        public void MateriaalRefresh() 
         {
             try
             {
@@ -212,6 +212,7 @@ namespace prjSportnetKinda
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+
             //verander tab
             tcMain.SelectTab(tabStart);
 
@@ -309,7 +310,8 @@ namespace prjSportnetKinda
 
         private void btnArtiekelToevoegen_Click(object sender, EventArgs e)
         {
-            NieuwArtikel nieuwartikel = new NieuwArtikel();
+            //Main meegeven bij het openen van NieuwArtikel
+            NieuwArtikel nieuwartikel = new NieuwArtikel(this);
             nieuwartikel.ShowDialog();
         }
 
@@ -477,8 +479,8 @@ namespace prjSportnetKinda
         private void btnWinkelwagentje_Click(object sender, EventArgs e)
         {
             //open form van het mandje
-            //geef HuurList en AantalLijst mee om de listview te kunnen opvullen
-            frmMandje mandje = new frmMandje(HuurList, MandjeAantalList, gebruiker);
+            //geef HuurList en AantalLijst mee om de listview te kunnen opvullen, Main voor de refresh van het materiaal
+            frmMandje mandje = new frmMandje(HuurList, MandjeAantalList, gebruiker, this);
             mandje.ShowDialog();
         }
 
@@ -500,7 +502,7 @@ namespace prjSportnetKinda
 
         private void lblBeheer_Click(object sender, EventArgs e)
         {
-            MateriaalBeheer beheer = new MateriaalBeheer();
+            MateriaalBeheer beheer = new MateriaalBeheer(this);
             beheer.ShowDialog();
         }
 

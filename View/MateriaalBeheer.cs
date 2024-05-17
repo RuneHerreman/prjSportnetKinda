@@ -13,15 +13,17 @@ namespace prjSportnetKinda.View
 {
     public partial class MateriaalBeheer : Form
     {
-        public MateriaalBeheer()
+        Main main1;
+        public MateriaalBeheer(Main main)
         {
             InitializeComponent();
+            main1 = main;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             //open form
-            NieuwMateriaal nieuwMateriaal = new NieuwMateriaal();
+            NieuwMateriaal nieuwMateriaal = new NieuwMateriaal(main1);
             nieuwMateriaal.ShowDialog();
             this.Close();
         }
@@ -29,7 +31,7 @@ namespace prjSportnetKinda.View
         private void button2_Click(object sender, EventArgs e)
         {
             //open form
-            MateriaalBewerken materiaalBewerken = new MateriaalBewerken();
+            MateriaalBewerken materiaalBewerken = new MateriaalBewerken(main1);
             materiaalBewerken.ShowDialog();
             this.Close();
         }

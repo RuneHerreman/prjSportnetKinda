@@ -17,8 +17,10 @@ namespace prjSportnetKinda.View
     public partial class MateriaalBewerken : Form
     {
         List<Materiaal> matList = new List<Materiaal>();
-        
-        public MateriaalBewerken()
+
+        Main main1;
+
+        public MateriaalBewerken(Main main)
         {
             InitializeComponent();
 
@@ -29,6 +31,9 @@ namespace prjSportnetKinda.View
             {
                 lsvMateriaal.Items.Add(materiaal.Naam);
             }
+
+            //herladen van materiaal
+            main1 = main;
         }
 
         private void lsvMateriaal_SelectedIndexChanged(object sender, EventArgs e)
@@ -73,6 +78,9 @@ namespace prjSportnetKinda.View
             {
                 lsvMateriaal.Items.Add(materiaal.Naam);
             }
+
+            //materiaal verversen
+            main1.MateriaalRefresh();
         }
 
         private void btnBladeren_Click(object sender, EventArgs e)

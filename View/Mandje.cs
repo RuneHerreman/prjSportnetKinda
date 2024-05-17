@@ -23,7 +23,9 @@ namespace prjSportnetKinda.View
         string strGehuurd;
         Gebruiker gebruiker = new Gebruiker();
 
-        public frmMandje(List<Materiaal> HuurList, List<int> MandjeAantalList, Gebruiker login)
+        Main main1;
+
+        public frmMandje(List<Materiaal> HuurList, List<int> MandjeAantalList, Gebruiker login, Main main)
         {
             InitializeComponent();
             //omzetten naar lijst in dit formulier om leegmaken mogelijk te maken
@@ -32,6 +34,8 @@ namespace prjSportnetKinda.View
 
             //gebruiker doorgeven
             gebruiker = login;
+
+            main1 = main;
 
             foreach(Materiaal materiaal in MandjeMateriaalList)
             {
@@ -112,6 +116,14 @@ namespace prjSportnetKinda.View
                     }
                     //Toon wat je gehuurd hebt
                     MessageBox.Show($"Je huurde:\n\n{strGehuurd}", "Details", MessageBoxButtons.OK);
+
+                    //Lijsten legen, dit zal ook de lijst uit Main.cs legen
+                    MandjeAantallenList.Clear();
+                    MandjeMateriaalList.Clear();
+
+                    //listview legen
+                    lsvMandje.Items.Clear();
+
                     //logboek aanvullen
                     LogboekDA.HuurMateriaal(gebruiker.GebruikerID, strGehuurd, DateTime.Now);
                 }
@@ -121,6 +133,8 @@ namespace prjSportnetKinda.View
                 MessageBox.Show("Er zit niets in je mandje!", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             this.Close();
+            
+            main1.MateriaalRefresh();
         }
     }
 }

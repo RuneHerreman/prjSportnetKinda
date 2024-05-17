@@ -13,9 +13,13 @@ namespace prjSportnetKinda.View
 {
     public partial class NieuwMateriaal : Form
     {
-        public NieuwMateriaal()
+        Main main1;
+        public NieuwMateriaal(Main main)
         {
             InitializeComponent();
+
+            //refresh van materiaal
+            main1 = main;
         }
 
         private void btnBladeren_Click(object sender, EventArgs e)
@@ -74,10 +78,11 @@ namespace prjSportnetKinda.View
                 txtNaamNieuw.ResetText();
                 txtFotoNieuw.ResetText();
                 picNieuwMateriaalPreview.Image = null;
+                
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
     }

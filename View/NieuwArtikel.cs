@@ -17,10 +17,14 @@ namespace prjSportnetKinda.View
 {
     public partial class NieuwArtikel : Form
     {
-
-        public NieuwArtikel()
+        //object van main maken
+        Main main1;
+        public NieuwArtikel(Main main)
         {
             InitializeComponent();
+
+            //gelijkstellen aan het open Main formulier
+            main1 = main;
         }
 
         private void btnBladeren_Click(object sender, EventArgs e)
@@ -73,17 +77,28 @@ namespace prjSportnetKinda.View
         {
             try
             {
-                ArtikelDA.ArtikelMaken(txtTitelNieuw.Text, txtArtikelNieuw.Text, picNieuwArtikelPreview);
+                //Is er een titel en beschrijving?
+                if (txtArtikelNieuw.Text == "" || txtTitelNieuw.Text == "")
+                {
+                    MessageBox.Show("Vul alle velden in alstublieft");
+                }
+                else
+                {
+                    ArtikelDA.ArtikelMaken(txtTitelNieuw.Text, txtArtikelNieuw.Text, picNieuwArtikelPreview);
+                }
                 //textboxes legen
                 txtArtikelNieuw.ResetText();
                 txtTitelNieuw.ResetText();
                 txtFotoNieuw.ResetText();
                 picNieuwArtikelPreview.Image = null;
             }
-            catch
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
+
+            //refresh de artikel om nieuwe artikels ook weer te geven
+            main1.ArtikelRefresh();
         }  
     }
 }
