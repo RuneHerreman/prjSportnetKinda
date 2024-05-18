@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnProfiel = new prjSportnetKinda.View.ButtonControls();
             this.btnMateriaal = new prjSportnetKinda.View.ButtonControls();
@@ -108,12 +108,6 @@
             this.picBannerFoto = new System.Windows.Forms.PictureBox();
             this.picProfielFoto = new System.Windows.Forms.PictureBox();
             this.ofdFotos = new System.Windows.Forms.OpenFileDialog();
-            this.btnArtiekelToevoegen = new prjSportnetKinda.View.ButtonControls();
-            this.buttonControls1 = new prjSportnetKinda.View.ButtonControls();
-            this.btnProfiel = new prjSportnetKinda.View.ButtonControls();
-            this.btnMateriaal = new prjSportnetKinda.View.ButtonControls();
-            this.btnKalender = new prjSportnetKinda.View.ButtonControls();
-            this.btnStart = new prjSportnetKinda.View.ButtonControls();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tcMain.SuspendLayout();
@@ -529,8 +523,8 @@
             this.lsvTraining.FullRowSelect = true;
             this.lsvTraining.HideSelection = false;
             this.lsvTraining.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
+            listViewItem3,
+            listViewItem4});
             this.lsvTraining.Location = new System.Drawing.Point(355, 40);
             this.lsvTraining.Name = "lsvTraining";
             this.lsvTraining.Size = new System.Drawing.Size(507, 162);
@@ -1103,117 +1097,6 @@
             // 
             this.ofdFotos.FileName = "openFileDialog1";
             // 
-            // btnArtiekelToevoegen
-            // 
-            this.btnArtiekelToevoegen.BackColor = System.Drawing.Color.Transparent;
-            this.btnArtiekelToevoegen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnArtiekelToevoegen.FlatAppearance.BorderSize = 0;
-            this.btnArtiekelToevoegen.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnArtiekelToevoegen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArtiekelToevoegen.HoverFoto1 = global::prjSportnetKinda.Properties.Resources.ItemAdd;
-            this.btnArtiekelToevoegen.Image = global::prjSportnetKinda.Properties.Resources.ItemAdd;
-            this.btnArtiekelToevoegen.Location = new System.Drawing.Point(805, 14);
-            this.btnArtiekelToevoegen.Name = "btnArtiekelToevoegen";
-            this.btnArtiekelToevoegen.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.ItemAdd;
-            this.btnArtiekelToevoegen.Size = new System.Drawing.Size(60, 60);
-            this.btnArtiekelToevoegen.TabIndex = 5;
-            this.btnArtiekelToevoegen.Tooltip1 = "ArtiekelToevoegen";
-            this.btnArtiekelToevoegen.UseVisualStyleBackColor = false;
-            this.btnArtiekelToevoegen.Click += new System.EventHandler(this.btnArtiekelToevoegen_Click);
-            // 
-            // buttonControls1
-            // 
-            this.buttonControls1.BackColor = System.Drawing.Color.Transparent;
-            this.buttonControls1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonControls1.FlatAppearance.BorderSize = 0;
-            this.buttonControls1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight;
-            this.buttonControls1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonControls1.HoverFoto1 = global::prjSportnetKinda.Properties.Resources.ItemAdd;
-            this.buttonControls1.Image = global::prjSportnetKinda.Properties.Resources.ItemAdd;
-            this.buttonControls1.Location = new System.Drawing.Point(802, 208);
-            this.buttonControls1.Name = "buttonControls1";
-            this.buttonControls1.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.ItemAdd;
-            this.buttonControls1.Size = new System.Drawing.Size(60, 60);
-            this.buttonControls1.TabIndex = 6;
-            this.buttonControls1.Tooltip1 = "ArtiekelToevoegen";
-            this.buttonControls1.UseVisualStyleBackColor = false;
-            // 
-            // btnProfiel
-            // 
-            this.btnProfiel.BackColor = System.Drawing.Color.Transparent;
-            this.btnProfiel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProfiel.FlatAppearance.BorderSize = 0;
-            this.btnProfiel.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnProfiel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProfiel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnProfiel.HoverFoto1 = global::prjSportnetKinda.Properties.Resources.user_select;
-            this.btnProfiel.Image = global::prjSportnetKinda.Properties.Resources.user_standard;
-            this.btnProfiel.Location = new System.Drawing.Point(5, 673);
-            this.btnProfiel.Name = "btnProfiel";
-            this.btnProfiel.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.user_standard;
-            this.btnProfiel.Size = new System.Drawing.Size(55, 55);
-            this.btnProfiel.TabIndex = 7;
-            this.btnProfiel.Tooltip1 = "Profiel";
-            this.btnProfiel.UseVisualStyleBackColor = false;
-            this.btnProfiel.Click += new System.EventHandler(this.btnProfiel_Click);
-            // 
-            // btnMateriaal
-            // 
-            this.btnMateriaal.BackColor = System.Drawing.Color.Transparent;
-            this.btnMateriaal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMateriaal.FlatAppearance.BorderSize = 0;
-            this.btnMateriaal.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnMateriaal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMateriaal.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnMateriaal.HoverFoto1 = global::prjSportnetKinda.Properties.Resources.cart_select;
-            this.btnMateriaal.Image = global::prjSportnetKinda.Properties.Resources.cart_standard;
-            this.btnMateriaal.Location = new System.Drawing.Point(5, 220);
-            this.btnMateriaal.Name = "btnMateriaal";
-            this.btnMateriaal.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.cart_standard;
-            this.btnMateriaal.Size = new System.Drawing.Size(55, 55);
-            this.btnMateriaal.TabIndex = 6;
-            this.btnMateriaal.Tooltip1 = "Materiaal";
-            this.btnMateriaal.UseVisualStyleBackColor = false;
-            this.btnMateriaal.Click += new System.EventHandler(this.btnMateriaal_Click);
-            // 
-            // btnKalender
-            // 
-            this.btnKalender.BackColor = System.Drawing.Color.Transparent;
-            this.btnKalender.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnKalender.FlatAppearance.BorderSize = 0;
-            this.btnKalender.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnKalender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKalender.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnKalender.HoverFoto1 = global::prjSportnetKinda.Properties.Resources.calendar_select;
-            this.btnKalender.Image = global::prjSportnetKinda.Properties.Resources.calendar_standard;
-            this.btnKalender.Location = new System.Drawing.Point(5, 150);
-            this.btnKalender.Name = "btnKalender";
-            this.btnKalender.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.calendar_standard;
-            this.btnKalender.Size = new System.Drawing.Size(55, 55);
-            this.btnKalender.TabIndex = 5;
-            this.btnKalender.Tooltip1 = "Planning";
-            this.btnKalender.UseVisualStyleBackColor = false;
-            this.btnKalender.Click += new System.EventHandler(this.btnKalender_Click);
-            // 
-            // btnStart
-            // 
-            this.btnStart.BackColor = System.Drawing.Color.Transparent;
-            this.btnStart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStart.FlatAppearance.BorderSize = 0;
-            this.btnStart.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStart.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnStart.HoverFoto1 = global::prjSportnetKinda.Properties.Resources.home_select;
-            this.btnStart.Image = ((System.Drawing.Image)(resources.GetObject("btnStart.Image")));
-            this.btnStart.Location = new System.Drawing.Point(5, 80);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.NormaalFoto1 = ((System.Drawing.Image)(resources.GetObject("btnStart.NormaalFoto1")));
-            this.btnStart.Size = new System.Drawing.Size(55, 55);
-            this.btnStart.TabIndex = 4;
-            this.btnStart.Tooltip1 = "Start";
-            this.btnStart.UseVisualStyleBackColor = false;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1316,7 +1199,6 @@
         private System.Windows.Forms.Label lblTrainingLocatie;
         private System.Windows.Forms.Label label14;
         public View.ButtonControls btnStart;
-        public System.Windows.Forms.FlowLayoutPanel fpnlArtiekelContainer;
         private System.Windows.Forms.Label lblProfielFoto;
         private System.Windows.Forms.Label lblBannerFoto;
         private System.Windows.Forms.Button btnBannerFoto;
@@ -1325,6 +1207,7 @@
         private System.Windows.Forms.TextBox txtProfielFoto;
         private System.Windows.Forms.OpenFileDialog ofdFoto;
         private System.Windows.Forms.OpenFileDialog ofdFotos;
+        private System.Windows.Forms.FlowLayoutPanel fpnlArtiekelContainer;
     }
 }
 

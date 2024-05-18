@@ -98,7 +98,6 @@ namespace prjSportnetKinda.DA
 
                     return null;
                 }
-
             }
             catch
             {

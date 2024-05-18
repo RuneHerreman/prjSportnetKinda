@@ -11,6 +11,7 @@ namespace prjSportnetKinda.Model
     {
         public int GebruikerID { get; set; }
         public string GehuurdMateriaal { get; set; }
+        public string ResterendGehuurdMateriaal { get; set; }
         public DateTime Datum { get; set; }
     }
 }

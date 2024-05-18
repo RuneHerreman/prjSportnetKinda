@@ -55,6 +55,7 @@ namespace prjSportnetKinda.View
 
         private void txtTitelNieuw_TextChanged(object sender, EventArgs e)
         {
+            //hoeveel karakters mag ik hebben
             lblLengte.BackColor = Color.Transparent;
             lblLengte.Text = txtTitelNieuw.TextLength + "/44";
             if (txtTitelNieuw.TextLength >44)
@@ -65,6 +66,7 @@ namespace prjSportnetKinda.View
 
         private void txtArtikelNieuw_TextChanged(object sender, EventArgs e)
         {
+            //hoeveel karakters mag ik hebben
             lblLengteArtikel.BackColor = Color.Transparent;
             lblLengteArtikel.Text = txtArtikelNieuw.TextLength + "/50000";
             if (txtArtikelNieuw.TextLength > 50000)
@@ -85,6 +87,8 @@ namespace prjSportnetKinda.View
                 else
                 {
                     ArtikelDA.ArtikelMaken(txtTitelNieuw.Text, txtArtikelNieuw.Text, picNieuwArtikelPreview);
+                    //refresh de artikel om nieuwe artikels ook weer te geven
+                    main1.ArtikelRefresh();
                 }
                 //textboxes legen
                 txtArtikelNieuw.ResetText();
@@ -95,10 +99,7 @@ namespace prjSportnetKinda.View
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-
-            //refresh de artikel om nieuwe artikels ook weer te geven
-            main1.ArtikelRefresh();
+            }     
         }  
     }
 }

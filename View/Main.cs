@@ -320,7 +320,7 @@ namespace prjSportnetKinda
         {
             //Main meegeven bij het openen van NieuwArtikel
             NieuwArtikel nieuwartikel = new NieuwArtikel(this);
-            nieuwartikel.ShowDialog();
+            nieuwartikel.Show();
         }
 
         private void btnUitloggen_Click(object sender, EventArgs e)
