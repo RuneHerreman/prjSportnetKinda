@@ -32,11 +32,11 @@ namespace prjSportnetKinda.DA
                 MySqlConnection conn = Database.MakeConnection();
 
                 //commando maken
-                MySqlCommand cmdArtikel = new MySqlCommand(query, conn);
-                cmdArtikel.CommandText = query;
+                MySqlCommand cmdArtikelsOphalen = new MySqlCommand(query, conn);
+                cmdArtikelsOphalen.CommandText = query;
 
                 //reader
-                MySqlDataReader reader = cmdArtikel.ExecuteReader();
+                MySqlDataReader reader = cmdArtikelsOphalen.ExecuteReader();
 
 
                 while (reader.Read())
@@ -81,7 +81,8 @@ namespace prjSportnetKinda.DA
                     datum = Convert.ToDateTime(record["datum"]),
                     titel = record["titel"].ToString(),
                     artikel = record["artikel"].ToString(),
-                    foto = img
+                    foto = img,
+                    ID = Convert.ToInt32(record["ID"])
                 };
             }
             catch (Exception exc)
@@ -112,15 +113,15 @@ namespace prjSportnetKinda.DA
                 //query maken
                 string query = "INSERT INTO `tblartikels`(`datum`, `titel`, `artikel`, `foto`) VALUES (@datum,@titel,@artikel,@foto)";
                 //commando maken
-                MySqlCommand cmdArtikel = new MySqlCommand(query, conn);
-                cmdArtikel.CommandText = query;
+                MySqlCommand cmdArtikelMaken = new MySqlCommand(query, conn);
+                cmdArtikelMaken.CommandText = query;
 
-                cmdArtikel.Parameters.AddWithValue("@datum", dtHuidigeDatum.Date);
-                cmdArtikel.Parameters.AddWithValue("@titel", strTitel);
-                cmdArtikel.Parameters.AddWithValue("@artikel", strArtikel);
-                cmdArtikel.Parameters.AddWithValue("@foto", arrFoto);
+                cmdArtikelMaken.Parameters.AddWithValue("@datum", dtHuidigeDatum.Date);
+                cmdArtikelMaken.Parameters.AddWithValue("@titel", strTitel);
+                cmdArtikelMaken.Parameters.AddWithValue("@artikel", strArtikel);
+                cmdArtikelMaken.Parameters.AddWithValue("@foto", arrFoto);
 
-                cmdArtikel.ExecuteNonQuery();
+                cmdArtikelMaken.ExecuteNonQuery();
 
                 //confirmatie
                 System.Windows.MessageBox.Show("Artikel opgeslaan in database", "Artikel opgeslaan", MessageBoxButton.OK);
@@ -128,6 +129,72 @@ namespace prjSportnetKinda.DA
             catch (Exception exc)
             {
                 System.Windows.MessageBox.Show(exc.Message, "", MessageBoxButton.OK);
+            }
+        }
+
+        public static void ArtikelUpdate(string strTitel, string strArtikel, PictureBox pictureBox, int intArtikelID)
+        {
+            try
+            {
+                //foto omzetten naar byte array
+                MemoryStream ms = new MemoryStream();
+                if (pictureBox.Image != null)
+                {
+                    pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                }
+                byte[] arrFoto = ms.GetBuffer();
+
+                //open connectie
+                MySqlConnection conn = Database.MakeConnection();
+
+                //query maken
+                string query = "UPDATE `tblartikels` SET `titel`=@Titel,`artikel`=@Artikel,`foto`=@Foto WHERE `id`=@ArtikelID";
+                //commando maken
+                MySqlCommand cmdArtikelUpdate = new MySqlCommand(query, conn);
+                cmdArtikelUpdate.CommandText = query;
+
+                cmdArtikelUpdate.Parameters.AddWithValue("@Titel", strTitel);
+                cmdArtikelUpdate.Parameters.AddWithValue("@Artikel", strArtikel);
+                cmdArtikelUpdate.Parameters.AddWithValue("@Foto", arrFoto);
+                cmdArtikelUpdate.Parameters.AddWithValue("@ArtikelID", intArtikelID);
+
+                cmdArtikelUpdate.ExecuteNonQuery();
+
+                //confirmatie
+                System.Windows.MessageBox.Show("Artikel aangepast in database", "Artikel aangepast", MessageBoxButton.OK);
+            }
+            catch (Exception exc)
+            {
+                System.Windows.MessageBox.Show(exc.Message);
+            }
+        }
+        public static void ArtikelVerwijderen(int intArtikelID)
+        {
+            try
+            {
+                //query
+                string query = "DELETE FROM `tblartikels` WHERE `id`=@ArtikelID";
+
+                //verbinding maken
+                MySqlConnection conn = Database.MakeConnection();
+                MySqlCommand cmdArtikelVerwijderen = new MySqlCommand(query, conn);
+                cmdArtikelVerwijderen.CommandText = query;
+
+                //parameters
+                cmdArtikelVerwijderen.Parameters.AddWithValue("@ArtikelID", intArtikelID);
+
+                //uitvoeren
+                cmdArtikelVerwijderen.ExecuteNonQuery();
+
+                //connectie sluiten
+                Database.CloseConnection(conn);
+
+                //mbox
+                System.Windows.MessageBox.Show("Artikel verwijderd uit database", "Artikel verwijderd", MessageBoxButton.OK);
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
         }
     }

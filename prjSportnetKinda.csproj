@@ -35,7 +35,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="mysql.data">
-      <HintPath>..\..\..\..\Downloads\prjLogin\prjLogin\bin\Debug\mysql.data.dll</HintPath>
+      <HintPath>B:\Downloads\FireFox Downloads\MySql.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -72,6 +72,18 @@
     <Compile Include="Helper\Database.cs" />
     <Compile Include="Model\Logboek.cs" />
     <Compile Include="Model\Training.cs" />
+    <Compile Include="View\ArtikelBeheer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ArtikelBeheer.Designer.cs">
+      <DependentUpon>ArtikelBeheer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ArtikelBewerken.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ArtikelBewerken.Designer.cs">
+      <DependentUpon>ArtikelBewerken.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Mandje.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +167,12 @@
     <Compile Include="View\WelkomItem.Designer.cs">
       <DependentUpon>WelkomItem.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\ArtikelBeheer.resx">
+      <DependentUpon>ArtikelBeheer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ArtikelBewerken.resx">
+      <DependentUpon>ArtikelBewerken.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Mandje.resx">
       <DependentUpon>Mandje.cs</DependentUpon>
     </EmbeddedResource>

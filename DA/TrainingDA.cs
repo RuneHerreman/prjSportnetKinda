@@ -22,16 +22,16 @@ namespace prjSportnetKinda.DA
 
             //verbinding maken
             MySqlConnection conn = Database.MakeConnection();
-            MySqlCommand cmdTraining = new MySqlCommand(query, conn);
-            cmdTraining.CommandText = query;
+            MySqlCommand cmdTrainingOphalen = new MySqlCommand(query, conn);
+            cmdTrainingOphalen.CommandText = query;
 
             //parameters
-            cmdTraining.Parameters.AddWithValue("@datum", DateTime.Now.ToString("yyyy'-'MM'-'dd HH':'mm':'ss"));
-            cmdTraining.Parameters.AddWithValue("@selectedDateStart", dtSelectedDateStart);
-            cmdTraining.Parameters.AddWithValue("@selectedDateEnd", dtSelectedDateEnd);
+            cmdTrainingOphalen.Parameters.AddWithValue("@datum", DateTime.Now.ToString("yyyy'-'MM'-'dd HH':'mm':'ss"));
+            cmdTrainingOphalen.Parameters.AddWithValue("@selectedDateStart", dtSelectedDateStart);
+            cmdTrainingOphalen.Parameters.AddWithValue("@selectedDateEnd", dtSelectedDateEnd);
 
             //reader
-            MySqlDataReader reader = cmdTraining.ExecuteReader();
+            MySqlDataReader reader = cmdTrainingOphalen.ExecuteReader();
 
             while (reader.Read())
             {

@@ -5,88 +5,82 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Media.Media3D;
 
 namespace prjSportnetKinda.View
 {
-    public partial class MateriaalBewerken : Form
+    public partial class ArtikelBewerken : Form
     {
-        List<Materiaal> matList = new List<Materiaal>();
-
+        List<Artikel> artikelList;
+        //refresh mogelijk maken
         Main main1;
-
-        public MateriaalBewerken(Main main)
+        public ArtikelBewerken(Main main)
         {
             InitializeComponent();
-
             //lijst maken laden
-            matList = MateriaalDA.OphalenMateriaal();
+            artikelList = ArtikelDA.OphalenArtikel();
             //listview opvullen
-            foreach (Materiaal materiaal in matList)
+            foreach (Artikel artikel in artikelList)
             {
-                lsvMateriaal.Items.Add(materiaal.Naam);
+                lsvArtikels.Items.Add(artikel.titel);
             }
-
-            //herladen van materiaal
+            //refresh mogelijk maken
             main1 = main;
         }
 
+        
+        private void btnToepassen_Click(object sender, EventArgs e)
+        {
+            //aanpassen in datatbase
+            ArtikelDA.ArtikelUpdate(txtNieuweNaam.Text, rtxtBeschrijving.Text, picNieuweAfbeelding, Convert.ToInt32(lblArtikelID.Text));
+
+            //niets geselecteerd --> ZONDER DIT CRASHT HET PROGRAMMA NA EEN VERANDERING
+            lsvArtikels.SelectedItems.Clear();
+            //leeg listview
+            lsvArtikels.Items.Clear();
+            //opnieuw opvullen met geüpdatete item
+            foreach (Artikel artikel in ArtikelDA.OphalenArtikel())
+            {
+                //listview opvullen
+                lsvArtikels.Items.Add(artikel.titel);
+            }
+
+            //ook de lijst waar de info uit komt updaten
+            artikelList = ArtikelDA.OphalenArtikel();
+
+            //materiaal verversen
+            main1.ArtikelRefresh();
+        }
         private void lsvMateriaal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lsvMateriaal.SelectedIndices.Count == 0)
+            if (lsvArtikels.SelectedIndices.Count == 0)
             {
                 return;
             }
             //welk materiaal is geselecteerd?
-            Materiaal materiaal = matList[lsvMateriaal.SelectedIndices[0]];
+            Artikel artikel = artikelList[lsvArtikels.SelectedIndices[0]];
             txtNieuweNaam.Enabled = true;
             rtxtBeschrijving.Enabled = true;
-            txtNieuweVoorraad.Enabled = true;
             btnBladeren.Enabled = true;
             btnToepassen.Enabled = true;
-            btnMateriaalVerwijderen.Enabled = true;
+            btnArtikelVerwijderen.Enabled = true;
+
             //leeg alles
             txtNieuweNaam.Clear();
             rtxtBeschrijving.Clear();
-            txtNieuweVoorraad.Clear();
             picNieuweAfbeelding.Image = null;
-            lblMateriaalID.ResetText();
+            lblArtikelID.ResetText();
 
             //vul alles
-            txtNieuweNaam.Text = materiaal.Naam;
-            rtxtBeschrijving.Text = materiaal.Beschrijving;
-            txtNieuweVoorraad.Text = materiaal.Voorraad.ToString();
-            picNieuweAfbeelding.Image = materiaal.Foto;
-            lblMateriaalID.Text = materiaal.ID.ToString();
+            txtNieuweNaam.Text = artikel.titel;
+            rtxtBeschrijving.Text = artikel.artikel;
+            picNieuweAfbeelding.Image = artikel.foto;
+            lblArtikelID.Text = artikel.ID.ToString();
         }
 
-        private void btnToepassen_Click(object sender, EventArgs e)
-        {
-            //aanpassen in datatbase
-            MateriaalDA.MateriaalUpdate(txtNieuweNaam.Text, rtxtBeschrijving.Text, Convert.ToInt16(txtNieuweVoorraad.Text), picNieuweAfbeelding, Convert.ToInt32(lblMateriaalID.Text));
-
-            //niets geselecteerd --> ZONDER DIT CRASHT HET PROGRAMMA NA EEN VERANDERING
-            lsvMateriaal.SelectedItems.Clear();
-            //leeg listview
-            lsvMateriaal.Items.Clear();
-            //opnieuw opvullen met geüpdatete item
-            foreach (Materiaal materiaal in MateriaalDA.OphalenMateriaal())
-            {
-                //listview opvullen
-                lsvMateriaal.Items.Add(materiaal.Naam);
-            }
-
-            //ook de lijst waar de info uit komt updaten
-            matList = MateriaalDA.OphalenMateriaal();
-
-            //materiaal verversen
-            main1.MateriaalRefresh();
-        }
 
         private void btnBladeren_Click(object sender, EventArgs e)
         {
@@ -114,20 +108,20 @@ namespace prjSportnetKinda.View
             }
         }
 
-        private void btnMateriaalVerwijderen_Click(object sender, EventArgs e)
+        private void btnArtikelVerwijderen_Click(object sender, EventArgs e)
         {
             //verwijderen uit database
-            MateriaalDA.MateriaalVerwijderen(Convert.ToInt32(lblMateriaalID.Text));
+            ArtikelDA.ArtikelVerwijderen(Convert.ToInt32(lblArtikelID.Text));
 
             //niets geselecteerd --> ZONDER DIT CRASHT HET PROGRAMMA NA EEN VERANDERING
-            lsvMateriaal.SelectedItems.Clear();
+            lsvArtikels.SelectedItems.Clear();
             //leeg listview
-            lsvMateriaal.Items.Clear();
+            lsvArtikels.Items.Clear();
             //opnieuw opvullen met geüpdatete item
-            foreach (Materiaal materiaal in MateriaalDA.OphalenMateriaal())
+            foreach (Artikel artikel in ArtikelDA.OphalenArtikel())
             {
                 //listview opvullen
-                lsvMateriaal.Items.Add(materiaal.Naam);
+                lsvArtikels.Items.Add(artikel.titel);
             }
 
             main1.MateriaalRefresh();

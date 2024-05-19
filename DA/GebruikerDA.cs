@@ -31,17 +31,17 @@ namespace prjSportnetKinda.DA
                 string query = "SELECT * from tblgebruiker WHERE Email=@Email AND Wachtwoord=@Wachtwoord";
 
                 //Maken van het command
-                MySqlCommand mysqlcmd = new MySqlCommand(query, conn);
+                MySqlCommand cmdInloggen = new MySqlCommand(query, conn);
 
                 //Welk soort gegevens is het commando
-                mysqlcmd.CommandType = CommandType.Text;
+                cmdInloggen.CommandType = CommandType.Text;
 
                 //Parameters
-                mysqlcmd.Parameters.AddWithValue("@Email", email);
-                mysqlcmd.Parameters.AddWithValue("@Wachtwoord", wachtwoord);
+                cmdInloggen.Parameters.AddWithValue("@Email", email);
+                cmdInloggen.Parameters.AddWithValue("@Wachtwoord", wachtwoord);
 
                 //Commando uitvoeren
-                MySqlDataReader reader = mysqlcmd.ExecuteReader();
+                MySqlDataReader reader = cmdInloggen.ExecuteReader();
                 if (reader.HasRows == true)
                 {
                     reader.Read();
@@ -118,15 +118,15 @@ namespace prjSportnetKinda.DA
                 string query = "SELECT * from tblgebruiker WHERE Email=@Email";
 
                 //Maken van het command
-                MySqlCommand mysqlcmd = new MySqlCommand(query, conn);
+                MySqlCommand cmdRegistreren = new MySqlCommand(query, conn);
 
                 //Welk soort gegevens is het commando
-                mysqlcmd.CommandType = CommandType.Text;
+                cmdRegistreren.CommandType = CommandType.Text;
 
                 //Parameters
-                mysqlcmd.Parameters.AddWithValue("@Email", email);
+                cmdRegistreren.Parameters.AddWithValue("@Email", email);
 
-                MySqlDataReader reader = mysqlcmd.ExecuteReader();
+                MySqlDataReader reader = cmdRegistreren.ExecuteReader();
                 if (reader.HasRows == true)
                 {
                     reader.Read();
@@ -143,24 +143,24 @@ namespace prjSportnetKinda.DA
                             "VALUES (@Naam, @Voornaam, @Email, @Geboortedatum, @Wachtwoord, @LidSinds, @Renner, @Trainer, @Beheerder, @ProfielFoto, @BannerFoto)";
 
                     //Maken van het command
-                    mysqlcmd = new MySqlCommand(query, conn);
+                    cmdRegistreren = new MySqlCommand(query, conn);
 
                     //Welk soort gegevens is het commando
-                    mysqlcmd.CommandType = CommandType.Text;
+                    cmdRegistreren.CommandType = CommandType.Text;
 
                     //Parameters
-                    mysqlcmd.Parameters.AddWithValue("@Naam", naam);
-                    mysqlcmd.Parameters.AddWithValue("@Voornaam", voornaam);
-                    mysqlcmd.Parameters.AddWithValue("@Email", email);
-                    mysqlcmd.Parameters.AddWithValue("Geboortedatum", geboordtedatum);
-                    mysqlcmd.Parameters.AddWithValue("@Wachtwoord", wachtwoord);
-                    mysqlcmd.Parameters.AddWithValue("@LidSinds", DateTime.Today);
-                    mysqlcmd.Parameters.AddWithValue("@Renner", 1);
-                    mysqlcmd.Parameters.AddWithValue("@Trainer", 0);
-                    mysqlcmd.Parameters.AddWithValue("@Beheerder", 0);
+                    cmdRegistreren.Parameters.AddWithValue("@Naam", naam);
+                    cmdRegistreren.Parameters.AddWithValue("@Voornaam", voornaam);
+                    cmdRegistreren.Parameters.AddWithValue("@Email", email);
+                    cmdRegistreren.Parameters.AddWithValue("Geboortedatum", geboordtedatum);
+                    cmdRegistreren.Parameters.AddWithValue("@Wachtwoord", wachtwoord);
+                    cmdRegistreren.Parameters.AddWithValue("@LidSinds", DateTime.Today);
+                    cmdRegistreren.Parameters.AddWithValue("@Renner", 1);
+                    cmdRegistreren.Parameters.AddWithValue("@Trainer", 0);
+                    cmdRegistreren.Parameters.AddWithValue("@Beheerder", 0);
 
                     //Uivoeren
-                    mysqlcmd.ExecuteNonQuery();
+                    cmdRegistreren.ExecuteNonQuery();
 
                     //Connection sluiten
                     Database.CloseConnection(conn);
@@ -187,16 +187,16 @@ namespace prjSportnetKinda.DA
                 string query = "DELETE FROM tblgebruiker WHERE Email=@Email";
 
                 //Maken van het command
-                MySqlCommand mysqlcmd = new MySqlCommand(query, conn);
+                MySqlCommand cmdGebruikerVerwijderen = new MySqlCommand(query, conn);
 
                 //Welk soort gegevens is het commando
-                mysqlcmd.CommandType = CommandType.Text;
+                cmdGebruikerVerwijderen.CommandType = CommandType.Text;
 
                 //Parameters
-                mysqlcmd.Parameters.AddWithValue("@Email", email);
+                cmdGebruikerVerwijderen.Parameters.AddWithValue("@Email", email);
 
                 //Hier wordt commando uitgevoerd en gaat hij resultaat bewaren in count
-                mysqlcmd.ExecuteNonQuery();
+                cmdGebruikerVerwijderen.ExecuteNonQuery();
 
                 //Connection sluiten
                 Database.CloseConnection(conn);
@@ -222,19 +222,19 @@ namespace prjSportnetKinda.DA
                 string query = "UPDATE tblgebruiker SET Voornaam=@Voornaam, Naam=@Naam, Geboortedatum=@Geboortedatum, Geslacht=@Geslacht, Adres=@Adres, Telefoonnummer=@Telefoonnummer, ProfielFoto=@ProfielFoto, BannerFoto=@BannerFoto WHERE Email=@Email";
 
                 //Maken van het command
-                MySqlCommand mysqlcmd = new MySqlCommand(query, conn);
+                MySqlCommand cmdGebruikerWijzigen = new MySqlCommand(query, conn);
 
                 //Welk soort gegevens is het commando
-                mysqlcmd.CommandType = CommandType.Text;
+                cmdGebruikerWijzigen.CommandType = CommandType.Text;
 
                 //Parameters
-                mysqlcmd.Parameters.AddWithValue("@Email", g.Email);
-                mysqlcmd.Parameters.AddWithValue("@Voornaam", g.Voornaam);
-                mysqlcmd.Parameters.AddWithValue("@Naam", g.Naam);
-                mysqlcmd.Parameters.AddWithValue("@Geboortedatum", g.Geboortedatum);
-                mysqlcmd.Parameters.AddWithValue("@Geslacht", g.Geslacht);
-                mysqlcmd.Parameters.AddWithValue("@Adres", g.Adres);
-                mysqlcmd.Parameters.AddWithValue("@Telefoonnummer", g.Telefoonnummer);
+                cmdGebruikerWijzigen.Parameters.AddWithValue("@Email", g.Email);
+                cmdGebruikerWijzigen.Parameters.AddWithValue("@Voornaam", g.Voornaam);
+                cmdGebruikerWijzigen.Parameters.AddWithValue("@Naam", g.Naam);
+                cmdGebruikerWijzigen.Parameters.AddWithValue("@Geboortedatum", g.Geboortedatum);
+                cmdGebruikerWijzigen.Parameters.AddWithValue("@Geslacht", g.Geslacht);
+                cmdGebruikerWijzigen.Parameters.AddWithValue("@Adres", g.Adres);
+                cmdGebruikerWijzigen.Parameters.AddWithValue("@Telefoonnummer", g.Telefoonnummer);
 
                 //foto's omzetten naar byte array
                 MemoryStream msProfiel = new MemoryStream();
@@ -245,11 +245,11 @@ namespace prjSportnetKinda.DA
                 g.Bannerfoto.Save(msBanner, System.Drawing.Imaging.ImageFormat.Jpeg);
                 byte[] arrBannerfoto = msBanner.GetBuffer();
 
-                mysqlcmd.Parameters.AddWithValue("@ProfielFoto", arrProfielFoto);
-                mysqlcmd.Parameters.AddWithValue("@BannerFoto", arrBannerfoto);
+                cmdGebruikerWijzigen.Parameters.AddWithValue("@ProfielFoto", arrProfielFoto);
+                cmdGebruikerWijzigen.Parameters.AddWithValue("@BannerFoto", arrBannerfoto);
 
                 //Commando uitvoeren
-                mysqlcmd.ExecuteNonQuery();
+                cmdGebruikerWijzigen.ExecuteNonQuery();
 
                 //Connection sluiten
                 Database.CloseConnection(conn);
@@ -273,13 +273,13 @@ namespace prjSportnetKinda.DA
             string query = "SELECT * from tblgebruiker";
 
             //Maken van het command
-            MySqlCommand mysqlcmd = new MySqlCommand(query, conn);
+            MySqlCommand cmdGebruikersOphalen = new MySqlCommand(query, conn);
 
             //Welk soort gegevens is het commando
-            mysqlcmd.CommandType = CommandType.Text;
+            cmdGebruikersOphalen.CommandType = CommandType.Text;
 
             //Reader
-            MySqlDataReader reader = mysqlcmd.ExecuteReader();
+            MySqlDataReader reader = cmdGebruikersOphalen.ExecuteReader();
 
             while (reader.Read())
             {
@@ -330,19 +330,19 @@ namespace prjSportnetKinda.DA
                 string query = "UPDATE tblgebruiker SET Renner=@Renner, Trainer=@Trainer, Beheerder=@Beheerder WHERE Email=@Email";
 
                 //Maken van het command
-                MySqlCommand mysqlcmd = new MySqlCommand(query, conn);
+                MySqlCommand cmdGebruikerRolWijzigen = new MySqlCommand(query, conn);
 
                 //Welk soort gegevens is het commando
-                mysqlcmd.CommandType = CommandType.Text;
+                cmdGebruikerRolWijzigen.CommandType = CommandType.Text;
 
                 //Parameters
-                mysqlcmd.Parameters.AddWithValue("@Email", g.Email);
-                mysqlcmd.Parameters.AddWithValue("@Renner", g.Renner);
-                mysqlcmd.Parameters.AddWithValue("@Trainer", g.Trainer);
-                mysqlcmd.Parameters.AddWithValue("@Beheerder", g.Beheerder);
+                cmdGebruikerRolWijzigen.Parameters.AddWithValue("@Email", g.Email);
+                cmdGebruikerRolWijzigen.Parameters.AddWithValue("@Renner", g.Renner);
+                cmdGebruikerRolWijzigen.Parameters.AddWithValue("@Trainer", g.Trainer);
+                cmdGebruikerRolWijzigen.Parameters.AddWithValue("@Beheerder", g.Beheerder);
 
                 //Commando uitvoeren
-                mysqlcmd.ExecuteNonQuery();
+                cmdGebruikerRolWijzigen.ExecuteNonQuery();
 
                 //Connection sluiten
                 Database.CloseConnection(conn);

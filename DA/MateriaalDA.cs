@@ -32,11 +32,11 @@ namespace prjSportnetKinda.DA
                 MySqlConnection conn = Database.MakeConnection();
 
                 //commando maken
-                MySqlCommand cmdArtikel = new MySqlCommand(query, conn);
-                cmdArtikel.CommandText = query;
+                MySqlCommand cmdMateriaalOphalen = new MySqlCommand(query, conn);
+                cmdMateriaalOphalen.CommandText = query;
 
                 //reader maken
-                MySqlDataReader reader = cmdArtikel.ExecuteReader();
+                MySqlDataReader reader = cmdMateriaalOphalen.ExecuteReader();
 
                 //zorgen dat de reader de data in een List steekt
                 while (reader.Read())
@@ -105,23 +105,30 @@ namespace prjSportnetKinda.DA
 
         public static void HuurMateriaal(int intNieuweVoorraad, int intMateriaalID)
         {
-            //query
-            string query = "UPDATE `tblmateriaal` SET `Voorraad`=@Voorraad WHERE `MateriaalID`=@MateriaalID";
+            try
+            {
+                //query
+                string query = "UPDATE `tblmateriaal` SET `Voorraad`=@Voorraad WHERE `MateriaalID`=@MateriaalID";
 
-            //verbinding maken
-            MySqlConnection conn = Database.MakeConnection();
-            MySqlCommand cmdHuurMateriaal = new MySqlCommand(query, conn);
-            cmdHuurMateriaal.CommandText = query;
+                //verbinding maken
+                MySqlConnection conn = Database.MakeConnection();
+                MySqlCommand cmdHuurMateriaal = new MySqlCommand(query, conn);
+                cmdHuurMateriaal.CommandText = query;
 
-            //parameters
-            cmdHuurMateriaal.Parameters.AddWithValue("@Voorraad", intNieuweVoorraad);
-            cmdHuurMateriaal.Parameters.AddWithValue("@MateriaalID", intMateriaalID);
+                //parameters
+                cmdHuurMateriaal.Parameters.AddWithValue("@Voorraad", intNieuweVoorraad);
+                cmdHuurMateriaal.Parameters.AddWithValue("@MateriaalID", intMateriaalID);
 
-            //uitvoeren
-            cmdHuurMateriaal.ExecuteNonQuery();
+                //uitvoeren
+                cmdHuurMateriaal.ExecuteNonQuery();
 
-            //connectie sluiten
-            Database.CloseConnection(conn);
+                //connectie sluiten
+                Database.CloseConnection(conn);
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
         }
 
         public static void MateriaalMaken(string strNaam, string strBeschrijving, int intVoorraad, PictureBox pictureBox)
@@ -185,12 +192,42 @@ namespace prjSportnetKinda.DA
                 cmdMateriaalUpdate.ExecuteNonQuery();
 
                 //confirmatie
-                System.Windows.MessageBox.Show("Nieuw materiaal opgeslaan in database", "Nieuwe Materiaal opgeslaan", MessageBoxButton.OK);
+                System.Windows.MessageBox.Show("Materiaal aangepast in database", "Materiaal aangepast opgeslaan", MessageBoxButton.OK);
             }
             catch (Exception exc)
             {
                 System.Windows.MessageBox.Show(exc.Message);
             }
+        }
+        public static void MateriaalVerwijderen(int intMateriaalID)
+        {
+            try
+            {
+                //query
+                string query = "DELETE FROM `tblmateriaal` WHERE MateriaalID=@MateriaalID";
+
+                //verbinding maken
+                MySqlConnection conn = Database.MakeConnection();
+                MySqlCommand cmdMateriaalVerwijderen = new MySqlCommand(query, conn);
+                cmdMateriaalVerwijderen.CommandText = query;
+
+                //parameters
+                cmdMateriaalVerwijderen.Parameters.AddWithValue("@MateriaalID", intMateriaalID);
+
+                //uitvoeren
+                cmdMateriaalVerwijderen.ExecuteNonQuery();
+
+                //connectie sluiten
+                Database.CloseConnection(conn);
+
+                //mbox
+                System.Windows.MessageBox.Show("Materiaal verwijderd uit database", "Materiaal verwijderd", MessageBoxButton.OK);
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }

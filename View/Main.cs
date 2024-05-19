@@ -318,9 +318,8 @@ namespace prjSportnetKinda
 
         private void btnArtiekelToevoegen_Click(object sender, EventArgs e)
         {
-            //Main meegeven bij het openen van NieuwArtikel
-            NieuwArtikel nieuwartikel = new NieuwArtikel(this);
-            nieuwartikel.Show();
+            ArtikelBeheer artikelBeheer = new ArtikelBeheer(this);
+            artikelBeheer.Show();
         }
 
         private void btnUitloggen_Click(object sender, EventArgs e)

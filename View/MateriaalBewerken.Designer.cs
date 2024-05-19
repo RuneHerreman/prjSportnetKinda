@@ -31,19 +31,19 @@
             this.lsvMateriaal = new System.Windows.Forms.ListView();
             this.cNaam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.rtxtBeschrijving = new System.Windows.Forms.RichTextBox();
-            this.txtNieuweVoorraad = new System.Windows.Forms.TextBox();
             this.txtNieuweNaam = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.picNieuweAfbeelding = new System.Windows.Forms.PictureBox();
             this.btnToepassen = new System.Windows.Forms.Button();
             this.btnBladeren = new System.Windows.Forms.Button();
             this.txtNieuweFotoLocatie = new System.Windows.Forms.TextBox();
             this.ofdFoto = new System.Windows.Forms.OpenFileDialog();
             this.lblMateriaalID = new System.Windows.Forms.Label();
+            this.picNieuweAfbeelding = new System.Windows.Forms.PictureBox();
+            this.btnMateriaalVerwijderen = new System.Windows.Forms.Button();
+            this.txtNieuweVoorraad = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picNieuweAfbeelding)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,15 +78,6 @@
             this.rtxtBeschrijving.TabIndex = 1;
             this.rtxtBeschrijving.Text = "";
             // 
-            // txtNieuweVoorraad
-            // 
-            this.txtNieuweVoorraad.Enabled = false;
-            this.txtNieuweVoorraad.Location = new System.Drawing.Point(234, 217);
-            this.txtNieuweVoorraad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtNieuweVoorraad.Name = "txtNieuweVoorraad";
-            this.txtNieuweVoorraad.Size = new System.Drawing.Size(82, 20);
-            this.txtNieuweVoorraad.TabIndex = 3;
-            // 
             // txtNieuweNaam
             // 
             this.txtNieuweNaam.Enabled = false;
@@ -102,17 +93,9 @@
             this.label1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(231, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 16);
+            this.label1.Size = new System.Drawing.Size(33, 16);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Naam:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(161, 110);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 16);
-            this.label2.TabIndex = 6;
+            this.label1.Text = "Titel:";
             // 
             // label3
             // 
@@ -124,16 +107,6 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Beschrijving:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(231, 197);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 16);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Voorraad:";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -143,16 +116,6 @@
             this.label5.Size = new System.Drawing.Size(62, 16);
             this.label5.TabIndex = 9;
             this.label5.Text = "Afbeelding:";
-            // 
-            // picNieuweAfbeelding
-            // 
-            this.picNieuweAfbeelding.Location = new System.Drawing.Point(458, 68);
-            this.picNieuweAfbeelding.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.picNieuweAfbeelding.Name = "picNieuweAfbeelding";
-            this.picNieuweAfbeelding.Size = new System.Drawing.Size(169, 169);
-            this.picNieuweAfbeelding.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picNieuweAfbeelding.TabIndex = 10;
-            this.picNieuweAfbeelding.TabStop = false;
             // 
             // btnToepassen
             // 
@@ -198,11 +161,52 @@
             this.lblMateriaalID.TabIndex = 14;
             this.lblMateriaalID.Text = "8";
             // 
+            // picNieuweAfbeelding
+            // 
+            this.picNieuweAfbeelding.Location = new System.Drawing.Point(458, 68);
+            this.picNieuweAfbeelding.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.picNieuweAfbeelding.Name = "picNieuweAfbeelding";
+            this.picNieuweAfbeelding.Size = new System.Drawing.Size(169, 169);
+            this.picNieuweAfbeelding.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picNieuweAfbeelding.TabIndex = 10;
+            this.picNieuweAfbeelding.TabStop = false;
+            // 
+            // btnMateriaalVerwijderen
+            // 
+            this.btnMateriaalVerwijderen.Enabled = false;
+            this.btnMateriaalVerwijderen.Location = new System.Drawing.Point(458, 332);
+            this.btnMateriaalVerwijderen.Name = "btnMateriaalVerwijderen";
+            this.btnMateriaalVerwijderen.Size = new System.Drawing.Size(82, 23);
+            this.btnMateriaalVerwijderen.TabIndex = 15;
+            this.btnMateriaalVerwijderen.Text = "Verwijderen";
+            this.btnMateriaalVerwijderen.UseVisualStyleBackColor = true;
+            this.btnMateriaalVerwijderen.Click += new System.EventHandler(this.btnMateriaalVerwijderen_Click);
+            // 
+            // txtNieuweVoorraad
+            // 
+            this.txtNieuweVoorraad.Enabled = false;
+            this.txtNieuweVoorraad.Location = new System.Drawing.Point(234, 217);
+            this.txtNieuweVoorraad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNieuweVoorraad.Name = "txtNieuweVoorraad";
+            this.txtNieuweVoorraad.Size = new System.Drawing.Size(82, 20);
+            this.txtNieuweVoorraad.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(231, 197);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 16);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Voorraad:";
+            // 
             // MateriaalBewerken
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(646, 370);
+            this.Controls.Add(this.btnMateriaalVerwijderen);
             this.Controls.Add(this.lblMateriaalID);
             this.Controls.Add(this.txtNieuweFotoLocatie);
             this.Controls.Add(this.btnBladeren);
@@ -211,7 +215,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtNieuweNaam);
             this.Controls.Add(this.txtNieuweVoorraad);
@@ -232,12 +235,9 @@
 
         private System.Windows.Forms.ListView lsvMateriaal;
         private System.Windows.Forms.RichTextBox rtxtBeschrijving;
-        private System.Windows.Forms.TextBox txtNieuweVoorraad;
         private System.Windows.Forms.TextBox txtNieuweNaam;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox picNieuweAfbeelding;
         private System.Windows.Forms.Button btnToepassen;
@@ -246,5 +246,8 @@
         private System.Windows.Forms.ColumnHeader cNaam;
         private System.Windows.Forms.OpenFileDialog ofdFoto;
         private System.Windows.Forms.Label lblMateriaalID;
+        private System.Windows.Forms.Button btnMateriaalVerwijderen;
+        private System.Windows.Forms.TextBox txtNieuweVoorraad;
+        private System.Windows.Forms.Label label4;
     }
 }
