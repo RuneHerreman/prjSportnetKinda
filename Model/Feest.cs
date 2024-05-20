@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace prjSportnetKinda.Model
 {
-    public class Training
+    public class Feest
     {
-        public string Categorieën { get; set; }
-        public string Trainer { get; set; }
+        public string Organisator { get; set; }
+        public bool Eten { get; set; }
         public string Beschrijving { get; set; }
     }
 }

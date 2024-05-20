@@ -25,7 +25,7 @@ namespace prjSportnetKinda
         //lijst om gehuurd materiaal in te plaatsen
         List<Materiaal> HuurList = new List<Materiaal>();
         List<int> MandjeAantalList = new List<int>();
-        List<Training> TrainingList = new List<Training>();
+        List<Activiteit> ActiviteitList = new List<Activiteit>();
         List<Gebruiker> GebruikerList = new List<Gebruiker>();
 
         public Main(Gebruiker login)
@@ -52,6 +52,9 @@ namespace prjSportnetKinda
 
             //Welkom text invullen
             this.lblNaamVoornaam.Text = "Welkom " + login.Voornaam + " " + login.Naam;
+
+            //Activiteiten voor de komende 30 dagen tonen
+            KomendeDagen();
 
             //Profiel invullen
             lblVoornaam.Text = login.Voornaam;
@@ -111,14 +114,42 @@ namespace prjSportnetKinda
                 lblCategorie.Text = login.Categorie;
             }
 
+            //Ben je trainer?
+            if (login.Trainer)
+            {
+                btnActiviteitToevoegen.Visible = true;
+            }
+
             //Ben je beheerder?
             if (login.Beheerder)
             {
                 btnBeheerdersinstellingen.Visible = true;
+                btnArtiekelToevoegen.Visible = true;
+                btnActiviteitToevoegen.Visible = true;
+                btnLogboek.Visible = true;
+                lblBeheer.Visible = true;
             }
 
             //Gegevens in het programma oplsaan
             gebruiker = login;
+        }
+
+        public void KomendeDagen()
+        {
+            lsvTraining.Items.Clear();
+
+            DateTime dtSelectedDateStart = DateTime.Now;
+            DateTime dtSelectedDateEnd = DateTime.Now.AddDays(30);
+
+            //Activiteiten tonen in listview
+            foreach (Activiteit a in ActiviteitDA.OphalenActiviteiten(dtSelectedDateStart, dtSelectedDateEnd))
+            {
+                System.Windows.Forms.ListViewItem item = new System.Windows.Forms.ListViewItem(new String[] {a.Datum.ToString("d"), a.Type, a.Datum.ToString("HH:mm:ss") });
+                item.Tag = a;
+                lsvTraining.Items.Add(item);
+
+                ActiviteitList.Add(a);
+            }
         }
 
         public void ArtikelRefresh()
@@ -516,15 +547,19 @@ namespace prjSportnetKinda
             //legen
             lsvTraining.Items.Clear();
 
+            //Activiteiten invullen
             DateTime dtSelectedDateStart = mcalKalender.SelectionStart;
             DateTime dtSelectedDateEnd = mcalKalender.SelectionEnd;
-            TrainingList = TrainingDA.OphalenTraining(dtSelectedDateStart, dtSelectedDateEnd);
-            foreach (Training t in TrainingList)
+            foreach (Activiteit a in ActiviteitDA.OphalenActiviteiten(dtSelectedDateStart, dtSelectedDateEnd))
             {
-                System.Windows.Forms.ListViewItem item = new System.Windows.Forms.ListViewItem(new String[] { t.Datum.ToString("g"), t.Locatie, t.Categorie });
-                item.Tag = t;
+                System.Windows.Forms.ListViewItem item = new System.Windows.Forms.ListViewItem(new String[] { a.Datum.ToString("d"), a.Type, a.Locatie });
+                item.Tag = a;
                 lsvTraining.Items.Add(item);
             }
+
+            //Label aanpassen en button tonen
+            lblActiviteiten.Text = $"Activiteiten op {dtSelectedDateStart.ToString("d")}";
+            btnKomendeDagen.Visible = true;
         }
 
         private void lblBeheer_Click(object sender, EventArgs e)
@@ -552,7 +587,8 @@ namespace prjSportnetKinda
                 MessageBox.Show("Wachtwoord is fout", "Fout wachtwoord", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public List<String> DeelnemersBenoemen(Training training)
+
+        public List<string> DeelnemersBenoemen(Activiteit activiteit)
         {
             //om deelnemers in te plaatsen
             List<string> DeelnemersList = new List<string>();
@@ -562,9 +598,9 @@ namespace prjSportnetKinda
             {
                 return DeelnemersList;
             }
-            
+
             //IDs uit de string halen, ze worden opgesplits door een streepje, die halen we hier weg
-            String[] arrStringDeelnemers = training.Deelnemers.Split('-');
+            string[] arrStringDeelnemers = activiteit.Deelnemers.Split('-');
 
             //voor ieder ID van de deelnemers, loop door de gebruikers om te zien of er een match is
             foreach (string deelnemerID in arrStringDeelnemers)
@@ -581,10 +617,13 @@ namespace prjSportnetKinda
 
             return DeelnemersList;
         }
+
         private void lsvTraining_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //om label in te vullen later
-            string strDeelnemers = "";
+            //Var decl
+            int intTellerMAX;
+            bool MeerDeelnemers = false;
+            string strDeelnemers = ""; //om label in te vullen later
 
             //is er een index, Error voorkomen
             if (lsvTraining.SelectedIndices.Count == 0)
@@ -593,49 +632,97 @@ namespace prjSportnetKinda
             }
 
             //geselecteerde training terugvinden en opslaan
-            Training training = TrainingList[lsvTraining.SelectedIndices[0]];
+            Activiteit activiteit = ActiviteitList[lsvTraining.SelectedIndices[0]];
 
-            //deelnemers benoemen
-            List<string> DeelnemersList = DeelnemersBenoemen(training);
+            //Alle gegevens ophalen aan de hand van Type activiteit
+            Activiteit a = ActiviteitDA.AllesOphalen(activiteit);
 
-            //de eerste 3 nemen uit de lijst
-            int intTellerMAX;
-            if (DeelnemersList.Count < 3) //zijn er niet 3 of meer deelnemers?
+            //Gegevens invullen
+            if(a != null)
             {
-                intTellerMAX = DeelnemersList.Count;
-            }
-            else //meer of gelijk aan 3 deelnemers?
-            {
-                intTellerMAX = 3;
-            }
-            //zet de variabele gelijk aan de eerste drie deelnemers
-            for (int intTeller = 0; intTeller < intTellerMAX; intTeller++)
-            {
-                if (strDeelnemers != "")
+                lblType.Text = a.Type;
+                lblDatum.Text = a.Datum.ToString("d");
+                lblStart.Text = a.Datum.ToString("HH:mm:ss");
+                lblLocatie.Text = a.Locatie;
+                lblDuur.Text = a.Duur.ToString() + " min";
+
+                if (a.Training != null)
                 {
-                    strDeelnemers = strDeelnemers + ", " + DeelnemersList[intTeller];
+                    lblInfo1Kop.Text = "Categoieën:";
+                    lblInfo2Kop.Text = "Trainer:";
+                    lblInfo3Kop.Text = "Beschrijving:";
+
+                    lblInfo1.Text = a.Training.Categorieën;
+                    lblInfo2.Text = a.Training.Trainer;
+                    lblInfo3.Text = a.Training.Beschrijving;
                 }
-                else
+                else if (a.Wedstrijd != null)
                 {
-                    strDeelnemers = DeelnemersList[intTeller];
+                    lblInfo1Kop.Text = "Naam wedstrijd:";
+                    lblInfo2Kop.Text = "Type:";
+                    lblInfo3Kop.Text = "Organisator:";
+
+                    lblInfo1.Text = a.Wedstrijd.Naam;
+                    lblInfo2.Text = a.Wedstrijd.Type;
+                    lblInfo3.Text = a.Wedstrijd.Organisator;
                 }
+                else if (a.Feest != null)
+                {
+                    lblInfo1Kop.Text = "Organisator:";
+                    lblInfo2Kop.Text = "Eten:";
+                    lblInfo3Kop.Text = "Beschrijving:";
+
+                    lblInfo1.Text = a.Feest.Organisator;
+                    if (a.Feest.Eten)
+                    {
+                        lblInfo2.Text = "Eten voorzien";
+                    }
+                    else
+                    {
+                        lblInfo2.Text = "Geen eten voorzien";
+                    }
+                    lblInfo3.Text = a.Feest.Beschrijving;
+                }
+
+                //deelnemers benoemen
+                List<string> DeelnemersList = DeelnemersBenoemen(a);
+
+                //de eerste 3 nemen uit de lijst
+                if (DeelnemersList.Count <= 3) //zijn er niet 3 of meer deelnemers?
+                {
+                    intTellerMAX = DeelnemersList.Count;
+                }
+                else //meer dan 3 deelnemers?
+                {
+                    intTellerMAX = 3;
+                    MeerDeelnemers = true;
+                }
+
+                //zet de variabele gelijk aan de eerste drie deelnemers
+                for (int intTeller = 0; intTeller < intTellerMAX; intTeller++)
+                {
+                    if (strDeelnemers != "")
+                    {
+                        strDeelnemers = strDeelnemers + ", " + DeelnemersList[intTeller];
+                    }
+                    else
+                    {
+                        strDeelnemers = DeelnemersList[intTeller];
+                    }
+                }
+
+                //aantonen dat er meer te zien is
+                if(MeerDeelnemers)
+                {
+                    strDeelnemers = strDeelnemers + ", ...";
+                }
+
+                lblDeelnemers.Text = strDeelnemers;
+
+                pnlActiviteitInfo.Visible = true;
             }
-            //aantonen dat er meer te zien is
-            strDeelnemers = strDeelnemers + ", ...";
 
-            lblTrainingCategorie.ResetText();
-            lblTrainingDeelnemers.ResetText();
-            lblTrainingDuur.ResetText();
-            lblTrainingLocatie.ResetText();
-            lblTrainingStart.ResetText();
-            lblTrainingTrainer.ResetText();
-
-            //labels opvullen
-            lblTrainingCategorie.Text = training.Categorie;
-            lblTrainingStart.Text = training.Datum.ToString("HH:mm:ss");
-            lblTrainingLocatie.Text = training.Locatie;
-            lblTrainingTrainer.Text = training.Trainer;
-            lblTrainingDeelnemers.Text = strDeelnemers;
+            
         }
 
         private void btnDeelnemen_Click(object sender, EventArgs e)
@@ -643,15 +730,16 @@ namespace prjSportnetKinda
             if (lsvTraining.SelectedItems.Count != 0)
             {
                 //geselecteerde training terugvinden en opslaan
-                Training training = TrainingList[lsvTraining.SelectedIndices[0]];
+                Activiteit activiteit = ActiviteitList[lsvTraining.SelectedIndices[0]];
+
                 //add userID to the 'Deelnemers' Column
-                TrainingDA.DeelnemerToevoegen(training.TrainingID, gebruiker.GebruikerID);
+                ActiviteitDA.DeelnemerToevoegen(activiteit.ActiviteitID, gebruiker.GebruikerID);
             }
             else
             {
-                MessageBox.Show("Je hebt niets geselecteerd", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Je hebt niets geselecteerd", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
 
         private void lblTrainingDeelnemers_Click(object sender, EventArgs e)
@@ -666,7 +754,7 @@ namespace prjSportnetKinda
             }
 
             //lijst van deelnemers toevoegen aan messagebox
-            foreach (string Deelnemer in DeelnemersBenoemen(TrainingList[lsvTraining.SelectedIndices[0]]))
+            foreach (string Deelnemer in DeelnemersBenoemen(ActiviteitList[lsvTraining.SelectedIndices[0]]))
             {
                 strDeelnemers = strDeelnemers + Deelnemer + Environment.NewLine;
             }
@@ -677,13 +765,13 @@ namespace prjSportnetKinda
         //onderlijn de label
         private void lblTrainingDeelnemers_MouseEnter(object sender, EventArgs e)
         {
-            lblTrainingDeelnemers.Font = new Font(lblTrainingDeelnemers.Font, FontStyle.Underline);
+            lblDeelnemers.Font = new Font(lblDeelnemers.Font, FontStyle.Underline);
         }
 
         //stop onderlijn de label
         private void lblTrainingDeelnemers_MouseLeave(object sender, EventArgs e)
         {
-            lblTrainingDeelnemers.Font = new Font(lblTrainingDeelnemers.Font, FontStyle.Regular);
+            lblDeelnemers.Font = new Font(lblDeelnemers.Font, FontStyle.Regular);
         }
 
         private void btnProfielFoto_Click(object sender, EventArgs e)
@@ -736,6 +824,16 @@ namespace prjSportnetKinda
             {
                 MessageBox.Show(exc.Message);
             }
+        }
+
+        private void btnKomendeDagen_Click(object sender, EventArgs e)
+        {
+            //Komende 30 dagen tonen
+            KomendeDagen();
+
+            //Text aanpassen en button hidden
+            lblActiviteiten.Text = "Activiteiten komende 30 dagen:";
+            btnKomendeDagen.Visible = false;
         }
     }
 }
