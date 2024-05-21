@@ -41,7 +41,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(21, 75);
+            this.label4.Location = new System.Drawing.Point(21, 50);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 17);
             this.label4.TabIndex = 31;
@@ -51,7 +51,7 @@
             // 
             this.pnlEmailRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(48)))), ((int)(((byte)(81)))));
             this.pnlEmailRegister.Controls.Add(this.txtEmailRegister);
-            this.pnlEmailRegister.Location = new System.Drawing.Point(24, 95);
+            this.pnlEmailRegister.Location = new System.Drawing.Point(24, 70);
             this.pnlEmailRegister.Name = "pnlEmailRegister";
             this.pnlEmailRegister.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.pnlEmailRegister.Size = new System.Drawing.Size(286, 32);
@@ -78,7 +78,7 @@
             this.btnStuurMail.FlatAppearance.BorderSize = 2;
             this.btnStuurMail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStuurMail.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStuurMail.Location = new System.Drawing.Point(70, 153);
+            this.btnStuurMail.Location = new System.Drawing.Point(70, 128);
             this.btnStuurMail.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnStuurMail.Name = "btnStuurMail";
             this.btnStuurMail.Size = new System.Drawing.Size(189, 41);
@@ -90,10 +90,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Trebuchet MS", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(18, 26);
+            this.label2.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(19, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(303, 37);
+            this.label2.Size = new System.Drawing.Size(263, 29);
             this.label2.TabIndex = 33;
             this.label2.Text = "Wachtwoord vergeten";
             // 
@@ -102,7 +102,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(341, 226);
+            this.ClientSize = new System.Drawing.Size(331, 189);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnStuurMail);
             this.Controls.Add(this.label4);

@@ -737,5 +737,10 @@ namespace prjSportnetKinda
                 MessageBox.Show(exc.Message);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

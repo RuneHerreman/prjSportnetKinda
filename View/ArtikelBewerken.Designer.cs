@@ -48,6 +48,7 @@
             // btnArtikelVerwijderen
             // 
             this.btnArtikelVerwijderen.Enabled = false;
+            this.btnArtikelVerwijderen.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnArtikelVerwijderen.Location = new System.Drawing.Point(458, 330);
             this.btnArtikelVerwijderen.Name = "btnArtikelVerwijderen";
             this.btnArtikelVerwijderen.Size = new System.Drawing.Size(82, 23);
@@ -68,6 +69,7 @@
             // txtNieuweFotoLocatie
             // 
             this.txtNieuweFotoLocatie.Enabled = false;
+            this.txtNieuweFotoLocatie.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNieuweFotoLocatie.Location = new System.Drawing.Point(458, 39);
             this.txtNieuweFotoLocatie.Name = "txtNieuweFotoLocatie";
             this.txtNieuweFotoLocatie.Size = new System.Drawing.Size(169, 20);
@@ -87,6 +89,7 @@
             // btnToepassen
             // 
             this.btnToepassen.Enabled = false;
+            this.btnToepassen.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnToepassen.Location = new System.Drawing.Point(234, 330);
             this.btnToepassen.Name = "btnToepassen";
             this.btnToepassen.Size = new System.Drawing.Size(82, 23);
@@ -158,6 +161,7 @@
             // 
             this.lsvArtikels.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.cNaam});
+            this.lsvArtikels.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lsvArtikels.FullRowSelect = true;
             this.lsvArtikels.HideSelection = false;
             this.lsvArtikels.Location = new System.Drawing.Point(12, 13);

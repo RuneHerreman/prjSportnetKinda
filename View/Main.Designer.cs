@@ -68,7 +68,7 @@
             this.tabMateriaal = new System.Windows.Forms.TabPage();
             this.lblBeheer = new System.Windows.Forms.Label();
             this.fpnlMateriaalContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLogboekOpen = new System.Windows.Forms.Button();
             this.btnWinkelwagentje = new System.Windows.Forms.Button();
             this.tabProfiel = new System.Windows.Forms.TabPage();
             this.btnBannerFoto = new System.Windows.Forms.Button();
@@ -564,7 +564,7 @@
             this.tabMateriaal.BackColor = System.Drawing.Color.White;
             this.tabMateriaal.Controls.Add(this.lblBeheer);
             this.tabMateriaal.Controls.Add(this.fpnlMateriaalContainer);
-            this.tabMateriaal.Controls.Add(this.button1);
+            this.tabMateriaal.Controls.Add(this.btnLogboekOpen);
             this.tabMateriaal.Controls.Add(this.btnWinkelwagentje);
             this.tabMateriaal.Location = new System.Drawing.Point(4, 22);
             this.tabMateriaal.Name = "tabMateriaal";
@@ -595,27 +595,28 @@
             this.fpnlMateriaalContainer.Size = new System.Drawing.Size(900, 635);
             this.fpnlMateriaalContainer.TabIndex = 0;
             // 
-            // button1
+            // btnLogboekOpen
             // 
-            this.button1.BackColor = System.Drawing.Color.Maroon;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = global::prjSportnetKinda.Properties.Resources.cart_standard;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.button1.Location = new System.Drawing.Point(617, 10);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(223, 59);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "   Logboek\r\n   Klik om te openen";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnLogboekOpen.BackColor = System.Drawing.Color.Maroon;
+            this.btnLogboekOpen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogboekOpen.FlatAppearance.BorderSize = 0;
+            this.btnLogboekOpen.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btnLogboekOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnLogboekOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogboekOpen.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogboekOpen.ForeColor = System.Drawing.Color.White;
+            this.btnLogboekOpen.Image = ((System.Drawing.Image)(resources.GetObject("btnLogboekOpen.Image")));
+            this.btnLogboekOpen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogboekOpen.Location = new System.Drawing.Point(617, 10);
+            this.btnLogboekOpen.Name = "btnLogboekOpen";
+            this.btnLogboekOpen.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.btnLogboekOpen.Size = new System.Drawing.Size(223, 59);
+            this.btnLogboekOpen.TabIndex = 2;
+            this.btnLogboekOpen.Text = "   Logboek\r\n   Klik om te openen";
+            this.btnLogboekOpen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLogboekOpen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLogboekOpen.UseVisualStyleBackColor = false;
+            this.btnLogboekOpen.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnWinkelwagentje
             // 
@@ -627,7 +628,7 @@
             this.btnWinkelwagentje.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnWinkelwagentje.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWinkelwagentje.ForeColor = System.Drawing.Color.White;
-            this.btnWinkelwagentje.Image = global::prjSportnetKinda.Properties.Resources.cart_standard;
+            this.btnWinkelwagentje.Image = ((System.Drawing.Image)(resources.GetObject("btnWinkelwagentje.Image")));
             this.btnWinkelwagentje.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnWinkelwagentje.Location = new System.Drawing.Point(35, 10);
             this.btnWinkelwagentje.Name = "btnWinkelwagentje";
@@ -1145,7 +1146,7 @@
         private System.Windows.Forms.Panel pnlStartContainer;
         private System.Windows.Forms.FlowLayoutPanel fpnlMateriaalContainer;
         private System.Windows.Forms.Button btnWinkelwagentje;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLogboekOpen;
         private System.Windows.Forms.Button btnBeheerdersinstellingen;
         private System.Windows.Forms.Button btnUitloggen;
         private System.Windows.Forms.Button btnWijzigenProfiel;

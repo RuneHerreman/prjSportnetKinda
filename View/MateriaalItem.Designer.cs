@@ -48,9 +48,10 @@
             // 
             // lblMateriaalBeschrijving
             // 
+            this.lblMateriaalBeschrijving.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMateriaalBeschrijving.Location = new System.Drawing.Point(3, 198);
             this.lblMateriaalBeschrijving.Name = "lblMateriaalBeschrijving";
-            this.lblMateriaalBeschrijving.Size = new System.Drawing.Size(169, 56);
+            this.lblMateriaalBeschrijving.Size = new System.Drawing.Size(169, 83);
             this.lblMateriaalBeschrijving.TabIndex = 2;
             this.lblMateriaalBeschrijving.Text = "Naam: Skeeler\r\nEigenschappen:\r\nWiel: 100mm\r\nxµx\r\nx\r\nx";
             // 
@@ -62,7 +63,7 @@
             this.btnHuren.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHuren.Font = new System.Drawing.Font("Trebuchet MS", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuren.ForeColor = System.Drawing.Color.White;
-            this.btnHuren.Location = new System.Drawing.Point(3, 257);
+            this.btnHuren.Location = new System.Drawing.Point(3, 284);
             this.btnHuren.Name = "btnHuren";
             this.btnHuren.Size = new System.Drawing.Size(169, 40);
             this.btnHuren.TabIndex = 3;
@@ -102,7 +103,7 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Margin = new System.Windows.Forms.Padding(35, 0, 0, 40);
             this.Name = "MateriaalItem";
-            this.Size = new System.Drawing.Size(175, 300);
+            this.Size = new System.Drawing.Size(175, 327);
             ((System.ComponentModel.ISupportInitialize)(this.picMateriaal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

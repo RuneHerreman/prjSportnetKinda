@@ -45,6 +45,7 @@
             // 
             // btnBladeren
             // 
+            this.btnBladeren.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBladeren.Location = new System.Drawing.Point(418, 24);
             this.btnBladeren.Name = "btnBladeren";
             this.btnBladeren.Size = new System.Drawing.Size(75, 23);
@@ -56,6 +57,7 @@
             // txtFotoNieuw
             // 
             this.txtFotoNieuw.Enabled = false;
+            this.txtFotoNieuw.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFotoNieuw.Location = new System.Drawing.Point(12, 26);
             this.txtFotoNieuw.Name = "txtFotoNieuw";
             this.txtFotoNieuw.Size = new System.Drawing.Size(400, 20);
@@ -63,6 +65,7 @@
             // 
             // btnArtikelOpslaan
             // 
+            this.btnArtikelOpslaan.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnArtikelOpslaan.Location = new System.Drawing.Point(16, 366);
             this.btnArtikelOpslaan.Name = "btnArtikelOpslaan";
             this.btnArtikelOpslaan.Size = new System.Drawing.Size(396, 23);
@@ -73,6 +76,7 @@
             // 
             // txtTitelNieuw
             // 
+            this.txtTitelNieuw.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTitelNieuw.Location = new System.Drawing.Point(12, 68);
             this.txtTitelNieuw.MaxLength = 44;
             this.txtTitelNieuw.Name = "txtTitelNieuw";
@@ -82,6 +86,7 @@
             // 
             // txtArtikelNieuw
             // 
+            this.txtArtikelNieuw.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtArtikelNieuw.Location = new System.Drawing.Point(12, 110);
             this.txtArtikelNieuw.MaxLength = 50000;
             this.txtArtikelNieuw.Name = "txtArtikelNieuw";

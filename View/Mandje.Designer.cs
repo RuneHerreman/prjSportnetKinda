@@ -41,6 +41,7 @@
             this.lsvMandje.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.cNaam,
             this.cAantal});
+            this.lsvMandje.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lsvMandje.FullRowSelect = true;
             this.lsvMandje.HideSelection = false;
             this.lsvMandje.Location = new System.Drawing.Point(10, 10);
@@ -63,18 +64,20 @@
             // 
             // btnHurenLijst
             // 
-            this.btnHurenLijst.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHurenLijst.BackColor = System.Drawing.Color.Green;
+            this.btnHurenLijst.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHurenLijst.ForeColor = System.Drawing.Color.White;
             this.btnHurenLijst.Location = new System.Drawing.Point(10, 272);
             this.btnHurenLijst.Name = "btnHurenLijst";
             this.btnHurenLijst.Size = new System.Drawing.Size(300, 50);
             this.btnHurenLijst.TabIndex = 1;
             this.btnHurenLijst.Text = "Huren";
-            this.btnHurenLijst.UseVisualStyleBackColor = true;
+            this.btnHurenLijst.UseVisualStyleBackColor = false;
             this.btnHurenLijst.Click += new System.EventHandler(this.btnHurenLijst_Click_1);
             // 
             // btnMandjeLegen
             // 
-            this.btnMandjeLegen.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMandjeLegen.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMandjeLegen.Location = new System.Drawing.Point(165, 216);
             this.btnMandjeLegen.Name = "btnMandjeLegen";
             this.btnMandjeLegen.Size = new System.Drawing.Size(145, 50);
@@ -85,7 +88,7 @@
             // 
             // btnArtikelVerwijderen
             // 
-            this.btnArtikelVerwijderen.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnArtikelVerwijderen.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnArtikelVerwijderen.Location = new System.Drawing.Point(12, 216);
             this.btnArtikelVerwijderen.Name = "btnArtikelVerwijderen";
             this.btnArtikelVerwijderen.Size = new System.Drawing.Size(145, 50);

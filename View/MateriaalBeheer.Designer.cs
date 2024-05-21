@@ -35,6 +35,7 @@
             // btnNieuwMateriaal
             // 
             this.btnNieuwMateriaal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNieuwMateriaal.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNieuwMateriaal.Location = new System.Drawing.Point(12, 12);
             this.btnNieuwMateriaal.Name = "btnNieuwMateriaal";
             this.btnNieuwMateriaal.Size = new System.Drawing.Size(136, 43);
@@ -46,6 +47,7 @@
             // btnMateriaalAanpassen
             // 
             this.btnMateriaalAanpassen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMateriaalAanpassen.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMateriaalAanpassen.Location = new System.Drawing.Point(154, 12);
             this.btnMateriaalAanpassen.Name = "btnMateriaalAanpassen";
             this.btnMateriaalAanpassen.Size = new System.Drawing.Size(136, 43);

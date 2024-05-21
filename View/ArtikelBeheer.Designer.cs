@@ -35,6 +35,7 @@
             // btnArtikelAanpassen
             // 
             this.btnArtikelAanpassen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnArtikelAanpassen.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnArtikelAanpassen.Location = new System.Drawing.Point(154, 11);
             this.btnArtikelAanpassen.Name = "btnArtikelAanpassen";
             this.btnArtikelAanpassen.Size = new System.Drawing.Size(136, 43);
@@ -46,6 +47,7 @@
             // btnArtikelToevoegen
             // 
             this.btnArtikelToevoegen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnArtikelToevoegen.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnArtikelToevoegen.Location = new System.Drawing.Point(12, 11);
             this.btnArtikelToevoegen.Name = "btnArtikelToevoegen";
             this.btnArtikelToevoegen.Size = new System.Drawing.Size(136, 43);
