@@ -88,6 +88,7 @@ namespace prjSportnetKinda.DA
             if (reader.HasRows == true)
             {
                 reader.Read();
+                activiteit.ActiviteitID = Convert.ToInt32(reader["ActiviteitID"]);
                 activiteit.Type = reader["Soort"].ToString();
                 activiteit.Datum = Convert.ToDateTime(reader["Datum"]);
                 activiteit.Locatie = reader["Locatie"].ToString();
@@ -160,8 +161,7 @@ namespace prjSportnetKinda.DA
                 //Succes
                 System.Windows.Forms.MessageBox.Show("Je neemt nu deel aan deze activiteit");
             }
-            //Heb je al deel genomen???
-            else if (strDeelnemers.Contains(intGebruikerID.ToString()) == false)
+            else if (strDeelnemers.Contains(intGebruikerID.ToString()) == false) //Heb je al deel genomen?
             {
                 //waarde toevoegen waarmee ze laten de IDs kan splitsen (-)
                 strDeelnemers += "-" + intGebruikerID.ToString();
@@ -184,6 +184,48 @@ namespace prjSportnetKinda.DA
             cmdDeelnemerToevoegen.Parameters.AddWithValue("@activiteitID", intActiviteitID);
 
             cmdDeelnemerToevoegen.ExecuteNonQuery();
+
+            //Connection sluiten
+            Database.CloseConnection(conn);
+        }
+
+        public static void DeelnemerVerwijderen(int intActiviteitID, int intGebruikerID)
+        {
+            //verbinding maken
+            MySqlConnection conn = Database.MakeConnection();
+
+            //huidige deelnemers ophalen
+            string DeelnemersOudOphalen = "SELECT `Deelnemers` FROM `tblactiviteit` WHERE `ActiviteitID`=@activiteitID";
+
+            MySqlCommand cmdDeelnemersOud = new MySqlCommand(DeelnemersOudOphalen, conn);
+            cmdDeelnemersOud.CommandText = DeelnemersOudOphalen;
+
+            //parameter
+            cmdDeelnemersOud.Parameters.AddWithValue("@activiteitID", intActiviteitID);
+
+            //deelnemers ophalen en opslaan
+            string strDeelnemers = cmdDeelnemersOud.ExecuteScalar().ToString();
+
+            //Id uit lijst halen met replace
+            strDeelnemers = strDeelnemers.Replace(intGebruikerID + "-", "");
+            strDeelnemers = strDeelnemers.Replace("-" + intGebruikerID, ""); 
+            strDeelnemers = strDeelnemers.Replace(intGebruikerID.ToString(), "");
+
+            //SQL query voor update
+            string DeelnemersUpdate = "UPDATE `tblactiviteit` SET `Deelnemers`=@deelnemersNieuw  WHERE `ActiviteitID`=@activiteitID";
+
+            //commando UPDATE deelnemers
+            MySqlCommand cmdDeelnemerVerwijderen = new MySqlCommand(DeelnemersUpdate, conn);
+            cmdDeelnemerVerwijderen.CommandText = DeelnemersUpdate;
+
+            //parameters
+            cmdDeelnemerVerwijderen.Parameters.AddWithValue("@deelnemersNieuw", strDeelnemers);
+            cmdDeelnemerVerwijderen.Parameters.AddWithValue("@activiteitID", intActiviteitID);
+
+            cmdDeelnemerVerwijderen.ExecuteNonQuery();
+
+            //Connection sluiten
+            Database.CloseConnection(conn);
         }
     }
 }
