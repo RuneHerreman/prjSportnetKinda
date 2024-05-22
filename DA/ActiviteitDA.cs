@@ -20,7 +20,7 @@ namespace prjSportnetKinda.DA
             MySqlConnection conn = Database.MakeConnection();
 
             //SQL query
-            string query = "SELECT * FROM tblactiviteit WHERE Datum BETWEEN @selectedDateStart AND @selectedDateEnd";
+            string query = "SELECT * FROM tblactiviteit WHERE Datum BETWEEN @selectedDateStart AND @selectedDateEnd ORDER BY Datum";
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.CommandText = query;
@@ -295,6 +295,71 @@ namespace prjSportnetKinda.DA
                 {
                     return null;
                 }
+
+                //Commando's uitvoeren
+                cmdActiviteit.ExecuteNonQuery();
+                cmdType.ExecuteNonQuery();
+
+                //Connection sluiten
+                Database.CloseConnection(conn);
+
+                return new Activiteit();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static Activiteit ActiviteitVerwijderen(Activiteit a)
+        {
+            try
+            {
+                string queryType = "";
+
+                //verbinding maken
+                MySqlConnection conn = Database.MakeConnection();
+
+                //Query activiteit verwijderen
+                string queryActiviteit = "DELETE FROM tblactiviteit WHERE ActiviteitID=@activiteitID";
+
+                MySqlCommand cmdActiviteit = new MySqlCommand(queryActiviteit, conn);
+                cmdActiviteit.CommandText = queryActiviteit;
+
+                //Parameter
+                cmdActiviteit.Parameters.AddWithValue("@activiteitID", a.ActiviteitID);
+
+                MySqlCommand cmdType = new MySqlCommand(queryType, conn);
+
+                //Query afhankelijk van type
+                if (a.Training != null)
+                {
+                    //Query voor tabel activiteit
+                    queryType = "DELETE FROM tbltraining WHERE ActiviteitID=@activiteitID";
+
+                    cmdType.CommandText = queryType;
+                }
+                else if (a.Wedstrijd != null)
+                {
+                    //Query voor tabel activiteit
+                    queryType = "DELETE FROM tblwedstrijd WHERE ActiviteitID=@activiteitID";
+
+                    cmdType.CommandText = queryType;
+                }
+                else if (a.Feest != null)
+                {
+                    //Query voor tabel activiteit
+                    queryType = "DELETE FROM tblfeest WHERE ActiviteitID=@activiteitID";
+
+                    cmdType.CommandText = queryType;
+                }
+                else
+                {
+                    return null;
+                }
+
+                //Parameter
+                cmdType.Parameters.AddWithValue("@ActiviteitID", a.ActiviteitID);
 
                 //Commando's uitvoeren
                 cmdActiviteit.ExecuteNonQuery();

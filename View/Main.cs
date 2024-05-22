@@ -20,12 +20,17 @@ namespace prjSportnetKinda
 {
     public partial class Main : Form
     {
-        Model.Gebruiker gebruiker;
+        Gebruiker gebruiker;
+        Activiteit activiteit;
 
         //lijst om gehuurd materiaal in te plaatsen
         List<Materiaal> HuurList = new List<Materiaal>();
         List<int> MandjeAantalList = new List<int>();
+
+        //Lijst voor activiteiten in op te slaan
         List<Activiteit> ActiviteitList = new List<Activiteit>();
+
+        //Lijst om gebruikers in op te slaan
         List<Gebruiker> GebruikerList = new List<Gebruiker>();
 
         public Main(Gebruiker login)
@@ -384,8 +389,7 @@ namespace prjSportnetKinda
             string strWachtwoord;
 
             //navragen op keuze met Dialogresult
-            DialogResult dialogresult = new DialogResult();
-            dialogresult = MessageBox.Show("Weet je zeker dat je je account wilt verwijderen?", "Account verwijderen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult dialogresult = MessageBox.Show("Weet je zeker dat je je account wilt verwijderen?", "Account verwijderen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             //Als DialogResult ja is: wachtwoord vragen
             if (dialogresult == DialogResult.Yes)
@@ -394,12 +398,17 @@ namespace prjSportnetKinda
 
                 if(strWachtwoord == gebruiker.Wachtwoord)
                 {
-                    Gebruiker verwijderen = GebruikerDA.Verwijderen(gebruiker.Email);
-
-                    Login login = new Login();
-                    this.Hide();
-                    login.ShowDialog();
-                    this.Close();
+                    if (GebruikerDA.Verwijderen(gebruiker.Email) != null)
+                    {
+                        Login login = new Login();
+                        this.Hide();
+                        login.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Er is een fout opgetreden.\nAccount kan niet verwijderd worden.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
@@ -572,6 +581,8 @@ namespace prjSportnetKinda
                 System.Windows.Forms.ListViewItem item = new System.Windows.Forms.ListViewItem(new String[] { a.Datum.ToString("d"), a.Type, a.Locatie });
                 item.Tag = a;
                 lsvTraining.Items.Add(item);
+
+                ActiviteitList.Add(a);
             }
 
             //Label aanpassen en button tonen
@@ -610,12 +621,6 @@ namespace prjSportnetKinda
             //om deelnemers in te plaatsen
             List<Gebruiker> DeelnemersList = new List<Gebruiker>();
 
-            //is er een index, Error voorkomen
-            if (lsvTraining.SelectedIndices.Count == 0)
-            {
-                return DeelnemersList;
-            }
-
             //IDs uit de string halen, ze worden opgesplits door een streepje, die halen we hier weg
             string[] arrStringDeelnemers = activiteit.Deelnemers.Split('-');
 
@@ -647,12 +652,9 @@ namespace prjSportnetKinda
             {
                 return;
             }
-
-            //geselecteerde training terugvinden en opslaan
-            Activiteit activiteit = ActiviteitList[lsvTraining.SelectedIndices[0]];
-
+            
             //Alle gegevens ophalen aan de hand van Type activiteit
-            Activiteit a = ActiviteitDA.AllesOphalen(activiteit);
+            Activiteit a = ActiviteitDA.AllesOphalen(ActiviteitList[lsvTraining.SelectedIndices[0]]);
 
             //Gegevens invullen
             if(a != null)
@@ -746,8 +748,11 @@ namespace prjSportnetKinda
                     btnDeelnemen.Text = "Deelnemen";
                 }
 
+                //Panel tonen
                 pnlActiviteitInfo.Visible = true;
 
+                //Activiteit opslaan in variable
+                activiteit = a;
             }
         }
 
@@ -755,48 +760,28 @@ namespace prjSportnetKinda
         {
             if(btnDeelnemen.Text == "Deelnemen")
             {
-                if (lsvTraining.SelectedItems.Count != 0)
-                {
-                    //geselecteerde training terugvinden en opslaan
-                    Activiteit activiteit = ActiviteitList[lsvTraining.SelectedIndices[0]];
+                //add userID to the 'Deelnemers' Column
+                ActiviteitDA.DeelnemerToevoegen(activiteit.ActiviteitID, gebruiker.GebruikerID);
 
-                    //add userID to the 'Deelnemers' Column
-                    ActiviteitDA.DeelnemerToevoegen(activiteit.ActiviteitID, gebruiker.GebruikerID);
+                //Naam button veranderen
+                btnDeelnemen.Text = "Niet meer deelnemen";
 
-                    //Naam button veranderen
-                    btnDeelnemen.Text = "Niet meer deelnemen";
-
-                    //Lijst updaten voor Deelnemers knop
-                    ActiviteitList[lsvTraining.SelectedIndices[0]] = ActiviteitDA.AllesOphalen(activiteit);
-                }
-                else
-                {
-                    MessageBox.Show("Je hebt niets geselecteerd", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                //Lijst updaten voor Deelnemers knop
+                activiteit = ActiviteitDA.AllesOphalen(activiteit);
             }
             else
             {
-                if (lsvTraining.SelectedItems.Count != 0)
-                {
-                    //geselecteerde training terugvinden en opslaan
-                    Activiteit activiteit = ActiviteitList[lsvTraining.SelectedIndices[0]];
+                //add userID to the 'Deelnemers' Column
+                ActiviteitDA.DeelnemerVerwijderen(activiteit.ActiviteitID, gebruiker.GebruikerID);
 
-                    //add userID to the 'Deelnemers' Column
-                    ActiviteitDA.DeelnemerVerwijderen(activiteit.ActiviteitID, gebruiker.GebruikerID);
+                //Messagebox
+                MessageBox.Show("je neemt niet meer deel aan deze activiteit.");
 
-                    //Messagebox
-                    MessageBox.Show("je neemt niet meer deel aan deze activiteit.");
+                //Naam button veranderen
+                btnDeelnemen.Text = "Deelnemen";
 
-                    //Naam button veranderen
-                    btnDeelnemen.Text = "Deelnemen";
-
-                    //Lijst updaten voor Deelnemers knop
-                    ActiviteitList[lsvTraining.SelectedIndices[0]] = ActiviteitDA.AllesOphalen(activiteit);
-                }
-                else
-                {
-                    MessageBox.Show("Je hebt niets geselecteerd", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                //Lijst updaten voor Deelnemers knop
+                activiteit = ActiviteitDA.AllesOphalen(activiteit);
             }
 
             //Deelnemers label updaten
@@ -805,11 +790,8 @@ namespace prjSportnetKinda
             int intTellerMAX;
             bool MeerDeelnemers = false;
 
-            //geselecteerde training terugvinden en opslaan
-            Activiteit Activiteit = ActiviteitList[lsvTraining.SelectedIndices[0]];
-
             //Alle gegevens ophalen aan de hand van Type activiteit
-            Activiteit a = ActiviteitDA.AllesOphalen(Activiteit);
+            Activiteit a = ActiviteitDA.AllesOphalen(activiteit);
 
             //deelnemers benoemen
             List<Gebruiker> DeelnemersList = DeelnemersBenoemen(a);
@@ -849,17 +831,11 @@ namespace prjSportnetKinda
 
         private void lblTrainingDeelnemers_Click(object sender, EventArgs e)
         {
-            //om de deelnemers in te plaatsen
+            //Om de deelnemers in te plaatsen
             string strDeelnemers = "";
 
-            //is er een index, Error voorkomen
-            if (lsvTraining.SelectedIndices.Count == 0)
-            {
-                return;
-            }
-
             //lijst van deelnemers toevoegen aan messagebox
-            foreach (Gebruiker Deelnemer in DeelnemersBenoemen(ActiviteitList[lsvTraining.SelectedIndices[0]]))
+            foreach (Gebruiker Deelnemer in DeelnemersBenoemen(activiteit))
             {
                 strDeelnemers = strDeelnemers + Deelnemer.Voornaam + " " + Deelnemer.Naam + Environment.NewLine;
             }
@@ -965,6 +941,7 @@ namespace prjSportnetKinda
                     btnDeelnemen.BackColor = Color.Gray;
                     btnActiviteitToevoegen.Enabled = false;
                     btnKomendeDagen.Enabled = false;
+                    btnActiviteitVerwijderen.Visible = true;
 
                     txtDatum.Text = lblDatum.Text;
                     txtStart.Text = lblStart.Text;
@@ -1001,66 +978,66 @@ namespace prjSportnetKinda
                         try
                         {
                             //Nieuwe gegevens oplslaan
-                            Activiteit activiteit = new Activiteit();
+                            Activiteit Activiteit = new Activiteit();
 
-                            activiteit.ActiviteitID = ActiviteitList[lsvTraining.SelectedIndices[0]].ActiviteitID;
-                            activiteit.Datum = Convert.ToDateTime(txtDatum.Text).Date.Add(Convert.ToDateTime(txtStart.Text).TimeOfDay);
-                            activiteit.Locatie = txtLocatie.Text;
-                            activiteit.Duur = Convert.ToInt32(txtDuur.Text);
+                            Activiteit.ActiviteitID = activiteit.ActiviteitID;
+                            Activiteit.Datum = Convert.ToDateTime(txtDatum.Text).Date.Add(Convert.ToDateTime(txtStart.Text).TimeOfDay);
+                            Activiteit.Locatie = txtLocatie.Text;
+                            Activiteit.Duur = Convert.ToInt32(txtDuur.Text);
 
                             //gegevens afhankelijk van type
                             if(lblType.Text == "Training")
                             {
-                                activiteit.Training = new Training();
+                                Activiteit.Training = new Training();
 
-                                activiteit.Training.Categorieën = txtInfo1.Text;
-                                activiteit.Training.Trainer = txtInfo2.Text;
-                                activiteit.Training.Beschrijving = txtInfo3.Text;
+                                Activiteit.Training.Categorieën = txtInfo1.Text;
+                                Activiteit.Training.Trainer = txtInfo2.Text;
+                                Activiteit.Training.Beschrijving = txtInfo3.Text;
                             }
                             else if (lblType.Text == "Wedstrijd")
                             {
-                                activiteit.Wedstrijd = new Wedstrijd();
+                                Activiteit.Wedstrijd = new Wedstrijd();
 
-                                activiteit.Wedstrijd.Naam = txtInfo1.Text;
-                                activiteit.Wedstrijd.Type = txtInfo2.Text;
-                                activiteit.Wedstrijd.Organisator = txtInfo3.Text;
+                                Activiteit.Wedstrijd.Naam = txtInfo1.Text;
+                                Activiteit.Wedstrijd.Type = txtInfo2.Text;
+                                Activiteit.Wedstrijd.Organisator = txtInfo3.Text;
                             }
                             else if (lblType.Text == "Feest")
                             {
-                                activiteit.Feest = new Feest();
+                                Activiteit.Feest = new Feest();
 
-                                activiteit.Feest.Organisator = txtInfo1.Text;
-                                activiteit.Feest.Eten = Convert.ToBoolean(txtInfo2.Text);
-                                activiteit.Feest.Beschrijving = txtInfo3.Text;
+                                Activiteit.Feest.Organisator = txtInfo1.Text;
+                                Activiteit.Feest.Eten = Convert.ToBoolean(txtInfo2.Text);
+                                Activiteit.Feest.Beschrijving = txtInfo3.Text;
                             }
 
-                            if (ActiviteitDA.ActiviteitWijzigen(activiteit) != null)
+                            if (ActiviteitDA.ActiviteitWijzigen(Activiteit) != null)
                             {
                                 //Succes melding
                                 MessageBox.Show("De activiteit is aangepast");
 
                                 //Labels uptdaten
-                                lblDatum.Text = activiteit.Datum.ToString("d");
-                                lblStart.Text = activiteit.Datum.ToString("HH:mm:ss");
-                                lblLocatie.Text = activiteit.Locatie;
-                                lblDuur.Text = activiteit.Duur.ToString() + " min";
+                                lblDatum.Text = Activiteit.Datum.ToString("d");
+                                lblStart.Text = Activiteit.Datum.ToString("HH:mm:ss");
+                                lblLocatie.Text = Activiteit.Locatie;
+                                lblDuur.Text = Activiteit.Duur.ToString() + " min";
 
-                                if (activiteit.Training != null)
+                                if (Activiteit.Training != null)
                                 {
-                                    lblInfo1.Text = activiteit.Training.Categorieën;
-                                    lblInfo2.Text = activiteit.Training.Trainer;
-                                    lblInfo3.Text = activiteit.Training.Beschrijving;
+                                    lblInfo1.Text = Activiteit.Training.Categorieën;
+                                    lblInfo2.Text = Activiteit.Training.Trainer;
+                                    lblInfo3.Text = Activiteit.Training.Beschrijving;
                                 }
-                                else if (activiteit.Wedstrijd != null)
+                                else if (Activiteit.Wedstrijd != null)
                                 {
-                                    lblInfo1.Text = activiteit.Wedstrijd.Naam;
-                                    lblInfo2.Text = activiteit.Wedstrijd.Type;
-                                    lblInfo3.Text = activiteit.Wedstrijd.Organisator;
+                                    lblInfo1.Text = Activiteit.Wedstrijd.Naam;
+                                    lblInfo2.Text = Activiteit.Wedstrijd.Type;
+                                    lblInfo3.Text = Activiteit.Wedstrijd.Organisator;
                                 }
-                                else if (activiteit.Feest != null)
+                                else if (Activiteit.Feest != null)
                                 {
-                                    lblInfo1.Text = activiteit.Feest.Organisator;
-                                    if (activiteit.Feest.Eten)
+                                    lblInfo1.Text = Activiteit.Feest.Organisator;
+                                    if (Activiteit.Feest.Eten)
                                     {
                                         lblInfo2.Text = "Eten voorzien";
                                     }
@@ -1068,7 +1045,7 @@ namespace prjSportnetKinda
                                     {
                                         lblInfo2.Text = "Geen eten voorzien";
                                     }
-                                    lblInfo3.Text = activiteit.Feest.Beschrijving;
+                                    lblInfo3.Text = Activiteit.Feest.Beschrijving;
                                 }
 
                                 //Textboxes retten
@@ -1096,10 +1073,36 @@ namespace prjSportnetKinda
                                 btnDeelnemen.BackColor = Color.Green;
                                 btnActiviteitToevoegen.Enabled = true;
                                 btnKomendeDagen.Enabled = true;
+                                btnActiviteitVerwijderen.Visible = false;
                                 btnWijzigenActiviteit.Text = "Wijzigen";
 
                                 //Listview updaten
-                                ActiviteitList[lsvTraining.SelectedIndices[0]] = activiteit;
+                                if (lblActiviteiten.Text == "Activiteiten komende 30 dagen:")
+                                {
+                                    KomendeDagen();
+                                }
+                                else
+                                {
+                                    //legen
+                                    lsvTraining.Items.Clear();
+                                    ActiviteitList.Clear();
+
+                                    //Activiteiten invullen
+                                    DateTime dtSelectedDateStart = mcalKalender.SelectionStart;
+                                    DateTime dtSelectedDateEnd = mcalKalender.SelectionEnd;
+                                    foreach (Activiteit a in ActiviteitDA.OphalenActiviteiten(dtSelectedDateStart, dtSelectedDateEnd))
+                                    {
+                                        System.Windows.Forms.ListViewItem item = new System.Windows.Forms.ListViewItem(new String[] { a.Datum.ToString("d"), a.Type, a.Locatie });
+                                        item.Tag = a;
+                                        lsvTraining.Items.Add(item);
+
+                                        ActiviteitList.Add(a);
+                                    }
+
+                                    //Label aanpassen en button tonen
+                                    lblActiviteiten.Text = $"Activiteiten op {dtSelectedDateStart.ToString("d")}";
+                                    btnKomendeDagen.Visible = true;
+                                }
 
                             }
                             else
@@ -1114,6 +1117,100 @@ namespace prjSportnetKinda
                             MessageBox.Show("Vul alle velden correct in", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
+                }
+            }
+        }
+
+        private void btnActiviteitVerwijderen_Click(object sender, EventArgs e)
+        {
+            //var decl
+            string strWachtwoord;
+
+            //navragen op keuze met Dialogresult
+            DialogResult dialogresult = MessageBox.Show("Weet je zeker dat je deze activiteit wilt verwijderen?", "Activiteit verwijderen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            //Als DialogResult ja is: wachtwoord vragen
+            if (dialogresult == DialogResult.Yes)
+            {
+                //Wachtwoord opvragen
+                strWachtwoord = Interaction.InputBox("Geef je wachtoord in om deze activiteit te verwijderen.", "Wachtwoord ingeven");
+
+                if (strWachtwoord == gebruiker.Wachtwoord)
+                {
+                    if (ActiviteitDA.ActiviteitVerwijderen(activiteit) != null)
+                    {
+                        MessageBox.Show("Activiteit is verwijderd");
+
+                        //Form resetten
+                        //Textboxes retten
+                        txtDatum.Visible = false;
+                        txtStart.Visible = false;
+                        txtLocatie.Visible = false;
+                        txtDuur.Visible = false;
+                        txtInfo1.Visible = false;
+                        txtInfo2.Visible = false;
+                        txtInfo3.Visible = false;
+
+                        txtDatum.Clear();
+                        txtStart.Clear();
+                        txtLocatie.Clear();
+                        txtDuur.Clear();
+                        txtInfo1.Clear();
+                        txtInfo2.Clear();
+                        txtInfo3.Clear();
+
+                        //Buttons en labels enabellen
+                        lblDeelnemers.Enabled = true;
+                        mcalKalender.Enabled = true;
+                        lsvTraining.Enabled = true;
+                        btnDeelnemen.Enabled = true;
+                        btnDeelnemen.BackColor = Color.Green;
+                        btnActiviteitToevoegen.Enabled = true;
+                        btnKomendeDagen.Enabled = true;
+                        btnActiviteitVerwijderen.Visible = false;
+                        btnWijzigenActiviteit.Text = "Wijzigen";
+
+                        //Listview updaten
+                        if (lblActiviteiten.Text == "Activiteiten komende 30 dagen:")
+                        {
+                            KomendeDagen();
+                        }
+                        else
+                        {
+                            //legen
+                            lsvTraining.Items.Clear();
+                            ActiviteitList.Clear();
+
+                            //Activiteiten invullen
+                            DateTime dtSelectedDateStart = mcalKalender.SelectionStart;
+                            DateTime dtSelectedDateEnd = mcalKalender.SelectionEnd;
+                            foreach (Activiteit a in ActiviteitDA.OphalenActiviteiten(dtSelectedDateStart, dtSelectedDateEnd))
+                            {
+                                System.Windows.Forms.ListViewItem item = new System.Windows.Forms.ListViewItem(new String[] { a.Datum.ToString("d"), a.Type, a.Locatie });
+                                item.Tag = a;
+                                lsvTraining.Items.Add(item);
+
+                                ActiviteitList.Add(a);
+                            }
+
+                            //Label aanpassen en button tonen
+                            lblActiviteiten.Text = $"Activiteiten op {dtSelectedDateStart.ToString("d")}";
+                            btnKomendeDagen.Visible = true;
+                        }
+
+                        //Panel hidden
+                        pnlActiviteitInfo.Visible = false;
+                    }
+                    else
+                    {
+                        //Foutmelding
+                        MessageBox.Show("Er is een fout opgetreden.\nActiviteit kan niet verwijderd worden.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    //Foutmelding
+                    MessageBox.Show("Wachtwoord is fout", "Fout wachtwoord", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
