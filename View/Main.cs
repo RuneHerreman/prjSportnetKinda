@@ -152,6 +152,7 @@ namespace prjSportnetKinda
         public void KomendeDagen()
         {
             lsvTraining.Items.Clear();
+            ActiviteitList.Clear();
 
             DateTime dtSelectedDateStart = DateTime.Now;
             DateTime dtSelectedDateEnd = DateTime.Now.AddDays(30);
@@ -561,6 +562,7 @@ namespace prjSportnetKinda
         {
             //legen
             lsvTraining.Items.Clear();
+            ActiviteitList.Clear();
 
             //Activiteiten invullen
             DateTime dtSelectedDateStart = mcalKalender.SelectionStart;
@@ -962,6 +964,7 @@ namespace prjSportnetKinda
                     btnDeelnemen.Enabled = false;
                     btnDeelnemen.BackColor = Color.Gray;
                     btnActiviteitToevoegen.Enabled = false;
+                    btnKomendeDagen.Enabled = false;
 
                     txtDatum.Text = lblDatum.Text;
                     txtStart.Text = lblStart.Text;
@@ -1026,13 +1029,88 @@ namespace prjSportnetKinda
                             {
                                 activiteit.Feest = new Feest();
 
-                                activiteit.Feest.Beschrijving = txtInfo1.Text;
+                                activiteit.Feest.Organisator = txtInfo1.Text;
                                 activiteit.Feest.Eten = Convert.ToBoolean(txtInfo2.Text);
-                                activiteit.Feest.Organisator = txtInfo3.Text;
+                                activiteit.Feest.Beschrijving = txtInfo3.Text;
+                            }
+
+                            if (ActiviteitDA.ActiviteitWijzigen(activiteit) != null)
+                            {
+                                //Succes melding
+                                MessageBox.Show("De activiteit is aangepast");
+
+                                //Labels uptdaten
+                                lblDatum.Text = activiteit.Datum.ToString("d");
+                                lblStart.Text = activiteit.Datum.ToString("HH:mm:ss");
+                                lblLocatie.Text = activiteit.Locatie;
+                                lblDuur.Text = activiteit.Duur.ToString() + " min";
+
+                                if (activiteit.Training != null)
+                                {
+                                    lblInfo1.Text = activiteit.Training.Categorieën;
+                                    lblInfo2.Text = activiteit.Training.Trainer;
+                                    lblInfo3.Text = activiteit.Training.Beschrijving;
+                                }
+                                else if (activiteit.Wedstrijd != null)
+                                {
+                                    lblInfo1.Text = activiteit.Wedstrijd.Naam;
+                                    lblInfo2.Text = activiteit.Wedstrijd.Type;
+                                    lblInfo3.Text = activiteit.Wedstrijd.Organisator;
+                                }
+                                else if (activiteit.Feest != null)
+                                {
+                                    lblInfo1.Text = activiteit.Feest.Organisator;
+                                    if (activiteit.Feest.Eten)
+                                    {
+                                        lblInfo2.Text = "Eten voorzien";
+                                    }
+                                    else
+                                    {
+                                        lblInfo2.Text = "Geen eten voorzien";
+                                    }
+                                    lblInfo3.Text = activiteit.Feest.Beschrijving;
+                                }
+
+                                //Textboxes retten
+                                txtDatum.Visible = false;
+                                txtStart.Visible = false;
+                                txtLocatie.Visible = false;
+                                txtDuur.Visible = false;
+                                txtInfo1.Visible = false;
+                                txtInfo2.Visible = false;
+                                txtInfo3.Visible = false;
+
+                                txtDatum.Clear();
+                                txtStart.Clear();
+                                txtLocatie.Clear();
+                                txtDuur.Clear();
+                                txtInfo1.Clear();
+                                txtInfo2.Clear();
+                                txtInfo3.Clear();
+
+                                //Buttons en labels enabellen
+                                lblDeelnemers.Enabled = true;
+                                mcalKalender.Enabled = true;
+                                lsvTraining.Enabled = true;
+                                btnDeelnemen.Enabled = true;
+                                btnDeelnemen.BackColor = Color.Green;
+                                btnActiviteitToevoegen.Enabled = true;
+                                btnKomendeDagen.Enabled = true;
+                                btnWijzigenActiviteit.Text = "Wijzigen";
+
+                                //Listview updaten
+                                ActiviteitList[lsvTraining.SelectedIndices[0]] = activiteit;
+
+                            }
+                            else
+                            {
+                                //Foutmelding
+                                MessageBox.Show("Er is een fout opgetreden, kan acticiteit niet aanpassen", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                         catch
                         {
+                            //Foutmelding
                             MessageBox.Show("Vul alle velden correct in", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }

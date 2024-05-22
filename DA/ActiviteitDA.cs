@@ -227,5 +227,88 @@ namespace prjSportnetKinda.DA
             //Connection sluiten
             Database.CloseConnection(conn);
         }
+
+        public static Activiteit ActiviteitWijzigen(Activiteit a)
+        {
+            try
+            {
+                string queryType = "";
+
+                //verbinding maken
+                MySqlConnection conn = Database.MakeConnection();
+
+                //Query voor tabel activiteit
+                string queryActiviteit = "UPDATE tblactiviteit SET Datum=@Datum, Locatie=@Locatie, Duur=@Duur WHERE ActiviteitID=@ActiviteitID";
+
+                MySqlCommand cmdActiviteit = new MySqlCommand(queryActiviteit, conn);
+                cmdActiviteit.CommandText = queryActiviteit;
+
+                //parameters
+                cmdActiviteit.Parameters.AddWithValue("@ActiviteitID", a.ActiviteitID);
+                cmdActiviteit.Parameters.AddWithValue("@Datum", a.Datum);
+                cmdActiviteit.Parameters.AddWithValue("@Locatie", a.Locatie);
+                cmdActiviteit.Parameters.AddWithValue("@Duur", a.Duur);
+
+                MySqlCommand cmdType = new MySqlCommand(queryType, conn);
+
+                //Query afhankelijk van type
+                if (a.Training != null)
+                {
+                    //Query voor tabel activiteit
+                    queryType = "UPDATE tbltraining SET Categorieen=@Categorieen, Trainer=@Trainer, Beschrijving=@Beschrijving WHERE ActiviteitID=@ActiviteitID";
+
+                    cmdType.CommandText = queryType;
+
+                    //Parameters Training
+                    cmdType.Parameters.AddWithValue("@ActiviteitID", a.ActiviteitID);
+                    cmdType.Parameters.AddWithValue("@Categorieen", a.Training.Categorieën);
+                    cmdType.Parameters.AddWithValue("@Trainer", a.Training.Trainer);
+                    cmdType.Parameters.AddWithValue("@Beschrijving", a.Training.Beschrijving);
+                }
+                else if (a.Wedstrijd != null)
+                {
+                    //Query voor tabel activiteit
+                    queryType = "UPDATE tblWedstrijd SET Naam=@Naam, Type=@Type, Organisator=@Organisator WHERE ActiviteitID=@ActiviteitID";
+
+                    cmdType.CommandText = queryType;
+
+                    //Parameters Wedstrijd
+                    cmdType.Parameters.AddWithValue("@ActiviteitID", a.ActiviteitID);
+                    cmdType.Parameters.AddWithValue("@Naam", a.Wedstrijd.Naam);
+                    cmdType.Parameters.AddWithValue("@Type", a.Wedstrijd.Type);
+                    cmdType.Parameters.AddWithValue("@Organisator", a.Wedstrijd.Organisator);
+                }
+                else if (a.Feest != null)
+                {
+                    //Query voor tabel activiteit
+                    queryType = "UPDATE tblFeest SET Organisator=@Organisator, Eten=@Eten, Beschrijving=@Beschrijving WHERE ActiviteitID=@ActiviteitID";
+
+                    cmdType.CommandText = queryType;
+
+                    //Parameters Feest
+                    cmdType.Parameters.AddWithValue("@ActiviteitID", a.ActiviteitID);
+                    cmdType.Parameters.AddWithValue("@Organisator", a.Feest.Organisator);
+                    cmdType.Parameters.AddWithValue("@Eten", a.Feest.Eten);
+                    cmdType.Parameters.AddWithValue("@Beschrijving", a.Feest.Beschrijving);
+                }
+                else
+                {
+                    return null;
+                }
+
+                //Commando's uitvoeren
+                cmdActiviteit.ExecuteNonQuery();
+                cmdType.ExecuteNonQuery();
+
+                //Connection sluiten
+                Database.CloseConnection(conn);
+
+                return new Activiteit();
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }
