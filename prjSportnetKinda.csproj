@@ -75,6 +75,12 @@
     <Compile Include="Model\Logboek.cs" />
     <Compile Include="Model\Training.cs" />
     <Compile Include="Model\Wedstrijd.cs" />
+    <Compile Include="View\ActiviteitToevoegen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ActiviteitToevoegen.Designer.cs">
+      <DependentUpon>ActiviteitToevoegen.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ArtikelBeheer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     <Compile Include="View\WelkomItem.Designer.cs">
       <DependentUpon>WelkomItem.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\ActiviteitToevoegen.resx">
+      <DependentUpon>ActiviteitToevoegen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ArtikelBeheer.resx">
       <DependentUpon>ArtikelBeheer.cs</DependentUpon>
     </EmbeddedResource>

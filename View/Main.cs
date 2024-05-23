@@ -1214,5 +1214,10 @@ namespace prjSportnetKinda
                 }
             }
         }
+
+        private void btnActiviteitToevoegen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
