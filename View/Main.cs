@@ -1218,7 +1218,8 @@ namespace prjSportnetKinda
 
         private void btnActiviteitToevoegen_Click(object sender, EventArgs e)
         {
-
+            ActiviteitToevoegen activiteitToevoegen = new ActiviteitToevoegen();
+            activiteitToevoegen.ShowDialog();
         }
 
         private void btnLogboek_Click(object sender, EventArgs e)
