@@ -141,7 +141,7 @@ namespace prjSportnetKinda
                 btnArtiekelToevoegen.Visible = true;
                 btnActiviteitToevoegen.Visible = true;
                 btnWijzigenActiviteit.Visible = true;
-                lblBeheer.Visible = true;
+                btnBeheer.Visible = true;
                 btnBeheer.Visible = true;
 
                 //Button opschuiven in geval van ook renner
@@ -593,8 +593,7 @@ namespace prjSportnetKinda
 
         private void lblBeheer_Click(object sender, EventArgs e)
         {
-            MateriaalBeheer beheer = new MateriaalBeheer(this);
-            beheer.ShowDialog();
+            
         }
 
         private void btnBeheerdersinstellingen_Click(object sender, EventArgs e)
@@ -1232,6 +1231,12 @@ namespace prjSportnetKinda
             {
                 
             }
+        }
+
+        private void btnBeheer_Click(object sender, EventArgs e)
+        {
+            MateriaalBeheer beheer = new MateriaalBeheer(this);
+            beheer.ShowDialog();
         }
     }
 }

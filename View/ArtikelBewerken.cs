@@ -113,18 +113,27 @@ namespace prjSportnetKinda.View
             //verwijderen uit database
             ArtikelDA.ArtikelVerwijderen(Convert.ToInt32(lblArtikelID.Text));
 
+            //refreshlist
+            artikelList = ArtikelDA.OphalenArtikel();
             //niets geselecteerd --> ZONDER DIT CRASHT HET PROGRAMMA NA EEN VERANDERING
             lsvArtikels.SelectedItems.Clear();
             //leeg listview
             lsvArtikels.Items.Clear();
             //opnieuw opvullen met geüpdatete item
-            foreach (Artikel artikel in ArtikelDA.OphalenArtikel())
+            foreach (Artikel artikel in artikelList)
             {
                 //listview opvullen
                 lsvArtikels.Items.Add(artikel.titel);
             }
 
-            main1.MateriaalRefresh();
+            //leeg alles
+            txtNieuweNaam.Clear();
+            rtxtBeschrijving.Clear();
+            picNieuweAfbeelding.Image = null;
+            txtNieuweFotoLocatie.ResetText();
+            lblArtikelID.ResetText();
+
+            main1.ArtikelRefresh();
         }
     }
 }

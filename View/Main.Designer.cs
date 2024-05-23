@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnProfiel = new prjSportnetKinda.View.ButtonControls();
             this.btnMateriaal = new prjSportnetKinda.View.ButtonControls();
@@ -84,7 +84,6 @@
             this.lblTrainingCategorie = new System.Windows.Forms.Label();
             this.tabMateriaal = new System.Windows.Forms.TabPage();
             this.btnBeheer = new System.Windows.Forms.Button();
-            this.lblBeheer = new System.Windows.Forms.Label();
             this.fpnlMateriaalContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.btnLogboek = new System.Windows.Forms.Button();
             this.btnWinkelwagentje = new System.Windows.Forms.Button();
@@ -758,8 +757,8 @@
             this.lsvTraining.FullRowSelect = true;
             this.lsvTraining.HideSelection = false;
             this.lsvTraining.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem7,
-            listViewItem8});
+            listViewItem5,
+            listViewItem6});
             this.lsvTraining.Location = new System.Drawing.Point(355, 40);
             this.lsvTraining.Name = "lsvTraining";
             this.lsvTraining.Size = new System.Drawing.Size(507, 169);
@@ -809,7 +808,6 @@
             // 
             this.tabMateriaal.BackColor = System.Drawing.Color.White;
             this.tabMateriaal.Controls.Add(this.btnBeheer);
-            this.tabMateriaal.Controls.Add(this.lblBeheer);
             this.tabMateriaal.Controls.Add(this.fpnlMateriaalContainer);
             this.tabMateriaal.Controls.Add(this.btnLogboek);
             this.tabMateriaal.Controls.Add(this.btnWinkelwagentje);
@@ -825,8 +823,8 @@
             this.btnBeheer.BackColor = System.Drawing.Color.Teal;
             this.btnBeheer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBeheer.FlatAppearance.BorderSize = 0;
-            this.btnBeheer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
-            this.btnBeheer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnBeheer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
+            this.btnBeheer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
             this.btnBeheer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBeheer.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBeheer.ForeColor = System.Drawing.Color.White;
@@ -842,20 +840,7 @@
             this.btnBeheer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBeheer.UseVisualStyleBackColor = false;
             this.btnBeheer.Visible = false;
-            // 
-            // lblBeheer
-            // 
-            this.lblBeheer.AutoSize = true;
-            this.lblBeheer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblBeheer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBeheer.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblBeheer.Location = new System.Drawing.Point(407, 34);
-            this.lblBeheer.Name = "lblBeheer";
-            this.lblBeheer.Size = new System.Drawing.Size(41, 13);
-            this.lblBeheer.TabIndex = 3;
-            this.lblBeheer.Text = "Beheer";
-            this.lblBeheer.Visible = false;
-            this.lblBeheer.Click += new System.EventHandler(this.lblBeheer_Click);
+            this.btnBeheer.Click += new System.EventHandler(this.btnBeheer_Click);
             // 
             // fpnlMateriaalContainer
             // 
@@ -1391,7 +1376,6 @@
             this.pnlActiviteitInfo.ResumeLayout(false);
             this.pnlActiviteitInfo.PerformLayout();
             this.tabMateriaal.ResumeLayout(false);
-            this.tabMateriaal.PerformLayout();
             this.tabProfiel.ResumeLayout(false);
             this.tabProfiel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBannerFoto)).EndInit();
@@ -1459,7 +1443,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnDeelnemen;
-        private System.Windows.Forms.Label lblBeheer;
         private System.Windows.Forms.TextBox txtNaam;
         private System.Windows.Forms.TextBox txtGeboortedatum;
         private System.Windows.Forms.TextBox txtGeslacht;
