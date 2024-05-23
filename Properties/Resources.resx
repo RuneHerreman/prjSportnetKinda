@@ -124,14 +124,11 @@
   <data name="Logo-05 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo-05 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cart_select" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cart_select.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="btnImageTest2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btnImageTest2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="user_select" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\user_select.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Basic Banner Picture" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Basic Banner Picture.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ItemAdd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ItemAdd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,11 +139,11 @@
   <data name="button_close_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_close_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="user_standard" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user_standard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Basic Banner Picture" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Basic Banner Picture.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Logo_Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo_Blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="IMG_Login1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IMG_Login1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="home_standard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\home_standard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,17 +151,20 @@
   <data name="btnImageTest3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnImageTest3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IMG_Login2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IMG_Login2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="calendar_select" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendar_select.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btnImageTest2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btnImageTest2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cart_select" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cart_select.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cart_standard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cart_standard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="IMG_Login1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IMG_Login1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="user_standard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user_standard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="button_close_black_35" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_close_black_35.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,8 +178,8 @@
   <data name="home_select" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\home_select.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="IMG_Login2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IMG_Login2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Logo_Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo_Blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="button_close_red_35" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\button_close_red_35.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -192,5 +192,8 @@
   </data>
   <data name="download" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\download.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="shopping-cart-svgrepo-com" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shopping-cart-svgrepo-com.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

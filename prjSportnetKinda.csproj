@@ -320,5 +320,8 @@
   <ItemGroup>
     <None Include="Resources\Basic Banner Picture.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping-cart-svgrepo-com.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
