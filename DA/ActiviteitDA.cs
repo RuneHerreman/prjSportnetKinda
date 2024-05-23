@@ -375,5 +375,30 @@ namespace prjSportnetKinda.DA
                 return null;
             }
         }
+
+        public static Activiteit ActiviteitToevoegen()
+        {
+            try
+            {
+                string queryType = "";
+
+                //verbinding maken
+                MySqlConnection conn = Database.MakeConnection();
+
+                //Query
+                string query = "";
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.CommandText = query;
+
+
+
+                return new Activiteit();
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }
