@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -119,13 +119,13 @@
             this.picBannerFoto = new System.Windows.Forms.PictureBox();
             this.picProfielFoto = new System.Windows.Forms.PictureBox();
             this.ofdFotos = new System.Windows.Forms.OpenFileDialog();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnArtiekelToevoegen = new prjSportnetKinda.View.ButtonControls();
             this.btnActiviteitToevoegen = new prjSportnetKinda.View.ButtonControls();
             this.btnProfiel = new prjSportnetKinda.View.ButtonControls();
             this.btnMateriaal = new prjSportnetKinda.View.ButtonControls();
             this.btnKalender = new prjSportnetKinda.View.ButtonControls();
             this.btnStart = new prjSportnetKinda.View.ButtonControls();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tcMain.SuspendLayout();
@@ -644,8 +644,8 @@
             this.lsvTraining.FullRowSelect = true;
             this.lsvTraining.HideSelection = false;
             this.lsvTraining.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
+            listViewItem3,
+            listViewItem4});
             this.lsvTraining.Location = new System.Drawing.Point(355, 40);
             this.lsvTraining.Name = "lsvTraining";
             this.lsvTraining.Size = new System.Drawing.Size(507, 169);
@@ -813,7 +813,7 @@
             this.tabProfiel.Controls.Add(this.label2);
             this.tabProfiel.Controls.Add(this.picBannerFoto);
             this.tabProfiel.Controls.Add(this.picProfielFoto);
-            this.tabProfiel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabProfiel.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabProfiel.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tabProfiel.Location = new System.Drawing.Point(4, 22);
             this.tabProfiel.Name = "tabProfiel";
@@ -866,7 +866,7 @@
             // 
             // lblBannerFoto
             // 
-            this.lblBannerFoto.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBannerFoto.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBannerFoto.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblBannerFoto.Location = new System.Drawing.Point(107, 514);
             this.lblBannerFoto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -879,7 +879,7 @@
             // 
             // lblProfielFoto
             // 
-            this.lblProfielFoto.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProfielFoto.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProfielFoto.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblProfielFoto.Location = new System.Drawing.Point(107, 482);
             this.lblProfielFoto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -892,7 +892,7 @@
             // 
             // txtNaam
             // 
-            this.txtNaam.Location = new System.Drawing.Point(213, 276);
+            this.txtNaam.Location = new System.Drawing.Point(213, 277);
             this.txtNaam.Margin = new System.Windows.Forms.Padding(2);
             this.txtNaam.Name = "txtNaam";
             this.txtNaam.Size = new System.Drawing.Size(249, 23);
@@ -901,7 +901,7 @@
             // 
             // txtGeboortedatum
             // 
-            this.txtGeboortedatum.Location = new System.Drawing.Point(213, 310);
+            this.txtGeboortedatum.Location = new System.Drawing.Point(213, 311);
             this.txtGeboortedatum.Margin = new System.Windows.Forms.Padding(2);
             this.txtGeboortedatum.Name = "txtGeboortedatum";
             this.txtGeboortedatum.Size = new System.Drawing.Size(249, 23);
@@ -910,7 +910,7 @@
             // 
             // txtGeslacht
             // 
-            this.txtGeslacht.Location = new System.Drawing.Point(213, 344);
+            this.txtGeslacht.Location = new System.Drawing.Point(213, 345);
             this.txtGeslacht.Margin = new System.Windows.Forms.Padding(2);
             this.txtGeslacht.Name = "txtGeslacht";
             this.txtGeslacht.Size = new System.Drawing.Size(249, 23);
@@ -919,7 +919,7 @@
             // 
             // txtTelefoonnr
             // 
-            this.txtTelefoonnr.Location = new System.Drawing.Point(610, 341);
+            this.txtTelefoonnr.Location = new System.Drawing.Point(616, 343);
             this.txtTelefoonnr.Margin = new System.Windows.Forms.Padding(2);
             this.txtTelefoonnr.Name = "txtTelefoonnr";
             this.txtTelefoonnr.Size = new System.Drawing.Size(249, 23);
@@ -928,7 +928,7 @@
             // 
             // txtAdres
             // 
-            this.txtAdres.Location = new System.Drawing.Point(610, 310);
+            this.txtAdres.Location = new System.Drawing.Point(616, 312);
             this.txtAdres.Margin = new System.Windows.Forms.Padding(2);
             this.txtAdres.Name = "txtAdres";
             this.txtAdres.Size = new System.Drawing.Size(249, 23);
@@ -937,7 +937,7 @@
             // 
             // txtVoornaam
             // 
-            this.txtVoornaam.Location = new System.Drawing.Point(214, 245);
+            this.txtVoornaam.Location = new System.Drawing.Point(214, 246);
             this.txtVoornaam.Margin = new System.Windows.Forms.Padding(2);
             this.txtVoornaam.Name = "txtVoornaam";
             this.txtVoornaam.Size = new System.Drawing.Size(249, 23);
@@ -946,7 +946,7 @@
             // 
             // btnAccountVerwijderen
             // 
-            this.btnAccountVerwijderen.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAccountVerwijderen.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAccountVerwijderen.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnAccountVerwijderen.Location = new System.Drawing.Point(714, 671);
             this.btnAccountVerwijderen.Margin = new System.Windows.Forms.Padding(2);
@@ -959,7 +959,7 @@
             // 
             // btnBeheerdersinstellingen
             // 
-            this.btnBeheerdersinstellingen.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBeheerdersinstellingen.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBeheerdersinstellingen.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnBeheerdersinstellingen.Location = new System.Drawing.Point(5, 671);
             this.btnBeheerdersinstellingen.Margin = new System.Windows.Forms.Padding(2);
@@ -973,7 +973,7 @@
             // 
             // btnUitloggen
             // 
-            this.btnUitloggen.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUitloggen.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUitloggen.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnUitloggen.Location = new System.Drawing.Point(169, 632);
             this.btnUitloggen.Margin = new System.Windows.Forms.Padding(2);
@@ -986,7 +986,7 @@
             // 
             // btnWijzigenProfiel
             // 
-            this.btnWijzigenProfiel.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWijzigenProfiel.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWijzigenProfiel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnWijzigenProfiel.Location = new System.Drawing.Point(5, 632);
             this.btnWijzigenProfiel.Margin = new System.Windows.Forms.Padding(2);
@@ -999,7 +999,7 @@
             // 
             // lblAdres
             // 
-            this.lblAdres.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdres.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdres.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblAdres.Location = new System.Drawing.Point(613, 311);
             this.lblAdres.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -1010,7 +1010,7 @@
             // 
             // lblLidSinds
             // 
-            this.lblLidSinds.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLidSinds.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLidSinds.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblLidSinds.Location = new System.Drawing.Point(613, 279);
             this.lblLidSinds.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -1021,7 +1021,7 @@
             // 
             // lblEmail
             // 
-            this.lblEmail.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmail.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmail.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblEmail.Location = new System.Drawing.Point(613, 246);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -1032,7 +1032,7 @@
             // 
             // lblTelefoon
             // 
-            this.lblTelefoon.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefoon.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTelefoon.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblTelefoon.Location = new System.Drawing.Point(613, 343);
             this.lblTelefoon.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -1043,7 +1043,7 @@
             // 
             // lblCategorie
             // 
-            this.lblCategorie.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategorie.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategorie.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblCategorie.Location = new System.Drawing.Point(213, 377);
             this.lblCategorie.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -1054,7 +1054,7 @@
             // 
             // lblGeslacht
             // 
-            this.lblGeslacht.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGeslacht.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGeslacht.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblGeslacht.Location = new System.Drawing.Point(213, 344);
             this.lblGeslacht.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -1065,7 +1065,7 @@
             // 
             // lblGeboortedatum
             // 
-            this.lblGeboortedatum.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGeboortedatum.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGeboortedatum.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblGeboortedatum.Location = new System.Drawing.Point(213, 312);
             this.lblGeboortedatum.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -1076,7 +1076,7 @@
             // 
             // lblNaam
             // 
-            this.lblNaam.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNaam.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNaam.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblNaam.Location = new System.Drawing.Point(213, 280);
             this.lblNaam.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -1087,7 +1087,7 @@
             // 
             // lblVoornaam
             // 
-            this.lblVoornaam.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVoornaam.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVoornaam.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblVoornaam.Location = new System.Drawing.Point(213, 247);
             this.lblVoornaam.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -1099,7 +1099,7 @@
             // 
             // label11
             // 
-            this.label11.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label11.Location = new System.Drawing.Point(507, 310);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -1111,7 +1111,7 @@
             // 
             // label12
             // 
-            this.label12.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label12.Location = new System.Drawing.Point(507, 278);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -1123,7 +1123,7 @@
             // 
             // label13
             // 
-            this.label13.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label13.Location = new System.Drawing.Point(470, 245);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -1135,7 +1135,7 @@
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label5.Location = new System.Drawing.Point(466, 343);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -1147,7 +1147,7 @@
             // 
             // lblCategorieKop
             // 
-            this.lblCategorieKop.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategorieKop.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategorieKop.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblCategorieKop.Location = new System.Drawing.Point(107, 376);
             this.lblCategorieKop.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -1158,7 +1158,7 @@
             // 
             // label7
             // 
-            this.label7.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label7.Location = new System.Drawing.Point(107, 344);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -1170,7 +1170,7 @@
             // 
             // label4
             // 
-            this.label4.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label4.Location = new System.Drawing.Point(16, 311);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -1182,7 +1182,7 @@
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label3.Location = new System.Drawing.Point(107, 279);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -1194,7 +1194,7 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label2.Location = new System.Drawing.Point(107, 246);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -1229,6 +1229,28 @@
             // ofdFotos
             // 
             this.ofdFotos.FileName = "openFileDialog1";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Teal;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(328, 10);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(223, 59);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "         Beheer";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // btnArtiekelToevoegen
             // 
@@ -1343,28 +1365,6 @@
             this.btnStart.Tooltip1 = "Start";
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DarkGray;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(328, 10);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(223, 59);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "         Beheer";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // Main
             // 
