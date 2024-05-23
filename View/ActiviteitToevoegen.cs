@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using prjSportnetKinda.Helper;
 using prjSportnetKinda.Model;
+using prjSportnetKinda.DA;
 
 namespace prjSportnetKinda.View
 {
@@ -115,6 +115,27 @@ namespace prjSportnetKinda.View
                         Activiteit.Feest.Organisator = txtInfo1.Text;
                         Activiteit.Feest.Eten = Convert.ToBoolean(txtInfo2.Text);
                         Activiteit.Feest.Beschrijving = txtInfo3.Text;
+                    }
+
+                    //Activiteit toevoegen
+                    if (ActiviteitDA.ActiviteitToevoegen(Activiteit) != null) 
+                    {
+                        //Succes message
+                        MessageBox.Show("De activiteit is toegevoegd");
+
+                        //Textboxes legen
+                        txtDatum.Clear();
+                        txtStart.Clear();
+                        txtLocatie.Clear();
+                        txtDuur.Clear();
+                        txtInfo1.Clear();
+                        txtInfo2.Clear();
+                        txtInfo3.Clear();
+                    }
+                    else
+                    {
+                        //Foutmelding
+                        MessageBox.Show("Activiteit kon niet worden toegevoegd wegens een error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch

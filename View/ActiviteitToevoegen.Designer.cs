@@ -148,7 +148,7 @@
             this.lblLocatie.Name = "lblLocatie";
             this.lblLocatie.Size = new System.Drawing.Size(54, 16);
             this.lblLocatie.TabIndex = 7;
-            this.lblLocatie.Text = "Loactie:";
+            this.lblLocatie.Text = "Locatie:";
             this.lblLocatie.Visible = false;
             // 
             // lblDuur

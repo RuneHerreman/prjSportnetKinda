@@ -376,7 +376,7 @@ namespace prjSportnetKinda.DA
             }
         }
 
-        public static Activiteit ActiviteitToevoegen()
+        public static Activiteit ActiviteitToevoegen(Activiteit a)
         {
             try
             {
@@ -386,12 +386,75 @@ namespace prjSportnetKinda.DA
                 MySqlConnection conn = Database.MakeConnection();
 
                 //Query
-                string query = "";
+                string query = "INSERT INTO tblactiviteit (Soort, Datum, Locatie, Duur) VALUES (@Soort, @Datum, @Locatie, @Duur)";
 
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                cmd.CommandText = query;
+                MySqlCommand cmdActiviteit = new MySqlCommand(query, conn);
+                cmdActiviteit.CommandText = query;
 
+                //Parameters
+                cmdActiviteit.Parameters.AddWithValue("@Soort", a.Type);
+                cmdActiviteit.Parameters.AddWithValue("@Datum", a.Datum);
+                cmdActiviteit.Parameters.AddWithValue("@Locatie", a.Locatie);
+                cmdActiviteit.Parameters.AddWithValue("@Duur", a.Duur);
 
+                //Commando uitvoeren
+                cmdActiviteit.ExecuteNonQuery();
+
+                //Id ophalen van activiteit die net ge-insert is
+                int intID = Convert.ToInt32(cmdActiviteit.LastInsertedId);
+
+                MySqlCommand cmdType = new MySqlCommand(queryType, conn);
+
+                //Query afhankelijk van type
+                if (a.Training != null)
+                {
+                    //Query voor tabel activiteit
+                    queryType = "INSERT INTO tbltraining (ActiviteitID, Categorieen, Trainer, Beschrijving) VALUES (@ActiviteitID, @Categorieen, @Trainer, @Beschrijving)";
+
+                    cmdType.CommandText = queryType;
+
+                    //Parameters Training
+                    cmdType.Parameters.AddWithValue("@ActiviteitID", intID);
+                    cmdType.Parameters.AddWithValue("@Categorieen", a.Training.Categorieën);
+                    cmdType.Parameters.AddWithValue("@Trainer", a.Training.Trainer);
+                    cmdType.Parameters.AddWithValue("@Beschrijving", a.Training.Beschrijving);
+                }
+                else if (a.Wedstrijd != null)
+                {
+                    //Query voor tabel activiteit
+                    queryType = "INSERT INTO tblwedstrijd (ActiviteitID, Naam, Type, Organisator) VALUES (@ActiviteitID, @Naam, @Type, @Organisator)";
+
+                    cmdType.CommandText = queryType;
+
+                    //Parameters Wedstrijd
+                    cmdType.Parameters.AddWithValue("@ActiviteitID", intID);
+                    cmdType.Parameters.AddWithValue("@Naam", a.Wedstrijd.Naam);
+                    cmdType.Parameters.AddWithValue("@Type", a.Wedstrijd.Type);
+                    cmdType.Parameters.AddWithValue("@Organisator", a.Wedstrijd.Organisator);
+                }
+                else if (a.Feest != null)
+                {
+                    //Query voor tabel activiteit
+                    queryType = "INSERT INTO tblfeest (ActiviteitID, Organisator, Eten, Beschrijving) VALUES (@ActiviteitID, @Organisator, @Eten, @Beschrijving)";
+
+                    cmdType.CommandText = queryType;
+
+                    //Parameters Feest
+                    cmdType.Parameters.AddWithValue("@ActiviteitID", intID);
+                    cmdType.Parameters.AddWithValue("@Organisator", a.Feest.Organisator);
+                    cmdType.Parameters.AddWithValue("@Eten", a.Feest.Eten);
+                    cmdType.Parameters.AddWithValue("@Beschrijving", a.Feest.Beschrijving);
+                }
+                else
+                {
+                    return null;
+                }
+
+                //Commando uitvoeren
+                cmdType.ExecuteNonQuery();
+
+                //Connection sluiten
+                Database.CloseConnection(conn);
 
                 return new Activiteit();
             }

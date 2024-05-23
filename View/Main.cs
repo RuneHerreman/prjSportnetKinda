@@ -268,7 +268,33 @@ namespace prjSportnetKinda
 
         private void KalenderRefresh()
         {
-            
+            //Listview updaten
+            if (lblActiviteiten.Text == "Activiteiten komende 30 dagen:")
+            {
+                KomendeDagen();
+            }
+            else
+            {
+                //legen
+                lsvTraining.Items.Clear();
+                ActiviteitList.Clear();
+
+                //Activiteiten invullen
+                DateTime dtSelectedDateStart = mcalKalender.SelectionStart;
+                DateTime dtSelectedDateEnd = mcalKalender.SelectionEnd;
+                foreach (Activiteit a in ActiviteitDA.OphalenActiviteiten(dtSelectedDateStart, dtSelectedDateEnd))
+                {
+                    System.Windows.Forms.ListViewItem item = new System.Windows.Forms.ListViewItem(new String[] { a.Datum.ToString("d"), a.Type, a.Locatie });
+                    item.Tag = a;
+                    lsvTraining.Items.Add(item);
+
+                    ActiviteitList.Add(a);
+                }
+
+                //Label aanpassen en button tonen
+                lblActiviteiten.Text = $"Activiteiten op {dtSelectedDateStart.ToString("d")}";
+                btnKomendeDagen.Visible = true;
+            }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -1076,34 +1102,8 @@ namespace prjSportnetKinda
                                 btnActiviteitVerwijderen.Visible = false;
                                 btnWijzigenActiviteit.Text = "Wijzigen";
 
-                                //Listview updaten
-                                if (lblActiviteiten.Text == "Activiteiten komende 30 dagen:")
-                                {
-                                    KomendeDagen();
-                                }
-                                else
-                                {
-                                    //legen
-                                    lsvTraining.Items.Clear();
-                                    ActiviteitList.Clear();
-
-                                    //Activiteiten invullen
-                                    DateTime dtSelectedDateStart = mcalKalender.SelectionStart;
-                                    DateTime dtSelectedDateEnd = mcalKalender.SelectionEnd;
-                                    foreach (Activiteit a in ActiviteitDA.OphalenActiviteiten(dtSelectedDateStart, dtSelectedDateEnd))
-                                    {
-                                        System.Windows.Forms.ListViewItem item = new System.Windows.Forms.ListViewItem(new String[] { a.Datum.ToString("d"), a.Type, a.Locatie });
-                                        item.Tag = a;
-                                        lsvTraining.Items.Add(item);
-
-                                        ActiviteitList.Add(a);
-                                    }
-
-                                    //Label aanpassen en button tonen
-                                    lblActiviteiten.Text = $"Activiteiten op {dtSelectedDateStart.ToString("d")}";
-                                    btnKomendeDagen.Visible = true;
-                                }
-
+                                //Form updaten
+                                KalenderRefresh();
                             }
                             else
                             {
@@ -1170,33 +1170,8 @@ namespace prjSportnetKinda
                         btnActiviteitVerwijderen.Visible = false;
                         btnWijzigenActiviteit.Text = "Wijzigen";
 
-                        //Listview updaten
-                        if (lblActiviteiten.Text == "Activiteiten komende 30 dagen:")
-                        {
-                            KomendeDagen();
-                        }
-                        else
-                        {
-                            //legen
-                            lsvTraining.Items.Clear();
-                            ActiviteitList.Clear();
-
-                            //Activiteiten invullen
-                            DateTime dtSelectedDateStart = mcalKalender.SelectionStart;
-                            DateTime dtSelectedDateEnd = mcalKalender.SelectionEnd;
-                            foreach (Activiteit a in ActiviteitDA.OphalenActiviteiten(dtSelectedDateStart, dtSelectedDateEnd))
-                            {
-                                System.Windows.Forms.ListViewItem item = new System.Windows.Forms.ListViewItem(new String[] { a.Datum.ToString("d"), a.Type, a.Locatie });
-                                item.Tag = a;
-                                lsvTraining.Items.Add(item);
-
-                                ActiviteitList.Add(a);
-                            }
-
-                            //Label aanpassen en button tonen
-                            lblActiviteiten.Text = $"Activiteiten op {dtSelectedDateStart.ToString("d")}";
-                            btnKomendeDagen.Visible = true;
-                        }
+                        //Form updaten
+                        KalenderRefresh();
 
                         //Panel hidden
                         pnlActiviteitInfo.Visible = false;
@@ -1219,6 +1194,9 @@ namespace prjSportnetKinda
         {
             ActiviteitToevoegen activiteitToevoegen = new ActiviteitToevoegen();
             activiteitToevoegen.ShowDialog();
+
+            //form updaten
+            KalenderRefresh();
         }
 
         private void btnLogboek_Click(object sender, EventArgs e)
