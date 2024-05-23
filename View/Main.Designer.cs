@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnProfiel = new prjSportnetKinda.View.ButtonControls();
             this.btnMateriaal = new prjSportnetKinda.View.ButtonControls();
@@ -332,7 +332,7 @@
             this.tabKalender.Location = new System.Drawing.Point(4, 22);
             this.tabKalender.Name = "tabKalender";
             this.tabKalender.Padding = new System.Windows.Forms.Padding(3);
-            this.tabKalender.Size = new System.Drawing.Size(889, 715);
+            this.tabKalender.Size = new System.Drawing.Size(906, 715);
             this.tabKalender.TabIndex = 1;
             this.tabKalender.Text = "Kalender";
             // 
@@ -750,8 +750,8 @@
             this.lsvTraining.FullRowSelect = true;
             this.lsvTraining.HideSelection = false;
             this.lsvTraining.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
+            listViewItem3,
+            listViewItem4});
             this.lsvTraining.Location = new System.Drawing.Point(355, 40);
             this.lsvTraining.Name = "lsvTraining";
             this.lsvTraining.Size = new System.Drawing.Size(507, 169);
@@ -807,7 +807,7 @@
             this.tabMateriaal.Location = new System.Drawing.Point(4, 22);
             this.tabMateriaal.Name = "tabMateriaal";
             this.tabMateriaal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMateriaal.Size = new System.Drawing.Size(889, 715);
+            this.tabMateriaal.Size = new System.Drawing.Size(906, 715);
             this.tabMateriaal.TabIndex = 2;
             this.tabMateriaal.Text = "Materiaal";
             // 
@@ -831,7 +831,7 @@
             this.fpnlMateriaalContainer.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.fpnlMateriaalContainer.Location = new System.Drawing.Point(3, 77);
             this.fpnlMateriaalContainer.Name = "fpnlMateriaalContainer";
-            this.fpnlMateriaalContainer.Size = new System.Drawing.Size(883, 635);
+            this.fpnlMateriaalContainer.Size = new System.Drawing.Size(900, 635);
             this.fpnlMateriaalContainer.TabIndex = 0;
             // 
             // btnLogboek
@@ -923,7 +923,7 @@
             this.tabProfiel.Location = new System.Drawing.Point(4, 22);
             this.tabProfiel.Name = "tabProfiel";
             this.tabProfiel.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProfiel.Size = new System.Drawing.Size(889, 715);
+            this.tabProfiel.Size = new System.Drawing.Size(906, 715);
             this.tabProfiel.TabIndex = 3;
             this.tabProfiel.Text = "Profiel";
             // 
