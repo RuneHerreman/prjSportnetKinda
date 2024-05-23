@@ -112,7 +112,7 @@ namespace prjSportnetKinda.View
                         MateriaalDA.HuurMateriaal(intNieuweVoorraad, materiaal.ID);
 
                         //alle gehuurde artikels in een string plaatsen
-                        strGehuurd += MandjeAantallenList[MandjeMateriaalList.IndexOf(materiaal)].ToString("000") + " " + materiaal.Naam + "\n";
+                        strGehuurd += MandjeAantallenList[MandjeMateriaalList.IndexOf(materiaal)].ToString() + " " + materiaal.Naam + "\n";
                     }
                     //Toon wat je gehuurd hebt
                     MessageBox.Show($"Je huurde:\n\n{strGehuurd}", "Details", MessageBoxButtons.OK);

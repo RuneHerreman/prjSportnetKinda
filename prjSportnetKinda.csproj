@@ -93,6 +93,12 @@
     <Compile Include="View\ArtikelBewerken.Designer.cs">
       <DependentUpon>ArtikelBewerken.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Logboek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Logboek.Designer.cs">
+      <DependentUpon>Logboek.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Mandje.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\ArtikelBewerken.resx">
       <DependentUpon>ArtikelBewerken.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Logboek.resx">
+      <DependentUpon>Logboek.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Mandje.resx">
       <DependentUpon>Mandje.cs</DependentUpon>
