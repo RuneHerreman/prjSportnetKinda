@@ -293,6 +293,16 @@ namespace prjSportnetKinda.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap shopping_cart_svgrepo_com {
+            get {
+                object obj = ResourceManager.GetObject("shopping-cart-svgrepo-com", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap user_select {
             get {
                 object obj = ResourceManager.GetObject("user_select", resourceCulture);
