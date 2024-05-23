@@ -142,6 +142,7 @@ namespace prjSportnetKinda
                 btnActiviteitToevoegen.Visible = true;
                 btnWijzigenActiviteit.Visible = true;
                 lblBeheer.Visible = true;
+                btnBeheer.Visible = true;
 
                 //Button opschuiven in geval van ook renner
                 if (login.Renner)
@@ -1218,6 +1219,18 @@ namespace prjSportnetKinda
         private void btnActiviteitToevoegen_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnLogboek_Click(object sender, EventArgs e)
+        {
+            if (gebruiker.Beheerder)
+            {
+
+            }
+            else
+            {
+                
+            }
         }
     }
 }
