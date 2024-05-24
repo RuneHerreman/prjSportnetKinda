@@ -617,11 +617,6 @@ namespace prjSportnetKinda
             btnKomendeDagen.Visible = true;
         }
 
-        private void lblBeheer_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnBeheerdersinstellingen_Click(object sender, EventArgs e)
         {
             string strWachtwoord;

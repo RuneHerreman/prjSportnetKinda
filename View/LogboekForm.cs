@@ -1,4 +1,5 @@
-﻿using prjSportnetKinda.DA;
+﻿using Microsoft.VisualBasic;
+using prjSportnetKinda.DA;
 using prjSportnetKinda.Model;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace prjSportnetKinda.View
 {
@@ -36,7 +38,10 @@ namespace prjSportnetKinda.View
             //      beheerder=false --> alle items die een specifieke gebruiker gehuurd heeft
             if (g1.Beheerder)
             {
+                //init var
                 int intGebruikersIDLogboek;
+
+                //lijst vullen met de gebruikers uit het logboek
                 List<Logboek> logList = new List<Logboek>();
                 logList = LogboekDA.AantalUniekeGebruikersEnHunIDs();
                 //leegmaken
@@ -45,23 +50,27 @@ namespace prjSportnetKinda.View
                 //een userControl maken voor iedere rij in de lijst van logboek
                 for (int i = 0; i < LogboekDA.AantalUniekeGebruikersEnHunIDs().Count; i++)
                 {
+                    //over welke gebruiker gaat het?
                     intGebruikersIDLogboek = Convert.ToInt16(logList[i].GebruikerID);
+
                     //object maken van de userControl
                     LogboekItem item = new LogboekItem();
 
                     //Event toevoegen
                     item.ButtonClick += LogboekItem_Click;
 
-                    //artikel opvullen
+                    //item opvullen
                     item.LogboekOpvullen(l, g1, matlist1, intGebruikersIDLogboek);
 
-                    //huidig artikel toevoegen aan fpnl
+                    //huidig item toevoegen aan fpnl
                     fpnlLogboek.Controls.Add(item);
                 }
             }
             else
             {
+                //moet in de methode worden ingevuld en moest het een waarde geven
                 int intGebruikerIDLogboek = 0;
+
                 //leegmaken
                 fpnlLogboek.Controls.Clear();
 
@@ -74,10 +83,10 @@ namespace prjSportnetKinda.View
                     //Event toevoegen
                     item.ButtonClick += LogboekItem_Click;
 
-                    //artikel opvullen
+                    //item opvullen
                     item.LogboekOpvullen(logboek, g1, matlist1, intGebruikerIDLogboek);
 
-                    //huidig artikel toevoegen aan fpnl
+                    //huidig item toevoegen aan fpnl
                     fpnlLogboek.Controls.Add(item);
                 }
             }
@@ -86,7 +95,16 @@ namespace prjSportnetKinda.View
 
         private void LogboekItem_Click(object sender, EventArgs e)
         {
+            //Omzetten van object naar MateriaalItem
+            LogboekItem item = (LogboekItem)sender;
+            if (g1.Beheerder)
+            {
 
+            }
+            else
+            {
+                LogboekBeheer logboekBeheer = new LogboekBeheer(this);
+            }
         }
     }
 }

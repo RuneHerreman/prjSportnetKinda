@@ -17,8 +17,6 @@ namespace prjSportnetKinda
         //Event aanmaken voor als er op button huren geklikt wordt
         public event EventHandler ButtonClick;
 
-        //Public object om data van event te kunnen uitlezen
-        bool blEmpty;
         public Logboek logboek { get; set; }
         public Gebruiker gebruiker { get; set; }
         List<Logboek> logboeklist;

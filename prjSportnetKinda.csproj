@@ -70,6 +70,12 @@
     <Compile Include="DA\LogboekDA.cs" />
     <Compile Include="DA\MateriaalDA.cs" />
     <Compile Include="Helper\Database.cs" />
+    <Compile Include="View\LogboekBeheer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LogboekBeheer.Designer.cs">
+      <DependentUpon>LogboekBeheer.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\LogboekItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     <Compile Include="View\WelkomItem.Designer.cs">
       <DependentUpon>WelkomItem.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\LogboekBeheer.resx">
+      <DependentUpon>LogboekBeheer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\LogboekItem.resx">
       <DependentUpon>LogboekItem.cs</DependentUpon>
     </EmbeddedResource>
