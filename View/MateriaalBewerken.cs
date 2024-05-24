@@ -119,18 +119,29 @@ namespace prjSportnetKinda.View
             //verwijderen uit database
             MateriaalDA.MateriaalVerwijderen(Convert.ToInt32(lblMateriaalID.Text));
 
+            //refresh list
+            matList = MateriaalDA.OphalenMateriaal();
+            
             //niets geselecteerd --> ZONDER DIT CRASHT HET PROGRAMMA NA EEN VERANDERING
             lsvMateriaal.SelectedItems.Clear();
             //leeg listview
             lsvMateriaal.Items.Clear();
             //opnieuw opvullen met geüpdatete item
-            foreach (Materiaal materiaal in MateriaalDA.OphalenMateriaal())
+            foreach (Materiaal materiaal in matList)
             {
                 //listview opvullen
                 lsvMateriaal.Items.Add(materiaal.Naam);
             }
 
+            //leeg alles
+            txtNieuweNaam.Clear();
+            rtxtBeschrijving.Clear();
+            picNieuweAfbeelding.Image = null;
+            txtNieuweFotoLocatie.ResetText();
+            txtNieuweVoorraad.ResetText();
+
             main1.MateriaalRefresh();
+
         }
     }
 }

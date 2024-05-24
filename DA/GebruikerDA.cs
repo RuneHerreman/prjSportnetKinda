@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using System.Drawing;
 using System.IO;
+using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace prjSportnetKinda.DA
 {
@@ -139,8 +140,8 @@ namespace prjSportnetKinda.DA
                 {
                     reader.Close();
                     //sting maken met sql statement
-                    query = "INSERT INTO tblgebruiker (Naam, Voornaam, Email, Geboortedatum, Wachtwoord, LidSinds, Renner, Trainer, Beheerder, ProfielFoto, BannerFoto) " +
-                            "VALUES (@Naam, @Voornaam, @Email, @Geboortedatum, @Wachtwoord, @LidSinds, @Renner, @Trainer, @Beheerder, @ProfielFoto, @BannerFoto)";
+                    query = "INSERT INTO tblgebruiker (Naam, Voornaam, Email, Geboortedatum, Wachtwoord, LidSinds, Renner, Trainer, Beheerder) " +
+                            "VALUES (@Naam, @Voornaam, @Email, @Geboortedatum, @Wachtwoord, @LidSinds, @Renner, @Trainer, @Beheerder)";
 
                     //Maken van het command
                     cmdRegistreren = new MySqlCommand(query, conn);
@@ -152,7 +153,7 @@ namespace prjSportnetKinda.DA
                     cmdRegistreren.Parameters.AddWithValue("@Naam", naam);
                     cmdRegistreren.Parameters.AddWithValue("@Voornaam", voornaam);
                     cmdRegistreren.Parameters.AddWithValue("@Email", email);
-                    cmdRegistreren.Parameters.AddWithValue("Geboortedatum", geboordtedatum);
+                    cmdRegistreren.Parameters.AddWithValue("@Geboortedatum", geboordtedatum);
                     cmdRegistreren.Parameters.AddWithValue("@Wachtwoord", wachtwoord);
                     cmdRegistreren.Parameters.AddWithValue("@LidSinds", DateTime.Today);
                     cmdRegistreren.Parameters.AddWithValue("@Renner", 1);
@@ -168,8 +169,9 @@ namespace prjSportnetKinda.DA
                     return registreren;
                 }
             }
-            catch 
+            catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return null ;
             }
         }

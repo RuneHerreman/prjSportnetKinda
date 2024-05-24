@@ -70,11 +70,23 @@
     <Compile Include="DA\LogboekDA.cs" />
     <Compile Include="DA\MateriaalDA.cs" />
     <Compile Include="Helper\Database.cs" />
+    <Compile Include="LogboekItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LogboekItem.Designer.cs">
+      <DependentUpon>LogboekItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Activiteit.cs" />
     <Compile Include="Model\Feest.cs" />
     <Compile Include="Model\Logboek.cs" />
     <Compile Include="Model\Training.cs" />
     <Compile Include="Model\Wedstrijd.cs" />
+    <Compile Include="View\ActiviteitToevoegen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ActiviteitToevoegen.Designer.cs">
+      <DependentUpon>ActiviteitToevoegen.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\ArtikelBeheer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +98,12 @@
     </Compile>
     <Compile Include="View\ArtikelBewerken.Designer.cs">
       <DependentUpon>ArtikelBewerken.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LogboekForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LogboekForm.Designer.cs">
+      <DependentUpon>LogboekForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Mandje.cs">
       <SubType>Form</SubType>
@@ -170,11 +188,20 @@
     <Compile Include="View\WelkomItem.Designer.cs">
       <DependentUpon>WelkomItem.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="LogboekItem.resx">
+      <DependentUpon>LogboekItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ActiviteitToevoegen.resx">
+      <DependentUpon>ActiviteitToevoegen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\ArtikelBeheer.resx">
       <DependentUpon>ArtikelBeheer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ArtikelBewerken.resx">
       <DependentUpon>ArtikelBewerken.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LogboekForm.resx">
+      <DependentUpon>LogboekForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Mandje.resx">
       <DependentUpon>Mandje.cs</DependentUpon>
@@ -319,6 +346,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Basic Banner Picture.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping-cart-svgrepo-com.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
