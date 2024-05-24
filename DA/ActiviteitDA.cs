@@ -34,7 +34,7 @@ namespace prjSportnetKinda.DA
 
             while (reader.Read())
             {
-                Activiteiten.Add(Create(reader));
+                Activiteiten.Add(CreateActiviteit(reader));
             }
 
             //reader sluiten
@@ -46,7 +46,7 @@ namespace prjSportnetKinda.DA
             return Activiteiten;
         }
 
-        public static Activiteit Create(IDataRecord record)
+        public static Activiteit CreateActiviteit(IDataRecord record)
         {
             try
             {
@@ -57,7 +57,6 @@ namespace prjSportnetKinda.DA
                     Datum = Convert.ToDateTime(record["Datum"].ToString()),
                     Locatie = record["Locatie"].ToString(),
                     Duur = Convert.ToInt32(record["Duur"]),
-                    Deelnemers = record["Deelnemers"].ToString(),
                 };
             }
             catch (Exception ex)
@@ -66,7 +65,7 @@ namespace prjSportnetKinda.DA
                 return new Activiteit();
             }
         }
-        
+
         public static Activiteit AllesOphalen(Activiteit a)
         {
             Activiteit activiteit = new Activiteit();
@@ -93,7 +92,6 @@ namespace prjSportnetKinda.DA
                 activiteit.Datum = Convert.ToDateTime(reader["Datum"]);
                 activiteit.Locatie = reader["Locatie"].ToString();
                 activiteit.Duur = Convert.ToInt32(reader["Duur"]);
-                activiteit.Deelnemers = reader["Deelnemers"].ToString();
 
                 if (a.Type == "Training") //Alleen voor type training
                 {
@@ -120,6 +118,8 @@ namespace prjSportnetKinda.DA
                     activiteit.Feest.Beschrijving = reader["Beschrijving"].ToString();
                 }
 
+                activiteit.Deelnemers = DeelnemersOphalen(a);
+
                 reader.Close();
 
                 //Connection sluiten
@@ -133,57 +133,82 @@ namespace prjSportnetKinda.DA
             }
         }
 
+        public static List<Gebruiker> DeelnemersOphalen(Activiteit a)
+        {
+            try
+            {
+                //List om Deelnemers in op te slaan
+                List<Gebruiker> Deelnemers = new List<Gebruiker>();
+
+                //verbinding maken
+                MySqlConnection conn = Database.MakeConnection();
+
+                //Query
+                string query = "SELECT tblgebruiker.GebruikerID, Naam, Voornaam FROM tbldeelnemersactiviteit INNER JOIN tblgebruiker ON tbldeelnemersactiviteit.GebruikerID = tblgebruiker.GebruikerID WHERE tbldeelnemersactiviteit.ActiviteitID = @ActiviteitID";
+
+                //Maken van het command
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.CommandType = CommandType.Text;
+
+                //Parameters
+                cmd.Parameters.AddWithValue("@activiteitID", a.ActiviteitID);
+
+                //reader
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Deelnemers.Add(CreateDeelnemers(reader));
+                }
+
+                //reader sluiten
+                reader.Close();
+
+                //Connectie sluiten
+                Database.CloseConnection(conn);
+
+                return Deelnemers;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static Gebruiker CreateDeelnemers(IDataRecord record)
+        {
+            try
+            {
+                return new Gebruiker()
+                {
+                    Naam = (record["Naam"]).ToString(),
+                    Voornaam = (record["Voornaam"]).ToString(),
+                    GebruikerID = Convert.ToInt32(record["GebruikerID"]),
+                };
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+                return new Gebruiker();
+            }
+        }
+
         public static void DeelnemerToevoegen(int intActiviteitID, int intGebruikerID)
         {
-            //oude deelnemers opvangen
-            string strDeelnemers;
-            //huidige deelnemers ophalen
-            string DeelnemersOudOphalen = "SELECT `Deelnemers` FROM `tblactiviteit` WHERE `ActiviteitID`=@activiteitID";
-            //SQL query
-            string DeelnemersUpdate = "UPDATE `tblactiviteit` SET `Deelnemers`=@deelnemersNieuw  WHERE `ActiviteitID`=@activiteitID";
-
             //verbinding maken
             MySqlConnection conn = Database.MakeConnection();
-            MySqlCommand cmdDeelnemersOud = new MySqlCommand(DeelnemersOudOphalen, conn);
-            cmdDeelnemersOud.CommandText = DeelnemersOudOphalen;
 
-            //parameters
-            cmdDeelnemersOud.Parameters.AddWithValue("@activiteitID", intActiviteitID);
+            //Query
+            string query = "INSERT INTO tbldeelnemersactiviteit (ActiviteitID, GebruikerID) VALUES (@ActiviteitID, @GebruikerID)";
 
-            //deelnemers ophalen en opslaan
-            strDeelnemers = cmdDeelnemersOud.ExecuteScalar().ToString();
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandText = query;
 
-            //zijn er al deelnemers
-            if (strDeelnemers == "")
-            {
-                strDeelnemers = intGebruikerID.ToString();
+            //Parameters
+            cmd.Parameters.AddWithValue("@ActiviteitID", intActiviteitID);
+            cmd.Parameters.AddWithValue("@GebruikerID", intGebruikerID);
 
-                //Succes
-                System.Windows.Forms.MessageBox.Show("Je neemt nu deel aan deze activiteit");
-            }
-            else if (strDeelnemers.Contains(intGebruikerID.ToString()) == false) //Heb je al deel genomen?
-            {
-                //waarde toevoegen waarmee ze laten de IDs kan splitsen (-)
-                strDeelnemers += "-" + intGebruikerID.ToString();
-
-                //Succes
-                System.Windows.Forms.MessageBox.Show("Je neemt nu deel aan deze activiteit");
-            }
-            else
-            {
-                System.Windows.Forms.MessageBox.Show("Je neemt al deel aan deze activiteit", "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
-                return;
-            }
-
-            //commando UPDATE deelnemers
-            MySqlCommand cmdDeelnemerToevoegen = new MySqlCommand(DeelnemersUpdate, conn);
-            cmdDeelnemerToevoegen.CommandText = DeelnemersUpdate;
-
-            //parameters
-            cmdDeelnemerToevoegen.Parameters.AddWithValue("@deelnemersNieuw", strDeelnemers);
-            cmdDeelnemerToevoegen.Parameters.AddWithValue("@activiteitID", intActiviteitID);
-
-            cmdDeelnemerToevoegen.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
 
             //Connection sluiten
             Database.CloseConnection(conn);
@@ -194,35 +219,17 @@ namespace prjSportnetKinda.DA
             //verbinding maken
             MySqlConnection conn = Database.MakeConnection();
 
-            //huidige deelnemers ophalen
-            string DeelnemersOudOphalen = "SELECT `Deelnemers` FROM `tblactiviteit` WHERE `ActiviteitID`=@activiteitID";
+            //Query
+            string query = "DELETE FROM tbldeelnemersactiviteit WHERE ActiviteitID=@ActiviteitID AND GebruikerID=@GebruikerID";
 
-            MySqlCommand cmdDeelnemersOud = new MySqlCommand(DeelnemersOudOphalen, conn);
-            cmdDeelnemersOud.CommandText = DeelnemersOudOphalen;
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.CommandText = query;
 
-            //parameter
-            cmdDeelnemersOud.Parameters.AddWithValue("@activiteitID", intActiviteitID);
+            //Parameters
+            cmd.Parameters.AddWithValue("@ActiviteitID", intActiviteitID);
+            cmd.Parameters.AddWithValue("@GebruikerID", intGebruikerID);
 
-            //deelnemers ophalen en opslaan
-            string strDeelnemers = cmdDeelnemersOud.ExecuteScalar().ToString();
-
-            //Id uit lijst halen met replace
-            strDeelnemers = strDeelnemers.Replace(intGebruikerID + "-", "");
-            strDeelnemers = strDeelnemers.Replace("-" + intGebruikerID, ""); 
-            strDeelnemers = strDeelnemers.Replace(intGebruikerID.ToString(), "");
-
-            //SQL query voor update
-            string DeelnemersUpdate = "UPDATE `tblactiviteit` SET `Deelnemers`=@deelnemersNieuw  WHERE `ActiviteitID`=@activiteitID";
-
-            //commando UPDATE deelnemers
-            MySqlCommand cmdDeelnemerVerwijderen = new MySqlCommand(DeelnemersUpdate, conn);
-            cmdDeelnemerVerwijderen.CommandText = DeelnemersUpdate;
-
-            //parameters
-            cmdDeelnemerVerwijderen.Parameters.AddWithValue("@deelnemersNieuw", strDeelnemers);
-            cmdDeelnemerVerwijderen.Parameters.AddWithValue("@activiteitID", intActiviteitID);
-
-            cmdDeelnemerVerwijderen.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
 
             //Connection sluiten
             Database.CloseConnection(conn);

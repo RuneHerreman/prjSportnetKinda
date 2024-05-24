@@ -16,6 +16,6 @@ namespace prjSportnetKinda.Model
         public Training Training { get; set; }
         public Wedstrijd Wedstrijd { get; set; }
         public Feest Feest { get; set; }
-        public string Deelnemers { get; set; }
+        public List<Gebruiker> Deelnemers { get; set; }
     }
 }
