@@ -37,27 +37,29 @@
             // lblNaam
             // 
             this.lblNaam.AutoSize = true;
-            this.lblNaam.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNaam.Location = new System.Drawing.Point(143, 12);
+            this.lblNaam.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNaam.Location = new System.Drawing.Point(143, 18);
             this.lblNaam.Name = "lblNaam";
-            this.lblNaam.Size = new System.Drawing.Size(193, 18);
+            this.lblNaam.Size = new System.Drawing.Size(239, 22);
             this.lblNaam.TabIndex = 1;
             this.lblNaam.Text = "Naam (Materiaal of gebruiker)\r\n";
             // 
             // lblAantalOfLijstMateriaal
             // 
             this.lblAantalOfLijstMateriaal.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAantalOfLijstMateriaal.Location = new System.Drawing.Point(146, 40);
+            this.lblAantalOfLijstMateriaal.Location = new System.Drawing.Point(144, 49);
             this.lblAantalOfLijstMateriaal.Name = "lblAantalOfLijstMateriaal";
-            this.lblAantalOfLijstMateriaal.Size = new System.Drawing.Size(240, 97);
+            this.lblAantalOfLijstMateriaal.Size = new System.Drawing.Size(240, 88);
             this.lblAantalOfLijstMateriaal.TabIndex = 2;
             this.lblAantalOfLijstMateriaal.Text = "lblAantalOfLijstMateriaal";
             // 
             // picLogboekFoto
             // 
+            this.picLogboekFoto.Image = global::prjSportnetKinda.Properties.Resources.Basic_Profile_Picture;
             this.picLogboekFoto.Location = new System.Drawing.Point(12, 12);
             this.picLogboekFoto.Name = "picLogboekFoto";
             this.picLogboekFoto.Size = new System.Drawing.Size(125, 125);
+            this.picLogboekFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picLogboekFoto.TabIndex = 0;
             this.picLogboekFoto.TabStop = false;
             // 
@@ -65,9 +67,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.lblAantalOfLijstMateriaal);
             this.Controls.Add(this.lblNaam);
             this.Controls.Add(this.picLogboekFoto);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 12);
             this.Name = "LogboekItem";
             this.Size = new System.Drawing.Size(400, 150);
             this.Click += new System.EventHandler(this.LogboekItem_Click);

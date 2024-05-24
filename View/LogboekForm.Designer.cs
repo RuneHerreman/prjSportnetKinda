@@ -35,9 +35,9 @@
             // 
             this.fpnlLogboek.AutoScroll = true;
             this.fpnlLogboek.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fpnlLogboek.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.fpnlLogboek.Location = new System.Drawing.Point(0, 0);
             this.fpnlLogboek.Name = "fpnlLogboek";
+            this.fpnlLogboek.Padding = new System.Windows.Forms.Padding(12, 12, 0, 0);
             this.fpnlLogboek.Size = new System.Drawing.Size(420, 611);
             this.fpnlLogboek.TabIndex = 0;
             // 

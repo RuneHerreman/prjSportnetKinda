@@ -70,10 +70,10 @@
     <Compile Include="DA\LogboekDA.cs" />
     <Compile Include="DA\MateriaalDA.cs" />
     <Compile Include="Helper\Database.cs" />
-    <Compile Include="LogboekItem.cs">
+    <Compile Include="View\LogboekItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="LogboekItem.Designer.cs">
+    <Compile Include="View\LogboekItem.Designer.cs">
       <DependentUpon>LogboekItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Activiteit.cs" />
@@ -188,7 +188,7 @@
     <Compile Include="View\WelkomItem.Designer.cs">
       <DependentUpon>WelkomItem.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="LogboekItem.resx">
+    <EmbeddedResource Include="View\LogboekItem.resx">
       <DependentUpon>LogboekItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ActiviteitToevoegen.resx">
