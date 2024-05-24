@@ -1,6 +1,6 @@
 ﻿namespace prjSportnetKinda.View
 {
-    partial class Logboek
+    partial class LogboekForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.fpnlLogboek = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
-            // Logboek
+            // fpnlLogboek
+            // 
+            this.fpnlLogboek.AutoScroll = true;
+            this.fpnlLogboek.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fpnlLogboek.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.fpnlLogboek.Location = new System.Drawing.Point(0, 0);
+            this.fpnlLogboek.Name = "fpnlLogboek";
+            this.fpnlLogboek.Size = new System.Drawing.Size(420, 611);
+            this.fpnlLogboek.TabIndex = 0;
+            // 
+            // LogboekForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 646);
-            this.Name = "Logboek";
+            this.ClientSize = new System.Drawing.Size(420, 611);
+            this.Controls.Add(this.fpnlLogboek);
+            this.Name = "LogboekForm";
             this.Text = "Logboek";
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.FlowLayoutPanel fpnlLogboek;
     }
 }

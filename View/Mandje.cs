@@ -110,7 +110,8 @@ namespace prjSportnetKinda.View
                         int intNieuweVoorraad = materiaal.Voorraad - MandjeAantallenList[MandjeMateriaalList.IndexOf(materiaal)];
                         //verlaag de voorraad van alle artikels
                         MateriaalDA.HuurMateriaal(intNieuweVoorraad, materiaal.ID);
-
+                        //logboek aanvullen
+                        LogboekDA.HuurMateriaal(gebruiker.GebruikerID, MandjeAantallenList[MandjeMateriaalList.IndexOf(materiaal)], materiaal.ID, DateTime.Now);
                         //alle gehuurde artikels in een string plaatsen
                         strGehuurd += MandjeAantallenList[MandjeMateriaalList.IndexOf(materiaal)].ToString() + " " + materiaal.Naam + "\n";
                     }
@@ -124,8 +125,7 @@ namespace prjSportnetKinda.View
                     //listview legen
                     lsvMandje.Items.Clear();
 
-                    //logboek aanvullen
-                    LogboekDA.HuurMateriaal(gebruiker.GebruikerID, strGehuurd, DateTime.Now);
+                    
                 }
             }
             else

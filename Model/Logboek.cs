@@ -10,8 +10,8 @@ namespace prjSportnetKinda.Model
     public class Logboek
     {
         public int GebruikerID { get; set; }
-        public string GehuurdMateriaal { get; set; }
-        public string ResterendGehuurdMateriaal { get; set; }
+        public string GehuurdMateriaalID { get; set; }
+        public string Aantal { get; set; }
         public DateTime Datum { get; set; }
     }
 }

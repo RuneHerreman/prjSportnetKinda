@@ -1201,14 +1201,8 @@ namespace prjSportnetKinda
 
         private void btnLogboek_Click(object sender, EventArgs e)
         {
-            if (gebruiker.Beheerder)
-            {
-
-            }
-            else
-            {
-                
-            }
+            LogboekForm logboek = new LogboekForm(this, gebruiker, MateriaalDA.OphalenMateriaal());
+            logboek.ShowDialog();
         }
 
         private void btnBeheer_Click(object sender, EventArgs e)
