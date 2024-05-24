@@ -642,30 +642,6 @@ namespace prjSportnetKinda
             }
         }
 
-        public List<Gebruiker> DeelnemersBenoemen(Activiteit activiteit)
-        {
-            //om deelnemers in te plaatsen
-            List<Gebruiker> DeelnemersList = new List<Gebruiker>();
-
-            //IDs uit de string halen, ze worden opgesplits door een streepje, die halen we hier weg
-            string[] arrStringDeelnemers = activiteit.Deelnemers.Split('-');
-
-            //voor ieder ID van de deelnemers, loop door de gebruikers om te zien of er een match is
-            foreach (string deelnemerID in arrStringDeelnemers)
-            {
-                foreach (Gebruiker gebruiker in GebruikerList)
-                {
-                    //voor- en achternaam toevoegen aan de lijst
-                    if (deelnemerID == gebruiker.GebruikerID.ToString())
-                    {
-                        DeelnemersList.Add(gebruiker);
-                    }
-                }
-            }
-
-            return DeelnemersList;
-        }
-
         private void lsvTraining_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Var decl
@@ -729,13 +705,10 @@ namespace prjSportnetKinda
                     lblInfo3.Text = a.Feest.Beschrijving;
                 }
 
-                //deelnemers benoemen
-                List<Gebruiker> DeelnemersList = DeelnemersBenoemen(a);
-
                 //de eerste 3 nemen uit de lijst
-                if (DeelnemersList.Count <= 3) //zijn er niet 3 of meer deelnemers?
+                if (a.Deelnemers.Count <= 3) //zijn er niet 3 of meer deelnemers?
                 {
-                    intTellerMAX = DeelnemersList.Count;
+                    intTellerMAX = a.Deelnemers.Count;
                 }
                 else //meer dan 3 deelnemers?
                 {
@@ -748,11 +721,11 @@ namespace prjSportnetKinda
                 {
                     if (strDeelnemers != "")
                     {
-                        strDeelnemers = strDeelnemers + ", " + DeelnemersList[intTeller].Voornaam + " " + DeelnemersList[intTeller].Naam;
+                        strDeelnemers = strDeelnemers + ", " + a.Deelnemers[intTeller].Voornaam + " " + a.Deelnemers[intTeller].Naam;
                     }
                     else
                     {
-                        strDeelnemers = DeelnemersList[intTeller].Voornaam + " " + DeelnemersList[intTeller].Naam;
+                        strDeelnemers = a.Deelnemers[intTeller].Voornaam + " " + a.Deelnemers[intTeller].Naam;
                     }
                 }
 
@@ -765,7 +738,7 @@ namespace prjSportnetKinda
                 lblDeelnemers.Text = strDeelnemers;
 
                 //Button aanpassen voor mocht je al ingeschreven zijn
-                if(DeelnemersList.Any(x => x.GebruikerID == gebruiker.GebruikerID))
+                if(a.Deelnemers.Any(x => x.GebruikerID == gebruiker.GebruikerID))
                 {
                     btnDeelnemen.Text = "Niet meer deelnemen";
                 }
@@ -788,6 +761,9 @@ namespace prjSportnetKinda
             {
                 //add userID to the 'Deelnemers' Column
                 ActiviteitDA.DeelnemerToevoegen(activiteit.ActiviteitID, gebruiker.GebruikerID);
+
+                //Messagebox
+                MessageBox.Show("Je neemt nu deel aan deze activiteit");
 
                 //Naam button veranderen
                 btnDeelnemen.Text = "Niet meer deelnemen";
@@ -819,13 +795,10 @@ namespace prjSportnetKinda
             //Alle gegevens ophalen aan de hand van Type activiteit
             Activiteit a = ActiviteitDA.AllesOphalen(activiteit);
 
-            //deelnemers benoemen
-            List<Gebruiker> DeelnemersList = DeelnemersBenoemen(a);
-
             //de eerste 3 nemen uit de lijst
-            if (DeelnemersList.Count <= 3) //zijn er niet 3 of meer deelnemers?
+            if (a.Deelnemers.Count <= 3) //zijn er niet 3 of meer deelnemers?
             {
-                intTellerMAX = DeelnemersList.Count;
+                intTellerMAX = a.Deelnemers.Count;
             }
             else //meer dan 3 deelnemers?
             {
@@ -838,11 +811,11 @@ namespace prjSportnetKinda
             {
                 if (strDeelnemers != "")
                 {
-                    strDeelnemers = strDeelnemers + ", " + DeelnemersList[intTeller].Voornaam + " " + DeelnemersList[intTeller].Naam;
+                    strDeelnemers = strDeelnemers + ", " + a.Deelnemers[intTeller].Voornaam + " " + a.Deelnemers[intTeller].Naam;
                 }
                 else
                 {
-                    strDeelnemers = DeelnemersList[intTeller].Voornaam + " " + DeelnemersList[intTeller].Naam;
+                    strDeelnemers = a.Deelnemers[intTeller].Voornaam + " " + a.Deelnemers[intTeller].Naam;
                 }
             }
 
@@ -861,7 +834,7 @@ namespace prjSportnetKinda
             string strDeelnemers = "";
 
             //lijst van deelnemers toevoegen aan messagebox
-            foreach (Gebruiker Deelnemer in DeelnemersBenoemen(activiteit))
+            foreach (Gebruiker Deelnemer in activiteit.Deelnemers)
             {
                 strDeelnemers = strDeelnemers + Deelnemer.Voornaam + " " + Deelnemer.Naam + Environment.NewLine;
             }
