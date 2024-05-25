@@ -101,6 +101,46 @@ namespace prjSportnetKinda.View
             LogboekBeheer logboekBeheer = new LogboekBeheer(item, this);
             logboekBeheer.ShowDialog();
         }
+        private void MateriaalAanpassen(int intNumber, LogboekItem item)
+        {
+            PictureBox pictureBox = new PictureBox();
+            pictureBox.Image = item.logboekPar.Materiaal.Foto;
+            //aantal terug toevoegen aan materiaal
+            int intNieuweVoorraad = item.logboekPar.Materiaal.Voorraad + intNumber;
+
+            MateriaalDA.MateriaalUpdate(item.logboekPar.Materiaal.MateriaalNaam, item.logboekPar.Materiaal.Beschrijving, intNieuweVoorraad, pictureBox, item.logboekPar.Materiaal.ID);
+
+            LogboekRefresh();
+        }
+        private void LogboekKiesAantal_Click(object sender, EventArgs e)
+        {
+            //Omzetten van object naar MateriaalItem
+            LogboekItem item = (LogboekItem)sender;
+
+            //Hoeveel wil je teruggeven
+            string strAantalInleveren = Interaction.InputBox("Hoeveel exemplaren wil je inleveren?", "Aantal inleveren?");
+            
+            //is er een invoer?
+            if (strAantalInleveren != "" && int.TryParse(strAantalInleveren, out int number) && number > 0 && number.ToString().Contains(" ") == false)
+            {
+                if (number < Convert.ToInt16(item.logboekPar.Aantal))
+                {
+                    int intNieuwAantal = Convert.ToInt16(item.logboekPar.Aantal) - number;
+                    //aantal verminderen uit logboek
+                    LogboekDA.LogUpdate(item.logboekPar.LogID, intNieuwAantal);
+                    MateriaalAanpassen(number, item);
+                }
+                else if (number == Convert.ToInt32(item.logboekPar.Aantal))
+                {
+                    LogboekAllesInlveren_Click(sender, EventArgs.Empty);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Je mag alleen positieve getallen ingeven!", "Alleen getallen!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
         private void LogboekAllesInlveren_Click(object sender, EventArgs e)
         {
             //Omzetten van object naar MateriaalItem
@@ -118,54 +158,11 @@ namespace prjSportnetKinda.View
                 //log verwijderen
                 LogboekDA.LogDelete(item.logboekPar.LogID);
 
-                //bereken nieuwe voorraad
-                int intNieuweVoorraad = item.logboekPar.Materiaal.Voorraad + Convert.ToInt32(item.logboekPar.Aantal);
-
-                //aantal terug toevoegen aan materiaal
-                MateriaalDA.MateriaalUpdate(item.logboekPar.Materiaal.MateriaalNaam, item.logboekPar.Materiaal.Beschrijving, intNieuweVoorraad, pictureBox, item.logboekPar.Materiaal.ID);
+                MateriaalAanpassen(0, item);
 
                 //vernieuw de pagina
                 LogboekRefresh();
             }
-        }
-        private void LogboekKiesAantal_Click(object sender, EventArgs e)
-        {
-            //Omzetten van object naar MateriaalItem
-            LogboekItem item = (LogboekItem)sender;
-
-            int intNieuweVoorraad;
-            PictureBox pictureBox = new PictureBox();
-            pictureBox.Image = item.logboekPar.Materiaal.Foto;
-
-            //Hoeveel wil je teruggeven
-            string strAantalInleveren = Interaction.InputBox("Hoeveel exemplaren wil je inleveren?", "Aantal inleveren?");
-            
-            //is er een invoer?
-            if (strAantalInleveren != "" && int.TryParse(strAantalInleveren, out int number) && number > 0 && number.ToString().Contains(" ") == false)
-            {
-                if (number < Convert.ToInt16(item.logboekPar.Aantal))
-                {
-                    int intNieuwAantal = Convert.ToInt16(item.logboekPar.Aantal) - number;
-                    //aantal verminderen uit logboek
-                    LogboekDA.LogUpdate(item.logboekPar.LogID, intNieuwAantal);
-                }
-                else if (number == Convert.ToInt32(item.logboekPar.Aantal))
-                {
-                    //log verwijderen --> alles ingediend
-                    LogboekDA.LogDelete(item.logboekPar.LogID);
-                }
-                //aantal terug toevoegen aan materiaal
-                intNieuweVoorraad = item.logboekPar.Materiaal.Voorraad + number;
-                MateriaalDA.MateriaalUpdate(item.logboekPar.Materiaal.MateriaalNaam, item.logboekPar.Materiaal.Beschrijving, intNieuweVoorraad, pictureBox, item.logboekPar.Materiaal.ID);
-
-                //vernieuw de pagina
-                LogboekRefresh();
-            }
-            else
-            {
-                MessageBox.Show("Je mag alleen positieve getallen ingeven!", "Alleen getallen!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
     }
 }

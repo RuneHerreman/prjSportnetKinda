@@ -22,7 +22,7 @@ namespace prjSportnetKinda.View
         {
             InitializeComponent();
 
-            this.logboekform1 = logboekform;
+            logboekform1 = logboekform;
             item1 = item;
             logList = LogboekDA.OphalenLogboek(item1.logListPar[0].Gebruiker.GebruikerID);
 
