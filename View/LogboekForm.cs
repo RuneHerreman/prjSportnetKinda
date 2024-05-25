@@ -106,8 +106,6 @@ namespace prjSportnetKinda.View
             //voorraad en naam van gekozen artikel
             MessageBox.Show(item.materiaalPar.Naam);
 
-
-
         }
         private void LogboekKiesAantal_Click(object sender, EventArgs e)
         {
