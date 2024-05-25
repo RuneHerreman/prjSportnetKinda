@@ -75,7 +75,11 @@ namespace prjSportnetKinda
                 if (logboeklist.Count != 0)
                 {
                     //titel = volledige naam
-                    this.lblNaam.Text = GetNameByUserID(intGebruikerIDLogboek, gebruikerlist).Voornaam + GetNameByUserID(intGebruikerIDLogboek, gebruikerlist).Naam;
+                    if (GetNameByUserID(intGebruikerIDLogboek, gebruikerlist) != null)
+                    {
+                        this.lblNaam.Text = GetNameByUserID(intGebruikerIDLogboek, gebruikerlist).Voornaam + GetNameByUserID(intGebruikerIDLogboek, gebruikerlist).Naam;
+                    }
+                    
                     foreach (Logboek logboek in logboeklist)
                     {
                         foreach (Materiaal mat in matlist)
