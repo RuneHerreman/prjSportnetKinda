@@ -57,7 +57,7 @@ namespace prjSportnetKinda.View
                     LogboekItem item = new LogboekItem();
 
                     //Event toevoegen
-                    item.ButtonClick += LogboekItem_Click;
+                    item.LogboekGebruikerLog += LogboekGebruikerLog_Click;
 
                     //item opvullen
                     item.LogboekOpvullen(l, g1, matlist1, intGebruikersIDLogboek);
@@ -81,7 +81,8 @@ namespace prjSportnetKinda.View
                     LogboekItem item = new LogboekItem();
 
                     //Event toevoegen
-                    item.ButtonClick += LogboekItem_Click;
+                    item.LogboekAllesInleverenClick += LogboekAllesInlveren_Click;
+                    item.LogboekKiesAantalClick += LogboekKiesAantal_Click;
 
                     //item opvullen
                     item.LogboekOpvullen(logboek, g1, matlist1, intGebruikerIDLogboek);
@@ -93,18 +94,22 @@ namespace prjSportnetKinda.View
             
         }
 
-        private void LogboekItem_Click(object sender, EventArgs e)
+        private void LogboekGebruikerLog_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void LogboekAllesInlveren_Click(object sender, EventArgs e)
         {
             //Omzetten van object naar MateriaalItem
             LogboekItem item = (LogboekItem)sender;
-            if (g1.Beheerder)
-            {
+            //hoeveel keer is het artikel toegevoegd
+            //voorraad en naam van gekozen artikel
+            MessageBox.Show(item.materiaalPar.Naam);
 
-            }
-            else
-            {
-                LogboekBeheer logboekBeheer = new LogboekBeheer();
-            }
+        }
+        private void LogboekKiesAantal_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
