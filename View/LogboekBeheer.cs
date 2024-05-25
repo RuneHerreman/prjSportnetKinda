@@ -12,9 +12,10 @@ namespace prjSportnetKinda.View
 {
     public partial class LogboekBeheer : Form
     {
-        public LogboekBeheer()
+        public LogboekBeheer(LogboekForm f)
         {
             InitializeComponent();
+            
         }
     }
 }

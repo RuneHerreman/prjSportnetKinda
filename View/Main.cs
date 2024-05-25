@@ -241,7 +241,7 @@ namespace prjSportnetKinda
             int intVoorraad = item.materiaal.Voorraad;
             //index van naam materiaal
             int intMateriaalIndex = HuurList.IndexOf(item.materiaal);
-
+            
             if (HuurList.IndexOf(item.materiaal) == -1)
             {
                 //voeg toe aan lijst

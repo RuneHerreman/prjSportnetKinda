@@ -301,6 +301,19 @@ namespace prjSportnetKinda.DA
         {
             try
             {
+                ImageConverter converter = new ImageConverter();
+                byte[] arrFoto = (byte[])(record["ProfielFoto"]);
+                Image img;
+                try
+                {
+                    MemoryStream ms = new MemoryStream(arrFoto);
+                    img = Image.FromStream(ms);
+                }
+                catch (Exception)
+                {
+                    img = null;
+                }
+
                 return new Gebruiker()
                 {
                     Voornaam = record["Voornaam"].ToString(),
@@ -310,6 +323,7 @@ namespace prjSportnetKinda.DA
                     Trainer = Convert.ToBoolean(record["Trainer"]),
                     Beheerder = Convert.ToBoolean(record["Beheerder"]),
                     GebruikerID = Convert.ToInt32(record["GebruikerID"]),
+                    Profielfoto = img,
                 };
             }
             catch (Exception ex)
