@@ -103,7 +103,7 @@ namespace prjSportnetKinda.View
             }
             else
             {
-                LogboekBeheer logboekBeheer = new LogboekBeheer(this);
+                LogboekBeheer logboekBeheer = new LogboekBeheer();
             }
         }
     }

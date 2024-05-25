@@ -63,8 +63,7 @@ namespace prjSportnetKinda
                     this.picLogboekFoto.Image = g.Profielfoto;
                 }
             }
-            //nee --> ingelogde gebruiker ziet alleen zijn eigen materiaal (item = 1 geleen item)
-            else
+            else //nee --> ingelogde gebruiker ziet alleen zijn eigen materiaal (item = 1 geleen item)
             {
                 if (g.GebruikerID == l.GebruikerID)
                 {
