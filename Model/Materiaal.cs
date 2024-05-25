@@ -10,7 +10,7 @@ namespace prjSportnetKinda.Model
     public class Materiaal
     {
         public int ID {  get; set; }
-        public string Naam { get; set; }
+        public string MateriaalNaam { get; set; }
         public string Beschrijving { get; set; }
         public int Voorraad { get; set; }
         public Image Foto { get; set; }

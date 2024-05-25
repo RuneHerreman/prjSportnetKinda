@@ -32,7 +32,7 @@ namespace prjSportnetKinda
         {
             //waarden aan labels koppelen
             this.lblMateriaalBeschrijving.Text = m.Beschrijving;
-            this.lblMateriaalTitel.Text = m.Naam;
+            this.lblMateriaalTitel.Text = m.MateriaalNaam;
 
             //als er een foto is
             if (m.Foto != null)

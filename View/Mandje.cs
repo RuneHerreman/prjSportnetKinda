@@ -40,20 +40,13 @@ namespace prjSportnetKinda.View
             foreach(Materiaal materiaal in MandjeMateriaalList)
             {
                 //in item
-                ListViewItem listViewItem = new ListViewItem(materiaal.Naam);
+                ListViewItem listViewItem = new ListViewItem(materiaal.MateriaalNaam);
                 //subitem aantal van dit item
                 listViewItem.SubItems.Add(MandjeAantallenList[MandjeMateriaalList.IndexOf(materiaal)].ToString());
                 //toevoegen aan listview
                 lsvMandje.Items.Add(listViewItem);
             } 
         }
-
-        private void btnHurenLijst_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void btnArtikelVerwijderen_Click(object sender, EventArgs e)
         {
             if (lsvMandje.SelectedItems.Count != 0)
@@ -89,7 +82,6 @@ namespace prjSportnetKinda.View
             {
                 MessageBox.Show("Geen artikels in het mandje", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void btnHurenLijst_Click_1(object sender, EventArgs e)
@@ -113,7 +105,7 @@ namespace prjSportnetKinda.View
                         //logboek aanvullen
                         LogboekDA.HuurMateriaal(gebruiker.GebruikerID, MandjeAantallenList[MandjeMateriaalList.IndexOf(materiaal)], materiaal.ID, DateTime.Now);
                         //alle gehuurde artikels in een string plaatsen
-                        strGehuurd += MandjeAantallenList[MandjeMateriaalList.IndexOf(materiaal)].ToString() + " " + materiaal.Naam + "\n";
+                        strGehuurd += MandjeAantallenList[MandjeMateriaalList.IndexOf(materiaal)].ToString() + " " + materiaal.MateriaalNaam + "\n";
                     }
                     //Toon wat je gehuurd hebt
                     MessageBox.Show($"Je huurde:\n\n{strGehuurd}", "Details", MessageBoxButtons.OK);
@@ -124,8 +116,6 @@ namespace prjSportnetKinda.View
 
                     //listview legen
                     lsvMandje.Items.Clear();
-
-                    
                 }
             }
             else

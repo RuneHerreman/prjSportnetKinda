@@ -52,7 +52,7 @@
             this.lblAantalOfLijstMateriaal.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAantalOfLijstMateriaal.Location = new System.Drawing.Point(144, 49);
             this.lblAantalOfLijstMateriaal.Name = "lblAantalOfLijstMateriaal";
-            this.lblAantalOfLijstMateriaal.Size = new System.Drawing.Size(135, 77);
+            this.lblAantalOfLijstMateriaal.Size = new System.Drawing.Size(135, 88);
             this.lblAantalOfLijstMateriaal.TabIndex = 2;
             this.lblAantalOfLijstMateriaal.Text = "lblAantalOfLijstMateriaal";
             // 
@@ -100,6 +100,7 @@
             this.btnGebruikerLog.TabIndex = 5;
             this.btnGebruikerLog.Text = "Gebruiker Log";
             this.btnGebruikerLog.UseVisualStyleBackColor = true;
+            this.btnGebruikerLog.Click += new System.EventHandler(this.btnGebruikerLog_Click);
             // 
             // LogboekItem
             // 
@@ -116,7 +117,6 @@
             this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 12);
             this.Name = "LogboekItem";
             this.Size = new System.Drawing.Size(400, 150);
-            this.Click += new System.EventHandler(this.LogboekItem_Click);
             ((System.ComponentModel.ISupportInitialize)(this.picLogboekFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

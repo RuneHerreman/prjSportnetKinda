@@ -20,7 +20,7 @@ namespace prjSportnetKinda.View
         Main main1;
         Gebruiker g1;
         List<Materiaal> matlist1;
-        Logboek l;
+
         public LogboekForm(Main main, Gebruiker g, List<Materiaal> matlist)
         {
             InitializeComponent();
@@ -36,6 +36,7 @@ namespace prjSportnetKinda.View
             //if statement bepaald hoeveel keer de loop zal lopen
             //vb:   beheerder=true  --> unieke gebruikers nodig uit logboek --> 2 of 8 of 13 users
             //      beheerder=false --> alle items die een specifieke gebruiker gehuurd heeft
+            int intTeller = 0;
             if (g1.Beheerder)
             {
                 //init var
@@ -60,7 +61,7 @@ namespace prjSportnetKinda.View
                     item.LogboekGebruikerLog += LogboekGebruikerLog_Click;
 
                     //item opvullen
-                    item.LogboekOpvullen(l, g1, matlist1, intGebruikersIDLogboek);
+                    item.LogboekOpvullen(g1, intGebruikersIDLogboek, intTeller);
 
                     //huidig item toevoegen aan fpnl
                     fpnlLogboek.Controls.Add(item);
@@ -68,9 +69,6 @@ namespace prjSportnetKinda.View
             }
             else
             {
-                //moet in de methode worden ingevuld en moest het een waarde geven
-                int intGebruikerIDLogboek = 0;
-
                 //leegmaken
                 fpnlLogboek.Controls.Clear();
 
@@ -85,7 +83,8 @@ namespace prjSportnetKinda.View
                     item.LogboekKiesAantalClick += LogboekKiesAantal_Click;
 
                     //item opvullen
-                    item.LogboekOpvullen(logboek, g1, matlist1, intGebruikerIDLogboek);
+                    item.LogboekOpvullen(g1, g1.GebruikerID, intTeller);
+                    intTeller++;
 
                     //huidig item toevoegen aan fpnl
                     fpnlLogboek.Controls.Add(item);
@@ -96,19 +95,76 @@ namespace prjSportnetKinda.View
 
         private void LogboekGebruikerLog_Click(object sender, EventArgs e)
         {
+            //Omzetten van object naar MateriaalItem
+            LogboekItem item = (LogboekItem)sender;
 
+            LogboekBeheer logboekBeheer = new LogboekBeheer(item, this);
+            logboekBeheer.ShowDialog();
         }
         private void LogboekAllesInlveren_Click(object sender, EventArgs e)
         {
             //Omzetten van object naar MateriaalItem
             LogboekItem item = (LogboekItem)sender;
-            //hoeveel keer is het artikel toegevoegd
-            //voorraad en naam van gekozen artikel
-            MessageBox.Show(item.materiaalPar.Naam);
 
+            //picturebox nodig voor materiaal update methode
+            PictureBox pictureBox = new PictureBox();
+            pictureBox.Image = item.logboekPar.Materiaal.Foto;
+
+            //zeker weten
+            DialogResult result = MessageBox.Show($"Wil je alle {item.logboekPar.Materiaal.MateriaalNaam} inleveren?", "Alles inleveren?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            //als je het wel wil doen
+            if (result == DialogResult.Yes)
+            {
+                //log verwijderen
+                LogboekDA.LogDelete(item.logboekPar.LogID);
+
+                //bereken nieuwe voorraad
+                int intNieuweVoorraad = item.logboekPar.Materiaal.Voorraad + Convert.ToInt32(item.logboekPar.Aantal);
+
+                //aantal terug toevoegen aan materiaal
+                MateriaalDA.MateriaalUpdate(item.logboekPar.Materiaal.MateriaalNaam, item.logboekPar.Materiaal.Beschrijving, intNieuweVoorraad, pictureBox, item.logboekPar.Materiaal.ID);
+
+                //vernieuw de pagina
+                LogboekRefresh();
+            }
         }
         private void LogboekKiesAantal_Click(object sender, EventArgs e)
         {
+            //Omzetten van object naar MateriaalItem
+            LogboekItem item = (LogboekItem)sender;
+
+            int intNieuweVoorraad;
+            PictureBox pictureBox = new PictureBox();
+            pictureBox.Image = item.logboekPar.Materiaal.Foto;
+
+            //Hoeveel wil je teruggeven
+            string strAantalInleveren = Interaction.InputBox("Hoeveel exemplaren wil je inleveren?", "Aantal inleveren?");
+            
+            //is er een invoer?
+            if (strAantalInleveren != "" && int.TryParse(strAantalInleveren, out int number) && number > 0 && number.ToString().Contains(" ") == false)
+            {
+                if (number < Convert.ToInt16(item.logboekPar.Aantal))
+                {
+                    int intNieuwAantal = Convert.ToInt16(item.logboekPar.Aantal) - number;
+                    //aantal verminderen uit logboek
+                    LogboekDA.LogUpdate(item.logboekPar.LogID, intNieuwAantal);
+                }
+                else if (number == Convert.ToInt32(item.logboekPar.Aantal))
+                {
+                    //log verwijderen --> alles ingediend
+                    LogboekDA.LogDelete(item.logboekPar.LogID);
+                }
+                //aantal terug toevoegen aan materiaal
+                intNieuweVoorraad = item.logboekPar.Materiaal.Voorraad + number;
+                MateriaalDA.MateriaalUpdate(item.logboekPar.Materiaal.MateriaalNaam, item.logboekPar.Materiaal.Beschrijving, intNieuweVoorraad, pictureBox, item.logboekPar.Materiaal.ID);
+
+                //vernieuw de pagina
+                LogboekRefresh();
+            }
+            else
+            {
+                MessageBox.Show("Je mag alleen positieve getallen ingeven!", "Alleen getallen!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }

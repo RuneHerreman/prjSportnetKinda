@@ -88,7 +88,7 @@ namespace prjSportnetKinda.DA
                 {
                     //id is nodig om te identificeren welke userControl er wordt gebruikt
                     ID = Convert.ToInt16(record["MateriaalID"]),
-                    Naam = record["naam"].ToString(),
+                    MateriaalNaam = record["materiaalnaam"].ToString(),
                     Beschrijving = record["beschrijving"].ToString(),
                     //foto van hierboven
                     Foto = img,
@@ -144,7 +144,7 @@ namespace prjSportnetKinda.DA
                 MySqlConnection conn = Database.MakeConnection();
 
                 //query maken
-                string query = "INSERT INTO `tblmateriaal`(`Naam`, `Beschrijving`, `Voorraad`, `Foto`) VALUES (@Naam, @Beschrijving, @Voorraad, @Foto)";
+                string query = "INSERT INTO `tblmateriaal`(`MateriaalNaam`, `Beschrijving`, `Voorraad`, `Foto`) VALUES (@Naam, @Beschrijving, @Voorraad, @Foto)";
                 //commando maken
                 MySqlCommand cmdMateriaalMaken = new MySqlCommand(query, conn);
                 cmdMateriaalMaken.CommandText = query;
@@ -178,7 +178,7 @@ namespace prjSportnetKinda.DA
                 MySqlConnection conn = Database.MakeConnection();
 
                 //query maken
-                string query = "UPDATE `tblmateriaal` SET `Naam`=@Naam,`Beschrijving`=@Beschrijving,`Voorraad`=@Voorraad,`Foto`=@Foto WHERE `MateriaalID`=@MateriaalID";
+                string query = "UPDATE `tblmateriaal` SET `MateriaalNaam`=@Naam,`Beschrijving`=@Beschrijving,`Voorraad`=@Voorraad,`Foto`=@Foto WHERE `MateriaalID`=@MateriaalID";
                 //commando maken
                 MySqlCommand cmdMateriaalUpdate = new MySqlCommand(query, conn);
                 cmdMateriaalUpdate.CommandText = query;
@@ -229,5 +229,7 @@ namespace prjSportnetKinda.DA
             }
             
         }
+
+
     }
 }

@@ -29,7 +29,7 @@ namespace prjSportnetKinda.View
             //listview opvullen
             foreach (Materiaal materiaal in matList)
             {
-                lsvMateriaal.Items.Add(materiaal.Naam);
+                lsvMateriaal.Items.Add(materiaal.MateriaalNaam);
             }
 
             //herladen van materiaal
@@ -58,7 +58,7 @@ namespace prjSportnetKinda.View
             lblMateriaalID.ResetText();
 
             //vul alles
-            txtNieuweNaam.Text = materiaal.Naam;
+            txtNieuweNaam.Text = materiaal.MateriaalNaam;
             rtxtBeschrijving.Text = materiaal.Beschrijving;
             txtNieuweVoorraad.Text = materiaal.Voorraad.ToString();
             picNieuweAfbeelding.Image = materiaal.Foto;
@@ -78,7 +78,7 @@ namespace prjSportnetKinda.View
             foreach (Materiaal materiaal in MateriaalDA.OphalenMateriaal())
             {
                 //listview opvullen
-                lsvMateriaal.Items.Add(materiaal.Naam);
+                lsvMateriaal.Items.Add(materiaal.MateriaalNaam);
             }
 
             //ook de lijst waar de info uit komt updaten
@@ -130,7 +130,7 @@ namespace prjSportnetKinda.View
             foreach (Materiaal materiaal in matList)
             {
                 //listview opvullen
-                lsvMateriaal.Items.Add(materiaal.Naam);
+                lsvMateriaal.Items.Add(materiaal.MateriaalNaam);
             }
 
             //leeg alles
@@ -141,7 +141,6 @@ namespace prjSportnetKinda.View
             txtNieuweVoorraad.ResetText();
 
             main1.MateriaalRefresh();
-
         }
     }
 }

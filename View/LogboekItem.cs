@@ -19,24 +19,18 @@ namespace prjSportnetKinda
         public event EventHandler LogboekKiesAantalClick;
         public event EventHandler LogboekAllesInleverenClick;
 
-        //list nodig om te itereren en materiaal te vinden
-        public Gebruiker gebruikerPar { get; set; }
+
+        public List<Logboek> logListPar { get; set; }
         public Logboek logboekPar { get; set; }
-        public Materiaal materiaalPar { get; set; }
-        public List<Materiaal> geleendMatlistPar { get; set; }
         public int intGebruikerIDLogboekPar { get; set; }
 
-
-        List<Logboek> logboeklist;
-        List<Gebruiker> gebruikerlist;
         public LogboekItem()
         {
             InitializeComponent();
         }
 
-        public void LogboekOpvullen(Logboek l, Gebruiker g, List<Materiaal> matlist, int intGebruikerIDLogboek)
+        public void LogboekOpvullen(Gebruiker g, int intGebruikerIDLogboek, int intTeller)
         {
-            List<Materiaal> GeleendList = new List<Materiaal>();
             //leeg de info
             this.lblAantalOfLijstMateriaal.ResetText();
             this.lblNaam.ResetText();
@@ -44,103 +38,71 @@ namespace prjSportnetKinda
             btnKiesAantal.Visible = false;
             btnGebruikerLog.Visible = false;
 
-            gebruikerlist = GebruikerDA.OphalenGebruikers();
-
             //voor gebruik bij event in form
             this.intGebruikerIDLogboekPar = intGebruikerIDLogboek;
             
-            //Gebruiker zoeken
-            Gebruiker GetNameByUserID(int intGerbuikerID, List<Gebruiker> gebruikers)
-            {
-                foreach (Gebruiker gebruiker in gebruikers)
-                {
-                    if (gebruiker.GebruikerID == intGebruikerIDLogboek)
-                    {
-                        return gebruiker;
-                        //voor gebruik bij event in form
-                        this.gebruikerPar = gebruiker;
-                    }
-                }
-                return null;
-            }
-
             //ben je beheerder of niet
             //ja --> ieder item is het materiaal van een gebuiker (item = naam van gebruiker, materiaal dat ze geleend hebben)
             if (g.Beheerder)
             {
-                //alleen van de huidige opvragen
-                logboeklist = LogboekDA.OphalenLogboek(intGebruikerIDLogboek);
-
+                List<Logboek> logList = LogboekDA.OphalenLogboek(intGebruikerIDLogboek);
                 //er staat iets in?
-                if (logboeklist.Count != 0)
+                if (logList.Count != 0)
                 {
                     //titel = volledige naam
-                    if (GetNameByUserID(intGebruikerIDLogboek, gebruikerlist) != null)
+                    this.lblNaam.Text = logList[0].Gebruiker.Voornaam + " " + logList[0].Gebruiker.Naam;
+
+                    //maar de eerste drie logs tonen, anders te veel in één keer
+                    int intTeller1 = 0;
+                    foreach (Logboek logboek in logList)
                     {
-                        this.lblNaam.Text = GetNameByUserID(intGebruikerIDLogboek, gebruikerlist).Voornaam + GetNameByUserID(intGebruikerIDLogboek, gebruikerlist).Naam;
-                    }
-                    
-                    foreach (Logboek logboek in logboeklist)
-                    {
-                        foreach (Materiaal mat in matlist)
+                        if (intTeller1 <3)
                         {
-                            if (mat.ID.ToString() == logboek.GehuurdMateriaalID)
-                            {
-                                this.lblAantalOfLijstMateriaal.Text += mat.Naam + Environment.NewLine;
-                                GeleendList.Add(mat);
-                            }
+                            this.lblAantalOfLijstMateriaal.Text += logboek.Materiaal.MateriaalNaam + Environment.NewLine;
                         }
+                        else
+                        {
+                            this.lblAantalOfLijstMateriaal.Text += "...";
+                            break;
+                        }
+                        intTeller1++;
                     }
 
                     //voor gebruik bij event in form
-                    this.geleendMatlistPar = GeleendList;
+                    this.logListPar = logList;
                 }
                 
                 //profielfoto tonen in item
-                if (GetNameByUserID(intGebruikerIDLogboek, gebruikerlist).Profielfoto != null)
+                if (logList[0].Gebruiker.Profielfoto != null)
                 {
-                    this.picLogboekFoto.Image = GetNameByUserID(intGebruikerIDLogboek, gebruikerlist).Profielfoto;
+                    this.picLogboekFoto.Image = logList[0].Gebruiker.Profielfoto;
                 }
                 //beheerder kijkt naar materiaal per gebruiker
                 btnGebruikerLog.Visible = true;
             }
             else //nee --> ingelogde gebruiker ziet alleen zijn eigen materiaal (item = 1 geleen item)
             {
-                if (g.GebruikerID == l.GebruikerID)
+                List<Logboek> logList = LogboekDA.OphalenLogboek(g.GebruikerID);
+                if (logList.Count != 0)
                 {
-                    foreach (Materiaal mat in matlist)
+                    //labels opvullen
+                    this.lblNaam.Text = logList[intTeller].Materiaal.MateriaalNaam;
+                    this.lblAantalOfLijstMateriaal.Text = "Aantal: " + logList[intTeller].Aantal;
+
+                    //als er een foto is --> materiaal
+                    if (logList[intTeller].Materiaal.Foto != null)
                     {
-                        if (mat.ID.ToString() == l.GehuurdMateriaalID)
-                        {
-                            this.lblNaam.Text = mat.Naam;
-                            this.lblAantalOfLijstMateriaal.Text = "Aantal: " + l.Aantal;
-                            //als er een foto is --> materiaal
-                            if (mat.Foto != null)
-                            {
-                                this.picLogboekFoto.Image = mat.Foto;
-                            }
-                            //gebruiker bekijkt materiaal per log
-                            btnAllesInleveren.Visible = true;
-                            btnKiesAantal.Visible = true;
-
-                            //voor gebruik bij event in form
-                            this.logboekPar = l;
-                            this.materiaalPar = mat;
-                        }
+                        this.picLogboekFoto.Image = logList[intTeller].Materiaal.Foto;
                     }
-                }                
-            }
 
-        }
-
-        private void LogboekItem_Click(object sender, EventArgs e)
-        {
-            //Event oproepen als op button huren wordt geklikt
-            if (LogboekGebruikerLog != null)
-            {
-                LogboekGebruikerLog(this, e);
+                    //gebruiker bekijkt materiaal per log
+                    btnAllesInleveren.Visible = true;
+                    btnKiesAantal.Visible = true;
+                    this.logboekPar = logList[intTeller];
+                }
             }
         }
+
 
         private void btnAllesInleveren_Click(object sender, EventArgs e)
         {
@@ -157,6 +119,15 @@ namespace prjSportnetKinda
             if (LogboekKiesAantalClick != null)
             {
                 LogboekKiesAantalClick(this, e);
+            }
+        }
+
+        private void btnGebruikerLog_Click(object sender, EventArgs e)
+        {
+            //Event oproepen als op button huren wordt geklikt
+            if (LogboekGebruikerLog != null)
+            {
+                LogboekGebruikerLog(this, e);
             }
         }
     }
