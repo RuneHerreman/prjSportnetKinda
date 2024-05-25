@@ -104,8 +104,7 @@ namespace prjSportnetKinda
                 //beheerder kijkt naar materiaal per gebruiker
                 btnGebruikerLog.Visible = true;
             }
-            //nee --> ingelogde gebruiker ziet alleen zijn eigen materiaal (item = 1 geleen item)
-            else
+            else //nee --> ingelogde gebruiker ziet alleen zijn eigen materiaal (item = 1 geleen item)
             {
                 if (g.GebruikerID == l.GebruikerID)
                 {
