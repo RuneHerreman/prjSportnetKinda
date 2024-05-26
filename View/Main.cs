@@ -920,13 +920,21 @@ namespace prjSportnetKinda
 
                 if (strWachtwoord == gebruiker.Wachtwoord)
                 {
-                    //Tekstboxes tonen en invullen
+                    //Tekstboxes tonen
                     txtDatum.Visible = true;
                     txtStart.Visible = true;
                     txtLocatie.Visible = true;
                     txtDuur.Visible = true;
                     txtInfo1.Visible = true;
-                    txtInfo2.Visible = true;
+                    if (activiteit.Type == "Feest")
+                    {
+                        chkEten.Visible = true;
+                        lblInfo2.Visible = false;
+                    }
+                    else
+                    {
+                        txtInfo2.Visible = true;
+                    }
                     txtInfo3.Visible = true;
                     lblDeelnemers.Enabled = false;
                     mcalKalender.Enabled = false;
@@ -937,12 +945,27 @@ namespace prjSportnetKinda
                     btnKomendeDagen.Enabled = false;
                     btnActiviteitVerwijderen.Visible = true;
 
+                    //Textboxes invullen
                     txtDatum.Text = lblDatum.Text;
                     txtStart.Text = lblStart.Text;
                     txtLocatie.Text = lblLocatie.Text;
                     txtDuur.Text = lblDuur.Text.Replace(" min", "");
                     txtInfo1.Text = lblInfo1.Text;
-                    txtInfo2.Text = lblInfo2.Text.Replace("Geen eten voorzien", "False").Replace("Eten voorzien", "True");
+                    if (activiteit.Type == "Feest")
+                    {
+                        if (lblInfo2.Text == "Eten voorzien")
+                        {
+                            chkEten.Checked = true;
+                        }
+                        else
+                        {
+                            chkEten.Checked = false;
+                        }
+                    }
+                    else
+                    {
+                        txtInfo2.Text = lblInfo2.Text;
+                    }
                     txtInfo3.Text = lblInfo3.Text;
 
                     //Button veranderen naar opslaan button
@@ -1001,7 +1024,7 @@ namespace prjSportnetKinda
                                 Activiteit.Feest = new Feest();
 
                                 Activiteit.Feest.Organisator = txtInfo1.Text;
-                                Activiteit.Feest.Eten = Convert.ToBoolean(txtInfo2.Text);
+                                Activiteit.Feest.Eten = Convert.ToBoolean(chkEten);
                                 Activiteit.Feest.Beschrijving = txtInfo3.Text;
                             }
 
@@ -1050,6 +1073,7 @@ namespace prjSportnetKinda
                                 txtInfo1.Visible = false;
                                 txtInfo2.Visible = false;
                                 txtInfo3.Visible = false;
+                                lblInfo2.Visible = true;
 
                                 txtDatum.Clear();
                                 txtStart.Clear();

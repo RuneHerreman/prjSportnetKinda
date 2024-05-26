@@ -211,7 +211,7 @@
             this.btnDeelnemen.Name = "btnDeelnemen";
             this.btnDeelnemen.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.btnDeelnemen.Size = new System.Drawing.Size(254, 47);
-            this.btnDeelnemen.TabIndex = 12;
+            this.btnDeelnemen.TabIndex = 11;
             this.btnDeelnemen.Text = "Activiteit Toevoegen";
             this.btnDeelnemen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeelnemen.UseVisualStyleBackColor = false;
@@ -222,7 +222,7 @@
             this.txtInfo1.Location = new System.Drawing.Point(169, 339);
             this.txtInfo1.Name = "txtInfo1";
             this.txtInfo1.Size = new System.Drawing.Size(265, 22);
-            this.txtInfo1.TabIndex = 13;
+            this.txtInfo1.TabIndex = 8;
             this.txtInfo1.Visible = false;
             // 
             // txtDuur
@@ -230,7 +230,7 @@
             this.txtDuur.Location = new System.Drawing.Point(169, 310);
             this.txtDuur.Name = "txtDuur";
             this.txtDuur.Size = new System.Drawing.Size(265, 22);
-            this.txtDuur.TabIndex = 14;
+            this.txtDuur.TabIndex = 7;
             this.txtDuur.Visible = false;
             // 
             // txtDatum
@@ -238,7 +238,7 @@
             this.txtDatum.Location = new System.Drawing.Point(169, 220);
             this.txtDatum.Name = "txtDatum";
             this.txtDatum.Size = new System.Drawing.Size(265, 22);
-            this.txtDatum.TabIndex = 15;
+            this.txtDatum.TabIndex = 4;
             this.txtDatum.Visible = false;
             // 
             // txtStart
@@ -246,7 +246,7 @@
             this.txtStart.Location = new System.Drawing.Point(169, 251);
             this.txtStart.Name = "txtStart";
             this.txtStart.Size = new System.Drawing.Size(265, 22);
-            this.txtStart.TabIndex = 16;
+            this.txtStart.TabIndex = 5;
             this.txtStart.Visible = false;
             // 
             // txtLocatie
@@ -254,7 +254,7 @@
             this.txtLocatie.Location = new System.Drawing.Point(169, 282);
             this.txtLocatie.Name = "txtLocatie";
             this.txtLocatie.Size = new System.Drawing.Size(265, 22);
-            this.txtLocatie.TabIndex = 17;
+            this.txtLocatie.TabIndex = 6;
             this.txtLocatie.Visible = false;
             // 
             // txtInfo2
@@ -262,7 +262,7 @@
             this.txtInfo2.Location = new System.Drawing.Point(169, 367);
             this.txtInfo2.Name = "txtInfo2";
             this.txtInfo2.Size = new System.Drawing.Size(265, 22);
-            this.txtInfo2.TabIndex = 18;
+            this.txtInfo2.TabIndex = 9;
             this.txtInfo2.Visible = false;
             // 
             // txtInfo3
@@ -270,7 +270,7 @@
             this.txtInfo3.Location = new System.Drawing.Point(169, 398);
             this.txtInfo3.Name = "txtInfo3";
             this.txtInfo3.Size = new System.Drawing.Size(265, 22);
-            this.txtInfo3.TabIndex = 19;
+            this.txtInfo3.TabIndex = 10;
             this.txtInfo3.Visible = false;
             // 
             // ActiviteitToevoegen
