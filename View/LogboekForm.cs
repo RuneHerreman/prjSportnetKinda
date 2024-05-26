@@ -31,6 +31,7 @@ namespace prjSportnetKinda.View
             LogboekRefresh();
         }
 
+        //methodes
         public void LogboekRefresh()
         {
             //if statement bepaald hoeveel keer de loop zal lopen
@@ -93,24 +94,48 @@ namespace prjSportnetKinda.View
             
         }
 
-        private void LogboekGebruikerLog_Click(object sender, EventArgs e)
+        
+        private void DeleteLog(LogboekItem item)
         {
-            //Omzetten van object naar MateriaalItem
-            LogboekItem item = (LogboekItem)sender;
+            //vragen voor bevestigen van verwijderen
+            DialogResult result = MessageBox.Show($"Wil je alle {item.logboekPar.Materiaal.MateriaalNaam} inleveren?", "Alles inleveren?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            //als je het wel wil doen
+            if (result == DialogResult.Yes)
+            {
+                //log verwijderen
+                LogboekDA.LogDelete(item.logboekPar.LogID);
 
-            LogboekBeheer logboekBeheer = new LogboekBeheer(item, this);
-            logboekBeheer.ShowDialog();
+                //pas het materiaal aan
+                MateriaalAanpassen(0, item);
+
+                //vernieuw de pagina
+                LogboekRefresh();
+            }
         }
         private void MateriaalAanpassen(int intNumber, LogboekItem item)
         {
+            //foto van materiaal in picturebox nodig voor het uitvoeren van de methode
             PictureBox pictureBox = new PictureBox();
             pictureBox.Image = item.logboekPar.Materiaal.Foto;
-            //aantal terug toevoegen aan materiaal
+
+            //aantal terug toevoegen aan materiaal (huidige voorraad + hoeveel je wil indienen)
             int intNieuweVoorraad = item.logboekPar.Materiaal.Voorraad + intNumber;
 
             MateriaalDA.MateriaalUpdate(item.logboekPar.Materiaal.MateriaalNaam, item.logboekPar.Materiaal.Beschrijving, intNieuweVoorraad, pictureBox, item.logboekPar.Materiaal.ID);
 
             LogboekRefresh();
+        }
+        //------------------------------------------------------------------------------------------------------------------------------------------
+        //------------------------------------------------------------------------------------------------------------------------------------------
+        //------------------------------------------------------------------------------------------------------------------------------------------
+        private void LogboekGebruikerLog_Click(object sender, EventArgs e)
+        {
+            //Omzetten van object naar MateriaalItem
+            LogboekItem item = (LogboekItem)sender;
+
+            //open het beheer formulier
+            LogboekBeheer logboekBeheer = new LogboekBeheer(item, this);
+            logboekBeheer.ShowDialog();
         }
         private void LogboekKiesAantal_Click(object sender, EventArgs e)
         {
@@ -120,8 +145,8 @@ namespace prjSportnetKinda.View
             //Hoeveel wil je teruggeven
             string strAantalInleveren = Interaction.InputBox("Hoeveel exemplaren wil je inleveren?", "Aantal inleveren?");
             
-            //is er een invoer?
-            if (strAantalInleveren != "" && int.TryParse(strAantalInleveren, out int number) && number > 0 && number.ToString().Contains(" ") == false)
+            //is er een invoer?, positief?, groter dan 0?
+            if (strAantalInleveren != "" && int.TryParse(strAantalInleveren, out int number) && number > 0)
             {
                 if (number < Convert.ToInt16(item.logboekPar.Aantal))
                 {
@@ -132,7 +157,8 @@ namespace prjSportnetKinda.View
                 }
                 else if (number == Convert.ToInt32(item.logboekPar.Aantal))
                 {
-                    LogboekAllesInlveren_Click(sender, EventArgs.Empty);
+                    //verwijder
+                    DeleteLog(item);
                 }
             }
             else
@@ -146,23 +172,7 @@ namespace prjSportnetKinda.View
             //Omzetten van object naar MateriaalItem
             LogboekItem item = (LogboekItem)sender;
 
-            //picturebox nodig voor materiaal update methode
-            PictureBox pictureBox = new PictureBox();
-            pictureBox.Image = item.logboekPar.Materiaal.Foto;
-
-            //zeker weten
-            DialogResult result = MessageBox.Show($"Wil je alle {item.logboekPar.Materiaal.MateriaalNaam} inleveren?", "Alles inleveren?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-            //als je het wel wil doen
-            if (result == DialogResult.Yes)
-            {
-                //log verwijderen
-                LogboekDA.LogDelete(item.logboekPar.LogID);
-
-                MateriaalAanpassen(0, item);
-
-                //vernieuw de pagina
-                LogboekRefresh();
-            }
+            DeleteLog(item);
         }
     }
 }
