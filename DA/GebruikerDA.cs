@@ -116,18 +116,18 @@ namespace prjSportnetKinda.DA
                 MySqlConnection conn = Database.MakeConnection();
 
                 //Controleren of Email al bestaat
-                string query = "SELECT * from tblgebruiker WHERE Email=@Email";
+                string queryCheck = "SELECT * from tblgebruiker WHERE Email=@Email";
 
                 //Maken van het command
-                MySqlCommand cmdRegistreren = new MySqlCommand(query, conn);
+                MySqlCommand cmdCheck = new MySqlCommand(queryCheck, conn);
 
                 //Welk soort gegevens is het commando
-                cmdRegistreren.CommandType = CommandType.Text;
+                cmdCheck.CommandType = CommandType.Text;
 
                 //Parameters
-                cmdRegistreren.Parameters.AddWithValue("@Email", email);
+                cmdCheck.Parameters.AddWithValue("@Email", email);
 
-                MySqlDataReader reader = cmdRegistreren.ExecuteReader();
+                MySqlDataReader reader = cmdCheck.ExecuteReader();
                 if (reader.HasRows == true)
                 {
                     reader.Read();
@@ -140,11 +140,11 @@ namespace prjSportnetKinda.DA
                 {
                     reader.Close();
                     //sting maken met sql statement
-                    query = "INSERT INTO tblgebruiker (Naam, Voornaam, Email, Geboortedatum, Wachtwoord, LidSinds, Renner, Trainer, Beheerder) " +
+                    string queryRegistreren = "INSERT INTO tblgebruiker (Naam, Voornaam, Email, Geboortedatum, Wachtwoord, LidSinds, Renner, Trainer, Beheerder) " +
                             "VALUES (@Naam, @Voornaam, @Email, @Geboortedatum, @Wachtwoord, @LidSinds, @Renner, @Trainer, @Beheerder)";
 
                     //Maken van het command
-                    cmdRegistreren = new MySqlCommand(query, conn);
+                    MySqlCommand cmdRegistreren = new MySqlCommand(queryRegistreren, conn);
 
                     //Welk soort gegevens is het commando
                     cmdRegistreren.CommandType = CommandType.Text;

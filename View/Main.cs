@@ -465,8 +465,8 @@ namespace prjSportnetKinda
                     txtAdres.Text = lblAdres.Text;
                     txtGeboortedatum.Visible = true;
                     txtGeboortedatum.Text = lblGeboortedatum.Text;
-                    txtGeslacht.Visible = true;
-                    txtGeslacht.Text = lblGeslacht.Text;
+                    cmbGeslacht.Visible = true;
+                    cmbGeslacht.Text = lblGeslacht.Text;
                     txtTelefoonnr.Visible = true;
                     txtTelefoonnr.Text = lblTelefoon.Text;
 
@@ -494,7 +494,7 @@ namespace prjSportnetKinda
                 if(result == DialogResult.Yes)
                 {
                     //Controle op Lege velden
-                    if (txtVoornaam.Text == "" || txtNaam.Text == "" || txtGeslacht.Text == "" || txtAdres.Text == "" || txtTelefoonnr.Text == "" || txtGeboortedatum.Text == "")
+                    if (txtVoornaam.Text == "" || txtNaam.Text == "" || cmbGeslacht.Text == "" || txtAdres.Text == "" || txtTelefoonnr.Text == "" || txtGeboortedatum.Text == "")
                     {
                         //Foutmelding
                         MessageBox.Show("Je moet alle velden invullen!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -508,7 +508,7 @@ namespace prjSportnetKinda
 
                             Aanpassingen.Voornaam = txtVoornaam.Text;
                             Aanpassingen.Naam = txtNaam.Text;
-                            Aanpassingen.Geslacht = txtGeslacht.Text;
+                            Aanpassingen.Geslacht = cmbGeslacht.Text;
                             Aanpassingen.Adres = txtAdres.Text;
                             Aanpassingen.Telefoonnummer = Convert.ToInt32(txtTelefoonnr.Text);
                             Aanpassingen.Geboortedatum = Convert.ToDateTime(txtGeboortedatum.Text);
@@ -557,8 +557,7 @@ namespace prjSportnetKinda
                                 txtAdres.Clear();
                                 txtGeboortedatum.Visible = false;
                                 txtGeboortedatum.Clear();
-                                txtGeslacht.Visible = false;
-                                txtGeslacht.Clear();
+                                cmbGeslacht.Visible = false;
                                 txtTelefoonnr.Visible = false;
                                 txtTelefoonnr.Clear();
 
@@ -962,10 +961,7 @@ namespace prjSportnetKinda
                             chkEten.Checked = false;
                         }
                     }
-                    else
-                    {
-                        txtInfo2.Text = lblInfo2.Text;
-                    }
+                    txtInfo2.Text = lblInfo2.Text;
                     txtInfo3.Text = lblInfo3.Text;
 
                     //Button veranderen naar opslaan button
@@ -1024,7 +1020,7 @@ namespace prjSportnetKinda
                                 Activiteit.Feest = new Feest();
 
                                 Activiteit.Feest.Organisator = txtInfo1.Text;
-                                Activiteit.Feest.Eten = Convert.ToBoolean(chkEten);
+                                Activiteit.Feest.Eten = Convert.ToBoolean(chkEten.Checked);
                                 Activiteit.Feest.Beschrijving = txtInfo3.Text;
                             }
 
@@ -1073,6 +1069,7 @@ namespace prjSportnetKinda
                                 txtInfo1.Visible = false;
                                 txtInfo2.Visible = false;
                                 txtInfo3.Visible = false;
+                                chkEten.Visible = false;
                                 lblInfo2.Visible = true;
 
                                 txtDatum.Clear();

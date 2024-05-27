@@ -40,7 +40,7 @@ namespace prjSportnetKinda.View
             lblInfo3.Visible = false;
 
             //Button hidden
-            btnDeelnemen.Visible = false;
+            btnToevoegen.Visible = false;
         }
 
         private void AllesTonen()
@@ -51,7 +51,16 @@ namespace prjSportnetKinda.View
             txtLocatie.Visible = true;
             txtDuur.Visible = true;
             txtInfo1.Visible = true;
-            txtInfo2.Visible = true;
+            if (rdbFeest.Checked)
+            {
+                chkEten.Visible = true;
+                txtInfo2.Visible = false;
+            }
+            else
+            {
+                txtInfo2.Visible = true;
+                chkEten.Visible = false;
+            }
             txtInfo3.Visible = true;
 
             //Labels tonen
@@ -67,9 +76,10 @@ namespace prjSportnetKinda.View
             txtInfo1.Clear();
             txtInfo2.Clear();
             txtInfo3.Clear();
+            chkEten.Checked = false;
 
             //Button tonen
-            btnDeelnemen.Visible = true;
+            btnToevoegen.Visible = true;
         }
 
         private void btnDeelnemen_Click(object sender, EventArgs e)
@@ -113,7 +123,7 @@ namespace prjSportnetKinda.View
 
                         Activiteit.Type = "Feest";
                         Activiteit.Feest.Organisator = txtInfo1.Text;
-                        Activiteit.Feest.Eten = Convert.ToBoolean(txtInfo2.Text);
+                        Activiteit.Feest.Eten = Convert.ToBoolean(chkEten.Checked);
                         Activiteit.Feest.Beschrijving = txtInfo3.Text;
                     }
 
@@ -131,6 +141,7 @@ namespace prjSportnetKinda.View
                         txtInfo1.Clear();
                         txtInfo2.Clear();
                         txtInfo3.Clear();
+                        chkEten.Checked = false;
                     }
                     else
                     {
@@ -171,7 +182,7 @@ namespace prjSportnetKinda.View
         {
             //Labels aanpassen aan type
             lblInfo1.Text = "Organisator:";
-            lblInfo2.Text = "Eten: (True/False)";
+            lblInfo2.Text = "Eten:";
             lblInfo3.Text = "Beschrijving:";
 
             //Alles tonen

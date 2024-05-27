@@ -53,23 +53,31 @@ namespace prjSportnetKinda
 
                     if (strWachtwoord == strWachtwoordHerhalen)
                     {
-                        Gebruiker registreren = GebruikerDA.Registreren(strNaam, strVoornaam, strEmail, Geboortedatum, strWachtwoord);
+                        if (DateTime.Now.Year - Geboortedatum.Year > 8)
+                        {
+                            Gebruiker registreren = GebruikerDA.Registreren(strNaam, strVoornaam, strEmail, Geboortedatum, strWachtwoord);
 
-                        if (registreren == null)
-                        {
-                            lblFout.Text = "Vul alle velden correct in";
-                        }
-                        else if (registreren.Email == "Bezet")
-                        {
-                            lblFout.Text = "E-mail is al in gebruik";
+                            if (registreren == null)
+                            {
+                                lblFout.Text = "Vul alle velden correct in";
+                            }
+                            else if (registreren.Email == "Bezet")
+                            {
+                                lblFout.Text = "E-mail is al in gebruik";
+                            }
+                            else
+                            {
+                                Login login = new Login();
+                                this.Hide();
+                                login.ShowDialog();
+                                this.Close();
+                            }
                         }
                         else
                         {
-                            Login login = new Login();
-                            this.Hide();
-                            login.ShowDialog();
-                            this.Close();
+                            lblFout.Text = "Je bent nog te jong om je aan te melden";
                         }
+                        
                     }
                     else
                     {
