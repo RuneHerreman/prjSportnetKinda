@@ -30,13 +30,9 @@ namespace prjSportnetKinda
         //Lijst voor activiteiten in op te slaan
         List<Activiteit> ActiviteitList = new List<Activiteit>();
 
-        //Lijst om gebruikers in op te slaan
-        List<Gebruiker> GebruikerList = new List<Gebruiker>();
-
         public Main(Gebruiker login)
         {
             InitializeComponent();
-            GebruikerList = GebruikerDA.OphalenGebruikers();
             int intJaar = DateTime.Now.Year;
 
             //het uiterlijk van de tabcontrol aanpassen
@@ -414,33 +410,40 @@ namespace prjSportnetKinda
         {
             //var decl
             string strWachtwoord;
-
-            //navragen op keuze met Dialogresult
-            DialogResult dialogresult = MessageBox.Show("Weet je zeker dat je je account wilt verwijderen?", "Account verwijderen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            //Als DialogResult ja is: wachtwoord vragen
-            if (dialogresult == DialogResult.Yes)
+            //Controleren of het admin account is
+            if(gebruiker.GebruikerID != 1)
             {
-                strWachtwoord = Interaction.InputBox("Geef je wachtoord in om je account te verwijderen.", "Wachtwoord ingeven");
+                //navragen op keuze met Dialogresult
+                DialogResult dialogresult = MessageBox.Show("Weet je zeker dat je je account wilt verwijderen?", "Account verwijderen", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if(strWachtwoord == gebruiker.Wachtwoord)
+                //Als DialogResult ja is: wachtwoord vragen
+                if (dialogresult == DialogResult.Yes)
                 {
-                    if (GebruikerDA.Verwijderen(gebruiker.Email) != null)
+                    strWachtwoord = Interaction.InputBox("Geef je wachtoord in om je account te verwijderen.", "Wachtwoord ingeven");
+
+                    if (strWachtwoord == gebruiker.Wachtwoord)
                     {
-                        Login login = new Login();
-                        this.Hide();
-                        login.ShowDialog();
-                        this.Close();
+                        if (GebruikerDA.Verwijderen(gebruiker.Email) != null)
+                        {
+                            Login login = new Login();
+                            this.Hide();
+                            login.ShowDialog();
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Er is een fout opgetreden.\nAccount kan niet verwijderd worden.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Er is een fout opgetreden.\nAccount kan niet verwijderd worden.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Wachtwoord is fout", "Fout wachtwoord", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Wachtwoord is fout", "Fout wachtwoord", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            else
+            {
+                MessageBox.Show("Je mag dit account niet verwijderen", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

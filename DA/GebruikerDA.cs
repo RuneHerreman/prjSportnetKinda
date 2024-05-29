@@ -278,14 +278,18 @@ namespace prjSportnetKinda.DA
             MySqlCommand cmdGebruikersOphalen = new MySqlCommand(query, conn);
 
             //Welk soort gegevens is het commando
-            cmdGebruikersOphalen.CommandType = CommandType.Text;
+            cmdGebruikersOphalen.CommandType = CommandType.Text; 
 
             //Reader
             MySqlDataReader reader = cmdGebruikersOphalen.ExecuteReader();
 
             while (reader.Read())
             {
-                gebruikers.Add(Create(reader));
+                //Admin account niet meegeven zodat je die niet kan wijzigen
+                if (Convert.ToInt32(reader["GebruikerID"]) != 1)
+                {
+                    gebruikers.Add(Create(reader));
+                }
             }
 
             //reader sluiten
