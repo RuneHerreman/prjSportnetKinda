@@ -77,6 +77,7 @@ namespace prjSportnetKinda.View
                 txtBeschrijvingNieuw.ResetText();
                 txtNaamNieuw.ResetText();
                 txtFotoNieuw.ResetText();
+                txtVoorraad.ResetText();
                 picNieuwMateriaalPreview.Image = null;
                 txtVoorraad.ResetText();
                 main1.MateriaalRefresh();
