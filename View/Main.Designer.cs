@@ -83,6 +83,7 @@
             this.btnLogboek = new System.Windows.Forms.Button();
             this.btnWinkelwagentje = new System.Windows.Forms.Button();
             this.tabProfiel = new System.Windows.Forms.TabPage();
+            this.cmbGeslacht = new System.Windows.Forms.ComboBox();
             this.btnBannerFoto = new System.Windows.Forms.Button();
             this.btnProfielFoto = new System.Windows.Forms.Button();
             this.txtBannerFoto = new System.Windows.Forms.TextBox();
@@ -91,7 +92,6 @@
             this.lblProfielFoto = new System.Windows.Forms.Label();
             this.txtNaam = new System.Windows.Forms.TextBox();
             this.txtGeboortedatum = new System.Windows.Forms.TextBox();
-            this.txtGeslacht = new System.Windows.Forms.TextBox();
             this.txtTelefoonnr = new System.Windows.Forms.TextBox();
             this.txtAdres = new System.Windows.Forms.TextBox();
             this.txtVoornaam = new System.Windows.Forms.TextBox();
@@ -126,7 +126,6 @@
             this.btnMateriaal = new prjSportnetKinda.View.ButtonControls();
             this.btnKalender = new prjSportnetKinda.View.ButtonControls();
             this.btnStart = new prjSportnetKinda.View.ButtonControls();
-            this.cmbGeslacht = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tcMain.SuspendLayout();
@@ -160,7 +159,7 @@
             this.pictureBox1.Image = global::prjSportnetKinda.Properties.Resources.Logo_Blue;
             this.pictureBox1.Location = new System.Drawing.Point(5, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(5);
             this.pictureBox1.Size = new System.Drawing.Size(55, 55);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 2;
@@ -187,7 +186,7 @@
             this.tabStart.Controls.Add(this.pnlStartContainer);
             this.tabStart.Location = new System.Drawing.Point(4, 22);
             this.tabStart.Name = "tabStart";
-            this.tabStart.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabStart.Padding = new System.Windows.Forms.Padding(3);
             this.tabStart.Size = new System.Drawing.Size(906, 715);
             this.tabStart.TabIndex = 0;
             this.tabStart.Text = "Start";
@@ -238,7 +237,7 @@
             this.tabKalender.Controls.Add(this.lblTrainingCategorie);
             this.tabKalender.Location = new System.Drawing.Point(4, 22);
             this.tabKalender.Name = "tabKalender";
-            this.tabKalender.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabKalender.Padding = new System.Windows.Forms.Padding(3);
             this.tabKalender.Size = new System.Drawing.Size(906, 715);
             this.tabKalender.TabIndex = 1;
             this.tabKalender.Text = "Kalender";
@@ -247,7 +246,7 @@
             // 
             this.btnKomendeDagen.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKomendeDagen.Location = new System.Drawing.Point(355, 216);
-            this.btnKomendeDagen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnKomendeDagen.Margin = new System.Windows.Forms.Padding(2);
             this.btnKomendeDagen.Name = "btnKomendeDagen";
             this.btnKomendeDagen.Size = new System.Drawing.Size(156, 26);
             this.btnKomendeDagen.TabIndex = 10;
@@ -319,7 +318,7 @@
             // 
             this.chkEten.AutoSize = true;
             this.chkEten.Location = new System.Drawing.Point(154, 207);
-            this.chkEten.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkEten.Margin = new System.Windows.Forms.Padding(2);
             this.chkEten.Name = "chkEten";
             this.chkEten.Size = new System.Drawing.Size(103, 17);
             this.chkEten.TabIndex = 19;
@@ -353,7 +352,7 @@
             // 
             this.txtStart.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStart.Location = new System.Drawing.Point(155, 101);
-            this.txtStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtStart.Margin = new System.Windows.Forms.Padding(2);
             this.txtStart.Name = "txtStart";
             this.txtStart.Size = new System.Drawing.Size(249, 20);
             this.txtStart.TabIndex = 2;
@@ -363,7 +362,7 @@
             // 
             this.txtLocatie.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLocatie.Location = new System.Drawing.Point(155, 128);
-            this.txtLocatie.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtLocatie.Margin = new System.Windows.Forms.Padding(2);
             this.txtLocatie.Name = "txtLocatie";
             this.txtLocatie.Size = new System.Drawing.Size(249, 20);
             this.txtLocatie.TabIndex = 3;
@@ -373,7 +372,7 @@
             // 
             this.txtDuur.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDuur.Location = new System.Drawing.Point(155, 154);
-            this.txtDuur.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDuur.Margin = new System.Windows.Forms.Padding(2);
             this.txtDuur.Name = "txtDuur";
             this.txtDuur.Size = new System.Drawing.Size(249, 20);
             this.txtDuur.TabIndex = 4;
@@ -383,7 +382,7 @@
             // 
             this.txtInfo3.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInfo3.Location = new System.Drawing.Point(155, 235);
-            this.txtInfo3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtInfo3.Margin = new System.Windows.Forms.Padding(2);
             this.txtInfo3.Name = "txtInfo3";
             this.txtInfo3.Size = new System.Drawing.Size(249, 20);
             this.txtInfo3.TabIndex = 7;
@@ -393,7 +392,7 @@
             // 
             this.txtInfo2.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInfo2.Location = new System.Drawing.Point(155, 208);
-            this.txtInfo2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtInfo2.Margin = new System.Windows.Forms.Padding(2);
             this.txtInfo2.Name = "txtInfo2";
             this.txtInfo2.Size = new System.Drawing.Size(249, 20);
             this.txtInfo2.TabIndex = 6;
@@ -403,7 +402,7 @@
             // 
             this.txtInfo1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInfo1.Location = new System.Drawing.Point(155, 181);
-            this.txtInfo1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtInfo1.Margin = new System.Windows.Forms.Padding(2);
             this.txtInfo1.Name = "txtInfo1";
             this.txtInfo1.Size = new System.Drawing.Size(249, 20);
             this.txtInfo1.TabIndex = 5;
@@ -413,7 +412,7 @@
             // 
             this.txtDatum.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDatum.Location = new System.Drawing.Point(155, 74);
-            this.txtDatum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDatum.Margin = new System.Windows.Forms.Padding(2);
             this.txtDatum.Name = "txtDatum";
             this.txtDatum.Size = new System.Drawing.Size(249, 20);
             this.txtDatum.TabIndex = 1;
@@ -714,7 +713,7 @@
             this.tabMateriaal.Controls.Add(this.btnWinkelwagentje);
             this.tabMateriaal.Location = new System.Drawing.Point(4, 22);
             this.tabMateriaal.Name = "tabMateriaal";
-            this.tabMateriaal.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabMateriaal.Padding = new System.Windows.Forms.Padding(3);
             this.tabMateriaal.Size = new System.Drawing.Size(906, 715);
             this.tabMateriaal.TabIndex = 2;
             this.tabMateriaal.Text = "Materiaal";
@@ -810,7 +809,6 @@
             this.tabProfiel.Controls.Add(this.lblProfielFoto);
             this.tabProfiel.Controls.Add(this.txtNaam);
             this.tabProfiel.Controls.Add(this.txtGeboortedatum);
-            this.tabProfiel.Controls.Add(this.txtGeslacht);
             this.tabProfiel.Controls.Add(this.txtTelefoonnr);
             this.tabProfiel.Controls.Add(this.txtAdres);
             this.tabProfiel.Controls.Add(this.txtVoornaam);
@@ -842,10 +840,23 @@
             this.tabProfiel.ForeColor = System.Drawing.SystemColors.GrayText;
             this.tabProfiel.Location = new System.Drawing.Point(4, 22);
             this.tabProfiel.Name = "tabProfiel";
-            this.tabProfiel.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabProfiel.Padding = new System.Windows.Forms.Padding(3);
             this.tabProfiel.Size = new System.Drawing.Size(906, 715);
             this.tabProfiel.TabIndex = 3;
             this.tabProfiel.Text = "Profiel";
+            // 
+            // cmbGeslacht
+            // 
+            this.cmbGeslacht.FormattingEnabled = true;
+            this.cmbGeslacht.Items.AddRange(new object[] {
+            "M",
+            "V",
+            "X"});
+            this.cmbGeslacht.Location = new System.Drawing.Point(213, 341);
+            this.cmbGeslacht.Name = "cmbGeslacht";
+            this.cmbGeslacht.Size = new System.Drawing.Size(121, 26);
+            this.cmbGeslacht.TabIndex = 38;
+            this.cmbGeslacht.Visible = false;
             // 
             // btnBannerFoto
             // 
@@ -873,7 +884,7 @@
             // 
             this.txtBannerFoto.Enabled = false;
             this.txtBannerFoto.Location = new System.Drawing.Point(214, 511);
-            this.txtBannerFoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBannerFoto.Margin = new System.Windows.Forms.Padding(2);
             this.txtBannerFoto.Name = "txtBannerFoto";
             this.txtBannerFoto.Size = new System.Drawing.Size(341, 23);
             this.txtBannerFoto.TabIndex = 8;
@@ -883,7 +894,7 @@
             // 
             this.txtProfielFoto.Enabled = false;
             this.txtProfielFoto.Location = new System.Drawing.Point(213, 479);
-            this.txtProfielFoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtProfielFoto.Margin = new System.Windows.Forms.Padding(2);
             this.txtProfielFoto.Name = "txtProfielFoto";
             this.txtProfielFoto.Size = new System.Drawing.Size(341, 23);
             this.txtProfielFoto.TabIndex = 7;
@@ -918,7 +929,7 @@
             // txtNaam
             // 
             this.txtNaam.Location = new System.Drawing.Point(213, 277);
-            this.txtNaam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNaam.Margin = new System.Windows.Forms.Padding(2);
             this.txtNaam.Name = "txtNaam";
             this.txtNaam.Size = new System.Drawing.Size(249, 23);
             this.txtNaam.TabIndex = 2;
@@ -927,25 +938,16 @@
             // txtGeboortedatum
             // 
             this.txtGeboortedatum.Location = new System.Drawing.Point(213, 311);
-            this.txtGeboortedatum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtGeboortedatum.Margin = new System.Windows.Forms.Padding(2);
             this.txtGeboortedatum.Name = "txtGeboortedatum";
             this.txtGeboortedatum.Size = new System.Drawing.Size(249, 23);
             this.txtGeboortedatum.TabIndex = 3;
             this.txtGeboortedatum.Visible = false;
             // 
-            // txtGeslacht
-            // 
-            this.txtGeslacht.Location = new System.Drawing.Point(213, 345);
-            this.txtGeslacht.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtGeslacht.Name = "txtGeslacht";
-            this.txtGeslacht.Size = new System.Drawing.Size(249, 23);
-            this.txtGeslacht.TabIndex = 4;
-            this.txtGeslacht.Visible = false;
-            // 
             // txtTelefoonnr
             // 
             this.txtTelefoonnr.Location = new System.Drawing.Point(616, 343);
-            this.txtTelefoonnr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTelefoonnr.Margin = new System.Windows.Forms.Padding(2);
             this.txtTelefoonnr.Name = "txtTelefoonnr";
             this.txtTelefoonnr.Size = new System.Drawing.Size(249, 23);
             this.txtTelefoonnr.TabIndex = 6;
@@ -954,7 +956,7 @@
             // txtAdres
             // 
             this.txtAdres.Location = new System.Drawing.Point(616, 312);
-            this.txtAdres.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAdres.Margin = new System.Windows.Forms.Padding(2);
             this.txtAdres.Name = "txtAdres";
             this.txtAdres.Size = new System.Drawing.Size(249, 23);
             this.txtAdres.TabIndex = 5;
@@ -963,7 +965,7 @@
             // txtVoornaam
             // 
             this.txtVoornaam.Location = new System.Drawing.Point(214, 246);
-            this.txtVoornaam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtVoornaam.Margin = new System.Windows.Forms.Padding(2);
             this.txtVoornaam.Name = "txtVoornaam";
             this.txtVoornaam.Size = new System.Drawing.Size(249, 23);
             this.txtVoornaam.TabIndex = 1;
@@ -974,7 +976,7 @@
             this.btnAccountVerwijderen.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAccountVerwijderen.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnAccountVerwijderen.Location = new System.Drawing.Point(714, 671);
-            this.btnAccountVerwijderen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAccountVerwijderen.Margin = new System.Windows.Forms.Padding(2);
             this.btnAccountVerwijderen.Name = "btnAccountVerwijderen";
             this.btnAccountVerwijderen.Size = new System.Drawing.Size(168, 35);
             this.btnAccountVerwijderen.TabIndex = 12;
@@ -987,7 +989,7 @@
             this.btnBeheerdersinstellingen.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBeheerdersinstellingen.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnBeheerdersinstellingen.Location = new System.Drawing.Point(5, 671);
-            this.btnBeheerdersinstellingen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBeheerdersinstellingen.Margin = new System.Windows.Forms.Padding(2);
             this.btnBeheerdersinstellingen.Name = "btnBeheerdersinstellingen";
             this.btnBeheerdersinstellingen.Size = new System.Drawing.Size(309, 35);
             this.btnBeheerdersinstellingen.TabIndex = 11;
@@ -1001,7 +1003,7 @@
             this.btnUitloggen.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUitloggen.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnUitloggen.Location = new System.Drawing.Point(169, 632);
-            this.btnUitloggen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUitloggen.Margin = new System.Windows.Forms.Padding(2);
             this.btnUitloggen.Name = "btnUitloggen";
             this.btnUitloggen.Size = new System.Drawing.Size(145, 35);
             this.btnUitloggen.TabIndex = 10;
@@ -1014,7 +1016,7 @@
             this.btnWijzigenProfiel.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWijzigenProfiel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnWijzigenProfiel.Location = new System.Drawing.Point(5, 632);
-            this.btnWijzigenProfiel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnWijzigenProfiel.Margin = new System.Windows.Forms.Padding(2);
             this.btnWijzigenProfiel.Name = "btnWijzigenProfiel";
             this.btnWijzigenProfiel.Size = new System.Drawing.Size(158, 35);
             this.btnWijzigenProfiel.TabIndex = 9;
@@ -1233,7 +1235,7 @@
             // 
             this.picBannerFoto.Image = global::prjSportnetKinda.Properties.Resources.Basic_Banner_Picture;
             this.picBannerFoto.Location = new System.Drawing.Point(209, 5);
-            this.picBannerFoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picBannerFoto.Margin = new System.Windows.Forms.Padding(2);
             this.picBannerFoto.Name = "picBannerFoto";
             this.picBannerFoto.Size = new System.Drawing.Size(690, 200);
             this.picBannerFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1244,7 +1246,7 @@
             // 
             this.picProfielFoto.Image = global::prjSportnetKinda.Properties.Resources.Basic_Profile_Picture;
             this.picProfielFoto.Location = new System.Drawing.Point(5, 5);
-            this.picProfielFoto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picProfielFoto.Margin = new System.Windows.Forms.Padding(2);
             this.picProfielFoto.Name = "picProfielFoto";
             this.picProfielFoto.Size = new System.Drawing.Size(200, 200);
             this.picProfielFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1369,19 +1371,6 @@
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // cmbGeslacht
-            // 
-            this.cmbGeslacht.FormattingEnabled = true;
-            this.cmbGeslacht.Items.AddRange(new object[] {
-            "M",
-            "V",
-            "X"});
-            this.cmbGeslacht.Location = new System.Drawing.Point(213, 341);
-            this.cmbGeslacht.Name = "cmbGeslacht";
-            this.cmbGeslacht.Size = new System.Drawing.Size(121, 26);
-            this.cmbGeslacht.TabIndex = 38;
-            this.cmbGeslacht.Visible = false;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1474,7 +1463,6 @@
         private System.Windows.Forms.Button btnDeelnemen;
         private System.Windows.Forms.TextBox txtNaam;
         private System.Windows.Forms.TextBox txtGeboortedatum;
-        private System.Windows.Forms.TextBox txtGeslacht;
         private System.Windows.Forms.TextBox txtTelefoonnr;
         private System.Windows.Forms.TextBox txtAdres;
         private System.Windows.Forms.TextBox txtVoornaam;

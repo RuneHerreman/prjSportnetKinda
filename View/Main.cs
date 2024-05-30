@@ -33,7 +33,9 @@ namespace prjSportnetKinda
         public Main(Gebruiker login)
         {
             InitializeComponent();
-            int intJaar = DateTime.Now.Year;
+
+            //Gegevens in het programma oplsaan
+            gebruiker = login;
 
             //het uiterlijk van de tabcontrol aanpassen
             //stijl van knoppen aanpassen
@@ -52,86 +54,54 @@ namespace prjSportnetKinda
             this.btnStart.HoverFoto1 = Properties.Resources.home_select;
 
             //Welkom text invullen
-            this.lblNaamVoornaam.Text = "Welkom " + login.Voornaam + " " + login.Naam;
+            this.lblNaamVoornaam.Text = "Welkom " + gebruiker.Voornaam + " " + gebruiker.Naam;
 
             //Activiteiten voor de komende 30 dagen tonen
             KomendeDagen();
 
             //Profiel invullen
-            lblVoornaam.Text = login.Voornaam;
-            lblNaam.Text = login.Naam;
-            lblGeslacht.Text = login.Geslacht;
-            lblAdres.Text = login.Adres;
-            lblTelefoon.Text = login.Telefoonnummer.ToString();
-            lblEmail.Text = login.Email;
-            lblGeboortedatum.Text = login.Geboortedatum.ToString("d");
-            lblLidSinds.Text = login.Lidsinds.ToString("d");
-            if(login.Profielfoto != null)
+            lblVoornaam.Text = gebruiker.Voornaam;
+            lblNaam.Text = gebruiker.Naam;
+            lblGeslacht.Text = gebruiker.Geslacht;
+            lblAdres.Text = gebruiker.Adres;
+            lblTelefoon.Text = gebruiker.Telefoonnummer.ToString();
+            lblEmail.Text = gebruiker.Email;
+            lblGeboortedatum.Text = gebruiker.Geboortedatum.ToString("d");
+            lblLidSinds.Text = gebruiker.Lidsinds.ToString("d");
+            if(gebruiker.Profielfoto != null)
             {
-                picProfielFoto.Image = login.Profielfoto;
+                picProfielFoto.Image = gebruiker.Profielfoto;
             }
-            if(login.Bannerfoto != null)
+            if(gebruiker.Bannerfoto != null)
             {
-                picBannerFoto.Image = login.Bannerfoto;
+                picBannerFoto.Image = gebruiker.Bannerfoto;
             }
 
             //Ben je renner?
-            if (login.Renner)
+            if (gebruiker.Renner)
             {
                 lblCategorieKop.Text = "Categorie:";
 
-                //Categorie berekenen
-                int intLeeftijd = intJaar - login.Geboortedatum.Year;
-
-                if (intLeeftijd <= 8)
-                {
-                    login.Categorie = "Miniem";
-                }
-                else if (intLeeftijd == 9 || intLeeftijd == 10)
-                {
-                    login.Categorie = "Pupil";
-                }
-                else if (intLeeftijd == 11 || intLeeftijd == 12)
-                {
-                    login.Categorie = "Scholier";
-                }
-                else if (intLeeftijd == 13 || intLeeftijd == 14)
-                {
-                    login.Categorie = "Cadet";
-                }
-                else if (intLeeftijd == 15 || intLeeftijd == 16)
-                {
-                    login.Categorie = "Jeugd";
-                }
-                else if (intLeeftijd == 17 || intLeeftijd == 18)
-                {
-                    login.Categorie = "Junior";
-                }
-                else
-                {
-                    login.Categorie = "Senior";
-                }
-
-                lblCategorie.Text = login.Categorie;
+                CategorieBerekenen(gebruiker);
 
                 btnDeelnemen.Visible = true;
             }
 
             //Ben je trainer?
-            if (login.Trainer)
+            if (gebruiker.Trainer)
             {
                 btnActiviteitToevoegen.Visible = true;
                 btnWijzigenActiviteit.Visible = true;
 
                 //Button opschuiven in geval van ook renner
-                if (login.Renner)
+                if (gebruiker.Renner)
                 {
                     btnWijzigenActiviteit.Location = new Point(240, 300);
                 }
             }
 
             //Ben je beheerder?
-            if (login.Beheerder)
+            if (gebruiker.Beheerder)
             {
                 btnBeheerdersinstellingen.Visible = true;
                 btnArtiekelToevoegen.Visible = true;
@@ -141,14 +111,11 @@ namespace prjSportnetKinda
                 btnBeheer.Visible = true;
 
                 //Button opschuiven in geval van ook renner
-                if (login.Renner)
+                if (gebruiker.Renner)
                 {
                     btnWijzigenActiviteit.Location = new Point(240, 300);
                 }
             }
-
-            //Gegevens in het programma oplsaan
-            gebruiker = login;
         }
 
         public void KomendeDagen()
@@ -168,6 +135,47 @@ namespace prjSportnetKinda
 
                 ActiviteitList.Add(a);
             }
+        }
+
+        public void CategorieBerekenen(Gebruiker g)
+        {
+            int intJaar = DateTime.Now.Year;
+
+            //Categorie berekenen
+            int intLeeftijd = intJaar - g.Geboortedatum.Year;
+
+            if (intLeeftijd <= 8)
+            {
+                g.Categorie = "Miniem";
+            }
+            else if (intLeeftijd == 9 || intLeeftijd == 10)
+            {
+                g.Categorie = "Pupil";
+            }
+            else if (intLeeftijd == 11 || intLeeftijd == 12)
+            {
+                g.Categorie = "Scholier";
+            }
+            else if (intLeeftijd == 13 || intLeeftijd == 14)
+            {
+                g.Categorie = "Cadet";
+            }
+            else if (intLeeftijd == 15 || intLeeftijd == 16)
+            {
+                g.Categorie = "Jeugd";
+            }
+            else if (intLeeftijd == 17 || intLeeftijd == 18)
+            {
+                g.Categorie = "Junior";
+            }
+            else
+            {
+                g.Categorie = "Senior";
+            }
+
+            lblCategorie.Text = g.Categorie;
+
+            gebruiker.Categorie = g.Categorie;
         }
 
         public void ArtikelRefresh()
@@ -551,6 +559,12 @@ namespace prjSportnetKinda
                                 lblGeboortedatum.Text = gebruiker.Geboortedatum.ToString("d");
                                 lblLidSinds.Text = gebruiker.Lidsinds.ToString("d");
 
+                                //Categorie aanpassen
+                                if (gebruiker.Renner)
+                                {
+                                    CategorieBerekenen(gebruiker);
+                                }
+                                
                                 //Textboxes legen en hidden
                                 txtVoornaam.Visible = false;
                                 txtVoornaam.Clear();
@@ -917,64 +931,53 @@ namespace prjSportnetKinda
         {
             if (btnWijzigenActiviteit.Text != "Opslaan")
             {
-                //Wachtwoord opvragen
-                string strWachtwoord = Interaction.InputBox("Geef je wachtoord in om je gegevens te wijzigen.", "Wachtwoord ingeven");
-
-                if (strWachtwoord == gebruiker.Wachtwoord)
+                //Tekstboxes tonen
+                txtDatum.Visible = true;
+                txtStart.Visible = true;
+                txtLocatie.Visible = true;
+                txtDuur.Visible = true;
+                txtInfo1.Visible = true;
+                if (activiteit.Type == "Feest")
                 {
-                    //Tekstboxes tonen
-                    txtDatum.Visible = true;
-                    txtStart.Visible = true;
-                    txtLocatie.Visible = true;
-                    txtDuur.Visible = true;
-                    txtInfo1.Visible = true;
-                    if (activiteit.Type == "Feest")
-                    {
-                        chkEten.Visible = true;
-                        lblInfo2.Visible = false;
-                    }
-                    else
-                    {
-                        txtInfo2.Visible = true;
-                    }
-                    txtInfo3.Visible = true;
-                    lblDeelnemers.Enabled = false;
-                    mcalKalender.Enabled = false;
-                    lsvTraining.Enabled = false;
-                    btnDeelnemen.Enabled = false;
-                    btnDeelnemen.BackColor = Color.Gray;
-                    btnActiviteitToevoegen.Enabled = false;
-                    btnKomendeDagen.Enabled = false;
-                    btnActiviteitVerwijderen.Visible = true;
-
-                    //Textboxes invullen
-                    txtDatum.Text = lblDatum.Text;
-                    txtStart.Text = lblStart.Text;
-                    txtLocatie.Text = lblLocatie.Text;
-                    txtDuur.Text = lblDuur.Text.Replace(" min", "");
-                    txtInfo1.Text = lblInfo1.Text;
-                    if (activiteit.Type == "Feest")
-                    {
-                        if (lblInfo2.Text == "Eten voorzien")
-                        {
-                            chkEten.Checked = true;
-                        }
-                        else
-                        {
-                            chkEten.Checked = false;
-                        }
-                    }
-                    txtInfo2.Text = lblInfo2.Text;
-                    txtInfo3.Text = lblInfo3.Text;
-
-                    //Button veranderen naar opslaan button
-                    btnWijzigenActiviteit.Text = "Opslaan";
+                    chkEten.Visible = true;
+                    lblInfo2.Visible = false;
                 }
                 else
                 {
-                    //Messagebox
-                    MessageBox.Show("Wachtwoord is fout", "Fout wachtwoord", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtInfo2.Visible = true;
                 }
+                txtInfo3.Visible = true;
+                lblDeelnemers.Enabled = false;
+                mcalKalender.Enabled = false;
+                lsvTraining.Enabled = false;
+                btnDeelnemen.Enabled = false;
+                btnDeelnemen.BackColor = Color.Gray;
+                btnActiviteitToevoegen.Enabled = false;
+                btnKomendeDagen.Enabled = false;
+                btnActiviteitVerwijderen.Visible = true;
+
+                //Textboxes invullen
+                txtDatum.Text = lblDatum.Text;
+                txtStart.Text = lblStart.Text;
+                txtLocatie.Text = lblLocatie.Text;
+                txtDuur.Text = lblDuur.Text.Replace(" min", "");
+                txtInfo1.Text = lblInfo1.Text;
+                if (activiteit.Type == "Feest")
+                {
+                    if (lblInfo2.Text == "Eten voorzien")
+                    {
+                        chkEten.Checked = true;
+                    }
+                    else
+                    {
+                        chkEten.Checked = false;
+                    }
+                }
+                txtInfo2.Text = lblInfo2.Text;
+                txtInfo3.Text = lblInfo3.Text;
+
+                //Button veranderen naar opslaan button
+                btnWijzigenActiviteit.Text = "Opslaan";
             }
             else
             {
