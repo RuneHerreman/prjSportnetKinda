@@ -28,6 +28,12 @@ namespace prjSportnetKinda.DA
                 //Connection openen
                 MySqlConnection conn = Database.MakeConnection();
 
+
+                byte[] data = System.Text.Encoding.ASCII.GetBytes(wachtwoord);
+                data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+                String hash = System.Text.Encoding.ASCII.GetString(data);
+
+
                 //sting maken met sql statement
                 string query = "SELECT * from tblgebruiker WHERE Email=@Email AND Wachtwoord=@Wachtwoord";
 
@@ -39,7 +45,7 @@ namespace prjSportnetKinda.DA
 
                 //Parameters
                 cmdInloggen.Parameters.AddWithValue("@Email", email);
-                cmdInloggen.Parameters.AddWithValue("@Wachtwoord", wachtwoord);
+                cmdInloggen.Parameters.AddWithValue("@Wachtwoord", hash);
 
                 //Commando uitvoeren
                 MySqlDataReader reader = cmdInloggen.ExecuteReader();
@@ -139,6 +145,12 @@ namespace prjSportnetKinda.DA
                 else
                 {
                     reader.Close();
+
+                    //Paswoord beveiligen
+                    byte[] data = System.Text.Encoding.ASCII.GetBytes(wachtwoord);
+                    data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+                    String hash = System.Text.Encoding.ASCII.GetString(data);
+
                     //sting maken met sql statement
                     string queryRegistreren = "INSERT INTO tblgebruiker (Naam, Voornaam, Email, Geboortedatum, Wachtwoord, LidSinds, Renner, Trainer, Beheerder) " +
                             "VALUES (@Naam, @Voornaam, @Email, @Geboortedatum, @Wachtwoord, @LidSinds, @Renner, @Trainer, @Beheerder)";
@@ -154,7 +166,7 @@ namespace prjSportnetKinda.DA
                     cmdRegistreren.Parameters.AddWithValue("@Voornaam", voornaam);
                     cmdRegistreren.Parameters.AddWithValue("@Email", email);
                     cmdRegistreren.Parameters.AddWithValue("@Geboortedatum", geboordtedatum);
-                    cmdRegistreren.Parameters.AddWithValue("@Wachtwoord", wachtwoord);
+                    cmdRegistreren.Parameters.AddWithValue("@Wachtwoord", hash);
                     cmdRegistreren.Parameters.AddWithValue("@LidSinds", DateTime.Today);
                     cmdRegistreren.Parameters.AddWithValue("@Renner", 1);
                     cmdRegistreren.Parameters.AddWithValue("@Trainer", 0);

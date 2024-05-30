@@ -30,25 +30,39 @@ namespace prjSportnetKinda
                 correct?:   Verander wachtwoord mogelijk
                 incorrect?:  Error
             */
-            Execute();
-            String strCode = Interaction.InputBox("Code e-mail", "Verificatie");
+            String Email = txtEmailRegister.Text;
+            if (Email.Contains("@"))
+            {
+                Random random = new Random();
+                int Code = random.Next(100000, 999999);
+
+                Execute(Email, Code);
+
+                String strCode = Interaction.InputBox("Code e-mail", "Verificatie");
+                if (strCode == Code.ToString())
+                {
+                    String strNieuwPaswoord = Interaction.InputBox("Geef uw nieuw paswoord", "Verificatie");
+                }
+                else
+                {
+                    MessageBox.Show("U gaf de verkeerde code in. Probeer opnieuw.");
+                }
+            }
         }
 
 
-        static async Task Execute()
+        static async Task Execute(String Email, int Code)
         {
             String deel1 = "SG" + ".KiLjFK_GSNmxR";
             String deel2 = "_ANE5bUuw.C20SfYAMRzS2Es" + "pt9TtfwqAkyMNb_PSP8LF7uuYmFjk";
             var client = new SendGridClient(deel1 + deel2);
             var from = new EmailAddress("zrc.development@zrc.be", "ZRC");
-            var subject = "Sending with Sendgrid is Fun";
-            var to = new EmailAddress("lars.patrouille@gmail.com", "lars");
-            var plaintextContent = "and easy to do anywhere, even with c#";
-            var htmlContent = "<Strong>and easy to do anywhere, even with c#</strong>";
+            var subject = "Paswoord reset ZRC SportNet";
+            var to = new EmailAddress(Email, "Gebruiker");
+            var plaintextContent = "Reset uw paswoord met de code " + Code + "" ;
+            var htmlContent = "Reset uw paswoord met de code <Strong>" + Code + "</strong>";
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plaintextContent, htmlContent);
             var response = await client.SendEmailAsync(msg);
-         
-
         }
     }
 }
