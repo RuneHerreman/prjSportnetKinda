@@ -10,8 +10,8 @@ using System.Windows.Forms;
 using Microsoft.VisualBasic;
 
 //toegevoegd voor SendGrid mails
-//using SendGrid;
-//using SendGrid.Helpers.Mail;
+using SendGrid;
+using SendGrid.Helpers.Mail;
 
 
 namespace prjSportnetKinda
