@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic;
+﻿using Microsoft.Office.Interop.Excel;
+using Microsoft.VisualBasic;
 using prjSportnetKinda.DA;
 using prjSportnetKinda.Model;
 using System;
@@ -286,6 +287,12 @@ namespace prjSportnetKinda.View
         {
             //terug normaal overzicht tonen
             LogboekRefresh();
+        }
+
+        private void btnExporteren_Click(object sender, EventArgs e)
+        {
+            ExportKeuze export = new ExportKeuze();
+            export.ShowDialog();
         }
     }
 }
