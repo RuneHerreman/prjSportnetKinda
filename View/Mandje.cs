@@ -1,4 +1,5 @@
-﻿using prjSportnetKinda.DA;
+﻿using Microsoft.VisualBasic;
+using prjSportnetKinda.DA;
 using prjSportnetKinda.Model;
 using prjSportnetKinda.View;
 using System;
@@ -37,7 +38,13 @@ namespace prjSportnetKinda.View
 
             main1 = main;
 
-            foreach(Materiaal materiaal in MandjeMateriaalList)
+            ListViewOpvullen();
+        }
+
+        private void ListViewOpvullen()
+        {
+            lsvMandje.Items.Clear();
+            foreach (Materiaal materiaal in MandjeMateriaalList)
             {
                 //in item
                 ListViewItem listViewItem = new ListViewItem(materiaal.MateriaalNaam);
@@ -45,8 +52,10 @@ namespace prjSportnetKinda.View
                 listViewItem.SubItems.Add(MandjeAantallenList[MandjeMateriaalList.IndexOf(materiaal)].ToString());
                 //toevoegen aan listview
                 lsvMandje.Items.Add(listViewItem);
-            } 
+            }
         }
+
+
         private void btnArtikelVerwijderen_Click(object sender, EventArgs e)
         {
             if (lsvMandje.SelectedItems.Count != 0)
@@ -65,6 +74,9 @@ namespace prjSportnetKinda.View
             {
                 MessageBox.Show("Geen artikel geselecteerd", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            //aantal in mandje aanpassen
+            main1.TelAanpassen();
         }
 
         private void btnMandjeLegen_Click(object sender, EventArgs e)
@@ -82,6 +94,8 @@ namespace prjSportnetKinda.View
             {
                 MessageBox.Show("Geen artikels in het mandje", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            //aantal in mandje aanpassen
+            main1.TelAanpassen();
         }
 
         private void btnHurenLijst_Click_1(object sender, EventArgs e)
@@ -122,9 +136,70 @@ namespace prjSportnetKinda.View
             {
                 MessageBox.Show("Er zit niets in je mandje!", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            //aantal in mandje aanpassen
+            main1.TelAanpassen();
+
+            //sluit frmMandje
             this.Close();
             
+            //refresh materiaal pagina
             main1.MateriaalRefresh();
+        }
+
+        private void btnAantalAanpassen_Click(object sender, EventArgs e)
+        {
+            if (lsvMandje.SelectedItems.Count != 0)
+            {
+                string strAantal = (Interaction.InputBox($"Hoeveel van dit exemplaar wil je huren?\nHuidig aantal: {MandjeAantallenList[lsvMandje.SelectedIndices[0]]}", "Geef een nummer in"));
+                if (strAantal != "" && int.TryParse(strAantal, out int number) && number >= 0)
+                {
+                    //is het getal anders dan de gehuurde hoeveelheid, niet nul
+                    if (number != MandjeAantallenList[lsvMandje.SelectedIndices[0]] && number != 0)
+                    {
+                        //index van het geselecteerde item
+                        int intSelectedIndex = lsvMandje.SelectedItems[0].Index;
+
+                        //verwijder het vorige aantal
+                        MandjeAantallenList.RemoveAt(intSelectedIndex);
+                        //voeg het nieuwe aantal toe
+                        MandjeAantallenList.Insert(intSelectedIndex, number);
+                    }
+                    //is het getal nul?
+                    else if (number == 0)
+                    {
+                        //index van het geselecteerde item
+                        int intSelectedIndex = lsvMandje.SelectedItems[0].Index;
+
+                        //verwijderen uit lijst van Mandje.cs, dit zal ook de lijst in Main.cs veranderen
+                        MandjeAantallenList.RemoveAt(intSelectedIndex);
+                        MandjeMateriaalList.RemoveAt(intSelectedIndex);
+
+                        //item uit listview verwijderen
+                        lsvMandje.Items.RemoveAt(intSelectedIndex);
+                    }
+                    else
+                    {
+                        //foutmelding
+                        MessageBox.Show("Het nieuwe getal moet positief zijn en verschillen van de gehuurd hoeveelheid", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    //foutmelding
+                    MessageBox.Show("Het nieuwe getal moet positief zijn en verschillen van de gehuurd hoeveelheid", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Je hebt niets geselecteerd!", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            //nieuwe aantallen weergeven
+            ListViewOpvullen();
+            //aantal in mandje aanpassen
+            main1.TelAanpassen();
+
+
         }
     }
 }

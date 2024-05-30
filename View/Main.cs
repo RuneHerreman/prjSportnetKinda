@@ -233,6 +233,15 @@ namespace prjSportnetKinda
                 MessageBox.Show(exc.Message);
             }
         }
+        public void TelAanpassen()
+        {
+            int intMandjeTel = 0;
+            foreach (int aantal in MandjeAantalList)
+            {
+                intMandjeTel = intMandjeTel + aantal;
+            }
+            lblMandjeTel.Text = intMandjeTel.ToString();
+        }
 
         //btnHuren on click:
         private void MateriaalItem_ButtonClick(object sender, EventArgs e)
@@ -241,6 +250,7 @@ namespace prjSportnetKinda
             MateriaalItem item = (MateriaalItem)sender;
             //hoeveel keer is het artikel toegevoegd
             //voorraad en naam van gekozen artikel
+
             int intAantal = 1;
             int intVoorraad = item.materiaal.Voorraad;
             //index van naam materiaal
@@ -253,6 +263,7 @@ namespace prjSportnetKinda
 
                 //item komt 1 keer voor
                 MandjeAantalList.Add(intAantal);
+                
             }
             //je mag niet meer huren dan dat er voorraad is
             else if (MandjeAantalList[intMateriaalIndex] < intVoorraad)
@@ -268,6 +279,9 @@ namespace prjSportnetKinda
             {
                 MessageBox.Show("Niet genoeg voorraad", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            //label bij mandje aanpassen
+            TelAanpassen();
         }
 
         private void KalenderRefresh()

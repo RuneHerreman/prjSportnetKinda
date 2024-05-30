@@ -20,6 +20,8 @@ namespace prjSportnetKinda.View
         Main main1;
         Gebruiker g1;
         List<Materiaal> matlist1;
+        List<Gebruiker> gebruikers = new List<Gebruiker>();
+
 
         public LogboekForm(Main main, Gebruiker g, List<Materiaal> matlist)
         {
@@ -29,6 +31,23 @@ namespace prjSportnetKinda.View
             g1 = g;
             matlist1 = matlist;
             LogboekRefresh();
+
+            if (g.Beheerder)
+            {
+                //Gebruikers ophalen uit database
+                foreach (Logboek log in LogboekDA.AantalUniekeGebruikersEnHunIDs())
+                {
+                    if (log != null)
+                    {
+                        foreach (Logboek logboek in LogboekDA.OphalenLogboek(log.GebruikerID))
+                        {
+                            txtZoeken.AutoCompleteCustomSource.Add(logboek.Gebruiker.Voornaam + " " + logboek.Gebruiker.Naam);
+                            gebruikers.Add(g);
+                        }
+                    }
+                }
+            }
+            
         }
 
         //methodes
@@ -173,6 +192,18 @@ namespace prjSportnetKinda.View
             LogboekItem item = (LogboekItem)sender;
 
             DeleteLog(item);
+        }
+
+        private void btnZoeken_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
     }
 }

@@ -34,6 +34,7 @@
             this.btnHurenLijst = new System.Windows.Forms.Button();
             this.btnMandjeLegen = new System.Windows.Forms.Button();
             this.btnArtikelVerwijderen = new System.Windows.Forms.Button();
+            this.btnAantalAanpassen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lsvMandje
@@ -80,9 +81,9 @@
             // 
             this.btnMandjeLegen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMandjeLegen.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMandjeLegen.Location = new System.Drawing.Point(165, 216);
+            this.btnMandjeLegen.Location = new System.Drawing.Point(114, 216);
             this.btnMandjeLegen.Name = "btnMandjeLegen";
-            this.btnMandjeLegen.Size = new System.Drawing.Size(145, 50);
+            this.btnMandjeLegen.Size = new System.Drawing.Size(92, 50);
             this.btnMandjeLegen.TabIndex = 2;
             this.btnMandjeLegen.Text = "Mandje Legen";
             this.btnMandjeLegen.UseVisualStyleBackColor = true;
@@ -92,19 +93,32 @@
             // 
             this.btnArtikelVerwijderen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnArtikelVerwijderen.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArtikelVerwijderen.Location = new System.Drawing.Point(12, 216);
+            this.btnArtikelVerwijderen.Location = new System.Drawing.Point(10, 216);
             this.btnArtikelVerwijderen.Name = "btnArtikelVerwijderen";
-            this.btnArtikelVerwijderen.Size = new System.Drawing.Size(145, 50);
+            this.btnArtikelVerwijderen.Size = new System.Drawing.Size(92, 50);
             this.btnArtikelVerwijderen.TabIndex = 3;
             this.btnArtikelVerwijderen.Text = "Artikel Verwijderen";
             this.btnArtikelVerwijderen.UseVisualStyleBackColor = true;
             this.btnArtikelVerwijderen.Click += new System.EventHandler(this.btnArtikelVerwijderen_Click);
+            // 
+            // btnAantalAanpassen
+            // 
+            this.btnAantalAanpassen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAantalAanpassen.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAantalAanpassen.Location = new System.Drawing.Point(218, 216);
+            this.btnAantalAanpassen.Name = "btnAantalAanpassen";
+            this.btnAantalAanpassen.Size = new System.Drawing.Size(92, 50);
+            this.btnAantalAanpassen.TabIndex = 4;
+            this.btnAantalAanpassen.Text = "Aantal Aanpassen";
+            this.btnAantalAanpassen.UseVisualStyleBackColor = true;
+            this.btnAantalAanpassen.Click += new System.EventHandler(this.btnAantalAanpassen_Click);
             // 
             // frmMandje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(319, 331);
+            this.Controls.Add(this.btnAantalAanpassen);
             this.Controls.Add(this.btnArtikelVerwijderen);
             this.Controls.Add(this.btnMandjeLegen);
             this.Controls.Add(this.btnHurenLijst);
@@ -126,5 +140,6 @@
         private System.Windows.Forms.Button btnArtikelVerwijderen;
         private System.Windows.Forms.ColumnHeader cNaam;
         private System.Windows.Forms.ColumnHeader cAantal;
+        private System.Windows.Forms.Button btnAantalAanpassen;
     }
 }
