@@ -285,11 +285,7 @@ namespace prjSportnetKinda.DA
 
             while (reader.Read())
             {
-                //Admin account niet meegeven zodat je die niet kan wijzigen
-                if (Convert.ToInt32(reader["GebruikerID"]) != 1)
-                {
-                    gebruikers.Add(Create(reader));
-                }
+                gebruikers.Add(Create(reader));
             }
 
             //reader sluiten

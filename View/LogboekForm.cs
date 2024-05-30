@@ -20,8 +20,7 @@ namespace prjSportnetKinda.View
         Main main1;
         Gebruiker g1;
         List<Materiaal> matlist1;
-        List<Gebruiker> gebruikers = new List<Gebruiker>();
-
+        int intFoundUserID;
 
         public LogboekForm(Main main, Gebruiker g, List<Materiaal> matlist)
         {
@@ -42,17 +41,25 @@ namespace prjSportnetKinda.View
                         foreach (Logboek logboek in LogboekDA.OphalenLogboek(log.GebruikerID))
                         {
                             txtZoeken.AutoCompleteCustomSource.Add(logboek.Gebruiker.Voornaam + " " + logboek.Gebruiker.Naam);
-                            gebruikers.Add(g);
                         }
                     }
                 }
             }
-            
+            else
+            {
+                foreach (Logboek logboek in LogboekDA.OphalenLogboek(g1.GebruikerID))
+                {
+                    txtZoeken.AutoCompleteCustomSource.Add(logboek.Materiaal.MateriaalNaam);
+                }
+            }
         }
 
         //methodes
         public void LogboekRefresh()
         {
+            //clear inputs
+            txtZoeken.ResetText();
+
             //if statement bepaald hoeveel keer de loop zal lopen
             //vb:   beheerder=true  --> unieke gebruikers nodig uit logboek --> 2 of 8 of 13 users
             //      beheerder=false --> alle items die een specifieke gebruiker gehuurd heeft
@@ -111,9 +118,7 @@ namespace prjSportnetKinda.View
                 }
             }
             
-        }
-
-        
+        }        
         private void DeleteLog(LogboekItem item)
         {
             //vragen voor bevestigen van verwijderen
@@ -198,12 +203,90 @@ namespace prjSportnetKinda.View
         {
             try
             {
+                if (txtZoeken.Text != "")
+                {
+                    fpnlLogboek.Controls.Clear();
 
+                    //beheerder --> zoeken op persoon
+                    //gebruiker --> zoeken op gehuurd materiaal
+                    if (g1.Beheerder)
+                    {
+                        foreach (Gebruiker gebruiker in GebruikerDA.OphalenGebruikers())
+                        {
+                            //Naam controleren
+                            if (gebruiker.Voornaam.ToLower() + " " + gebruiker.Naam.ToLower() == txtZoeken.Text.ToLower())
+                            {
+                                //wie is de gevonden gebruiker?
+                                intFoundUserID = gebruiker.GebruikerID;
+
+                                //om de methode aan te vullen
+                                int intTeller = 0;
+
+                                //object maken van de userControl
+                                LogboekItem item = new LogboekItem();
+
+                                //Event toevoegen
+                                item.LogboekGebruikerLog += LogboekGebruikerLog_Click;
+
+                                //item opvullen
+                                item.LogboekOpvullen(g1, intFoundUserID, intTeller);
+
+                                //huidig item toevoegen aan fpnl
+                                fpnlLogboek.Controls.Add(item);
+                            }
+                        }
+                        if (fpnlLogboek.Controls.Count < 1)
+                        {
+                            //Messagebox
+                            MessageBox.Show($"{txtZoeken.Text} bestaat niet in het programma");
+                        }
+                    }
+                    else if (g1.Beheerder == false)
+                    {
+                        //tellen hoeveel er al gepasseerd zijn
+                        int intTeller = 0;
+
+                        foreach (Logboek logboek in LogboekDA.OphalenLogboek(g1.GebruikerID))
+                        {
+                            if (logboek.Materiaal.MateriaalNaam.ToLower() == txtZoeken.Text.ToLower())
+                            {
+                                //object maken van de userControl
+                                LogboekItem item = new LogboekItem();
+
+                                //Event toevoegen
+                                item.LogboekGebruikerLog += LogboekGebruikerLog_Click;
+
+                                //item opvullen
+                                item.LogboekOpvullen(g1, intFoundUserID, intTeller);
+
+                                //huidig item toevoegen aan fpnl
+                                fpnlLogboek.Controls.Add(item);
+                            }
+                            intTeller++;
+                        }
+                        if (fpnlLogboek.Controls.Count < 1)
+                        {
+                            //Messagebox
+                            MessageBox.Show($"Je hebt {txtZoeken.Text} niet gehuurd");
+                        }
+                    }
+                    txtZoeken.ResetText();
+                }
+                else
+                {
+                    MessageBox.Show("Je hebt niets ingevuld!", "Fout!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
             }
+        }
+
+        private void btnFiltersWissen_Click(object sender, EventArgs e)
+        {
+            //terug normaal overzicht tonen
+            LogboekRefresh();
         }
     }
 }

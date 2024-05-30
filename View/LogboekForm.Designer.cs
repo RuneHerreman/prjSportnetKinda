@@ -30,9 +30,9 @@
         {
             this.fpnlLogboek = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtZoeken = new System.Windows.Forms.TextBox();
-            this.btnZoeken = new System.Windows.Forms.Button();
             this.btnFiltersWissen = new System.Windows.Forms.Button();
+            this.btnZoeken = new System.Windows.Forms.Button();
+            this.txtZoeken = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,15 +55,15 @@
             this.panel1.Size = new System.Drawing.Size(420, 35);
             this.panel1.TabIndex = 0;
             // 
-            // txtZoeken
+            // btnFiltersWissen
             // 
-            this.txtZoeken.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtZoeken.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtZoeken.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtZoeken.Location = new System.Drawing.Point(12, 8);
-            this.txtZoeken.Name = "txtZoeken";
-            this.txtZoeken.Size = new System.Drawing.Size(213, 20);
-            this.txtZoeken.TabIndex = 0;
+            this.btnFiltersWissen.Location = new System.Drawing.Point(312, 5);
+            this.btnFiltersWissen.Name = "btnFiltersWissen";
+            this.btnFiltersWissen.Size = new System.Drawing.Size(96, 23);
+            this.btnFiltersWissen.TabIndex = 2;
+            this.btnFiltersWissen.Text = "Filters Wissen";
+            this.btnFiltersWissen.UseVisualStyleBackColor = true;
+            this.btnFiltersWissen.Click += new System.EventHandler(this.btnFiltersWissen_Click);
             // 
             // btnZoeken
             // 
@@ -75,14 +75,15 @@
             this.btnZoeken.UseVisualStyleBackColor = true;
             this.btnZoeken.Click += new System.EventHandler(this.btnZoeken_Click);
             // 
-            // btnFiltersWissen
+            // txtZoeken
             // 
-            this.btnFiltersWissen.Location = new System.Drawing.Point(312, 5);
-            this.btnFiltersWissen.Name = "btnFiltersWissen";
-            this.btnFiltersWissen.Size = new System.Drawing.Size(96, 23);
-            this.btnFiltersWissen.TabIndex = 2;
-            this.btnFiltersWissen.Text = "Filters Wissen";
-            this.btnFiltersWissen.UseVisualStyleBackColor = true;
+            this.txtZoeken.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtZoeken.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtZoeken.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtZoeken.Location = new System.Drawing.Point(12, 8);
+            this.txtZoeken.Name = "txtZoeken";
+            this.txtZoeken.Size = new System.Drawing.Size(213, 20);
+            this.txtZoeken.TabIndex = 0;
             // 
             // LogboekForm
             // 
