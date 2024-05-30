@@ -33,6 +33,7 @@
             this.btnFiltersWissen = new System.Windows.Forms.Button();
             this.btnZoeken = new System.Windows.Forms.Button();
             this.txtZoeken = new System.Windows.Forms.TextBox();
+            this.btnExporteren = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,6 +48,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnExporteren);
             this.panel1.Controls.Add(this.btnFiltersWissen);
             this.panel1.Controls.Add(this.btnZoeken);
             this.panel1.Controls.Add(this.txtZoeken);
@@ -57,7 +59,7 @@
             // 
             // btnFiltersWissen
             // 
-            this.btnFiltersWissen.Location = new System.Drawing.Point(312, 5);
+            this.btnFiltersWissen.Location = new System.Drawing.Point(231, 5);
             this.btnFiltersWissen.Name = "btnFiltersWissen";
             this.btnFiltersWissen.Size = new System.Drawing.Size(96, 23);
             this.btnFiltersWissen.TabIndex = 2;
@@ -67,7 +69,7 @@
             // 
             // btnZoeken
             // 
-            this.btnZoeken.Location = new System.Drawing.Point(231, 5);
+            this.btnZoeken.Location = new System.Drawing.Point(155, 5);
             this.btnZoeken.Name = "btnZoeken";
             this.btnZoeken.Size = new System.Drawing.Size(75, 23);
             this.btnZoeken.TabIndex = 1;
@@ -82,8 +84,18 @@
             this.txtZoeken.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtZoeken.Location = new System.Drawing.Point(12, 8);
             this.txtZoeken.Name = "txtZoeken";
-            this.txtZoeken.Size = new System.Drawing.Size(213, 20);
+            this.txtZoeken.Size = new System.Drawing.Size(137, 20);
             this.txtZoeken.TabIndex = 0;
+            // 
+            // btnExporteren
+            // 
+            this.btnExporteren.Location = new System.Drawing.Point(328, 5);
+            this.btnExporteren.Name = "btnExporteren";
+            this.btnExporteren.Size = new System.Drawing.Size(79, 23);
+            this.btnExporteren.TabIndex = 3;
+            this.btnExporteren.Text = "&Exporteren";
+            this.btnExporteren.UseVisualStyleBackColor = true;
+            this.btnExporteren.Click += new System.EventHandler(this.btnExporteren_Click);
             // 
             // LogboekForm
             // 
@@ -109,5 +121,6 @@
         private System.Windows.Forms.Button btnZoeken;
         private System.Windows.Forms.TextBox txtZoeken;
         private System.Windows.Forms.Button btnFiltersWissen;
+        private System.Windows.Forms.Button btnExporteren;
     }
 }

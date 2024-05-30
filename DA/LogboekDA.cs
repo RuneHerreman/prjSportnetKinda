@@ -121,6 +121,11 @@ namespace prjSportnetKinda.DA
                         Trainer = Convert.ToBoolean(record["Trainer"]),
                         Beheerder = Convert.ToBoolean(record["Beheerder"]),
                         GebruikerID = Convert.ToInt32(record["GebruikerID"]),
+                        Adres = record["Adres"].ToString(),
+                        Geboortedatum = Convert.ToDateTime(record["Geboortedatum"]),
+                        Geslacht = record["Geslacht"].ToString(),
+                        Lidsinds = Convert.ToDateTime(record["Lidsinds"]),
+                        Telefoonnummer = Convert.ToInt16(record["Telefoonnummer"]),
                         Profielfoto = img,
                     },
                     Materiaal = new Materiaal()
