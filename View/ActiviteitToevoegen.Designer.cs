@@ -292,7 +292,7 @@
             this.chkEten.Margin = new System.Windows.Forms.Padding(2);
             this.chkEten.Name = "chkEten";
             this.chkEten.Size = new System.Drawing.Size(102, 20);
-            this.chkEten.TabIndex = 20;
+            this.chkEten.TabIndex = 9;
             this.chkEten.Text = "Eten Aanwezig?";
             this.chkEten.UseVisualStyleBackColor = true;
             this.chkEten.Visible = false;

@@ -55,7 +55,7 @@
             this.btnArtikelVerwijderen.Location = new System.Drawing.Point(458, 330);
             this.btnArtikelVerwijderen.Name = "btnArtikelVerwijderen";
             this.btnArtikelVerwijderen.Size = new System.Drawing.Size(82, 23);
-            this.btnArtikelVerwijderen.TabIndex = 30;
+            this.btnArtikelVerwijderen.TabIndex = 6;
             this.btnArtikelVerwijderen.Text = "Verwijderen";
             this.btnArtikelVerwijderen.UseVisualStyleBackColor = true;
             this.btnArtikelVerwijderen.Click += new System.EventHandler(this.btnArtikelVerwijderen_Click);
@@ -76,7 +76,7 @@
             this.txtNieuweFotoLocatie.Location = new System.Drawing.Point(458, 39);
             this.txtNieuweFotoLocatie.Name = "txtNieuweFotoLocatie";
             this.txtNieuweFotoLocatie.Size = new System.Drawing.Size(169, 20);
-            this.txtNieuweFotoLocatie.TabIndex = 28;
+            this.txtNieuweFotoLocatie.TabIndex = 4;
             // 
             // btnBladeren
             // 
@@ -84,7 +84,7 @@
             this.btnBladeren.Location = new System.Drawing.Point(563, 13);
             this.btnBladeren.Name = "btnBladeren";
             this.btnBladeren.Size = new System.Drawing.Size(64, 23);
-            this.btnBladeren.TabIndex = 27;
+            this.btnBladeren.TabIndex = 3;
             this.btnBladeren.Text = "Bladeren";
             this.btnBladeren.UseVisualStyleBackColor = true;
             this.btnBladeren.Click += new System.EventHandler(this.btnBladeren_Click);
@@ -97,7 +97,7 @@
             this.btnToepassen.Location = new System.Drawing.Point(234, 330);
             this.btnToepassen.Name = "btnToepassen";
             this.btnToepassen.Size = new System.Drawing.Size(82, 23);
-            this.btnToepassen.TabIndex = 26;
+            this.btnToepassen.TabIndex = 5;
             this.btnToepassen.Text = "Toepassen";
             this.btnToepassen.UseVisualStyleBackColor = true;
             this.btnToepassen.Click += new System.EventHandler(this.btnToepassen_Click);
@@ -151,7 +151,7 @@
             this.txtNieuweNaam.MaxLength = 44;
             this.txtNieuweNaam.Name = "txtNieuweNaam";
             this.txtNieuweNaam.Size = new System.Drawing.Size(218, 20);
-            this.txtNieuweNaam.TabIndex = 19;
+            this.txtNieuweNaam.TabIndex = 1;
             this.txtNieuweNaam.TextChanged += new System.EventHandler(this.txtNieuweNaam_TextChanged);
             // 
             // rtxtBeschrijving
@@ -163,7 +163,7 @@
             this.rtxtBeschrijving.MaxLength = 50000;
             this.rtxtBeschrijving.Name = "rtxtBeschrijving";
             this.rtxtBeschrijving.Size = new System.Drawing.Size(218, 111);
-            this.rtxtBeschrijving.TabIndex = 17;
+            this.rtxtBeschrijving.TabIndex = 2;
             this.rtxtBeschrijving.Text = "";
             this.rtxtBeschrijving.TextChanged += new System.EventHandler(this.rtxtBeschrijving_TextChanged);
             // 

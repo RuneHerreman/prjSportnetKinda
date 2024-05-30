@@ -240,7 +240,14 @@ namespace prjSportnetKinda
             {
                 intMandjeTel = intMandjeTel + aantal;
             }
-            lblMandjeTel.Text = intMandjeTel.ToString();
+            if (intMandjeTel != 0)
+            {
+                btnWinkelwagentje.Text = $"Winkelmandje ({intMandjeTel.ToString()})";
+            }
+            else
+            {
+                btnWinkelwagentje.Text = "    Winkelmandje";
+            }
         }
 
         //btnHuren on click:

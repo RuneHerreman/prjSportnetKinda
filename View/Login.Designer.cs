@@ -69,8 +69,8 @@
             this.txtEmail.MaxLength = 100;
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(253, 29);
-            this.txtEmail.TabIndex = 3;
+            this.txtEmail.Size = new System.Drawing.Size(253, 30);
+            this.txtEmail.TabIndex = 1;
             this.txtEmail.WordWrap = false;
             this.txtEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEmail_KeyDown);
             // 
@@ -103,7 +103,7 @@
             this.lblLinkToWWVergeten.Location = new System.Drawing.Point(398, 278);
             this.lblLinkToWWVergeten.Name = "lblLinkToWWVergeten";
             this.lblLinkToWWVergeten.Size = new System.Drawing.Size(140, 18);
-            this.lblLinkToWWVergeten.TabIndex = 7;
+            this.lblLinkToWWVergeten.TabIndex = 3;
             this.lblLinkToWWVergeten.Text = "Wachtwoord vergeten?";
             this.lblLinkToWWVergeten.Click += new System.EventHandler(this.lblLinkToWWVergeten_Click);
             // 
@@ -118,7 +118,7 @@
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(202, 44);
-            this.btnLogin.TabIndex = 8;
+            this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Inloggen";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -142,7 +142,7 @@
             this.lblLinkToRegistreren.Location = new System.Drawing.Point(525, 397);
             this.lblLinkToRegistreren.Name = "lblLinkToRegistreren";
             this.lblLinkToRegistreren.Size = new System.Drawing.Size(118, 18);
-            this.lblLinkToRegistreren.TabIndex = 10;
+            this.lblLinkToRegistreren.TabIndex = 5;
             this.lblLinkToRegistreren.Text = "Account aanmaken";
             this.lblLinkToRegistreren.Click += new System.EventHandler(this.lblLinkToRegistreren_Click);
             // 
@@ -152,7 +152,7 @@
             this.pnlEmailLogin.Controls.Add(this.txtEmail);
             this.pnlEmailLogin.Location = new System.Drawing.Point(400, 171);
             this.pnlEmailLogin.Name = "pnlEmailLogin";
-            this.pnlEmailLogin.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.pnlEmailLogin.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.pnlEmailLogin.Size = new System.Drawing.Size(253, 32);
             this.pnlEmailLogin.TabIndex = 12;
             // 
@@ -162,7 +162,7 @@
             this.pnlPasswordLogin.Controls.Add(this.txtPassword);
             this.pnlPasswordLogin.Location = new System.Drawing.Point(400, 246);
             this.pnlPasswordLogin.Name = "pnlPasswordLogin";
-            this.pnlPasswordLogin.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.pnlPasswordLogin.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.pnlPasswordLogin.Size = new System.Drawing.Size(253, 32);
             this.pnlPasswordLogin.TabIndex = 13;
             // 
@@ -177,8 +177,8 @@
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
-            this.txtPassword.Size = new System.Drawing.Size(253, 29);
-            this.txtPassword.TabIndex = 3;
+            this.txtPassword.Size = new System.Drawing.Size(253, 30);
+            this.txtPassword.TabIndex = 2;
             this.txtPassword.WordWrap = false;
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 

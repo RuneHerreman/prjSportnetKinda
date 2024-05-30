@@ -43,7 +43,7 @@
             this.fpnlLogboek.Name = "fpnlLogboek";
             this.fpnlLogboek.Padding = new System.Windows.Forms.Padding(12, 12, 0, 0);
             this.fpnlLogboek.Size = new System.Drawing.Size(420, 570);
-            this.fpnlLogboek.TabIndex = 0;
+            this.fpnlLogboek.TabIndex = 3;
             // 
             // panel1
             // 

@@ -50,7 +50,7 @@
             this.btnAllesInleveren.Location = new System.Drawing.Point(333, 238);
             this.btnAllesInleveren.Name = "btnAllesInleveren";
             this.btnAllesInleveren.Size = new System.Drawing.Size(91, 23);
-            this.btnAllesInleveren.TabIndex = 42;
+            this.btnAllesInleveren.TabIndex = 3;
             this.btnAllesInleveren.Text = "Alles inleveren";
             this.btnAllesInleveren.UseVisualStyleBackColor = true;
             this.btnAllesInleveren.Click += new System.EventHandler(this.btnAllesInleveren_Click);
@@ -73,7 +73,7 @@
             this.btnKiesAantal.Location = new System.Drawing.Point(236, 238);
             this.btnKiesAantal.Name = "btnKiesAantal";
             this.btnKiesAantal.Size = new System.Drawing.Size(91, 23);
-            this.btnKiesAantal.TabIndex = 38;
+            this.btnKiesAantal.TabIndex = 2;
             this.btnKiesAantal.Text = "Inleveren";
             this.btnKiesAantal.UseVisualStyleBackColor = true;
             this.btnKiesAantal.Click += new System.EventHandler(this.btnKiesAantal_Click);
@@ -123,7 +123,7 @@
             this.txtNiewAantal.Location = new System.Drawing.Point(333, 54);
             this.txtNiewAantal.Name = "txtNiewAantal";
             this.txtNiewAantal.Size = new System.Drawing.Size(91, 20);
-            this.txtNiewAantal.TabIndex = 46;
+            this.txtNiewAantal.TabIndex = 1;
             // 
             // label2
             // 

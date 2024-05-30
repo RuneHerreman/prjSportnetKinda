@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("");
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnProfiel = new prjSportnetKinda.View.ButtonControls();
             this.btnMateriaal = new prjSportnetKinda.View.ButtonControls();
@@ -126,7 +126,6 @@
             this.picBannerFoto = new System.Windows.Forms.PictureBox();
             this.picProfielFoto = new System.Windows.Forms.PictureBox();
             this.ofdFotos = new System.Windows.Forms.OpenFileDialog();
-            this.lblMandjeTel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tcMain.SuspendLayout();
@@ -168,7 +167,7 @@
             this.btnProfiel.Name = "btnProfiel";
             this.btnProfiel.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.user_standard;
             this.btnProfiel.Size = new System.Drawing.Size(55, 55);
-            this.btnProfiel.TabIndex = 7;
+            this.btnProfiel.TabIndex = 4;
             this.btnProfiel.Tooltip1 = "Profiel";
             this.btnProfiel.UseVisualStyleBackColor = false;
             this.btnProfiel.Click += new System.EventHandler(this.btnProfiel_Click);
@@ -187,7 +186,7 @@
             this.btnMateriaal.Name = "btnMateriaal";
             this.btnMateriaal.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.cart_standard;
             this.btnMateriaal.Size = new System.Drawing.Size(55, 55);
-            this.btnMateriaal.TabIndex = 6;
+            this.btnMateriaal.TabIndex = 3;
             this.btnMateriaal.Tooltip1 = "Materiaal";
             this.btnMateriaal.UseVisualStyleBackColor = false;
             this.btnMateriaal.Click += new System.EventHandler(this.btnMateriaal_Click);
@@ -206,7 +205,7 @@
             this.btnKalender.Name = "btnKalender";
             this.btnKalender.NormaalFoto1 = global::prjSportnetKinda.Properties.Resources.calendar_standard;
             this.btnKalender.Size = new System.Drawing.Size(55, 55);
-            this.btnKalender.TabIndex = 5;
+            this.btnKalender.TabIndex = 2;
             this.btnKalender.Tooltip1 = "Planning";
             this.btnKalender.UseVisualStyleBackColor = false;
             this.btnKalender.Click += new System.EventHandler(this.btnKalender_Click);
@@ -225,7 +224,7 @@
             this.btnStart.Name = "btnStart";
             this.btnStart.NormaalFoto1 = ((System.Drawing.Image)(resources.GetObject("btnStart.NormaalFoto1")));
             this.btnStart.Size = new System.Drawing.Size(55, 55);
-            this.btnStart.TabIndex = 4;
+            this.btnStart.TabIndex = 1;
             this.btnStart.Tooltip1 = "Start";
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
@@ -346,7 +345,7 @@
             this.btnKomendeDagen.Margin = new System.Windows.Forms.Padding(2);
             this.btnKomendeDagen.Name = "btnKomendeDagen";
             this.btnKomendeDagen.Size = new System.Drawing.Size(156, 28);
-            this.btnKomendeDagen.TabIndex = 10;
+            this.btnKomendeDagen.TabIndex = 5;
             this.btnKomendeDagen.Text = "Toon komende 30 dagen";
             this.btnKomendeDagen.UseVisualStyleBackColor = true;
             this.btnKomendeDagen.Visible = false;
@@ -438,7 +437,7 @@
             this.btnActiviteitVerwijderen.Name = "btnActiviteitVerwijderen";
             this.btnActiviteitVerwijderen.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnActiviteitVerwijderen.Size = new System.Drawing.Size(187, 38);
-            this.btnActiviteitVerwijderen.TabIndex = 9;
+            this.btnActiviteitVerwijderen.TabIndex = 10;
             this.btnActiviteitVerwijderen.Text = "Activiteit vewijderen";
             this.btnActiviteitVerwijderen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnActiviteitVerwijderen.UseVisualStyleBackColor = false;
@@ -526,11 +525,11 @@
             this.btnWijzigenActiviteit.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWijzigenActiviteit.ForeColor = System.Drawing.Color.White;
             this.btnWijzigenActiviteit.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnWijzigenActiviteit.Location = new System.Drawing.Point(40, 300);
+            this.btnWijzigenActiviteit.Location = new System.Drawing.Point(41, 300);
             this.btnWijzigenActiviteit.Name = "btnWijzigenActiviteit";
             this.btnWijzigenActiviteit.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnWijzigenActiviteit.Size = new System.Drawing.Size(187, 38);
-            this.btnWijzigenActiviteit.TabIndex = 8;
+            this.btnWijzigenActiviteit.TabIndex = 9;
             this.btnWijzigenActiviteit.Text = "Wijzigen";
             this.btnWijzigenActiviteit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnWijzigenActiviteit.UseVisualStyleBackColor = false;
@@ -640,7 +639,7 @@
             this.btnDeelnemen.Name = "btnDeelnemen";
             this.btnDeelnemen.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.btnDeelnemen.Size = new System.Drawing.Size(187, 38);
-            this.btnDeelnemen.TabIndex = 9;
+            this.btnDeelnemen.TabIndex = 8;
             this.btnDeelnemen.Text = "Deelnemen";
             this.btnDeelnemen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeelnemen.UseVisualStyleBackColor = false;
@@ -773,8 +772,8 @@
             this.lsvTraining.FullRowSelect = true;
             this.lsvTraining.HideSelection = false;
             this.lsvTraining.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
+            listViewItem15,
+            listViewItem16});
             this.lsvTraining.Location = new System.Drawing.Point(355, 40);
             this.lsvTraining.Name = "lsvTraining";
             this.lsvTraining.Size = new System.Drawing.Size(507, 169);
@@ -823,7 +822,6 @@
             // tabMateriaal
             // 
             this.tabMateriaal.BackColor = System.Drawing.Color.White;
-            this.tabMateriaal.Controls.Add(this.lblMandjeTel);
             this.tabMateriaal.Controls.Add(this.btnBeheer);
             this.tabMateriaal.Controls.Add(this.fpnlMateriaalContainer);
             this.tabMateriaal.Controls.Add(this.btnLogboek);
@@ -1383,15 +1381,6 @@
             // 
             this.ofdFotos.FileName = "openFileDialog1";
             // 
-            // lblMandjeTel
-            // 
-            this.lblMandjeTel.AutoSize = true;
-            this.lblMandjeTel.Location = new System.Drawing.Point(222, 10);
-            this.lblMandjeTel.Name = "lblMandjeTel";
-            this.lblMandjeTel.Size = new System.Drawing.Size(41, 13);
-            this.lblMandjeTel.TabIndex = 5;
-            this.lblMandjeTel.Text = "label14";
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1415,7 +1404,6 @@
             this.pnlActiviteitInfo.ResumeLayout(false);
             this.pnlActiviteitInfo.PerformLayout();
             this.tabMateriaal.ResumeLayout(false);
-            this.tabMateriaal.PerformLayout();
             this.tabProfiel.ResumeLayout(false);
             this.tabProfiel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBannerFoto)).EndInit();
@@ -1521,7 +1509,6 @@
         private System.Windows.Forms.Button btnBeheer;
         private System.Windows.Forms.CheckBox chkEten;
         private System.Windows.Forms.ComboBox cmbGeslacht;
-        private System.Windows.Forms.Label lblMandjeTel;
     }
 }
 

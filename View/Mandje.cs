@@ -154,7 +154,7 @@ namespace prjSportnetKinda.View
                 if (strAantal != "" && int.TryParse(strAantal, out int number) && number >= 0)
                 {
                     //is het getal anders dan de gehuurde hoeveelheid, niet nul
-                    if (number != MandjeAantallenList[lsvMandje.SelectedIndices[0]] && number != 0)
+                    if (number != MandjeAantallenList[lsvMandje.SelectedIndices[0]] && number != 0 && number <= MandjeMateriaalList[lsvMandje.SelectedIndices[0]].Voorraad)
                     {
                         //index van het geselecteerde item
                         int intSelectedIndex = lsvMandje.SelectedItems[0].Index;
@@ -180,13 +180,13 @@ namespace prjSportnetKinda.View
                     else
                     {
                         //foutmelding
-                        MessageBox.Show("Het nieuwe getal moet positief zijn en verschillen van de gehuurd hoeveelheid", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Het nieuwe getal moet positief zijn en mag niet groter zijn dan de voorraad\nHuidige voorraad: {MandjeMateriaalList[lsvMandje.SelectedIndices[0]].Voorraad}", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
                     //foutmelding
-                    MessageBox.Show("Het nieuwe getal moet positief zijn en verschillen van de gehuurd hoeveelheid", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Het nieuwe getal moet positief zijn en mag niet groter zijn dan de voorraad\nHuidige voorraad: {MandjeMateriaalList[lsvMandje.SelectedIndices[0]].Voorraad}", "Fout", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else

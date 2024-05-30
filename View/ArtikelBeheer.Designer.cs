@@ -39,7 +39,7 @@
             this.btnArtikelAanpassen.Location = new System.Drawing.Point(154, 11);
             this.btnArtikelAanpassen.Name = "btnArtikelAanpassen";
             this.btnArtikelAanpassen.Size = new System.Drawing.Size(136, 43);
-            this.btnArtikelAanpassen.TabIndex = 3;
+            this.btnArtikelAanpassen.TabIndex = 2;
             this.btnArtikelAanpassen.Text = "Artikel aanpassen";
             this.btnArtikelAanpassen.UseVisualStyleBackColor = true;
             this.btnArtikelAanpassen.Click += new System.EventHandler(this.btnArtikelAanpassen_Click);
@@ -51,7 +51,7 @@
             this.btnArtikelToevoegen.Location = new System.Drawing.Point(12, 11);
             this.btnArtikelToevoegen.Name = "btnArtikelToevoegen";
             this.btnArtikelToevoegen.Size = new System.Drawing.Size(136, 43);
-            this.btnArtikelToevoegen.TabIndex = 2;
+            this.btnArtikelToevoegen.TabIndex = 1;
             this.btnArtikelToevoegen.Text = "Nieuw artikel toevoegen";
             this.btnArtikelToevoegen.UseVisualStyleBackColor = true;
             this.btnArtikelToevoegen.Click += new System.EventHandler(this.btnArtikelToevoegen_Click);
