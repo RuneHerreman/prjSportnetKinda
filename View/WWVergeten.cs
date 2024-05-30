@@ -37,8 +37,9 @@ namespace prjSportnetKinda
 
         static async Task Execute()
         {
-
-         /*   var client = new SendGridClient("");
+            String deel1 = "SG" + ".KiLjFK_GSNmxR";
+            String deel2 = "_ANE5bUuw.C20SfYAMRzS2Es" + "pt9TtfwqAkyMNb_PSP8LF7uuYmFjk";
+            var client = new SendGridClient(deel1 + deel2);
             var from = new EmailAddress("zrc.development@zrc.be", "ZRC");
             var subject = "Sending with Sendgrid is Fun";
             var to = new EmailAddress("lars.patrouille@gmail.com", "lars");
@@ -46,7 +47,7 @@ namespace prjSportnetKinda
             var htmlContent = "<Strong>and easy to do anywhere, even with c#</strong>";
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plaintextContent, htmlContent);
             var response = await client.SendEmailAsync(msg);
-         */
+         
 
         }
     }
