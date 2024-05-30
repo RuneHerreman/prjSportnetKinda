@@ -44,6 +44,7 @@
             // 
             // btnAllesInleveren
             // 
+            this.btnAllesInleveren.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAllesInleveren.Enabled = false;
             this.btnAllesInleveren.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAllesInleveren.Location = new System.Drawing.Point(333, 238);
@@ -57,14 +58,16 @@
             // lblLogID
             // 
             this.lblLogID.AutoSize = true;
+            this.lblLogID.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLogID.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.lblLogID.Location = new System.Drawing.Point(430, 242);
             this.lblLogID.Name = "lblLogID";
-            this.lblLogID.Size = new System.Drawing.Size(0, 13);
+            this.lblLogID.Size = new System.Drawing.Size(0, 16);
             this.lblLogID.TabIndex = 41;
             // 
             // btnKiesAantal
             // 
+            this.btnKiesAantal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnKiesAantal.Enabled = false;
             this.btnKiesAantal.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnKiesAantal.Location = new System.Drawing.Point(236, 238);
@@ -116,7 +119,8 @@
             // 
             // txtNiewAantal
             // 
-            this.txtNiewAantal.Location = new System.Drawing.Point(333, 50);
+            this.txtNiewAantal.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNiewAantal.Location = new System.Drawing.Point(333, 54);
             this.txtNiewAantal.Name = "txtNiewAantal";
             this.txtNiewAantal.Size = new System.Drawing.Size(91, 20);
             this.txtNiewAantal.TabIndex = 46;

@@ -31,7 +31,7 @@ namespace prjSportnetKinda.View
             main1 = main;
         }
 
-        
+
         private void btnToepassen_Click(object sender, EventArgs e)
         {
             //aanpassen in datatbase
@@ -134,6 +134,28 @@ namespace prjSportnetKinda.View
             lblArtikelID.ResetText();
 
             main1.ArtikelRefresh();
+        }
+
+        private void txtNieuweNaam_TextChanged(object sender, EventArgs e)
+        {
+            //hoeveel karakters mag ik hebben
+            lblLengte.BackColor = Color.Transparent;
+            lblLengte.Text = txtNieuweNaam.TextLength + "/44";
+            if (txtNieuweNaam.TextLength > 44)
+            {
+                lblLengte.ForeColor = Color.Red;
+            }
+        }
+
+        private void rtxtBeschrijving_TextChanged(object sender, EventArgs e)
+        {
+            //hoeveel karakters mag ik hebben
+            lblLengteArtikel.BackColor = Color.Transparent;
+            lblLengteArtikel.Text = rtxtBeschrijving.TextLength + "/50000";
+            if (rtxtBeschrijving.TextLength > 50000)
+            {
+                lblLengteArtikel.ForeColor = Color.Red;
+            }
         }
     }
 }

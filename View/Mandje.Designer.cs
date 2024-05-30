@@ -65,6 +65,7 @@
             // btnHurenLijst
             // 
             this.btnHurenLijst.BackColor = System.Drawing.Color.Green;
+            this.btnHurenLijst.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHurenLijst.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHurenLijst.ForeColor = System.Drawing.Color.White;
             this.btnHurenLijst.Location = new System.Drawing.Point(10, 272);
@@ -77,6 +78,7 @@
             // 
             // btnMandjeLegen
             // 
+            this.btnMandjeLegen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMandjeLegen.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMandjeLegen.Location = new System.Drawing.Point(165, 216);
             this.btnMandjeLegen.Name = "btnMandjeLegen";
@@ -88,6 +90,7 @@
             // 
             // btnArtikelVerwijderen
             // 
+            this.btnArtikelVerwijderen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnArtikelVerwijderen.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnArtikelVerwijderen.Location = new System.Drawing.Point(12, 216);
             this.btnArtikelVerwijderen.Name = "btnArtikelVerwijderen";
@@ -107,6 +110,7 @@
             this.Controls.Add(this.btnHurenLijst);
             this.Controls.Add(this.lsvMandje);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "frmMandje";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Mandje";

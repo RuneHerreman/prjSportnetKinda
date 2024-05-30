@@ -47,6 +47,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(420, 611);
             this.Controls.Add(this.fpnlLogboek);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "LogboekForm";
             this.Text = "Logboek";
             this.ResumeLayout(false);

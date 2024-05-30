@@ -36,6 +36,16 @@ namespace prjSportnetKinda.View
             main1 = main;
         }
 
+        public void ClearInputs()
+        {
+            //leeg alle inputs
+            txtNieuweNaam.ResetText();
+            rtxtBeschrijving.ResetText();
+            txtNieuweVoorraad.ResetText();
+            picNieuweAfbeelding.Image = null;
+            lblMateriaalID.ResetText();
+        }
+
         private void lsvMateriaal_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lsvMateriaal.SelectedIndices.Count == 0)
@@ -50,12 +60,8 @@ namespace prjSportnetKinda.View
             btnBladeren.Enabled = true;
             btnToepassen.Enabled = true;
             btnMateriaalVerwijderen.Enabled = true;
-            //leeg alles
-            txtNieuweNaam.Clear();
-            rtxtBeschrijving.Clear();
-            txtNieuweVoorraad.Clear();
-            picNieuweAfbeelding.Image = null;
-            lblMateriaalID.ResetText();
+            
+            ClearInputs();
 
             //vul alles
             txtNieuweNaam.Text = materiaal.MateriaalNaam;
@@ -83,6 +89,8 @@ namespace prjSportnetKinda.View
 
             //ook de lijst waar de info uit komt updaten
             matList = MateriaalDA.OphalenMateriaal();
+
+            ClearInputs();
 
             //materiaal verversen
             main1.MateriaalRefresh();
@@ -133,14 +141,29 @@ namespace prjSportnetKinda.View
                 lsvMateriaal.Items.Add(materiaal.MateriaalNaam);
             }
 
-            //leeg alles
-            txtNieuweNaam.Clear();
-            rtxtBeschrijving.Clear();
-            picNieuweAfbeelding.Image = null;
-            txtNieuweFotoLocatie.ResetText();
-            txtNieuweVoorraad.ResetText();
+            ClearInputs();
 
             main1.MateriaalRefresh();
+        }
+
+        private void rtxtBeschrijving_TextChanged(object sender, EventArgs e)
+        {
+            lblLengteBeschrijving.BackColor = Color.Transparent;
+            lblLengteBeschrijving.Text = rtxtBeschrijving.TextLength + "/1000";
+            if (rtxtBeschrijving.TextLength > 1000)
+            {
+                lblLengteBeschrijving.ForeColor = Color.Red;
+            }
+        }
+
+        private void txtNieuweNaam_TextChanged(object sender, EventArgs e)
+        {
+            lblLengte.BackColor = Color.Transparent;
+            lblLengte.Text = txtNieuweNaam.TextLength + "/20";
+            if (txtNieuweNaam.TextLength > 20)
+            {
+                lblLengte.ForeColor = Color.Red;
+            }
         }
     }
 }

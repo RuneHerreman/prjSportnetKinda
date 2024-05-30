@@ -110,7 +110,7 @@
             this.pnlNaamRegister.Controls.Add(this.txtNaam);
             this.pnlNaamRegister.Location = new System.Drawing.Point(19, 74);
             this.pnlNaamRegister.Name = "pnlNaamRegister";
-            this.pnlNaamRegister.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.pnlNaamRegister.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.pnlNaamRegister.Size = new System.Drawing.Size(136, 32);
             this.pnlNaamRegister.TabIndex = 1;
             // 
@@ -124,7 +124,7 @@
             this.txtNaam.MaxLength = 100;
             this.txtNaam.Multiline = true;
             this.txtNaam.Name = "txtNaam";
-            this.txtNaam.Size = new System.Drawing.Size(136, 29);
+            this.txtNaam.Size = new System.Drawing.Size(136, 30);
             this.txtNaam.TabIndex = 1;
             this.txtNaam.WordWrap = false;
             // 
@@ -134,7 +134,7 @@
             this.pnlVoornaamRegister.Controls.Add(this.txtVoornaam);
             this.pnlVoornaamRegister.Location = new System.Drawing.Point(168, 74);
             this.pnlVoornaamRegister.Name = "pnlVoornaamRegister";
-            this.pnlVoornaamRegister.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.pnlVoornaamRegister.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.pnlVoornaamRegister.Size = new System.Drawing.Size(137, 32);
             this.pnlVoornaamRegister.TabIndex = 2;
             // 
@@ -148,7 +148,7 @@
             this.txtVoornaam.MaxLength = 100;
             this.txtVoornaam.Multiline = true;
             this.txtVoornaam.Name = "txtVoornaam";
-            this.txtVoornaam.Size = new System.Drawing.Size(137, 29);
+            this.txtVoornaam.Size = new System.Drawing.Size(137, 30);
             this.txtVoornaam.TabIndex = 2;
             this.txtVoornaam.WordWrap = false;
             // 
@@ -158,7 +158,7 @@
             this.pnlEmailRegister.Controls.Add(this.txtEmail);
             this.pnlEmailRegister.Location = new System.Drawing.Point(19, 138);
             this.pnlEmailRegister.Name = "pnlEmailRegister";
-            this.pnlEmailRegister.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.pnlEmailRegister.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.pnlEmailRegister.Size = new System.Drawing.Size(286, 32);
             this.pnlEmailRegister.TabIndex = 3;
             // 
@@ -172,7 +172,7 @@
             this.txtEmail.MaxLength = 100;
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(286, 29);
+            this.txtEmail.Size = new System.Drawing.Size(286, 30);
             this.txtEmail.TabIndex = 3;
             this.txtEmail.WordWrap = false;
             // 
@@ -182,7 +182,7 @@
             this.panel4.Controls.Add(this.txtWachtwoord);
             this.panel4.Location = new System.Drawing.Point(19, 268);
             this.panel4.Name = "panel4";
-            this.panel4.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.panel4.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.panel4.Size = new System.Drawing.Size(286, 32);
             this.panel4.TabIndex = 5;
             // 
@@ -197,7 +197,7 @@
             this.txtWachtwoord.Multiline = true;
             this.txtWachtwoord.Name = "txtWachtwoord";
             this.txtWachtwoord.PasswordChar = '●';
-            this.txtWachtwoord.Size = new System.Drawing.Size(286, 29);
+            this.txtWachtwoord.Size = new System.Drawing.Size(286, 30);
             this.txtWachtwoord.TabIndex = 5;
             this.txtWachtwoord.WordWrap = false;
             // 
@@ -263,7 +263,7 @@
             this.pnlDOB.Controls.Add(this.txtGeboortedatum);
             this.pnlDOB.Location = new System.Drawing.Point(19, 204);
             this.pnlDOB.Name = "pnlDOB";
-            this.pnlDOB.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.pnlDOB.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.pnlDOB.Size = new System.Drawing.Size(286, 32);
             this.pnlDOB.TabIndex = 4;
             // 
@@ -277,7 +277,7 @@
             this.txtGeboortedatum.MaxLength = 100;
             this.txtGeboortedatum.Multiline = true;
             this.txtGeboortedatum.Name = "txtGeboortedatum";
-            this.txtGeboortedatum.Size = new System.Drawing.Size(286, 29);
+            this.txtGeboortedatum.Size = new System.Drawing.Size(286, 30);
             this.txtGeboortedatum.TabIndex = 4;
             this.txtGeboortedatum.WordWrap = false;
             // 
@@ -320,7 +320,7 @@
             this.panel1.Controls.Add(this.txtWachtwoordHerhalen);
             this.panel1.Location = new System.Drawing.Point(19, 332);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+            this.panel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.panel1.Size = new System.Drawing.Size(286, 32);
             this.panel1.TabIndex = 6;
             // 
@@ -335,7 +335,7 @@
             this.txtWachtwoordHerhalen.Multiline = true;
             this.txtWachtwoordHerhalen.Name = "txtWachtwoordHerhalen";
             this.txtWachtwoordHerhalen.PasswordChar = '●';
-            this.txtWachtwoordHerhalen.Size = new System.Drawing.Size(286, 29);
+            this.txtWachtwoordHerhalen.Size = new System.Drawing.Size(286, 30);
             this.txtWachtwoordHerhalen.TabIndex = 6;
             this.txtWachtwoordHerhalen.WordWrap = false;
             // 
@@ -365,6 +365,7 @@
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ZRC - Sportnet";

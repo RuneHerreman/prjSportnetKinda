@@ -45,6 +45,7 @@
             // 
             // btnBladeren
             // 
+            this.btnBladeren.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBladeren.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBladeren.Location = new System.Drawing.Point(418, 24);
             this.btnBladeren.Name = "btnBladeren";
@@ -65,6 +66,7 @@
             // 
             // btnArtikelOpslaan
             // 
+            this.btnArtikelOpslaan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnArtikelOpslaan.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnArtikelOpslaan.Location = new System.Drawing.Point(16, 366);
             this.btnArtikelOpslaan.Name = "btnArtikelOpslaan";
@@ -173,6 +175,7 @@
             this.Controls.Add(this.txtFotoNieuw);
             this.Controls.Add(this.btnBladeren);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "NieuwArtikel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "NieuwArtikel";

@@ -42,11 +42,14 @@
             this.lsvArtikels = new System.Windows.Forms.ListView();
             this.cNaam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ofdFoto = new System.Windows.Forms.OpenFileDialog();
+            this.lblLengteArtikel = new System.Windows.Forms.Label();
+            this.lblLengte = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picNieuweAfbeelding)).BeginInit();
             this.SuspendLayout();
             // 
             // btnArtikelVerwijderen
             // 
+            this.btnArtikelVerwijderen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnArtikelVerwijderen.Enabled = false;
             this.btnArtikelVerwijderen.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnArtikelVerwijderen.Location = new System.Drawing.Point(458, 330);
@@ -88,6 +91,7 @@
             // 
             // btnToepassen
             // 
+            this.btnToepassen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnToepassen.Enabled = false;
             this.btnToepassen.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnToepassen.Location = new System.Drawing.Point(234, 330);
@@ -141,21 +145,27 @@
             // txtNieuweNaam
             // 
             this.txtNieuweNaam.Enabled = false;
+            this.txtNieuweNaam.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNieuweNaam.Location = new System.Drawing.Point(234, 36);
             this.txtNieuweNaam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNieuweNaam.MaxLength = 44;
             this.txtNieuweNaam.Name = "txtNieuweNaam";
             this.txtNieuweNaam.Size = new System.Drawing.Size(218, 20);
             this.txtNieuweNaam.TabIndex = 19;
+            this.txtNieuweNaam.TextChanged += new System.EventHandler(this.txtNieuweNaam_TextChanged);
             // 
             // rtxtBeschrijving
             // 
             this.rtxtBeschrijving.Enabled = false;
+            this.rtxtBeschrijving.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtBeschrijving.Location = new System.Drawing.Point(234, 80);
             this.rtxtBeschrijving.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.rtxtBeschrijving.MaxLength = 50000;
             this.rtxtBeschrijving.Name = "rtxtBeschrijving";
             this.rtxtBeschrijving.Size = new System.Drawing.Size(218, 111);
             this.rtxtBeschrijving.TabIndex = 17;
             this.rtxtBeschrijving.Text = "";
+            this.rtxtBeschrijving.TextChanged += new System.EventHandler(this.rtxtBeschrijving_TextChanged);
             // 
             // lsvArtikels
             // 
@@ -183,11 +193,31 @@
             // 
             this.ofdFoto.FileName = "openFileDialog1";
             // 
+            // lblLengteArtikel
+            // 
+            this.lblLengteArtikel.AutoSize = true;
+            this.lblLengteArtikel.BackColor = System.Drawing.Color.Transparent;
+            this.lblLengteArtikel.Location = new System.Drawing.Point(407, 62);
+            this.lblLengteArtikel.Name = "lblLengteArtikel";
+            this.lblLengteArtikel.Size = new System.Drawing.Size(0, 13);
+            this.lblLengteArtikel.TabIndex = 32;
+            // 
+            // lblLengte
+            // 
+            this.lblLengte.AutoSize = true;
+            this.lblLengte.BackColor = System.Drawing.Color.Transparent;
+            this.lblLengte.Location = new System.Drawing.Point(418, 39);
+            this.lblLengte.Name = "lblLengte";
+            this.lblLengte.Size = new System.Drawing.Size(0, 13);
+            this.lblLengte.TabIndex = 31;
+            // 
             // ArtikelBewerken
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(646, 370);
+            this.Controls.Add(this.lblLengteArtikel);
+            this.Controls.Add(this.lblLengte);
             this.Controls.Add(this.btnArtikelVerwijderen);
             this.Controls.Add(this.lblArtikelID);
             this.Controls.Add(this.txtNieuweFotoLocatie);
@@ -200,6 +230,8 @@
             this.Controls.Add(this.txtNieuweNaam);
             this.Controls.Add(this.rtxtBeschrijving);
             this.Controls.Add(this.lsvArtikels);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "ArtikelBewerken";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ArtikelBewerken";
@@ -225,5 +257,7 @@
         private System.Windows.Forms.ListView lsvArtikels;
         private System.Windows.Forms.ColumnHeader cNaam;
         private System.Windows.Forms.OpenFileDialog ofdFoto;
+        private System.Windows.Forms.Label lblLengteArtikel;
+        private System.Windows.Forms.Label lblLengte;
     }
 }

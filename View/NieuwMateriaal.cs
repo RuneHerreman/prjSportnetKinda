@@ -51,8 +51,8 @@ namespace prjSportnetKinda.View
         private void txtTitelNieuw_TextChanged(object sender, EventArgs e)
         {
             lblLengte.BackColor = Color.Transparent;
-            lblLengte.Text = txtNaamNieuw.TextLength + "/15";
-            if (txtNaamNieuw.TextLength > 15)
+            lblLengte.Text = txtNaamNieuw.TextLength + "/20";
+            if (txtNaamNieuw.TextLength > 20)
             {
                 lblLengte.ForeColor = Color.Red;
             }
@@ -78,7 +78,8 @@ namespace prjSportnetKinda.View
                 txtNaamNieuw.ResetText();
                 txtFotoNieuw.ResetText();
                 picNieuwMateriaalPreview.Image = null;
-                
+                txtVoorraad.ResetText();
+                main1.MateriaalRefresh();
             }
             catch (Exception ex)
             {

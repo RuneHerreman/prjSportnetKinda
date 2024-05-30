@@ -95,6 +95,7 @@
             // 
             // txtBeschrijvingNieuw
             // 
+            this.txtBeschrijvingNieuw.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBeschrijvingNieuw.Location = new System.Drawing.Point(12, 108);
             this.txtBeschrijvingNieuw.MaxLength = 1000;
             this.txtBeschrijvingNieuw.Name = "txtBeschrijvingNieuw";
@@ -105,8 +106,9 @@
             // 
             // txtNaamNieuw
             // 
+            this.txtNaamNieuw.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNaamNieuw.Location = new System.Drawing.Point(12, 66);
-            this.txtNaamNieuw.MaxLength = 15;
+            this.txtNaamNieuw.MaxLength = 20;
             this.txtNaamNieuw.Name = "txtNaamNieuw";
             this.txtNaamNieuw.Size = new System.Drawing.Size(400, 20);
             this.txtNaamNieuw.TabIndex = 14;
@@ -114,6 +116,7 @@
             // 
             // btnMateriaalOpslaan
             // 
+            this.btnMateriaalOpslaan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMateriaalOpslaan.Location = new System.Drawing.Point(16, 364);
             this.btnMateriaalOpslaan.Name = "btnMateriaalOpslaan";
             this.btnMateriaalOpslaan.Size = new System.Drawing.Size(396, 23);
@@ -125,6 +128,7 @@
             // txtFotoNieuw
             // 
             this.txtFotoNieuw.Enabled = false;
+            this.txtFotoNieuw.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFotoNieuw.Location = new System.Drawing.Point(12, 24);
             this.txtFotoNieuw.Name = "txtFotoNieuw";
             this.txtFotoNieuw.Size = new System.Drawing.Size(400, 20);
@@ -132,6 +136,7 @@
             // 
             // btnBladeren
             // 
+            this.btnBladeren.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBladeren.Location = new System.Drawing.Point(418, 22);
             this.btnBladeren.Name = "btnBladeren";
             this.btnBladeren.Size = new System.Drawing.Size(75, 23);
@@ -165,6 +170,7 @@
             // 
             // txtVoorraad
             // 
+            this.txtVoorraad.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVoorraad.Location = new System.Drawing.Point(12, 338);
             this.txtVoorraad.MaxLength = 15;
             this.txtVoorraad.Name = "txtVoorraad";
@@ -190,6 +196,7 @@
             this.Controls.Add(this.txtFotoNieuw);
             this.Controls.Add(this.btnBladeren);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "NieuwMateriaal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Nieuw materiaal";
