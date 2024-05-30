@@ -189,7 +189,6 @@ namespace prjSportnetKinda.View
             {
                 MessageBox.Show("Je mag alleen positieve getallen ingeven!", "Alleen getallen!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
         private void LogboekAllesInlveren_Click(object sender, EventArgs e)
         {
