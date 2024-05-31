@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExportKeuze));
             this.btnPDF = new System.Windows.Forms.Button();
             this.btnExcel = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -36,9 +37,10 @@
             // 
             this.btnPDF.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPDF.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPDF.Location = new System.Drawing.Point(154, 10);
+            this.btnPDF.Location = new System.Drawing.Point(205, 12);
+            this.btnPDF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPDF.Name = "btnPDF";
-            this.btnPDF.Size = new System.Drawing.Size(136, 43);
+            this.btnPDF.Size = new System.Drawing.Size(181, 53);
             this.btnPDF.TabIndex = 4;
             this.btnPDF.Text = "Export PDF";
             this.btnPDF.UseVisualStyleBackColor = true;
@@ -48,9 +50,10 @@
             // 
             this.btnExcel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExcel.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcel.Location = new System.Drawing.Point(12, 10);
+            this.btnExcel.Location = new System.Drawing.Point(16, 12);
+            this.btnExcel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(136, 43);
+            this.btnExcel.Size = new System.Drawing.Size(181, 53);
             this.btnExcel.TabIndex = 3;
             this.btnExcel.Text = "Export Excel";
             this.btnExcel.UseVisualStyleBackColor = true;
@@ -58,12 +61,14 @@
             // 
             // ExportKeuze
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 65);
+            this.ClientSize = new System.Drawing.Size(403, 80);
             this.Controls.Add(this.btnPDF);
             this.Controls.Add(this.btnExcel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ExportKeuze";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ExportKeuze";

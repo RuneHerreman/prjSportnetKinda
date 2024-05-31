@@ -120,65 +120,39 @@ namespace prjSportnetKinda.DA
                 //connectie maken met database
                 MySqlConnection conn = Database.MakeConnection();
 
-                //Controleren of Email al bestaat
-                string queryCheck = "SELECT * from tblgebruiker WHERE Email=@Email";
+                //Wachtwoord beveiligen met encrytie
+                byte[] data = System.Text.Encoding.ASCII.GetBytes(wachtwoord);
+                data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+                String hash = System.Text.Encoding.ASCII.GetString(data);
+
+                //sting maken met sql statement
+                string queryRegistreren = "INSERT INTO tblgebruiker (Naam, Voornaam, Email, Geboortedatum, Wachtwoord, LidSinds, Renner, Trainer, Beheerder) " +
+                        "VALUES (@Naam, @Voornaam, @Email, @Geboortedatum, @Wachtwoord, @LidSinds, @Renner, @Trainer, @Beheerder)";
 
                 //Maken van het command
-                MySqlCommand cmdCheck = new MySqlCommand(queryCheck, conn);
+                MySqlCommand cmdRegistreren = new MySqlCommand(queryRegistreren, conn);
 
                 //Welk soort gegevens is het commando
-                cmdCheck.CommandType = CommandType.Text;
+                cmdRegistreren.CommandType = CommandType.Text;
 
                 //Parameters
-                cmdCheck.Parameters.AddWithValue("@Email", email);
+                cmdRegistreren.Parameters.AddWithValue("@Naam", naam);
+                cmdRegistreren.Parameters.AddWithValue("@Voornaam", voornaam);
+                cmdRegistreren.Parameters.AddWithValue("@Email", email);
+                cmdRegistreren.Parameters.AddWithValue("@Geboortedatum", geboordtedatum);
+                cmdRegistreren.Parameters.AddWithValue("@Wachtwoord", hash);
+                cmdRegistreren.Parameters.AddWithValue("@LidSinds", DateTime.Today);
+                cmdRegistreren.Parameters.AddWithValue("@Renner", 1);
+                cmdRegistreren.Parameters.AddWithValue("@Trainer", 0);
+                cmdRegistreren.Parameters.AddWithValue("@Beheerder", 0);
 
-                MySqlDataReader reader = cmdCheck.ExecuteReader();
-                if (reader.HasRows == true)
-                {
-                    reader.Read();
-                    registreren.Email = reader["Email"].ToString();
-                    reader.Close();
-                    registreren.Email = "Bezet";
-                    return registreren;
-                }
-                else
-                {
-                    reader.Close();
+                //Uivoeren
+                cmdRegistreren.ExecuteNonQuery();
 
-                    //Wachtwoord beveiligen met encrytie
-                    byte[] data = System.Text.Encoding.ASCII.GetBytes(wachtwoord);
-                    data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
-                    String hash = System.Text.Encoding.ASCII.GetString(data);
+                //Connection sluiten
+                Database.CloseConnection(conn);
 
-                    //sting maken met sql statement
-                    string queryRegistreren = "INSERT INTO tblgebruiker (Naam, Voornaam, Email, Geboortedatum, Wachtwoord, LidSinds, Renner, Trainer, Beheerder) " +
-                            "VALUES (@Naam, @Voornaam, @Email, @Geboortedatum, @Wachtwoord, @LidSinds, @Renner, @Trainer, @Beheerder)";
-
-                    //Maken van het command
-                    MySqlCommand cmdRegistreren = new MySqlCommand(queryRegistreren, conn);
-
-                    //Welk soort gegevens is het commando
-                    cmdRegistreren.CommandType = CommandType.Text;
-
-                    //Parameters
-                    cmdRegistreren.Parameters.AddWithValue("@Naam", naam);
-                    cmdRegistreren.Parameters.AddWithValue("@Voornaam", voornaam);
-                    cmdRegistreren.Parameters.AddWithValue("@Email", email);
-                    cmdRegistreren.Parameters.AddWithValue("@Geboortedatum", geboordtedatum);
-                    cmdRegistreren.Parameters.AddWithValue("@Wachtwoord", hash);
-                    cmdRegistreren.Parameters.AddWithValue("@LidSinds", DateTime.Today);
-                    cmdRegistreren.Parameters.AddWithValue("@Renner", 1);
-                    cmdRegistreren.Parameters.AddWithValue("@Trainer", 0);
-                    cmdRegistreren.Parameters.AddWithValue("@Beheerder", 0);
-
-                    //Uivoeren
-                    cmdRegistreren.ExecuteNonQuery();
-
-                    //Connection sluiten
-                    Database.CloseConnection(conn);
-
-                    return registreren;
-                }
+                return registreren;
             }
             catch (Exception ex)
             {
@@ -396,20 +370,56 @@ namespace prjSportnetKinda.DA
             string query = "UPDATE tblgebruiker SET Wachtwoord=@Wachtwoord WHERE Email=@Email";
 
             //Maken van het command
-            MySqlCommand cmdInloggen = new MySqlCommand(query, conn);
+            MySqlCommand cmdWijzigen = new MySqlCommand(query, conn);
 
             //Welk soort gegevens is het commando
-            cmdInloggen.CommandType = CommandType.Text;
+            cmdWijzigen.CommandType = CommandType.Text;
 
             //Parameters
-            cmdInloggen.Parameters.AddWithValue("@Email", Email);
-            cmdInloggen.Parameters.AddWithValue("@Wachtwoord", hash);
+            cmdWijzigen.Parameters.AddWithValue("@Email", Email);
+            cmdWijzigen.Parameters.AddWithValue("@Wachtwoord", hash);
 
             //Commando uitvoeren
-            cmdInloggen.ExecuteNonQuery();
+            cmdWijzigen.ExecuteNonQuery();
 
             //Connection sluiten
             Database.CloseConnection(conn);
+        }
+
+        public static Gebruiker ControleEmail(string Email)
+        {
+            //Connection openen
+            MySqlConnection conn = Database.MakeConnection();
+
+            //sting maken met sql statement
+            string query = "SELECT * FROM tblgebruiker WHERE Email=@Email";
+
+            //Maken van het command
+            MySqlCommand cmdControle = new MySqlCommand(query, conn);
+
+            //Welk soort gegevens is het commando
+            cmdControle.CommandType = CommandType.Text;
+
+            //Parameters
+            cmdControle.Parameters.AddWithValue("@Email", Email);
+
+            // Commando uitvoeren
+            MySqlDataReader reader = cmdControle.ExecuteReader();
+
+            if (reader.HasRows == true)
+            {
+                //Connection sluiten
+                Database.CloseConnection(conn);
+
+                return new Gebruiker();
+            }
+            else
+            {
+                //Connection sluiten
+                Database.CloseConnection(conn);
+
+                return null;
+            }
         }
     }
 }

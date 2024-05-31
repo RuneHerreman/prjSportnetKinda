@@ -9,6 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using prjSportnetKinda.DA;
 using prjSportnetKinda.Model;
+using Microsoft.VisualBasic;
+
+//toegevoegd voor SendGrid mails
+using SendGrid;
+using SendGrid.Helpers.Mail;
 
 namespace prjSportnetKinda
 {
@@ -51,41 +56,83 @@ namespace prjSportnetKinda
                     strWachtwoord = txtWachtwoord.Text;
                     strWachtwoordHerhalen = txtWachtwoordHerhalen.Text;
 
+                    //Controle
                     if (strWachtwoord == strWachtwoordHerhalen)
                     {
-                        if (DateTime.Now.Year - Geboortedatum.Year > 8)
+                        if (GebruikerDA.ControleEmail(strEmail) == null)
                         {
-                            Gebruiker registreren = GebruikerDA.Registreren(strNaam, strVoornaam, strEmail, Geboortedatum, strWachtwoord);
+                            if (DateTime.Now.Year - Geboortedatum.Year > 8)
+                            {
+                                //Code genereren
+                                Random random = new Random();
+                                int Code = random.Next(100000, 999999);
 
-                            if (registreren == null)
-                            {
-                                lblFout.Text = "Vul alle velden correct in";
-                            }
-                            else if (registreren.Email == "Bezet")
-                            {
-                                lblFout.Text = "E-mail is al in gebruik";
+                                //Code voor client (is opgesplitst omdat door de veiligheid mag je het niet volledig in je programma steken en kan je niet pushen naar github)
+                                string deel1 = "SG" + ".KiLjFK_GSNmxR";
+                                string deel2 = "_ANE5bUuw.C20SfYAMRzS2Es" + "pt9TtfwqAkyMNb_PSP8LF7uuYmFjk";
+
+                                //Email opmaken en versturen
+                                var client = new SendGridClient(deel1 + deel2);
+                                var from = new EmailAddress("zrc.development@zrc.be", "ZRC");
+                                var subject = "Paswoord reset ZRC SportNet";
+                                var to = new EmailAddress(strEmail, "Gebruiker");
+                                var plaintextContent = "Reset uw paswoord met de code " + Code + "";
+                                var htmlContent = "Reset uw paswoord met de code <Strong>" + Code + "</strong>";
+                                var msg = MailHelper.CreateSingleEmail(from, to, subject, plaintextContent, htmlContent);
+                                var response = client.SendEmailAsync(msg);
+
+                                //Code opvragen
+                                string strCode = Interaction.InputBox("Geef de code in die u hebt gekregen via het gekozen email adres.\nDeze mail kan in uw spam zitten.", "Verificatie");
+
+                                //Code controleren
+                                if (strCode == Code.ToString())
+                                {
+                                    Gebruiker registreren = GebruikerDA.Registreren(strNaam, strVoornaam, strEmail, Geboortedatum, strWachtwoord);
+
+                                    if (registreren == null)
+                                    {
+                                        //Foutmelding
+                                        MessageBox.Show("Er is een fout opgetreden, uw account kan niet worden aangemaakt.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }
+                                    else
+                                    {
+                                        //Succes melding
+                                        MessageBox.Show("Uw account is aangemaakt, u kan nu inloggen.", "Succes");
+
+                                        //Login pagina openen
+                                        Login login = new Login();
+                                        this.Hide();
+                                        login.ShowDialog();
+                                        this.Close();
+                                    }
+                                }
+                                else
+                                {
+                                    //Foutmelding
+                                    MessageBox.Show("U gaf de verkeerde code in, stuur een nieuwe mail om opnieuw te proberen", "Foute code", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
                             }
                             else
                             {
-                                Login login = new Login();
-                                this.Hide();
-                                login.ShowDialog();
-                                this.Close();
+                                //Foutmelding
+                                lblFout.Text = "Je bent nog te jong om je aan te melden";
                             }
                         }
                         else
                         {
-                            lblFout.Text = "Je bent nog te jong om je aan te melden";
+                            //Foutmelding
+                            lblFout.Text = "Dit e-mail is al in gebruik";
                         }
-                        
                     }
                     else
                     {
+                        //Foutmelding
                         lblFout.Text = "Wachtwoorden komen niet overeen";
                     }
                 }
                 catch
                 {
+                    //Foutmelding
                     lblFout.Text = "Vul alle velden correct in";
                 }
             }

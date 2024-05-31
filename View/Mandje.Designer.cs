@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMandje));
             this.lsvMandje = new System.Windows.Forms.ListView();
             this.cNaam = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cAantal = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -45,10 +46,11 @@
             this.lsvMandje.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lsvMandje.FullRowSelect = true;
             this.lsvMandje.HideSelection = false;
-            this.lsvMandje.Location = new System.Drawing.Point(10, 10);
+            this.lsvMandje.Location = new System.Drawing.Point(13, 12);
+            this.lsvMandje.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lsvMandje.MultiSelect = false;
             this.lsvMandje.Name = "lsvMandje";
-            this.lsvMandje.Size = new System.Drawing.Size(300, 200);
+            this.lsvMandje.Size = new System.Drawing.Size(399, 245);
             this.lsvMandje.TabIndex = 0;
             this.lsvMandje.UseCompatibleStateImageBehavior = false;
             this.lsvMandje.View = System.Windows.Forms.View.Details;
@@ -69,9 +71,10 @@
             this.btnHurenLijst.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHurenLijst.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHurenLijst.ForeColor = System.Drawing.Color.White;
-            this.btnHurenLijst.Location = new System.Drawing.Point(10, 272);
+            this.btnHurenLijst.Location = new System.Drawing.Point(13, 335);
+            this.btnHurenLijst.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnHurenLijst.Name = "btnHurenLijst";
-            this.btnHurenLijst.Size = new System.Drawing.Size(300, 50);
+            this.btnHurenLijst.Size = new System.Drawing.Size(400, 62);
             this.btnHurenLijst.TabIndex = 1;
             this.btnHurenLijst.Text = "Huren";
             this.btnHurenLijst.UseVisualStyleBackColor = false;
@@ -81,9 +84,10 @@
             // 
             this.btnMandjeLegen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMandjeLegen.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMandjeLegen.Location = new System.Drawing.Point(114, 216);
+            this.btnMandjeLegen.Location = new System.Drawing.Point(152, 266);
+            this.btnMandjeLegen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMandjeLegen.Name = "btnMandjeLegen";
-            this.btnMandjeLegen.Size = new System.Drawing.Size(92, 50);
+            this.btnMandjeLegen.Size = new System.Drawing.Size(123, 62);
             this.btnMandjeLegen.TabIndex = 2;
             this.btnMandjeLegen.Text = "Mandje Legen";
             this.btnMandjeLegen.UseVisualStyleBackColor = true;
@@ -93,9 +97,10 @@
             // 
             this.btnArtikelVerwijderen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnArtikelVerwijderen.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArtikelVerwijderen.Location = new System.Drawing.Point(10, 216);
+            this.btnArtikelVerwijderen.Location = new System.Drawing.Point(13, 266);
+            this.btnArtikelVerwijderen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnArtikelVerwijderen.Name = "btnArtikelVerwijderen";
-            this.btnArtikelVerwijderen.Size = new System.Drawing.Size(92, 50);
+            this.btnArtikelVerwijderen.Size = new System.Drawing.Size(123, 62);
             this.btnArtikelVerwijderen.TabIndex = 3;
             this.btnArtikelVerwijderen.Text = "Artikel Verwijderen";
             this.btnArtikelVerwijderen.UseVisualStyleBackColor = true;
@@ -105,9 +110,10 @@
             // 
             this.btnAantalAanpassen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAantalAanpassen.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAantalAanpassen.Location = new System.Drawing.Point(218, 216);
+            this.btnAantalAanpassen.Location = new System.Drawing.Point(291, 266);
+            this.btnAantalAanpassen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAantalAanpassen.Name = "btnAantalAanpassen";
-            this.btnAantalAanpassen.Size = new System.Drawing.Size(92, 50);
+            this.btnAantalAanpassen.Size = new System.Drawing.Size(123, 62);
             this.btnAantalAanpassen.TabIndex = 4;
             this.btnAantalAanpassen.Text = "Aantal Aanpassen";
             this.btnAantalAanpassen.UseVisualStyleBackColor = true;
@@ -115,15 +121,17 @@
             // 
             // frmMandje
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(319, 331);
+            this.ClientSize = new System.Drawing.Size(425, 407);
             this.Controls.Add(this.btnAantalAanpassen);
             this.Controls.Add(this.btnArtikelVerwijderen);
             this.Controls.Add(this.btnMandjeLegen);
             this.Controls.Add(this.btnHurenLijst);
             this.Controls.Add(this.lsvMandje);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "frmMandje";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
