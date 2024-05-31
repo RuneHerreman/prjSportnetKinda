@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -88,17 +89,20 @@ namespace prjSportnetKinda.View
             //nieuwe voorraad berekenen (huidige voorraad + verschil tussen het geleend aantal en het gewenst resterende aantal(-->hoeveel teruggeven))
             int intNieuweVoorraad = logList[lsvLogboek.SelectedIndices[0]].Materiaal.Voorraad + (Convert.ToInt32(logList[lsvLogboek.SelectedIndices[0]].Aantal) - intNumber);
 
+            //foto's omzetten naar byte array
+            MemoryStream msProfiel = new MemoryStream();
+            pictureBox.Image.Save(msProfiel, System.Drawing.Imaging.ImageFormat.Jpeg);
+            byte[] arrFoto = msProfiel.GetBuffer();
+
             //materiaal aanpassen in de database
-            MateriaalDA.MateriaalUpdate(logList[lsvLogboek.SelectedIndices[0]].Materiaal.MateriaalNaam, logList[lsvLogboek.SelectedIndices[0]].Materiaal.Beschrijving, intNieuweVoorraad, pictureBox, logList[lsvLogboek.SelectedIndices[0]].Materiaal.ID);
+            MateriaalDA.MateriaalUpdate(logList[lsvLogboek.SelectedIndices[0]].Materiaal.MateriaalNaam, logList[lsvLogboek.SelectedIndices[0]].Materiaal.Beschrijving, intNieuweVoorraad, arrFoto, logList[lsvLogboek.SelectedIndices[0]].Materiaal.ID);
 
             //listview verversen
             LogboekListRefresh();
             //openstaand formulier ook verversen
             logboekform1.LogboekRefresh();
         }
-        //------------------------------------------------------------------------------------------------------------------------------------------
-        //------------------------------------------------------------------------------------------------------------------------------------------
-        //------------------------------------------------------------------------------------------------------------------------------------------
+
         private void btnKiesAantal_Click(object sender, EventArgs e)
         {
             //is het een getal, positief of nul?

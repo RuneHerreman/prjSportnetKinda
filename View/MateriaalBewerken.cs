@@ -73,27 +73,57 @@ namespace prjSportnetKinda.View
 
         private void btnToepassen_Click(object sender, EventArgs e)
         {
-            //aanpassen in datatbase
-            MateriaalDA.MateriaalUpdate(txtNieuweNaam.Text, rtxtBeschrijving.Text, Convert.ToInt16(txtNieuweVoorraad.Text), picNieuweAfbeelding, Convert.ToInt32(lblMateriaalID.Text));
-
-            //niets geselecteerd --> ZONDER DIT CRASHT HET PROGRAMMA NA EEN VERANDERING
-            lsvMateriaal.SelectedItems.Clear();
-            //leeg listview
-            lsvMateriaal.Items.Clear();
-            //opnieuw opvullen met geüpdatete item
-            foreach (Materiaal materiaal in MateriaalDA.OphalenMateriaal())
+            try
             {
-                //listview opvullen
-                lsvMateriaal.Items.Add(materiaal.MateriaalNaam);
+                if (picNieuweAfbeelding.Image != null)
+                {
+                    //foto's omzetten naar byte array
+                    MemoryStream msProfiel = new MemoryStream();
+                    picNieuweAfbeelding.Image.Save(msProfiel, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    byte[] arrFoto = msProfiel.GetBuffer();
+
+                    if (arrFoto.Length < 2000000)
+                    {
+                        //aanpassen in datatbase
+                        MateriaalDA.MateriaalUpdate(txtNieuweNaam.Text, rtxtBeschrijving.Text, Convert.ToInt16(txtNieuweVoorraad.Text), arrFoto, Convert.ToInt32(lblMateriaalID.Text));
+
+                        //niets geselecteerd --> ZONDER DIT CRASHT HET PROGRAMMA NA EEN VERANDERING
+                        lsvMateriaal.SelectedItems.Clear();
+                        //leeg listview
+                        lsvMateriaal.Items.Clear();
+                        //opnieuw opvullen met geüpdatete item
+                        foreach (Materiaal materiaal in MateriaalDA.OphalenMateriaal())
+                        {
+                            //listview opvullen
+                            lsvMateriaal.Items.Add(materiaal.MateriaalNaam);
+                        }
+
+                        //ook de lijst waar de info uit komt updaten
+                        matList = MateriaalDA.OphalenMateriaal();
+
+                        ClearInputs();
+
+                        //materiaal verversen
+                        main1.MateriaalRefresh();
+                    }
+                    else
+                    {
+                        //Foutmelding
+                        MessageBox.Show("De foto is te groot", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    //Foutmelding
+                    MessageBox.Show("Voeg eerst een foto toe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch
+            {
+                //Foutmelding
+                MessageBox.Show("Er is heeft zich een fout opgetreden", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            //ook de lijst waar de info uit komt updaten
-            matList = MateriaalDA.OphalenMateriaal();
-
-            ClearInputs();
-
-            //materiaal verversen
-            main1.MateriaalRefresh();
         }
 
         private void btnBladeren_Click(object sender, EventArgs e)

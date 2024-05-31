@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -146,13 +147,16 @@ namespace prjSportnetKinda.View
             //aantal terug toevoegen aan materiaal (huidige voorraad + hoeveel je wil indienen)
             int intNieuweVoorraad = item.logboekPar.Materiaal.Voorraad + intNumber;
 
-            MateriaalDA.MateriaalUpdate(item.logboekPar.Materiaal.MateriaalNaam, item.logboekPar.Materiaal.Beschrijving, intNieuweVoorraad, pictureBox, item.logboekPar.Materiaal.ID);
+            //foto's omzetten naar byte array
+            MemoryStream msProfiel = new MemoryStream();
+            pictureBox.Image.Save(msProfiel, System.Drawing.Imaging.ImageFormat.Jpeg);
+            byte[] arrFoto = msProfiel.GetBuffer();
+
+            MateriaalDA.MateriaalUpdate(item.logboekPar.Materiaal.MateriaalNaam, item.logboekPar.Materiaal.Beschrijving, intNieuweVoorraad, arrFoto, item.logboekPar.Materiaal.ID);
 
             LogboekRefresh();
         }
-        //------------------------------------------------------------------------------------------------------------------------------------------
-        //------------------------------------------------------------------------------------------------------------------------------------------
-        //------------------------------------------------------------------------------------------------------------------------------------------
+        
         private void LogboekGebruikerLog_Click(object sender, EventArgs e)
         {
             //Omzetten van object naar MateriaalItem

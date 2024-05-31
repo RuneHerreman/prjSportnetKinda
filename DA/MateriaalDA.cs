@@ -131,19 +131,10 @@ namespace prjSportnetKinda.DA
             }
         }
 
-        public static void MateriaalMaken(string strNaam, string strBeschrijving, int intVoorraad, PictureBox pictureBox)
+        public static void MateriaalMaken(string strNaam, string strBeschrijving, int intVoorraad, byte[] arrFoto)
         {
             try
             {
-                //foto omzetten naar byte array
-                MemoryStream ms = new MemoryStream();
-                if (pictureBox.Image != null)
-                {
-                    pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                }
-                
-                byte[] arrFoto = ms.GetBuffer();
-
                 //open connectie
                 MySqlConnection conn = Database.MakeConnection();
 
@@ -169,18 +160,10 @@ namespace prjSportnetKinda.DA
             }
         }
 
-        public static void MateriaalUpdate(string strNaam, string strBeschrijving, int intVoorraad, PictureBox pictureBox, int intMateriaalID)
+        public static void MateriaalUpdate(string strNaam, string strBeschrijving, int intVoorraad, byte[] arrFoto, int intMateriaalID)
         {
             try
             {
-                //foto omzetten naar byte array
-                MemoryStream ms = new MemoryStream();
-                if (pictureBox.Image != null)
-                {
-                    pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                }
-                byte[] arrFoto = ms.GetBuffer();
-
                 //open connectie
                 MySqlConnection conn = Database.MakeConnection();
 

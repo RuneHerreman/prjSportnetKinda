@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+
 
 namespace prjSportnetKinda.View
 {
@@ -72,19 +74,42 @@ namespace prjSportnetKinda.View
         {
             try
             {
-                MateriaalDA.MateriaalMaken(txtNaamNieuw.Text, txtBeschrijvingNieuw.Text, Convert.ToInt16(txtVoorraad.Text), picNieuwMateriaalPreview);
-                //textboxes legen
-                txtBeschrijvingNieuw.ResetText();
-                txtNaamNieuw.ResetText();
-                txtFotoNieuw.ResetText();
-                txtVoorraad.ResetText();
-                picNieuwMateriaalPreview.Image = null;
-                txtVoorraad.ResetText();
-                main1.MateriaalRefresh();
+                if (picNieuwMateriaalPreview.Image != null)
+                {
+                    //foto's omzetten naar byte array
+                    MemoryStream msProfiel = new MemoryStream();
+                    picNieuwMateriaalPreview.Image.Save(msProfiel, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    byte[] arrFoto = msProfiel.GetBuffer();
+
+                    if (arrFoto.Length < 2000000)
+                    {
+                        MateriaalDA.MateriaalMaken(txtNaamNieuw.Text, txtBeschrijvingNieuw.Text, Convert.ToInt16(txtVoorraad.Text), arrFoto);
+
+                        //textboxes legen
+                        txtBeschrijvingNieuw.ResetText();
+                        txtNaamNieuw.ResetText();
+                        txtFotoNieuw.ResetText();
+                        txtVoorraad.ResetText();
+                        picNieuwMateriaalPreview.Image = null;
+                        txtVoorraad.ResetText();
+                        main1.MateriaalRefresh();
+                    }
+                    else
+                    {
+                        //Foutmelding
+                        MessageBox.Show("De foto is te groot", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    //Foutmelding
+                    MessageBox.Show("Voeg eerst een foto toe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                //Foutmelding
+                MessageBox.Show("Er is heeft zich een fout opgetreden", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
