@@ -53,7 +53,7 @@
             this.pnlEmailRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(48)))), ((int)(((byte)(81)))));
             this.pnlEmailRegister.Controls.Add(this.txtEmailRegister);
             this.pnlEmailRegister.Location = new System.Drawing.Point(21, 85);
-            this.pnlEmailRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlEmailRegister.Margin = new System.Windows.Forms.Padding(4);
             this.pnlEmailRegister.Name = "pnlEmailRegister";
             this.pnlEmailRegister.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.pnlEmailRegister.Size = new System.Drawing.Size(381, 39);
@@ -113,6 +113,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "WWVergeten";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ZRC - Sportnet";

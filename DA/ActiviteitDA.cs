@@ -54,7 +54,7 @@ namespace prjSportnetKinda.DA
                 {
                     ActiviteitID = Convert.ToInt32(record["ActiviteitID"]),
                     Type = record["Soort"].ToString(),
-                    Datum = Convert.ToDateTime(record["Datum"].ToString()),
+                    Datum = Convert.ToDateTime(record["Datum"]),
                     Locatie = record["Locatie"].ToString(),
                     Duur = Convert.ToInt32(record["Duur"]),
                 };
