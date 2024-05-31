@@ -67,7 +67,12 @@ namespace prjSportnetKinda.View
                 float[] kolombreedte = { 2f, 5f, 5f, 2f,2.5f }; // Adjust widths as necessary
                 table.SetWidths(kolombreedte);
 
-                // Adding headers
+                // voeg titel toe
+                PdfPCell cel = new PdfPCell(new Phrase("Logboek tabel"));
+                cel.Colspan = 5;
+                cel.HorizontalAlignment = 1;
+                table.AddCell(cel);
+                // voeg hoofding tie
                 table.AddCell("LogID");
                 table.AddCell("Gehuurd door");
                 table.AddCell("MateriaalNaam");
