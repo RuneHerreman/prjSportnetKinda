@@ -1,5 +1,6 @@
 ﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
+using iTextSharp.text.pdf.codec;
 using Microsoft.Office.Interop.Excel;
 using prjSportnetKinda.DA;
 using prjSportnetKinda.Model;
@@ -18,78 +19,120 @@ namespace prjSportnetKinda.View
 {
     public partial class ExportKeuze : Form
     {
-        public ExportKeuze()
+        Gebruiker g1;
+        public ExportKeuze(Gebruiker g)
         {
             InitializeComponent();
-        }
 
+            //gebruiker om te check of iemand beheerder is
+            g1 = g;
+        }
+        //logs van alle gebruikers ophalen
+        private static List<Logboek> LogboekOphalenAlleGebruikers()
+        {
+            List<Logboek> loglist = new List<Logboek>();
+            //rijen onder de koppen vullen
+            //Per persoon
+            foreach (Logboek log in LogboekDA.AantalUniekeGebruikersEnHunIDs())
+            {
+                //rijen opvullen met data
+                foreach (Logboek logboek in LogboekDA.OphalenLogboek(log.GebruikerID))
+                {
+                    loglist.Add(logboek);
+                }
+            }
+            return loglist;
+        }
+        private void ExportPDF(List<Logboek> loglist, string pad)
+        {
+            //document maken uit klasse van ITextSharp (Plugin --> NuGet)
+            Document document = new Document();
+            try
+            {
+                PdfWriter.GetInstance(document, new FileStream(pad, FileMode.Create));
+                document.Open();
+
+                PdfPTable table = new PdfPTable(4); //4 kolommen
+
+                // Adding headers
+                table.AddCell("LogID");
+                table.AddCell("Gehuurd door");
+                table.AddCell("MateriaalNaam");
+                table.AddCell("Aantal");
+                table.AddCell("Voorraad");
+
+                // Adding data rows
+                foreach (Logboek logboek in loglist)
+                {
+                    table.AddCell(logboek.LogID.ToString());
+                    table.AddCell(logboek.Gebruiker.Voornaam + logboek.Gebruiker.Naam);
+                    table.AddCell(logboek.Materiaal.MateriaalNaam.ToString());
+                    table.AddCell(logboek.Aantal.ToString());
+                    table.AddCell(logboek.Materiaal.Voorraad.ToString());
+                }
+
+                document.Add(table);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                document.Close();
+            }
+        }
         private void btnPDF_Click(object sender, EventArgs e)
         {
             try
             {
-                using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF|*.pdf*", ValidateNames = true })
+                List<Logboek> loglist = new List<Logboek>();
+                if (g1.Beheerder)
                 {
-                    //filedialog openen --> save locatie kiezen
-                    if (sfd.ShowDialog() == DialogResult.OK)
+                    loglist = LogboekOphalenAlleGebruikers();
+                }
+                else
+                {
+                    loglist = LogboekDA.OphalenLogboek(g1.GebruikerID);
+                }
+                //lijst aanmaken
+
+                //bestand opslaan
+                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                {
+                    //welk soort bestand word gemaakt?
+                    saveFileDialog.Filter = "PDF files (*.pdf)|*.pdf|All files (*.*)|*.*";
+
+                    //toon pdf als eerste optie
+                    saveFileDialog.FilterIndex = 1;
+
+                    //onthouden waar het bestand is opgeslaan moest je nog iets willen opslaan in dezelfde directory
+                    saveFileDialog.RestoreDirectory = true;
+
+                    //als iemand een locatie gevonden heeft en "OK" klikt
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
-                        var pdfDoc = new Document(PageSize.A4, 40f, 40f, 60f, 60f);
-                        PdfWriter.GetInstance(pdfDoc, new FileStream(sfd.FileName, FileMode.OpenOrCreate));
-
-
-                        var foto = Properties.Resources.download;
-                        
-
-                        var spacer = new Paragraph("")
-                        {
-                            SpacingBefore = 10f,
-                            SpacingAfter = 10f,
-                        };
-
-                        pdfDoc.Add(spacer);
-                        var kolombreedtes = new[] { 0.75f, 1f, 1.5f, 1f, 1f, 1f, 1f, 1f};
-
-                        var tabel = new PdfPTable(kolombreedtes)
-                        {
-                            HorizontalAlignment = Left,
-                            WidthPercentage = 75,
-                            DefaultCell = { MinimumHeight = 22f }
-                        };
-
-                        var cel = new PdfPCell(new Phrase("Logboek Tabel"))
-                        {
-                            Colspan = 10,
-                            HorizontalAlignment = 1, //0=links 1=middel 2=rechts
-                            MinimumHeight = 30f
-                        };
-
-                        tabel.AddCell(cel);
-
-                        foreach (Logboek log in LogboekDA.AantalUniekeGebruikersEnHunIDs())
-                        {
-                            //rijen opvullen met data
-                            foreach (Logboek logboek in LogboekDA.OphalenLogboek(log.GebruikerID))
-                            {
-                                tabel.AddCell(logboek.LogID.ToString());
-                                tabel.AddCell(logboek.GebruikerID.ToString());
-                                tabel.AddCell(logboek.GehuurdMateriaalID.ToString());
-                                tabel.AddCell(logboek.Aantal.ToString());
-                            }
-                        }
-
-                        pdfDoc.Add(tabel);
-                        pdfDoc.Close();
-
-                        MessageBox.Show("Uw data werd succesvol geexporteerd");
+                        //pad opslaan
+                        string pad = saveFileDialog.FileName;
+                        //methode --> lijst en pad doorgeven
+                        ExportPDF(loglist, pad);
+                        //inlichten van de gebruiker
+                        MessageBox.Show("Uw data werd succesvol geexporteerd!", "Succes!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-                
+                //kleine form sluiten --> proces compleet
+                this.Close();
             }
-            catch (Exception exc)
+            catch(Exception exc)
             {
                 MessageBox.Show(exc.Message);
             }
-            
         }
+
+
+           
+    
+
 
         private void btnExcel_Click(object sender, EventArgs e)
         {
@@ -162,9 +205,10 @@ namespace prjSportnetKinda.View
                         }
                         wb.SaveAs(sfd.FileName, XlFileFormat.xlWorkbookDefault, Type.Missing, Type.Missing, false, false, XlSaveAsAccessMode.xlNoChange, XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
                         app.Quit();
-                        MessageBox.Show("Uw data werd succesvol geexporteerd");
+                        MessageBox.Show("Uw data werd succesvol geexporteerd!", "Succes!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
+                this.Close();
             }
             catch (Exception exc)
             {
