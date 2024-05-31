@@ -78,10 +78,12 @@ namespace prjSportnetKinda
             }
 
             //Dagen met activiteiten bold zetten
+            List<DateTime> ListBoldDates = new List<DateTime>();
+
+            mcalKalender.BoldedDates = ListBoldDates.ToArray();
+
             DateTime dtSelectedDateStart = Convert.ToDateTime("01/01/1900");
             DateTime dtSelectedDateEnd = Convert.ToDateTime("31/12/2100");
-
-            List<DateTime> ListBoldDates = new List<DateTime>();
 
             foreach (Activiteit a in ActiviteitDA.OphalenActiviteiten(dtSelectedDateStart, dtSelectedDateEnd))
             {
@@ -333,6 +335,21 @@ namespace prjSportnetKinda
                 lblActiviteiten.Text = $"Activiteiten op {dtSelectedDateStart.ToString("d")}";
                 btnKomendeDagen.Visible = true;
             }
+
+            //Bold dates in kalender resetten
+            List<DateTime> ListBoldDates = new List<DateTime>();
+
+            mcalKalender.BoldedDates = ListBoldDates.ToArray();
+
+            DateTime dtSelectedDateStart1 = Convert.ToDateTime("01/01/1900");
+            DateTime dtSelectedDateEnd1 = Convert.ToDateTime("31/12/2100");
+
+            foreach (Activiteit a in ActiviteitDA.OphalenActiviteiten(dtSelectedDateStart1, dtSelectedDateEnd1))
+            {
+                ListBoldDates.Add(a.Datum);
+            }
+
+            mcalKalender.BoldedDates = ListBoldDates.ToArray();
         }
 
         private void btnStart_Click(object sender, EventArgs e)

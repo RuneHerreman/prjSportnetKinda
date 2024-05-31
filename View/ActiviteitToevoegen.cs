@@ -91,66 +91,93 @@ namespace prjSportnetKinda.View
             {
                 try
                 {
-                    //Gegevens opslaan
-                    Activiteit Activiteit = new Activiteit();
-
-                    Activiteit.Datum = Convert.ToDateTime(txtDatum.Text).Date.Add(Convert.ToDateTime(txtStart.Text).TimeOfDay);
-                    Activiteit.Locatie = txtLocatie.Text;
-                    Activiteit.Duur = Convert.ToInt32(txtDuur.Text);
-
-                    //gegevens afhankelijk van type
-                    if (rdbTraining.Checked == true)
+                    if (txtDatum.Text != "" && txtStart.Text != "" && txtLocatie.Text != "" && txtDuur.Text != "" && txtInfo1.Text != "" && txtInfo3.Text != "")
                     {
-                        Activiteit.Training = new Training();
+                        //Gegevens opslaan
+                        Activiteit Activiteit = new Activiteit();
 
-                        Activiteit.Type = "Training";
-                        Activiteit.Training.Categorieën = txtInfo1.Text;
-                        Activiteit.Training.Trainer = txtInfo2.Text;
-                        Activiteit.Training.Beschrijving = txtInfo3.Text;
-                    }
-                    else if (rdbWedstrijd.Checked == true)
-                    {
-                        Activiteit.Wedstrijd = new Wedstrijd();
+                        Activiteit.Datum = Convert.ToDateTime(txtDatum.Text).Date.Add(Convert.ToDateTime(txtStart.Text).TimeOfDay);
+                        Activiteit.Locatie = txtLocatie.Text;
+                        Activiteit.Duur = Convert.ToInt32(txtDuur.Text);
 
-                        Activiteit.Type = "Wedstrijd";
-                        Activiteit.Wedstrijd.Naam = txtInfo1.Text;
-                        Activiteit.Wedstrijd.Type = txtInfo2.Text;
-                        Activiteit.Wedstrijd.Organisator = txtInfo3.Text;
-                    }
-                    else if (rdbFeest.Checked == true)
-                    {
-                        Activiteit.Feest = new Feest();
+                        //gegevens afhankelijk van type
+                        if (rdbTraining.Checked == true)
+                        {
+                            if (txtInfo2.Text != "")
+                            {
+                                Activiteit.Training = new Training();
 
-                        Activiteit.Type = "Feest";
-                        Activiteit.Feest.Organisator = txtInfo1.Text;
-                        Activiteit.Feest.Eten = Convert.ToBoolean(chkEten.Checked);
-                        Activiteit.Feest.Beschrijving = txtInfo3.Text;
-                    }
+                                Activiteit.Type = "Training";
+                                Activiteit.Training.Categorieën = txtInfo1.Text;
+                                Activiteit.Training.Trainer = txtInfo2.Text;
+                                Activiteit.Training.Beschrijving = txtInfo3.Text;
+                            }
+                            else
+                            {
+                                //Foutmelding
+                                MessageBox.Show("Alle velden moeten worden ingevuld", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                        else if (rdbWedstrijd.Checked == true)
+                        {
+                            if (txtInfo2.Text != "")
+                            {
+                                Activiteit.Wedstrijd = new Wedstrijd();
 
-                    //Activiteit toevoegen
-                    if (ActiviteitDA.ActiviteitToevoegen(Activiteit) != null) 
-                    {
-                        //Succes message
-                        MessageBox.Show("De activiteit is toegevoegd");
+                                Activiteit.Type = "Wedstrijd";
+                                Activiteit.Wedstrijd.Naam = txtInfo1.Text;
+                                Activiteit.Wedstrijd.Type = txtInfo2.Text;
+                                Activiteit.Wedstrijd.Organisator = txtInfo3.Text;
+                            }
+                            else
+                            {
+                                //Foutmelding
+                                MessageBox.Show("Alle velden moeten worden ingevuld", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                        else if (rdbFeest.Checked == true)
+                        {
+                            Activiteit.Feest = new Feest();
 
-                        //Textboxes legen
-                        txtDatum.Clear();
-                        txtStart.Clear();
-                        txtLocatie.Clear();
-                        txtDuur.Clear();
-                        txtInfo1.Clear();
-                        txtInfo2.Clear();
-                        txtInfo3.Clear();
-                        chkEten.Checked = false;
+                            Activiteit.Type = "Feest";
+                            Activiteit.Feest.Organisator = txtInfo1.Text;
+                            Activiteit.Feest.Eten = Convert.ToBoolean(chkEten.Checked);
+                            Activiteit.Feest.Beschrijving = txtInfo3.Text;
+                        }
+
+                        //Activiteit toevoegen
+                        if (ActiviteitDA.ActiviteitToevoegen(Activiteit) != null)
+                        {
+                            //Succes message
+                            MessageBox.Show("De activiteit is toegevoegd");
+
+                            //Textboxes legen
+                            txtDatum.Clear();
+                            txtStart.Clear();
+                            txtLocatie.Clear();
+                            txtDuur.Clear();
+                            txtInfo1.Clear();
+                            txtInfo2.Clear();
+                            txtInfo3.Clear();
+                            chkEten.Checked = false;
+                        }
+                        else
+                        {
+                            //Foutmelding
+                            MessageBox.Show("Activiteit kon niet worden toegevoegd wegens een error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
                         //Foutmelding
-                        MessageBox.Show("Activiteit kon niet worden toegevoegd wegens een error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Alle velden moeten worden ingevuld", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 catch
                 {
+                    //Foutmelding
                     MessageBox.Show("Vul alle velden correct in!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }

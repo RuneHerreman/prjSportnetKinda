@@ -71,7 +71,7 @@
             this.rdbTraining.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rdbTraining.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbTraining.Location = new System.Drawing.Point(12, 23);
-            this.rdbTraining.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbTraining.Margin = new System.Windows.Forms.Padding(4);
             this.rdbTraining.Name = "rdbTraining";
             this.rdbTraining.Size = new System.Drawing.Size(74, 22);
             this.rdbTraining.TabIndex = 1;
@@ -86,7 +86,7 @@
             this.rdbWedstrijd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rdbWedstrijd.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbWedstrijd.Location = new System.Drawing.Point(12, 58);
-            this.rdbWedstrijd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbWedstrijd.Margin = new System.Windows.Forms.Padding(4);
             this.rdbWedstrijd.Name = "rdbWedstrijd";
             this.rdbWedstrijd.Size = new System.Drawing.Size(83, 22);
             this.rdbWedstrijd.TabIndex = 2;
@@ -101,7 +101,7 @@
             this.rdbFeest.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rdbFeest.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdbFeest.Location = new System.Drawing.Point(12, 92);
-            this.rdbFeest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdbFeest.Margin = new System.Windows.Forms.Padding(4);
             this.rdbFeest.Name = "rdbFeest";
             this.rdbFeest.Size = new System.Drawing.Size(58, 22);
             this.rdbFeest.TabIndex = 3;
@@ -116,9 +116,9 @@
             this.groupBox1.Controls.Add(this.rdbWedstrijd);
             this.groupBox1.Controls.Add(this.rdbFeest);
             this.groupBox1.Location = new System.Drawing.Point(24, 43);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(147, 132);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
@@ -219,12 +219,12 @@
             this.btnToevoegen.ForeColor = System.Drawing.Color.White;
             this.btnToevoegen.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnToevoegen.Location = new System.Drawing.Point(21, 412);
-            this.btnToevoegen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnToevoegen.Margin = new System.Windows.Forms.Padding(4);
             this.btnToevoegen.Name = "btnToevoegen";
             this.btnToevoegen.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
             this.btnToevoegen.Size = new System.Drawing.Size(253, 47);
             this.btnToevoegen.TabIndex = 11;
-            this.btnToevoegen.Text = "Activiteit Toevoegen";
+            this.btnToevoegen.Text = "Activiteit toevoegen";
             this.btnToevoegen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnToevoegen.UseVisualStyleBackColor = false;
             this.btnToevoegen.Click += new System.EventHandler(this.btnDeelnemen_Click);
@@ -338,7 +338,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "ActiviteitToevoegen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
