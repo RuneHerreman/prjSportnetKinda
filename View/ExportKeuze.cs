@@ -27,22 +27,32 @@ namespace prjSportnetKinda.View
             //gebruiker om te check of iemand beheerder is
             g1 = g;
         }
-        //logs van alle gebruikers ophalen
-        private static List<Logboek> LogboekOphalenAlleGebruikers()
+
+        //list wordt gevuld met alle logs als je beheerder bent, gebruiker ziet alleen zijn eigen logs
+        private List<Logboek> LogboekOphalenVoorExport()
         {
             List<Logboek> loglist = new List<Logboek>();
             //rijen onder de koppen vullen
-            //Per persoon
-            foreach (Logboek log in LogboekDA.AantalUniekeGebruikersEnHunIDs())
+            if (g1.Beheerder)
             {
-                //rijen opvullen met data
-                foreach (Logboek logboek in LogboekDA.OphalenLogboek(log.GebruikerID))
+                //Per persoon
+                foreach (Logboek log in LogboekDA.AantalUniekeGebruikersEnHunIDs())
                 {
-                    loglist.Add(logboek);
+                    //rijen opvullen met data
+                    foreach (Logboek logboek in LogboekDA.OphalenLogboek(log.GebruikerID))
+                    {
+                        loglist.Add(logboek);
+                    }
                 }
             }
+            else
+            {
+                loglist = LogboekDA.OphalenLogboek(g1.GebruikerID);
+            }
+            
             return loglist;
         }
+
         private void ExportPDF(List<Logboek> loglist, string pad)
         {
             //document maken uit klasse van ITextSharp (Plugin --> NuGet)
@@ -52,7 +62,10 @@ namespace prjSportnetKinda.View
                 PdfWriter.GetInstance(document, new FileStream(pad, FileMode.Create));
                 document.Open();
 
-                PdfPTable table = new PdfPTable(4); //4 kolommen
+                PdfPTable table = new PdfPTable(5); //4 kolommen
+                // Set column widths
+                float[] kolombreedte = { 2f, 5f, 5f, 2f,2.5f }; // Adjust widths as necessary
+                table.SetWidths(kolombreedte);
 
                 // Adding headers
                 table.AddCell("LogID");
@@ -82,20 +95,14 @@ namespace prjSportnetKinda.View
                 document.Close();
             }
         }
+
         private void btnPDF_Click(object sender, EventArgs e)
         {
             try
             {
-                List<Logboek> loglist = new List<Logboek>();
-                if (g1.Beheerder)
-                {
-                    loglist = LogboekOphalenAlleGebruikers();
-                }
-                else
-                {
-                    loglist = LogboekDA.OphalenLogboek(g1.GebruikerID);
-                }
-                //lijst aanmaken
+                //list doorgeven
+                List<Logboek> loglist = LogboekOphalenVoorExport();
+                
 
                 //bestand opslaan
                 using (SaveFileDialog saveFileDialog = new SaveFileDialog())
@@ -128,16 +135,13 @@ namespace prjSportnetKinda.View
                 MessageBox.Show(exc.Message);
             }
         }
-
-
-           
-    
-
-
         private void btnExcel_Click(object sender, EventArgs e)
         {
             try
             {
+                //lijst opvullen
+                List<Logboek> loglist = LogboekOphalenVoorExport();
+
                 using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "Excel Workbook|*.xls*", ValidateNames = true })
                 {
                     //filedialog openen --> save locatie kiezen
@@ -176,33 +180,27 @@ namespace prjSportnetKinda.View
 
                         //rijen onder de koppen vullen
                         //Per persoon
-                        foreach (Logboek log in LogboekDA.AantalUniekeGebruikersEnHunIDs())
+                        int intTeller = 0;
+                        foreach (Logboek logboek in loglist)
                         {
-                            //op welke rij zitten we 1 --> 0 = koppen
-                            int intTeller = 1;
-
-                            //rijen opvullen met data
-                            foreach (Logboek logboek in LogboekDA.OphalenLogboek(log.GebruikerID))
-                            {
-                                intTeller++;
-                                ws.Cells[intTeller, 1] = logboek.LogID.ToString();
-                                ws.Cells[intTeller, 2] = logboek.GebruikerID.ToString();
-                                ws.Cells[intTeller, 3] = logboek.Gebruiker.Voornaam.ToString();
-                                ws.Cells[intTeller, 4] = logboek.Gebruiker.Naam.ToString();
-                                ws.Cells[intTeller, 5] = logboek.GehuurdMateriaalID.ToString();
-                                ws.Cells[intTeller, 6] = logboek.Datum.ToString();
-                                ws.Cells[intTeller, 7] = logboek.Materiaal.ID.ToString();
-                                ws.Cells[intTeller, 8] = logboek.Materiaal.MateriaalNaam.ToString();
-                                ws.Cells[intTeller, 9] = logboek.Materiaal.Beschrijving.ToString();
-                                ws.Cells[intTeller, 10] = logboek.Materiaal.Voorraad.ToString();
-                                ws.Cells[intTeller, 11] = logboek.Gebruiker.Email.ToString();
-                                ws.Cells[intTeller, 12] = logboek.Gebruiker.Lidsinds.ToString();
-                                ws.Cells[intTeller, 13] = logboek.Gebruiker.Geboortedatum.ToString();
-                                ws.Cells[intTeller, 14] = logboek.Gebruiker.Renner.ToString();
-                                ws.Cells[intTeller, 15] = logboek.Gebruiker.Trainer.ToString();
-                                ws.Cells[intTeller, 16] = logboek.Gebruiker.Beheerder.ToString();
-                            }
-                        }
+                            intTeller++;
+                            ws.Cells[intTeller, 1] = logboek.LogID.ToString();
+                            ws.Cells[intTeller, 2] = logboek.GebruikerID.ToString();
+                            ws.Cells[intTeller, 3] = logboek.Gebruiker.Voornaam.ToString();
+                            ws.Cells[intTeller, 4] = logboek.Gebruiker.Naam.ToString();
+                            ws.Cells[intTeller, 5] = logboek.GehuurdMateriaalID.ToString();
+                            ws.Cells[intTeller, 6] = logboek.Datum.ToString();
+                            ws.Cells[intTeller, 7] = logboek.Materiaal.ID.ToString();
+                            ws.Cells[intTeller, 8] = logboek.Materiaal.MateriaalNaam.ToString();
+                            ws.Cells[intTeller, 9] = logboek.Materiaal.Beschrijving.ToString();
+                            ws.Cells[intTeller, 10] = logboek.Materiaal.Voorraad.ToString();
+                            ws.Cells[intTeller, 11] = logboek.Gebruiker.Email.ToString();
+                            ws.Cells[intTeller, 12] = logboek.Gebruiker.Lidsinds.ToString();
+                            ws.Cells[intTeller, 13] = logboek.Gebruiker.Geboortedatum.ToString();
+                            ws.Cells[intTeller, 14] = logboek.Gebruiker.Renner.ToString();
+                            ws.Cells[intTeller, 15] = logboek.Gebruiker.Trainer.ToString();
+                            ws.Cells[intTeller, 16] = logboek.Gebruiker.Beheerder.ToString();
+                    }
                         wb.SaveAs(sfd.FileName, XlFileFormat.xlWorkbookDefault, Type.Missing, Type.Missing, false, false, XlSaveAsAccessMode.xlNoChange, XlSaveConflictResolution.xlLocalSessionChanges, Type.Missing, Type.Missing);
                         app.Quit();
                         MessageBox.Show("Uw data werd succesvol geexporteerd!", "Succes!", MessageBoxButtons.OK, MessageBoxIcon.Information);
