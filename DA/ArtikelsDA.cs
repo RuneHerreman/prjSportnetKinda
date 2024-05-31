@@ -92,18 +92,10 @@ namespace prjSportnetKinda.DA
             }
         }
 
-        public static void ArtikelMaken(string strTitel, string strArtikel, PictureBox pictureBox)
+        public static void ArtikelMaken(string strTitel, string strArtikel, byte[] arrFoto)
         {
             try
             {
-                //foto omzetten naar byte array
-                MemoryStream ms = new MemoryStream();
-                if (pictureBox.Image != null)
-                {
-                    pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                }
-                byte[] arrFoto = ms.GetBuffer();
-
                 //huidige datum
                 DateTime dtHuidigeDatum = DateTime.Now;
 
@@ -132,18 +124,10 @@ namespace prjSportnetKinda.DA
             }
         }
 
-        public static void ArtikelUpdate(string strTitel, string strArtikel, PictureBox pictureBox, int intArtikelID)
+        public static void ArtikelUpdate(string strTitel, string strArtikel, byte[] arrFoto, int intArtikelID)
         {
             try
             {
-                //foto omzetten naar byte array
-                MemoryStream ms = new MemoryStream();
-                if (pictureBox.Image != null)
-                {
-                    pictureBox.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                }
-                byte[] arrFoto = ms.GetBuffer();
-
                 //open connectie
                 MySqlConnection conn = Database.MakeConnection();
 

@@ -196,7 +196,7 @@ namespace prjSportnetKinda.DA
             }
         }
 
-        public static Gebruiker Wijzigen(Gebruiker g)
+        public static Gebruiker Wijzigen(Gebruiker g, byte[] arrProfielFoto, byte[] arrBannerfoto)
         {
             try
             {
@@ -222,16 +222,6 @@ namespace prjSportnetKinda.DA
                 cmdGebruikerWijzigen.Parameters.AddWithValue("@Geslacht", g.Geslacht);
                 cmdGebruikerWijzigen.Parameters.AddWithValue("@Adres", g.Adres);
                 cmdGebruikerWijzigen.Parameters.AddWithValue("@Telefoonnummer", g.Telefoonnummer);
-
-                //foto's omzetten naar byte array
-                MemoryStream msProfiel = new MemoryStream();
-                g.Profielfoto.Save(msProfiel, System.Drawing.Imaging.ImageFormat.Jpeg);
-                byte[] arrProfielFoto = msProfiel.GetBuffer();
-
-                MemoryStream msBanner = new MemoryStream();
-                g.Bannerfoto.Save(msBanner, System.Drawing.Imaging.ImageFormat.Jpeg);
-                byte[] arrBannerfoto = msBanner.GetBuffer();
-
                 cmdGebruikerWijzigen.Parameters.AddWithValue("@ProfielFoto", arrProfielFoto);
                 cmdGebruikerWijzigen.Parameters.AddWithValue("@BannerFoto", arrBannerfoto);
 

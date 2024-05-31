@@ -79,26 +79,48 @@ namespace prjSportnetKinda.View
         {
             try
             {
-                //Is er een titel en beschrijving?
-                if (txtArtikelNieuw.Text == "" || txtTitelNieuw.Text == "")
+                if (picNieuwArtikelPreview.Image != null)
                 {
-                    MessageBox.Show("Vul alle velden in alstublieft");
+                    //foto's omzetten naar byte array
+                    MemoryStream msProfiel = new MemoryStream();
+                    picNieuwArtikelPreview.Image.Save(msProfiel, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    byte[] arrFoto = msProfiel.GetBuffer();
+
+                    if (arrFoto.Length < 2000000)
+                    {
+                        //Is er een titel en beschrijving?
+                        if (txtArtikelNieuw.Text == "" || txtTitelNieuw.Text == "")
+                        {
+                            MessageBox.Show("Vul alle velden in alstublieft");
+                        }
+                        else
+                        {
+                            ArtikelDA.ArtikelMaken(txtTitelNieuw.Text, txtArtikelNieuw.Text, arrFoto);
+                            //refresh de artikel om nieuwe artikels ook weer te geven
+                            main1.ArtikelRefresh();
+                        }
+                        //textboxes legen
+                        txtArtikelNieuw.ResetText();
+                        txtTitelNieuw.ResetText();
+                        txtFotoNieuw.ResetText();
+                        picNieuwArtikelPreview.Image = null;
+                    }
+                    else
+                    {
+                        //Foutmelding
+                        MessageBox.Show("De foto is te groot", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    ArtikelDA.ArtikelMaken(txtTitelNieuw.Text, txtArtikelNieuw.Text, picNieuwArtikelPreview);
-                    //refresh de artikel om nieuwe artikels ook weer te geven
-                    main1.ArtikelRefresh();
+                    //Foutmelding
+                    MessageBox.Show("Voeg eerst een foto toe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                //textboxes legen
-                txtArtikelNieuw.ResetText();
-                txtTitelNieuw.ResetText();
-                txtFotoNieuw.ResetText();
-                picNieuwArtikelPreview.Image = null;
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex.Message);
+                //Foutmelding
+                MessageBox.Show("Er is heeft zich een fout opgetreden", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }     
         }  
     }

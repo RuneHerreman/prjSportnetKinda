@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,25 +35,56 @@ namespace prjSportnetKinda.View
 
         private void btnToepassen_Click(object sender, EventArgs e)
         {
-            //aanpassen in datatbase
-            ArtikelDA.ArtikelUpdate(txtNieuweNaam.Text, rtxtBeschrijving.Text, picNieuweAfbeelding, Convert.ToInt32(lblArtikelID.Text));
-
-            //niets geselecteerd --> ZONDER DIT CRASHT HET PROGRAMMA NA EEN VERANDERING
-            lsvArtikels.SelectedItems.Clear();
-            //leeg listview
-            lsvArtikels.Items.Clear();
-            //opnieuw opvullen met geüpdatete item
-            foreach (Artikel artikel in ArtikelDA.OphalenArtikel())
+            try
             {
-                //listview opvullen
-                lsvArtikels.Items.Add(artikel.titel);
+                if (picNieuweAfbeelding.Image != null)
+                {
+                    //foto's omzetten naar byte array
+                    MemoryStream msProfiel = new MemoryStream();
+                    picNieuweAfbeelding.Image.Save(msProfiel, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    byte[] arrFoto = msProfiel.GetBuffer();
+
+                    if (arrFoto.Length < 2000000)
+                    {
+                        //aanpassen in datatbase
+                        ArtikelDA.ArtikelUpdate(txtNieuweNaam.Text, rtxtBeschrijving.Text, arrFoto, Convert.ToInt32(lblArtikelID.Text));
+
+                        //niets geselecteerd --> ZONDER DIT CRASHT HET PROGRAMMA NA EEN VERANDERING
+                        lsvArtikels.SelectedItems.Clear();
+
+                        //leeg listview
+                        lsvArtikels.Items.Clear();
+
+                        //opnieuw opvullen met geüpdatete item
+                        foreach (Artikel artikel in ArtikelDA.OphalenArtikel())
+                        {
+                            //listview opvullen
+                            lsvArtikels.Items.Add(artikel.titel);
+                        }
+
+                        //ook de lijst waar de info uit komt updaten
+                        artikelList = ArtikelDA.OphalenArtikel();
+
+                        //materiaal verversen
+                        main1.ArtikelRefresh();
+                    }
+                    else
+                    {
+                        //Foutmelding
+                        MessageBox.Show("De foto is te groot", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    //Foutmelding
+                    MessageBox.Show("Voeg eerst een foto toe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-
-            //ook de lijst waar de info uit komt updaten
-            artikelList = ArtikelDA.OphalenArtikel();
-
-            //materiaal verversen
-            main1.ArtikelRefresh();
+            catch
+            {
+                //Foutmelding
+                MessageBox.Show("Er is heeft zich een fout opgetreden", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void lsvMateriaal_SelectedIndexChanged(object sender, EventArgs e)
         {

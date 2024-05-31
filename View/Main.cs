@@ -520,6 +520,8 @@ namespace prjSportnetKinda
                     txtBannerFoto.Visible = true;
                     btnProfielFoto.Visible = true;
                     btnBannerFoto.Visible = true;
+                    lblMax1.Visible = true;
+                    lblMax2.Visible = true;
 
                     //Button veranderen naar opslaan button
                     btnWijzigenProfiel.Text = "Opslaan";
@@ -559,69 +561,88 @@ namespace prjSportnetKinda
                             Aanpassingen.Profielfoto = picProfielFoto.Image;
                             Aanpassingen.Bannerfoto = picBannerFoto.Image;
 
-                            //Gegevens aanpassen
-                            Gebruiker wijzigen = GebruikerDA.Wijzigen(Aanpassingen);
+                            //foto's omzetten naar byte array
+                            MemoryStream msProfiel = new MemoryStream();
+                            Aanpassingen.Profielfoto.Save(msProfiel, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            byte[] arrProfielFoto = msProfiel.GetBuffer();
 
-                            if (wijzigen == null)
+                            MemoryStream msBanner = new MemoryStream();
+                            Aanpassingen.Bannerfoto.Save(msBanner, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            byte[] arrBannerfoto = msBanner.GetBuffer();
+
+                            if (arrProfielFoto.Length < 2000000 && arrBannerfoto.Length < 2000000)
                             {
-                                //Foutmelding
-                                MessageBox.Show("Vul alle velden correct in", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                //Gegevens aanpassen
+                                Gebruiker wijzigen = GebruikerDA.Wijzigen(Aanpassingen, arrProfielFoto, arrBannerfoto);
+
+                                if (wijzigen == null)
+                                {
+                                    //Foutmelding
+                                    MessageBox.Show("Vul alle velden correct in", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                                else
+                                {
+                                    //Succes melding
+                                    MessageBox.Show("Je gegevens zijn aangepast");
+
+                                    //Variable aanpassen
+                                    gebruiker.Voornaam = Aanpassingen.Voornaam;
+                                    gebruiker.Naam = Aanpassingen.Naam;
+                                    gebruiker.Geslacht = Aanpassingen.Geslacht;
+                                    gebruiker.Adres = Aanpassingen.Adres;
+                                    gebruiker.Telefoonnummer = Aanpassingen.Telefoonnummer;
+                                    gebruiker.Geboortedatum = Aanpassingen.Geboortedatum;
+
+                                    //Labels updaten
+                                    lblNaamVoornaam.Text = "Welkom " + gebruiker.Voornaam + " " + gebruiker.Naam;
+                                    lblVoornaam.Text = gebruiker.Voornaam;
+                                    lblNaam.Text = gebruiker.Naam;
+                                    lblGeslacht.Text = gebruiker.Geslacht;
+                                    lblAdres.Text = gebruiker.Adres;
+                                    lblTelefoon.Text = gebruiker.Telefoonnummer.ToString();
+                                    lblEmail.Text = gebruiker.Email;
+                                    lblGeboortedatum.Text = gebruiker.Geboortedatum.ToString("d");
+                                    lblLidSinds.Text = gebruiker.Lidsinds.ToString("d");
+
+                                    //Categorie aanpassen
+                                    if (gebruiker.Renner)
+                                    {
+                                        CategorieBerekenen(gebruiker);
+                                    }
+
+                                    //Textboxes legen en hidden
+                                    txtVoornaam.Visible = false;
+                                    txtVoornaam.Clear();
+                                    txtNaam.Visible = false;
+                                    txtNaam.Clear();
+                                    txtAdres.Visible = false;
+                                    txtAdres.Clear();
+                                    txtGeboortedatum.Visible = false;
+                                    txtGeboortedatum.Clear();
+                                    cmbGeslacht.Visible = false;
+                                    txtTelefoonnr.Visible = false;
+                                    txtTelefoonnr.Clear();
+
+                                    //Foto opties hiden
+                                    lblProfielFoto.Visible = false;
+                                    lblBannerFoto.Visible = false;
+                                    txtProfielFoto.Visible = false;
+                                    txtProfielFoto.Clear();
+                                    txtBannerFoto.Visible = false;
+                                    txtBannerFoto.Clear();
+                                    btnProfielFoto.Visible = false;
+                                    btnBannerFoto.Visible = false;
+                                    lblMax1.Visible = false;
+                                    lblMax2.Visible = false;
+
+                                    //Button veranderen naar opslaan button
+                                    btnWijzigenProfiel.Text = "Gegevens Wijzigen";
+                                }
                             }
                             else
                             {
-                                //Succes melding
-                                MessageBox.Show("Je gegevens zijn aangepast");
-
-                                //Variable aanpassen
-                                gebruiker.Voornaam = Aanpassingen.Voornaam;
-                                gebruiker.Naam = Aanpassingen.Naam;
-                                gebruiker.Geslacht = Aanpassingen.Geslacht;
-                                gebruiker.Adres = Aanpassingen.Adres;
-                                gebruiker.Telefoonnummer = Aanpassingen.Telefoonnummer;
-                                gebruiker.Geboortedatum = Aanpassingen.Geboortedatum;
-
-                                //Labels updaten
-                                lblNaamVoornaam.Text = "Welkom " + gebruiker.Voornaam + " " + gebruiker.Naam;
-                                lblVoornaam.Text = gebruiker.Voornaam;
-                                lblNaam.Text = gebruiker.Naam;
-                                lblGeslacht.Text = gebruiker.Geslacht;
-                                lblAdres.Text = gebruiker.Adres;
-                                lblTelefoon.Text = gebruiker.Telefoonnummer.ToString();
-                                lblEmail.Text = gebruiker.Email;
-                                lblGeboortedatum.Text = gebruiker.Geboortedatum.ToString("d");
-                                lblLidSinds.Text = gebruiker.Lidsinds.ToString("d");
-
-                                //Categorie aanpassen
-                                if (gebruiker.Renner)
-                                {
-                                    CategorieBerekenen(gebruiker);
-                                }
-                                
-                                //Textboxes legen en hidden
-                                txtVoornaam.Visible = false;
-                                txtVoornaam.Clear();
-                                txtNaam.Visible = false;
-                                txtNaam.Clear();
-                                txtAdres.Visible = false;
-                                txtAdres.Clear();
-                                txtGeboortedatum.Visible = false;
-                                txtGeboortedatum.Clear();
-                                cmbGeslacht.Visible = false;
-                                txtTelefoonnr.Visible = false;
-                                txtTelefoonnr.Clear();
-
-                                //Foto opties hiden
-                                lblProfielFoto.Visible = false;
-                                lblBannerFoto.Visible = false;
-                                txtProfielFoto.Visible = false;
-                                txtProfielFoto.Clear();
-                                txtBannerFoto.Visible = false;
-                                txtBannerFoto.Clear();
-                                btnProfielFoto.Visible = false;
-                                btnBannerFoto.Visible = false;
-
-                                //Button veranderen naar opslaan button
-                                btnWijzigenProfiel.Text = "Gegevens Wijzigen";
+                                //Foutmelding
+                                MessageBox.Show("Een van je foto's is meer dan 2 Megabytes groot.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                         catch
