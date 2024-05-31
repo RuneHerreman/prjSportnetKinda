@@ -40,7 +40,7 @@ namespace prjSportnetKinda.View
                     if (g.Voornaam.ToLower() + " " + g.Naam.ToLower() == txtGebruiker.Text.ToLower())
                     {
                         //Email tonen
-                        lblEmail.Text = $"E-mailadres gebruiker:\n{g.Email}";
+                        lblEmail.Text = $"E-mailadres gebruiker: {g.Email}";
 
                         //Checkboxes tonen
                         chkRenner.Visible = true;

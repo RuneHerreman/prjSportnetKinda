@@ -439,6 +439,7 @@ namespace prjSportnetKinda
         {
             //var decl
             string strWachtwoord;
+
             //Controleren of het admin account is
             if(gebruiker.GebruikerID != 1)
             {
@@ -450,7 +451,12 @@ namespace prjSportnetKinda
                 {
                     strWachtwoord = Interaction.InputBox("Geef je wachtoord in om je account te verwijderen.", "Wachtwoord ingeven");
 
-                    if (strWachtwoord == gebruiker.Wachtwoord)
+                    //Encrytie ontcijferen
+                    byte[] data = System.Text.Encoding.ASCII.GetBytes(strWachtwoord);
+                    data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+                    String hash = System.Text.Encoding.ASCII.GetString(data);
+
+                    if (hash == gebruiker.Wachtwoord)
                     {
                         if (GebruikerDA.Verwijderen(gebruiker.Email) != null)
                         {
@@ -486,7 +492,12 @@ namespace prjSportnetKinda
                 //Wachtwoord opvragen
                 strWachtwoord = Interaction.InputBox("Geef je wachtoord in om je gegevens te wijzigen.", "Wachtwoord ingeven");
 
-                if (strWachtwoord == gebruiker.Wachtwoord)
+                //Encrytie ontcijferen
+                byte[] data = System.Text.Encoding.ASCII.GetBytes(strWachtwoord);
+                data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+                String hash = System.Text.Encoding.ASCII.GetString(data);
+
+                if (hash == gebruiker.Wachtwoord)
                 {
                     //Textboxes tonen en opvullen om gegevens te wijzigen
                     txtVoornaam.Visible = true;
@@ -661,7 +672,12 @@ namespace prjSportnetKinda
             //Wachtwoord opvragen
             strWachtwoord = Interaction.InputBox("Geef je wachtoord in om je gegevens te wijzigen.", "Wachtwoord ingeven");
 
-            if(strWachtwoord == gebruiker.Wachtwoord)
+            //Encrytie ontcijferen
+            byte[] data = System.Text.Encoding.ASCII.GetBytes(strWachtwoord);
+            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+            String hash = System.Text.Encoding.ASCII.GetString(data);
+
+            if (hash == gebruiker.Wachtwoord)
             {
                 //Nieuw form openen
                 Wijzigen Wijzigen = new Wijzigen();
@@ -1151,7 +1167,12 @@ namespace prjSportnetKinda
                 //Wachtwoord opvragen
                 strWachtwoord = Interaction.InputBox("Geef je wachtoord in om deze activiteit te verwijderen.", "Wachtwoord ingeven");
 
-                if (strWachtwoord == gebruiker.Wachtwoord)
+                //Encrytie ontcijferen
+                byte[] data = System.Text.Encoding.ASCII.GetBytes(strWachtwoord);
+                data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+                String hash = System.Text.Encoding.ASCII.GetString(data);
+
+                if (hash == gebruiker.Wachtwoord)
                 {
                     if (ActiviteitDA.ActiviteitVerwijderen(activiteit) != null)
                     {

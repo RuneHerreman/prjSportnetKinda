@@ -42,10 +42,10 @@
             // btnOpslaan
             // 
             this.btnOpslaan.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpslaan.Location = new System.Drawing.Point(15, 219);
-            this.btnOpslaan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnOpslaan.Location = new System.Drawing.Point(11, 178);
+            this.btnOpslaan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOpslaan.Name = "btnOpslaan";
-            this.btnOpslaan.Size = new System.Drawing.Size(161, 33);
+            this.btnOpslaan.Size = new System.Drawing.Size(121, 27);
             this.btnOpslaan.TabIndex = 15;
             this.btnOpslaan.Text = "Opslaan";
             this.btnOpslaan.UseVisualStyleBackColor = true;
@@ -55,10 +55,10 @@
             // btnVerwijderen
             // 
             this.btnVerwijderen.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerwijderen.Location = new System.Drawing.Point(345, 219);
-            this.btnVerwijderen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnVerwijderen.Location = new System.Drawing.Point(259, 178);
+            this.btnVerwijderen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnVerwijderen.Name = "btnVerwijderen";
-            this.btnVerwijderen.Size = new System.Drawing.Size(253, 33);
+            this.btnVerwijderen.Size = new System.Drawing.Size(190, 27);
             this.btnVerwijderen.TabIndex = 14;
             this.btnVerwijderen.Text = "Gebruiker Verwijderen";
             this.btnVerwijderen.UseVisualStyleBackColor = true;
@@ -69,8 +69,8 @@
             // 
             this.chkBeheerder.AutoSize = true;
             this.chkBeheerder.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkBeheerder.Location = new System.Drawing.Point(15, 174);
-            this.chkBeheerder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkBeheerder.Location = new System.Drawing.Point(11, 141);
+            this.chkBeheerder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkBeheerder.Name = "chkBeheerder";
             this.chkBeheerder.Size = new System.Drawing.Size(86, 22);
             this.chkBeheerder.TabIndex = 13;
@@ -82,8 +82,8 @@
             // 
             this.chkTrainer.AutoSize = true;
             this.chkTrainer.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkTrainer.Location = new System.Drawing.Point(15, 144);
-            this.chkTrainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkTrainer.Location = new System.Drawing.Point(11, 117);
+            this.chkTrainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkTrainer.Name = "chkTrainer";
             this.chkTrainer.Size = new System.Drawing.Size(69, 22);
             this.chkTrainer.TabIndex = 12;
@@ -95,8 +95,8 @@
             // 
             this.chkRenner.AutoSize = true;
             this.chkRenner.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkRenner.Location = new System.Drawing.Point(15, 113);
-            this.chkRenner.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkRenner.Location = new System.Drawing.Point(11, 92);
+            this.chkRenner.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chkRenner.Name = "chkRenner";
             this.chkRenner.Size = new System.Drawing.Size(67, 22);
             this.chkRenner.TabIndex = 11;
@@ -107,10 +107,10 @@
             // btnZoeken
             // 
             this.btnZoeken.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnZoeken.Location = new System.Drawing.Point(460, 46);
-            this.btnZoeken.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnZoeken.Location = new System.Drawing.Point(345, 37);
+            this.btnZoeken.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnZoeken.Name = "btnZoeken";
-            this.btnZoeken.Size = new System.Drawing.Size(143, 34);
+            this.btnZoeken.Size = new System.Drawing.Size(107, 28);
             this.btnZoeken.TabIndex = 10;
             this.btnZoeken.Text = "Zoeken";
             this.btnZoeken.UseVisualStyleBackColor = true;
@@ -121,17 +121,18 @@
             this.txtGebruiker.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.txtGebruiker.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtGebruiker.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGebruiker.Location = new System.Drawing.Point(17, 46);
-            this.txtGebruiker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtGebruiker.Location = new System.Drawing.Point(13, 37);
+            this.txtGebruiker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtGebruiker.Name = "txtGebruiker";
-            this.txtGebruiker.Size = new System.Drawing.Size(436, 25);
+            this.txtGebruiker.Size = new System.Drawing.Size(328, 25);
             this.txtGebruiker.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(9, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(276, 22);
             this.label1.TabIndex = 8;
@@ -141,17 +142,18 @@
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(14, 73);
+            this.lblEmail.Location = new System.Drawing.Point(10, 67);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(0, 18);
             this.lblEmail.TabIndex = 16;
             // 
             // Wijzigen
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(613, 266);
+            this.ClientSize = new System.Drawing.Size(460, 216);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.btnOpslaan);
             this.Controls.Add(this.btnVerwijderen);
@@ -162,7 +164,7 @@
             this.Controls.Add(this.txtGebruiker);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "Wijzigen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

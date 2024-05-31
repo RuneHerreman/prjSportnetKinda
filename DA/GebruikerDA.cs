@@ -14,6 +14,7 @@ using Microsoft.VisualBasic;
 using System.Drawing;
 using System.IO;
 using MessageBox = System.Windows.Forms.MessageBox;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace prjSportnetKinda.DA
 {
@@ -27,12 +28,11 @@ namespace prjSportnetKinda.DA
 
                 //Connection openen
                 MySqlConnection conn = Database.MakeConnection();
-
-
+                
+                //Encryptie toevoegen
                 byte[] data = System.Text.Encoding.ASCII.GetBytes(wachtwoord);
                 data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
-                String hash = System.Text.Encoding.ASCII.GetString(data);
-
+                string hash = System.Text.Encoding.ASCII.GetString(data);
 
                 //sting maken met sql statement
                 string query = "SELECT * from tblgebruiker WHERE Email=@Email AND Wachtwoord=@Wachtwoord";
@@ -146,7 +146,7 @@ namespace prjSportnetKinda.DA
                 {
                     reader.Close();
 
-                    //Paswoord beveiligen
+                    //Wachtwoord beveiligen met encrytie
                     byte[] data = System.Text.Encoding.ASCII.GetBytes(wachtwoord);
                     data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
                     String hash = System.Text.Encoding.ASCII.GetString(data);
@@ -381,6 +381,36 @@ namespace prjSportnetKinda.DA
             {
                 return null;
             }
+        }
+
+        public static void WWWijzigen(string Email, string Wachtwoord)
+        {
+            //Connection openen
+            MySqlConnection conn = Database.MakeConnection();
+
+            //Encryptie toevoegen
+            byte[] data = System.Text.Encoding.ASCII.GetBytes(Wachtwoord);
+            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+            string hash = System.Text.Encoding.ASCII.GetString(data);
+
+            //sting maken met sql statement
+            string query = "UPDATE tblgebruiker SET Wachtwoord=@Wachtwoord WHERE Email=@Email";
+
+            //Maken van het command
+            MySqlCommand cmdInloggen = new MySqlCommand(query, conn);
+
+            //Welk soort gegevens is het commando
+            cmdInloggen.CommandType = CommandType.Text;
+
+            //Parameters
+            cmdInloggen.Parameters.AddWithValue("@Email", Email);
+            cmdInloggen.Parameters.AddWithValue("@Wachtwoord", hash);
+
+            //Commando uitvoeren
+            cmdInloggen.ExecuteNonQuery();
+
+            //Connection sluiten
+            Database.CloseConnection(conn);
         }
     }
 }
