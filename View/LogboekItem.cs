@@ -19,7 +19,6 @@ namespace prjSportnetKinda
         public event EventHandler LogboekKiesAantalClick;
         public event EventHandler LogboekAllesInleverenClick;
 
-
         public List<Logboek> logListPar { get; set; }
         public Logboek logboekPar { get; set; }
         public int intGebruikerIDLogboekPar { get; set; }
