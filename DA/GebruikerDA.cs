@@ -80,7 +80,6 @@ namespace prjSportnetKinda.DA
                     {
                         inloggen.Profielfoto = null;
                     }
-
                     try
                     {
                         MemoryStream ms = new MemoryStream(arrBannerfoto);

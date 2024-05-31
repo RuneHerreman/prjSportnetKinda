@@ -291,7 +291,7 @@ namespace prjSportnetKinda.View
 
         private void btnExporteren_Click(object sender, EventArgs e)
         {
-            ExportKeuze export = new ExportKeuze();
+            ExportKeuze export = new ExportKeuze(g1);
             export.ShowDialog();
         }
     }
