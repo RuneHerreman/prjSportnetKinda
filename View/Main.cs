@@ -77,6 +77,19 @@ namespace prjSportnetKinda
                 picBannerFoto.Image = gebruiker.Bannerfoto;
             }
 
+            //Dagen met activiteiten bold zetten
+            DateTime dtSelectedDateStart = Convert.ToDateTime("01/01/1900");
+            DateTime dtSelectedDateEnd = Convert.ToDateTime("31/12/2100");
+
+            List<DateTime> ListBoldDates = new List<DateTime>();
+
+            foreach (Activiteit a in ActiviteitDA.OphalenActiviteiten(dtSelectedDateStart, dtSelectedDateEnd))
+            {
+                 ListBoldDates.Add(a.Datum);
+            }
+
+            mcalKalender.BoldedDates = ListBoldDates.ToArray();
+
             //Ben je renner?
             if (gebruiker.Renner)
             {
