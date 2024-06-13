@@ -404,8 +404,11 @@ namespace prjSportnetKinda.DA
             //Parameters
             cmdControle.Parameters.AddWithValue("@Email", Email);
 
+            //Commando uitvoeren
+            MySqlDataReader reader = cmdControle.ExecuteReader();
+
             // Commando uitvoeren
-            if (Convert.ToInt16(cmdControle.ExecuteScalar()) == -1)
+            if (reader.HasRows == true)
             {
                 //Connection sluiten
                 Database.CloseConnection(conn);
