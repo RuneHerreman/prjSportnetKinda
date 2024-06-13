@@ -1256,6 +1256,7 @@ namespace prjSportnetKinda
                         btnActiviteitToevoegen.Enabled = true;
                         btnKomendeDagen.Enabled = true;
                         btnActiviteitVerwijderen.Visible = false;
+                        chkEten.Visible = false;
                         btnWijzigenActiviteit.Text = "Wijzigen";
 
                         //Form updaten
