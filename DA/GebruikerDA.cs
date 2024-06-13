@@ -162,7 +162,7 @@ namespace prjSportnetKinda.DA
             }
         }
 
-        public static Gebruiker Verwijderen(string email)
+        public static Gebruiker Verwijderen(Gebruiker g)
         {
             try
             {
@@ -171,20 +171,30 @@ namespace prjSportnetKinda.DA
                 //Connection openen
                 MySqlConnection conn = Database.MakeConnection();
 
-                //sting maken met sql statement
-                string query = "DELETE FROM tblgebruiker WHERE Email=@Email";
+                //Delete query's maken
+                string queryVerwijderenGebruiker = "DELETE FROM tblgebruiker WHERE GebruikerID=@GebruikerID";
+                string queryVerwijderenDeelnemer = "DELETE FROM tbldeelnemersactiviteit WHERE GebruikerID=@GebruikerID";
+                string queryVerwijderenLogboek = "DELETE FROM tbllogboek WHERE GebruikerID=@GebruikerID";
 
                 //Maken van het command
-                MySqlCommand cmdGebruikerVerwijderen = new MySqlCommand(query, conn);
+                MySqlCommand cmdVerwijderenGebruiker = new MySqlCommand(queryVerwijderenGebruiker, conn);
+                MySqlCommand cmdVerwijderenDeelnemer = new MySqlCommand(queryVerwijderenDeelnemer, conn);
+                MySqlCommand cmdVerwijderenLogboek = new MySqlCommand(queryVerwijderenLogboek, conn);
 
                 //Welk soort gegevens is het commando
-                cmdGebruikerVerwijderen.CommandType = CommandType.Text;
+                cmdVerwijderenGebruiker.CommandType = CommandType.Text;
+                cmdVerwijderenDeelnemer.CommandType = CommandType.Text;
+                cmdVerwijderenLogboek.CommandType = CommandType.Text;
 
                 //Parameters
-                cmdGebruikerVerwijderen.Parameters.AddWithValue("@Email", email);
+                cmdVerwijderenGebruiker.Parameters.AddWithValue("@GebruikerID", g.GebruikerID);
+                cmdVerwijderenDeelnemer.Parameters.AddWithValue("@GebruikerID", g.GebruikerID);
+                cmdVerwijderenLogboek.Parameters.AddWithValue("@GebruikerID", g.GebruikerID);
 
                 //Hier wordt commando uitgevoerd en gaat hij resultaat bewaren in count
-                cmdGebruikerVerwijderen.ExecuteNonQuery();
+                cmdVerwijderenGebruiker.ExecuteNonQuery();
+                cmdVerwijderenDeelnemer.ExecuteNonQuery();
+                cmdVerwijderenLogboek.ExecuteNonQuery();
 
                 //Connection sluiten
                 Database.CloseConnection(conn);

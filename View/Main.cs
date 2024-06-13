@@ -488,7 +488,7 @@ namespace prjSportnetKinda
 
                     if (hash == gebruiker.Wachtwoord)
                     {
-                        if (GebruikerDA.Verwijderen(gebruiker.Email) != null)
+                        if (GebruikerDA.Verwijderen(gebruiker) != null)
                         {
                             Login login = new Login();
                             this.Hide();

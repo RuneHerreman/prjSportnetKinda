@@ -16,6 +16,8 @@ namespace prjSportnetKinda.View
     {
         List<Gebruiker> gebruikers = new List<Gebruiker>();
 
+        int ID = 0;
+
         public Wijzigen()
         {
             InitializeComponent();
@@ -77,6 +79,7 @@ namespace prjSportnetKinda.View
                         btnVerwijderen.Visible = true;
 
                         intFound = 1;
+                        ID = g.GebruikerID;
                     }
                 }
 
@@ -169,8 +172,11 @@ namespace prjSportnetKinda.View
 
             if (result == DialogResult.Yes)
             {
+                Gebruiker g= new Gebruiker();
+                g.GebruikerID = ID;
+
                 //Gebruiker verwijderen
-                if (GebruikerDA.Verwijderen(lblEmail.Text.Substring(23, lblEmail.Text.Length - 23)) != null)
+                if (GebruikerDA.Verwijderen(g) != null)
                 {
                     //Resetten form
                     txtGebruiker.Clear();
