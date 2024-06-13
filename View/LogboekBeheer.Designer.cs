@@ -48,10 +48,9 @@
             this.btnAllesInleveren.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAllesInleveren.Enabled = false;
             this.btnAllesInleveren.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAllesInleveren.Location = new System.Drawing.Point(444, 293);
-            this.btnAllesInleveren.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAllesInleveren.Location = new System.Drawing.Point(333, 238);
             this.btnAllesInleveren.Name = "btnAllesInleveren";
-            this.btnAllesInleveren.Size = new System.Drawing.Size(121, 28);
+            this.btnAllesInleveren.Size = new System.Drawing.Size(91, 23);
             this.btnAllesInleveren.TabIndex = 3;
             this.btnAllesInleveren.Text = "Alles inleveren";
             this.btnAllesInleveren.UseVisualStyleBackColor = true;
@@ -61,9 +60,8 @@
             // 
             this.lblLogID.AutoSize = true;
             this.lblLogID.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogID.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblLogID.Location = new System.Drawing.Point(573, 298);
-            this.lblLogID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLogID.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblLogID.Location = new System.Drawing.Point(430, 242);
             this.lblLogID.Name = "lblLogID";
             this.lblLogID.Size = new System.Drawing.Size(0, 16);
             this.lblLogID.TabIndex = 41;
@@ -73,10 +71,9 @@
             this.btnKiesAantal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnKiesAantal.Enabled = false;
             this.btnKiesAantal.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKiesAantal.Location = new System.Drawing.Point(315, 293);
-            this.btnKiesAantal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnKiesAantal.Location = new System.Drawing.Point(236, 238);
             this.btnKiesAantal.Name = "btnKiesAantal";
-            this.btnKiesAantal.Size = new System.Drawing.Size(121, 28);
+            this.btnKiesAantal.Size = new System.Drawing.Size(91, 23);
             this.btnKiesAantal.TabIndex = 2;
             this.btnKiesAantal.Text = "Inleveren";
             this.btnKiesAantal.UseVisualStyleBackColor = true;
@@ -90,11 +87,11 @@
             this.lsvLogboek.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lsvLogboek.FullRowSelect = true;
             this.lsvLogboek.HideSelection = false;
-            this.lsvLogboek.Location = new System.Drawing.Point(16, 16);
-            this.lsvLogboek.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lsvLogboek.Location = new System.Drawing.Point(12, 13);
+            this.lsvLogboek.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lsvLogboek.MultiSelect = false;
             this.lsvLogboek.Name = "lsvLogboek";
-            this.lsvLogboek.Size = new System.Drawing.Size(283, 304);
+            this.lsvLogboek.Size = new System.Drawing.Size(213, 248);
             this.lsvLogboek.TabIndex = 31;
             this.lsvLogboek.UseCompatibleStateImageBehavior = false;
             this.lsvLogboek.View = System.Windows.Forms.View.Details;
@@ -115,8 +112,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(313, 28);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(235, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 16);
             this.label1.TabIndex = 43;
@@ -125,18 +121,16 @@
             // txtNiewAantal
             // 
             this.txtNiewAantal.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNiewAantal.Location = new System.Drawing.Point(444, 66);
-            this.txtNiewAantal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNiewAantal.Location = new System.Drawing.Point(333, 54);
             this.txtNiewAantal.Name = "txtNiewAantal";
-            this.txtNiewAantal.Size = new System.Drawing.Size(120, 20);
+            this.txtNiewAantal.Size = new System.Drawing.Size(91, 20);
             this.txtNiewAantal.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(313, 66);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(235, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 16);
             this.label2.TabIndex = 45;
@@ -147,8 +141,7 @@
             // 
             this.lblAantalGehuurd.AutoSize = true;
             this.lblAantalGehuurd.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAantalGehuurd.Location = new System.Drawing.Point(440, 28);
-            this.lblAantalGehuurd.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAantalGehuurd.Location = new System.Drawing.Point(330, 23);
             this.lblAantalGehuurd.Name = "lblAantalGehuurd";
             this.lblAantalGehuurd.Size = new System.Drawing.Size(0, 16);
             this.lblAantalGehuurd.TabIndex = 47;
@@ -161,9 +154,9 @@
             // 
             // LogboekBeheer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(611, 341);
+            this.ClientSize = new System.Drawing.Size(458, 277);
             this.Controls.Add(this.lblAantalGehuurd);
             this.Controls.Add(this.txtNiewAantal);
             this.Controls.Add(this.label2);
@@ -174,7 +167,6 @@
             this.Controls.Add(this.lsvLogboek);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "LogboekBeheer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LogboekBeheer";

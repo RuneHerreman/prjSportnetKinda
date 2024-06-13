@@ -53,10 +53,9 @@
             this.btnArtikelVerwijderen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnArtikelVerwijderen.Enabled = false;
             this.btnArtikelVerwijderen.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArtikelVerwijderen.Location = new System.Drawing.Point(611, 406);
-            this.btnArtikelVerwijderen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnArtikelVerwijderen.Location = new System.Drawing.Point(458, 330);
             this.btnArtikelVerwijderen.Name = "btnArtikelVerwijderen";
-            this.btnArtikelVerwijderen.Size = new System.Drawing.Size(109, 28);
+            this.btnArtikelVerwijderen.Size = new System.Drawing.Size(82, 23);
             this.btnArtikelVerwijderen.TabIndex = 6;
             this.btnArtikelVerwijderen.Text = "Verwijderen";
             this.btnArtikelVerwijderen.UseVisualStyleBackColor = true;
@@ -65,30 +64,27 @@
             // lblArtikelID
             // 
             this.lblArtikelID.AutoSize = true;
-            this.lblArtikelID.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lblArtikelID.Location = new System.Drawing.Point(819, 415);
-            this.lblArtikelID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblArtikelID.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblArtikelID.Location = new System.Drawing.Point(614, 337);
             this.lblArtikelID.Name = "lblArtikelID";
-            this.lblArtikelID.Size = new System.Drawing.Size(0, 16);
+            this.lblArtikelID.Size = new System.Drawing.Size(0, 13);
             this.lblArtikelID.TabIndex = 29;
             // 
             // txtNieuweFotoLocatie
             // 
             this.txtNieuweFotoLocatie.Enabled = false;
             this.txtNieuweFotoLocatie.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNieuweFotoLocatie.Location = new System.Drawing.Point(611, 48);
-            this.txtNieuweFotoLocatie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNieuweFotoLocatie.Location = new System.Drawing.Point(458, 39);
             this.txtNieuweFotoLocatie.Name = "txtNieuweFotoLocatie";
-            this.txtNieuweFotoLocatie.Size = new System.Drawing.Size(224, 20);
+            this.txtNieuweFotoLocatie.Size = new System.Drawing.Size(169, 20);
             this.txtNieuweFotoLocatie.TabIndex = 4;
             // 
             // btnBladeren
             // 
             this.btnBladeren.Enabled = false;
-            this.btnBladeren.Location = new System.Drawing.Point(751, 16);
-            this.btnBladeren.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBladeren.Location = new System.Drawing.Point(563, 13);
             this.btnBladeren.Name = "btnBladeren";
-            this.btnBladeren.Size = new System.Drawing.Size(85, 28);
+            this.btnBladeren.Size = new System.Drawing.Size(64, 23);
             this.btnBladeren.TabIndex = 3;
             this.btnBladeren.Text = "Bladeren";
             this.btnBladeren.UseVisualStyleBackColor = true;
@@ -99,10 +95,9 @@
             this.btnToepassen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnToepassen.Enabled = false;
             this.btnToepassen.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnToepassen.Location = new System.Drawing.Point(312, 406);
-            this.btnToepassen.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnToepassen.Location = new System.Drawing.Point(234, 330);
             this.btnToepassen.Name = "btnToepassen";
-            this.btnToepassen.Size = new System.Drawing.Size(109, 28);
+            this.btnToepassen.Size = new System.Drawing.Size(82, 23);
             this.btnToepassen.TabIndex = 5;
             this.btnToepassen.Text = "Toepassen";
             this.btnToepassen.UseVisualStyleBackColor = true;
@@ -110,10 +105,10 @@
             // 
             // picNieuweAfbeelding
             // 
-            this.picNieuweAfbeelding.Location = new System.Drawing.Point(611, 81);
-            this.picNieuweAfbeelding.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.picNieuweAfbeelding.Location = new System.Drawing.Point(458, 66);
+            this.picNieuweAfbeelding.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.picNieuweAfbeelding.Name = "picNieuweAfbeelding";
-            this.picNieuweAfbeelding.Size = new System.Drawing.Size(225, 208);
+            this.picNieuweAfbeelding.Size = new System.Drawing.Size(169, 169);
             this.picNieuweAfbeelding.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picNieuweAfbeelding.TabIndex = 25;
             this.picNieuweAfbeelding.TabStop = false;
@@ -122,8 +117,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(607, 20);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(455, 16);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 16);
             this.label5.TabIndex = 24;
@@ -133,8 +127,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(308, 74);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(231, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 16);
             this.label3.TabIndex = 22;
@@ -144,8 +137,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(308, 20);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(231, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(33, 16);
             this.label1.TabIndex = 20;
@@ -155,11 +147,11 @@
             // 
             this.txtNieuweNaam.Enabled = false;
             this.txtNieuweNaam.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNieuweNaam.Location = new System.Drawing.Point(312, 44);
-            this.txtNieuweNaam.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtNieuweNaam.Location = new System.Drawing.Point(234, 36);
+            this.txtNieuweNaam.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNieuweNaam.MaxLength = 44;
             this.txtNieuweNaam.Name = "txtNieuweNaam";
-            this.txtNieuweNaam.Size = new System.Drawing.Size(289, 20);
+            this.txtNieuweNaam.Size = new System.Drawing.Size(218, 20);
             this.txtNieuweNaam.TabIndex = 1;
             this.txtNieuweNaam.TextChanged += new System.EventHandler(this.txtNieuweNaam_TextChanged);
             // 
@@ -167,11 +159,11 @@
             // 
             this.rtxtBeschrijving.Enabled = false;
             this.rtxtBeschrijving.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtxtBeschrijving.Location = new System.Drawing.Point(312, 98);
-            this.rtxtBeschrijving.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rtxtBeschrijving.Location = new System.Drawing.Point(234, 80);
+            this.rtxtBeschrijving.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.rtxtBeschrijving.MaxLength = 50000;
             this.rtxtBeschrijving.Name = "rtxtBeschrijving";
-            this.rtxtBeschrijving.Size = new System.Drawing.Size(289, 136);
+            this.rtxtBeschrijving.Size = new System.Drawing.Size(218, 111);
             this.rtxtBeschrijving.TabIndex = 2;
             this.rtxtBeschrijving.Text = "";
             this.rtxtBeschrijving.TextChanged += new System.EventHandler(this.rtxtBeschrijving_TextChanged);
@@ -183,11 +175,11 @@
             this.lsvArtikels.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lsvArtikels.FullRowSelect = true;
             this.lsvArtikels.HideSelection = false;
-            this.lsvArtikels.Location = new System.Drawing.Point(16, 16);
-            this.lsvArtikels.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.lsvArtikels.Location = new System.Drawing.Point(12, 13);
+            this.lsvArtikels.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lsvArtikels.MultiSelect = false;
             this.lsvArtikels.Name = "lsvArtikels";
-            this.lsvArtikels.Size = new System.Drawing.Size(283, 418);
+            this.lsvArtikels.Size = new System.Drawing.Size(213, 340);
             this.lsvArtikels.TabIndex = 16;
             this.lsvArtikels.UseCompatibleStateImageBehavior = false;
             this.lsvArtikels.View = System.Windows.Forms.View.Details;
@@ -206,27 +198,25 @@
             // 
             this.lblLengteArtikel.AutoSize = true;
             this.lblLengteArtikel.BackColor = System.Drawing.Color.Transparent;
-            this.lblLengteArtikel.Location = new System.Drawing.Point(543, 76);
-            this.lblLengteArtikel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLengteArtikel.Location = new System.Drawing.Point(407, 62);
             this.lblLengteArtikel.Name = "lblLengteArtikel";
-            this.lblLengteArtikel.Size = new System.Drawing.Size(0, 16);
+            this.lblLengteArtikel.Size = new System.Drawing.Size(0, 13);
             this.lblLengteArtikel.TabIndex = 32;
             // 
             // lblLengte
             // 
             this.lblLengte.AutoSize = true;
             this.lblLengte.BackColor = System.Drawing.Color.Transparent;
-            this.lblLengte.Location = new System.Drawing.Point(557, 48);
-            this.lblLengte.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblLengte.Location = new System.Drawing.Point(418, 39);
             this.lblLengte.Name = "lblLengte";
-            this.lblLengte.Size = new System.Drawing.Size(0, 16);
+            this.lblLengte.Size = new System.Drawing.Size(0, 13);
             this.lblLengte.TabIndex = 31;
             // 
             // ArtikelBewerken
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 455);
+            this.ClientSize = new System.Drawing.Size(646, 370);
             this.Controls.Add(this.lblLengteArtikel);
             this.Controls.Add(this.lblLengte);
             this.Controls.Add(this.btnArtikelVerwijderen);
@@ -243,7 +233,6 @@
             this.Controls.Add(this.lsvArtikels);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "ArtikelBewerken";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

@@ -55,7 +55,7 @@ namespace prjSportnetKinda
                     int intTeller1 = 0;
                     foreach (Logboek logboek in logList)
                     {
-                        if (intTeller1 <3)
+                        if (intTeller1 < 3)
                         {
                             this.lblAantalOfLijstMateriaal.Text += logboek.Materiaal.MateriaalNaam + Environment.NewLine;
                         }

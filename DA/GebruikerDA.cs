@@ -80,6 +80,7 @@ namespace prjSportnetKinda.DA
                     {
                         inloggen.Profielfoto = null;
                     }
+
                     try
                     {
                         MemoryStream ms = new MemoryStream(arrBannerfoto);
@@ -394,9 +395,7 @@ namespace prjSportnetKinda.DA
             cmdControle.Parameters.AddWithValue("@Email", Email);
 
             // Commando uitvoeren
-            MySqlDataReader reader = cmdControle.ExecuteReader();
-
-            if (reader.HasRows == true)
+            if (Convert.ToInt16(cmdControle.ExecuteScalar()) == -1)
             {
                 //Connection sluiten
                 Database.CloseConnection(conn);

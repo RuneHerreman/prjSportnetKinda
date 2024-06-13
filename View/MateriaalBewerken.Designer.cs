@@ -162,7 +162,7 @@
             // lblMateriaalID
             // 
             this.lblMateriaalID.AutoSize = true;
-            this.lblMateriaalID.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lblMateriaalID.ForeColor = System.Drawing.SystemColors.Control;
             this.lblMateriaalID.Location = new System.Drawing.Point(614, 339);
             this.lblMateriaalID.Name = "lblMateriaalID";
             this.lblMateriaalID.Size = new System.Drawing.Size(13, 16);
