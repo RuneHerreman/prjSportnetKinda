@@ -125,13 +125,13 @@ namespace prjSportnetKinda.DA
                         Geboortedatum = Convert.ToDateTime(record["Geboortedatum"]),
                         Geslacht = record["Geslacht"].ToString(),
                         Lidsinds = Convert.ToDateTime(record["Lidsinds"]),
-                        Telefoonnummer = Convert.ToInt16(record["Telefoonnummer"]),
+                        Telefoonnummer = Convert.ToInt32(record["Telefoonnummer"]),
                         Profielfoto = img,
                     },
                     Materiaal = new Materiaal()
                     {
                         //id is nodig om te identificeren welke userControl er wordt gebruikt
-                        ID = Convert.ToInt16(record["MateriaalID"]),
+                        ID = Convert.ToInt32(record["MateriaalID"]),
                         MateriaalNaam = record["materiaalnaam"].ToString(),
                         Beschrijving = record["beschrijving"].ToString(),
                         //foto van hierboven
