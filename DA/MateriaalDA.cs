@@ -194,18 +194,24 @@ namespace prjSportnetKinda.DA
             try
             {
                 //query
-                string query = "DELETE FROM `tblmateriaal` WHERE MateriaalID=@MateriaalID";
+                string queryVerwijderenMateriaal = "DELETE FROM `tblmateriaal` WHERE MateriaalID=@MateriaalID";
+                string queryVerwijderenLogboek = "DELETE FROM `tbllogboek` WHERE GehuurdMateriaalID=@MateriaalID";
 
                 //verbinding maken
                 MySqlConnection conn = Database.MakeConnection();
-                MySqlCommand cmdMateriaalVerwijderen = new MySqlCommand(query, conn);
-                cmdMateriaalVerwijderen.CommandText = query;
+
+                MySqlCommand cmdMateriaalVerwijderen = new MySqlCommand(queryVerwijderenMateriaal, conn);
+                cmdMateriaalVerwijderen.CommandText = queryVerwijderenMateriaal;
+                MySqlCommand cmdLogboekVerwijderen = new MySqlCommand(queryVerwijderenLogboek, conn);
+                cmdLogboekVerwijderen.CommandText = queryVerwijderenLogboek;
 
                 //parameters
                 cmdMateriaalVerwijderen.Parameters.AddWithValue("@MateriaalID", intMateriaalID);
+                cmdLogboekVerwijderen.Parameters.AddWithValue("@MateriaalID", intMateriaalID);
 
                 //uitvoeren
                 cmdMateriaalVerwijderen.ExecuteNonQuery();
+                cmdLogboekVerwijderen.ExecuteNonQuery();
 
                 //connectie sluiten
                 Database.CloseConnection(conn);
